@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{
+    font-family: 'ARP';
+    src: url('fonts/nimbus/NimbusSanL-Reg.otf');
+    C:\Users\Redmi\OneDrive\Desktop\IMCWEBSITE\imcwebsite\src\fonts\nimbus\NimbusSanL-Reg.otf
+}
+@font-face{
+    font-family: 'Nulshock';
+    src: url('fonts/nulshock/Nulshock Bd.otf');
+}
+@font-face{
+    font-family: 'Universo';
+    src: url('fonts/Universo/Demo_Fonts/Fontspring-DEMO-universo-black.otf');
+}
+@font-face{
+    font-family: 'UniversoBold';
+    src: url('fonts/Universo/Demo_Fonts/Fontspring-DEMO-universo-regular.otf');
+}
+C:\Users\Redmi\OneDrive\Desktop\IMCWEBSITE\imcwebsite\src\fonts\Universo\Demo_Fonts\Fontspring-DEMO-universo-regular.otf
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'ARP';
+}
+body{
+    background: #030303;
+}
+.textGradient{
+  background: linear-gradient(120deg, rgba(115,113,125,1) 0%, rgb(170, 166, 175) 38%, rgba(241,231,245,1) 100%);
+  font-family: 'ARP';
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.textGradient2{
+    background: linear-gradient(120deg, rgba(255,215,67,1) 0%, rgba(255,192,0,1) 21%, rgba(255,255,255,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.textGradient3{
+    background: linear-gradient(120deg, rgba(242,99,44,1) 0%, rgba(249,160,44,1) 52%, rgba(242,99,44,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.textGradient5{
+    font-family: 'UniversoBold';
+  }
+.textGradient4{
+  font-family: 'Universo';
+}
+.textGradient6{
+    font-family: 'ARP';
+}
+.borderGradient{
+    border-bottom:2px ridge #fc5400;
+}
