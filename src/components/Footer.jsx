@@ -9,7 +9,7 @@ import logo from "../assets/logo.png"
 const Footer = () => {
   return (
     <div className='flex flex-col justify-center items-center max-w-[1400px] mx-auto'>
-        <div className='flex justify-between items-center w-full mb-20'>
+        <div className='md:flex md:justify-between md:items-center w-full mb-20'>
             <div className='w-auto h-[80px]'>
                 <img src={logo} className='w-full h-full object-contain drop-shadow-sm' alt="" />
             </div>
@@ -17,7 +17,7 @@ const Footer = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nobis nihil, iste voluptas doloribus ut incidunt? Voluptates cupiditate praesentium asperiores. Nihil hic, eum provident ea iste animi vel ducimus saepe.
             </div>
         </div>
-      <div className='flex justify-between w-full mb-10'>
+      <div className='md:flex md:justify-between w-full mb-10'>
         {/* First */}
         <div>
             <div className='text-[#000] text-2xl textGradient6 font-bold mb-2'>SOFTWARES</div>

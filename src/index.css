@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face{
     font-family: 'ARP';
     src: url('fonts/nimbus/NimbusSanL-Reg.otf');
@@ -29,6 +30,7 @@ C:\Users\Redmi\OneDrive\Desktop\IMCWEBSITE\imcwebsite\src\fonts\Universo\Demo_Fo
 body{
     background: #030303;
 }
+
 .textGradient{
   background: linear-gradient(120deg, rgba(115,113,125,1) 0%, rgb(170, 166, 175) 38%, rgba(241,231,245,1) 100%);
   font-family: 'ARP';
@@ -47,13 +49,42 @@ body{
 }
 .textGradient5{
     font-family: 'UniversoBold';
+    background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(237,237,244,1) 50%, rgba(151,152,152,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 .textGradient4{
   font-family: 'Universo';
+  /* background: linear-gradient(90deg, rgba(232,225,225,1) 0%, rgba(237,237,244,1) 50%, rgba(204,205,205,1) 100%); */
+  background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(237,237,244,1) 50%, rgba(151,152,152,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .textGradient6{
     font-family: 'ARP';
 }
+.textGradient7{
+  font-family: 'UniversoBold';
+}
 .borderGradient{
     border-bottom:2px ridge #fc5400;
 }
+.SEOBox:nth-child(2){
+    padding-top: 30px;
+}
+
+.sticky {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .sticky.scroll {
+    background-color: #f8f9fa; /* Slightly darker background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  .ChatBox{
+    background: linear-gradient(0deg, rgba(255,149,0,0.9697128851540616) 0%, rgba(255,189,67,1) 48%, rgba(255,177,31,1) 100%);
+  }
+  .ChatBoxInput::placeholder{
+    color: white;
+  }
+  
