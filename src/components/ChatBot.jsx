@@ -5,7 +5,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import imclogo from "../assets/imclogo.png"
 import model1 from "../assets/model1.jpg"
 import model2 from "../assets/model2.jpg"
-import imc from "../assets/imc.png"
+import imc from "../assets/imclogo1.png"
 import { IoHandRight } from "react-icons/io5";
 import { MdAttachFile } from "react-icons/md";
 import { MdEmojiEmotions } from "react-icons/md";
