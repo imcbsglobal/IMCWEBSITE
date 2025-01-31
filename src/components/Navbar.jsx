@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/imclogo.png";
 import { Link } from "react-router-dom";
-import Logo from "../assets/imc.png"
+import Logo from "../assets/imclogo1.png";
 import { MdCall } from "react-icons/md";
 import MobileNavbar from "./MobileNavbar";
 
