@@ -8,11 +8,9 @@ import BusinessOpportunities from "./components/company/BusinessOpportunities"
 import Customers from "./components/company/Customers"
 import GoalsMission from "./components/company/GoalsMission"
 import Support from "./components/company/Supports"
-import HealthcareManagement from "./components/softwares/HealthCareManagement"
-import Hospitality from "./components/softwares/Hospitality"
-import InstitutionManagement from "./components/softwares/InstitutionManagement"
-import InventoryManagement from "./components/softwares/InventoryManagement"
-import Restaurants from "./components/softwares/Restaurants"
+
+
+
 import Branding from "./components/services/Branding"
 import BusinessBrading from "./components/services/BusinessBranding"
 import DigitalMarketingSEO from "./components/services/DigitalMarketingSEO"
@@ -30,6 +28,8 @@ import ProductVideo from "./components/faq/ProductVideo"
 import QuestionChatBoats from "./components/faq/QuestionChatBoats"
 import WhatsappSupports from "./components/faq/WhatsappSupports"
 import SchoolColleges from "./components/business/SchoolColleges"
+import Company from "./components/company"  
+import Software from "./components/software"  
 
 function App() {
   
@@ -45,11 +45,11 @@ function App() {
           <Route path="/goalsandMission" element={<GoalsMission/>}/>
           <Route path="/supports" element={<Support/>}/>
           <Route path="/team" element={<Team/>}/>
-          <Route path="/inventoryManagement" element={<InventoryManagement/>}/>
-          <Route path="/healthCareManagement" element={<HealthcareManagement/>}/>
-          <Route path="/hospitality" element={<Hospitality/>}/>
-          <Route path="/institutionManagement" element={<InstitutionManagement/>}/>
-          <Route path="/restaurants" element={<Restaurants/>}/>
+        
+          
+          
+          
+          
           <Route path="/hospitalClinics" element={<HospitalClinics/>}/>
           <Route path="/hotels" element={<Hotels/>}/>
           <Route path="/websiteandWebApplications" element={<WebsiteWebApplication/>}/>
@@ -67,6 +67,9 @@ function App() {
           <Route path="/questionChatBoats" element={<QuestionChatBoats/>}/>
           <Route path="/whatsappSupports" element={<WhatsappSupports/>}/>
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="/company" element={<Company/>}/>
+          <Route path="/software" element={<Software/>}/>
+
         </Routes>
       </Router>
     </>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/IMC Logo.png";
+import logo from "../assets/imclogo.png";
 import { Link } from "react-router-dom";
-import Logo from "../assets/IMC.png"
+import Logo from "../assets/imc.png"
 import { MdCall } from "react-icons/md";
 import MobileNavbar from "./MobileNavbar";
 
@@ -36,19 +36,20 @@ const Navbar = () => {
 
   const dropdownMenus = {
     company: [
-      { name: "About IMC", path: "/about" },
-      { name: "Team", path: "/team" },
-      { name: "Goals & Missions", path: "/goalsandMission" },
-      { name: "Customers", path: "/customers" },
-      { name: "Supports", path: "/supports" },
-      { name: "Business Opportunities", path: "/businessOpportunities" },
+      { name: "About IMC",  sectionId: "aboutid"  },
+      { name: "Team", sectionId:"team" },
+      { name: "Goals & Missions", sectionId:"goalsmission" },
+      { name: "Customers", sectionId:"customers" },
+      { name: "Supports", sectionId:"team" },
+      { name: "Business Opportunities", sectionId:"team" },
     ],
     softwares: [
-      { name: "Inventory Management", path: "/inventoryManagement" },
-      { name: "Health Care Management", path: "/healthCareManagement" },
-      { name: "Restaurants", path: "/restaurants" },
-      { name: "Hospitality", path: "/hospitality" },
-      { name: "Institution Management", path: "/institutionManagement" },
+      { name: "Restaurants", sectionId:"restaurant" },
+      { name: "Inventory Management", sectionId:"inventorymanagement" },
+      { name: "Health Care Management", sectionId:"healthcaremanagement" },
+      
+      { name: "Hospitality", sectionId:"hospitality" },
+      { name: "Institution Management",  sectionId:"institutionmanagement" },
     ],
     services: [
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
@@ -73,22 +74,32 @@ const Navbar = () => {
       { name: "Whatsapp Supports", path: "/whatsappSupports" },
     ],
   };
+  const sectionid=[
+
+  ]
 
   const renderDropdown = (menuKey) => (
     <div
-      className="absolute py-5 px-5 bg-[#fff] rounded-3xl drop-shadow-lg"
+      className="absolute py-5 px-5 bg-[#17171772] backdrop-blur-sm  drop-shadow-lg"
       onMouseEnter={() => handleMouseEnter(menuKey)}
       onMouseLeave={handleMouseLeave}
     >
-      <ul className="text-nowrap text-[#000]">
+      <ul className="z-20 relative text-nowrap text-[#fff] ">
         {dropdownMenus[menuKey].map((item, index) => (
           <Link key={index} to={item.path}>
-            <li className="hover:text-[#f60]">{item.name}</li>
+            <li className="hover:text-[#f60] p-2 hover:border-b hover:border-[#f60]"  onClick={() => scrollToSection(item.sectionId)}>{item.name}</li>
           </Link>
         ))}
       </ul>
     </div>
   );
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  
 
   return (
     <>
@@ -118,14 +129,18 @@ const Navbar = () => {
             <Link to="/">
               <li className="cursor-pointer hover:text-[#ff7f1e]">Home</li>
             </Link>
+            <Link to="/company">
             <li
               className="cursor-pointer relative"
               onMouseEnter={() => handleMouseEnter("company")}
               onMouseLeave={handleMouseLeave}
             >
+              
               Company
               {activeMenu === "company" && renderDropdown("company")}
             </li>
+            </Link>
+            <Link to="/software">
             <li
               className="cursor-pointer relative"
               onMouseEnter={() => handleMouseEnter("softwares")}
@@ -134,6 +149,8 @@ const Navbar = () => {
               Softwares
               {activeMenu === "softwares" && renderDropdown("softwares")}
             </li>
+            </Link>
+            
             <li
               className="cursor-pointer relative"
               onMouseEnter={() => handleMouseEnter("services")}
@@ -142,6 +159,7 @@ const Navbar = () => {
               Services
               {activeMenu === "services" && renderDropdown("services")}
             </li>
+          
             <li
               className="cursor-pointer relative"
               onMouseEnter={() => handleMouseEnter("business")}
