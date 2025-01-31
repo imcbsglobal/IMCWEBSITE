@@ -231,7 +231,7 @@ const company = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Impedit asperiores nemo ea doloremque, nesciunt pariatur a
                     numquam quod minus illum. Repellendus reiciendis sequi quam
-                    eveniet repellat odio animi mollitia necessitatibus!
+                    eveniet repellat odio animi mollitia necessitatibus
                   </div>
                   <div className="w-full h-[355px]  rounded-3xl grid grid-cols-2 grid-rows-2 gap-4">
                   <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
