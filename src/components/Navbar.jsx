@@ -39,7 +39,7 @@ const Navbar = () => {
       { name: "About IMC",  sectionId: "aboutid"  },
       { name: "Team", sectionId:"team" },
       { name: "Goals & Missions", sectionId:"goalsmission" },
-      { name: "Customers", sectionId:"customers" },
+      { name: "Customers", path:"/customers" },
       { name: "Supports", sectionId:"team" },
       { name: "Business Opportunities", sectionId:"team" },
     ],

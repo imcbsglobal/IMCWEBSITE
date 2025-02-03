@@ -2,12 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 import Contact from "./components/Contact"
 import Navbar from "./components/Navbar"
-import About from "./components/company/About"
-import Team from "./components/company/Team"
-import BusinessOpportunities from "./components/company/BusinessOpportunities"
-import Customers from "./components/company/Customers"
-import GoalsMission from "./components/company/GoalsMission"
-import Support from "./components/company/Supports"
+import Customers from "./components/customers"
 
 
 
@@ -39,17 +34,13 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/businessOpportunities" element={<BusinessOpportunities/>}/>
-          <Route path="/customers" element={<Customers/>}/>
-          <Route path="/goalsandMission" element={<GoalsMission/>}/>
-          <Route path="/supports" element={<Support/>}/>
-          <Route path="/team" element={<Team/>}/>
+          
+         
         
           
           
           
-          
+          <Route path="/customers" element={<Customers/>}/>
           <Route path="/hospitalClinics" element={<HospitalClinics/>}/>
           <Route path="/hotels" element={<Hotels/>}/>
           <Route path="/websiteandWebApplications" element={<WebsiteWebApplication/>}/>

@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import ChatBot from "./ChatBot";
 import inv from "../assets/inv.jpeg";
-import abouthome from "../assets/abouthome.jpg";
+import abouthome from "../assets/abouthome.jpeg";
 import hosopitality from "../assets/hospitality.jpg";
 import service1 from "../assets/service1.jpg";
 import service2 from "../assets/service2.jpg";

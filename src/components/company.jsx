@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState, useEffect ,useRef} from "react";
 import Footer from "./Footer";
-import aboutmain from '../assets/aboutmain.jpg'
-import ceo1 from '../assets/ceo1.jpg'
-import ceo2 from '../assets/ceo2.jpg'
-import ceo3 from '../assets/ceo3.jpg'
-import vision from '../assets/vision.jpg'
-import mission from '../assets/mission.jpg'
-import shade from '../assets/shade.png'
+import aboutmain from "../assets/aboutmain.jpg";
+import ceo1 from "../assets/ceo1.jpg";
+import ceo2 from "../assets/ceo2.jpg";
+import ceo3 from "../assets/ceo3.jpg";
+import vision from "../assets/vision.jpg";
+import mission from "../assets/mission.jpg";
+import shade from "../assets/SHADEorg.png";
+import magnet from "../assets/MAGNET.png";
+import dine from "../assets/DINE1.jpg";
+import vtask from "../assets/VTASK.png";
+import taskpro from "../assets/Task Pro.png";
+import starstay from "../assets/starstay.jpg";
+import clublogic from "../assets/CLUBLOGIC.png";
+import auric from "../assets/AURIC.png";
+import task from "../assets/task.png";
+import client from "../assets/clients.jpeg";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 const company = () => {
+  
   return (
     <>
       <div>
         {/* about */}
-        <div className="pt-[150px] flex flex-col justify-center items-center w-full">
+        <div className="pt-[180px] flex flex-col justify-center items-center w-full">
           <section id="aboutid" className="max-w-[1400px] w-full mx-auto mb-20">
             <div className="w-full">
               <div className="text-[#fff] text-[30px] mb-5 textGradient4 text-center leading-tight">
@@ -216,55 +231,7 @@ const company = () => {
         </div>
 
         {/* CUSTOMERS */}
-        <div className="pt-[50px] flex flex-col justify-center items-center w-full">
-          <section
-            id="customers"
-            className="max-w-[1400px] mx-auto mb-20 w-full"
-          >
-            <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 place-items- w-full gap-7">
-                <div className="w-full px-2">
-                  <div className="textGradient4 text-[#fff] text-[40px] mb-5">
-                    CUSTOMERS
-                  </div>
-                  <div className="textGradient6 text-[#fff] mb-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Impedit asperiores nemo ea doloremque, nesciunt pariatur a
-                    numquam quod minus illum. Repellendus reiciendis sequi quam
-                    eveniet repellat odio animi mollitia necessitatibus
-                  </div>
-                  <div className="w-full h-[355px]  rounded-3xl grid grid-cols-2 grid-rows-2 gap-4">
-                  <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                    <div className="bg-black h-full w-full rounded-xl">
-                      <img src={shade} alt="shade" className="object-contain justify-center items-center flex bg-white h-full w-full"/>
-                    </div>
-                    </div>
-                    <div className="bg-gray-200 rounded-xl">
-                      <img src="" alt="" />
-                    </div>
-                    <div className="bg-gray-200 rounded-xl">
-                      <img src="" alt="" />
-                    </div>
-                    <div className="bg-gray-200 rounded-xl">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full px-4">
-                  <div>
-                    <div className="w-full h-[252px] bg-[#fff] rounded-3xl mb-5">
-                      <img src="" alt="" />
-                    </div>
-                    <div className="w-full h-[252px] bg-[#fff] rounded-3xl mb-5">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
+      
         {/* SUPPORTS */}
         <div className="pt-[50px] flex flex-col justify-center items-center w-full"></div>
 
