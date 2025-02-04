@@ -6,21 +6,9 @@ import ceo2 from "../assets/ceo2.jpg";
 import ceo3 from "../assets/ceo3.jpg";
 import vision from "../assets/vision.jpg";
 import mission from "../assets/mission.jpg";
-import shade from "../assets/SHADEorg.png";
-import magnet from "../assets/MAGNET.png";
-import dine from "../assets/DINE1.jpg";
-import vtask from "../assets/VTASK.png";
-import taskpro from "../assets/Task Pro.png";
-import starstay from "../assets/starstay.jpg";
-import clublogic from "../assets/CLUBLOGIC.png";
-import auric from "../assets/AURIC.png";
-import task from "../assets/task.png";
-import client from "../assets/clients.jpeg";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { Autoplay } from "swiper/modules";
+
 const company = () => {
   
   return (
@@ -230,10 +218,119 @@ const company = () => {
           </section>
         </div>
 
-        {/* CUSTOMERS */}
-      
         {/* SUPPORTS */}
-        <div className="pt-[50px] flex flex-col justify-center items-center w-full"></div>
+        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen">
+          <section
+            id="supports"
+            className="max-w-[1400px] mx-auto w-full mb-2 p-6"
+          >
+            <div className="h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
+              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] overflow-hidden">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 textGradient4 pt-5">
+                    Support
+                  </h2>
+                  <p className="text-white text-sm md:text-base">
+                    We are here to help you with all your needs. Explore our
+                    services and get the support you require.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 p-2 gap-8">
+                  <div className="bg-[#F7922C] rounded-lg p-6 flex items-center justify-center">
+                    <h3 className="text-white font-semibold text-lg">
+                      Lorem, ipsum.
+                    </h3>
+                    <p className="text-white">
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Iure, consequuntur?
+                    </p>
+                  </div>
+                  <div className="bg-[#fff] rounded-lg p-6 flex items-center justify-center border border-gray-200">
+                    <h3 className="text-gray-800 font-semibold text-lg">
+                      Lorem, ipsum.
+                    </h3>
+                    <p className="text-white">
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Iure, consequuntur?
+                    </p>
+                  </div>
+                  <div className="bg-[#F7922C] rounded-lg p-6 flex items-center justify-center">
+                    <h3 className="text-white font-semibold text-lg">
+                      Lorem, ipsum.
+                    </h3>
+                    <p className="text-white">
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Iure, consequuntur?
+                    </p>
+                  </div>
+                  <div className="bg-gray-100 rounded-lg p-6 flex items-center justify-center border border-gray-200">
+                    <h3 className="text-gray-800 font-semibold text-lg">
+                      Lorem, ipsum.
+                    </h3>
+                    <p className="text-white">
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Iure, consequuntur?
+                    </p>
+                  </div>
+                  <div className="bg-[#F7922C] rounded-lg p-6 flex items-center justify-center">
+                    <h3 className="text-white font-semibold text-lg">
+                      Lorem, ipsum.
+                    </h3>
+                    <p className="text-white">
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Iure, consequuntur?
+                    </p>
+                  </div>
+                  <div className="bg-gray-100 rounded-lg p-6 flex items-center justify-center border border-gray-200">
+                    <h3 className="text-gray-800 font-semibold text-lg">
+                      Lorem, ipsum.
+                    </h3>
+                    <p className="text-white">
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Iure, consequuntur?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* bussiness opportunities */}
+        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen">
+          <section
+            id="bussinessopportunities"
+            className="max-w-[1400px] mx-auto w-full mb-10 p-6"
+          >
+            <div className="h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
+              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] overflow-hidden">
+                <div className="text-center mb-8 w-full">
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 textGradient4 pt-5">
+                    Bussiness Opportunities
+                  </h2>
+                  <p className="text-white text-sm md:text-base">
+                    Explore growth avenues through strategic collaborations,
+                    innovative solutions, and tailored services designed to meet
+                    dynamic market demands. Unlock potential and scale your
+                    business efficiently with our expert guidance.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 h-[400px] p-5 ">
+                  <div className="bg-slate-50 p-2 rounded-3xl h-full "></div>
+                  <div className="bg-slate-50 p-2 rounded-3xl h-full"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
 
         {/* footer */}
         <section className="py-10 bg-[#fff] w-full">

@@ -40,8 +40,8 @@ const Navbar = () => {
       { name: "Team", sectionId:"team" },
       { name: "Goals & Missions", sectionId:"goalsmission" },
       { name: "Customers", path:"/customers" },
-      { name: "Supports", sectionId:"team" },
-      { name: "Business Opportunities", sectionId:"team" },
+      { name: "Supports", sectionId:"supports" },
+      { name: "Business Opportunities", sectionId:"bussinessopportunities" },
     ],
     softwares: [
       { name: "Restaurants", sectionId:"restaurant" },
@@ -124,7 +124,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center">
           <ul className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${isScrolled ? "text-[#000]" : "text-[#fff]"}`}>
             <Link to="/">
               <li className="cursor-pointer hover:text-[#ff7f1e]">Home</li>

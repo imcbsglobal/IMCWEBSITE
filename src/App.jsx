@@ -3,9 +3,6 @@ import Home from "./components/Home"
 import Contact from "./components/Contact"
 import Navbar from "./components/Navbar"
 import Customers from "./components/customers"
-
-
-
 import Branding from "./components/services/Branding"
 import BusinessBrading from "./components/services/BusinessBranding"
 import DigitalMarketingSEO from "./components/services/DigitalMarketingSEO"
@@ -17,7 +14,6 @@ import Hotels from "./components/business/Hotels"
 import Pharmacies from "./components/business/Pharmacies"
 import RestaurantsBusiness from "./components/business/RestaurantsBusiness"
 import RetailWholeSale from "./components/business/RetailWholeSale"
-import SchoolCollege from "./components/business/SchoolColleges"
 import ProductTutorials from "./components/faq/ProductTutorials"
 import ProductVideo from "./components/faq/ProductVideo"
 import QuestionChatBoats from "./components/faq/QuestionChatBoats"
@@ -34,12 +30,6 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          
-         
-        
-          
-          
-          
           <Route path="/customers" element={<Customers/>}/>
           <Route path="/hospitalClinics" element={<HospitalClinics/>}/>
           <Route path="/hotels" element={<Hotels/>}/>

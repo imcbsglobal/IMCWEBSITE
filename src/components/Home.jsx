@@ -261,6 +261,14 @@ const Home = () => {
     };
   }, []);
 
+ useEffect(() => {
+    const scrollActive = () => {
+        setActive(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", scrollActive);
+    return () => window.removeEventListener('scroll', scrollActive);
+}, []);
+
   return (
     <div className="relative overflow-hidden ">
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40">

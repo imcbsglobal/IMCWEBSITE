@@ -48,6 +48,25 @@ import fresh7 from '../assets/7fresh.png'
 import talal from '../assets/talal.png'
 import hypercity from '../assets/hypercity.jpg'
 import freshday from '../assets/freshday.png'
+import bhavans from '../assets/bhavansorg.png'
+import ideal from '../assets/ideal.png'
+import greenhills from '../assets/GREENHILLS.png'
+import nair from '../assets/nairservicesociety.png'
+import mcf from '../assets/mcf.png'
+import convent from '../assets/convent.jpg'
+import aastha from '../assets/AASTHA.jpeg'
+import momsbake from '../assets/momsbake.jpg'
+import arabia from '../assets/arabia.jpg'
+import newform from '../assets/newform.jpg'
+import union from '../assets/union.jpg'
+import yemkem from '../assets/yemkem.png'
+import alfa from '../assets/ALFA.jpeg'
+import n4medicals from '../assets/n4medicals.jpg'
+import anugraha from '../assets/anugraha.png'
+import mazus from '../assets/mazus.png'
+import orfila from '../assets/orfila.png'
+import lavillainn from '../assets/lavillainn.png'
+import bodyzone from '../assets/bodyzone.png'
 const customers = () => {
 const clients = [
     {
@@ -221,31 +240,31 @@ const clients = [
     {
       id: 1,
       name: "IDEAL ENGLISH SCHOOL",
-      logo: "",
+      logo: ideal,
       location: "Sulthan Bathery - Wayanad",
     },
     {
       id: 2,
       name: "Nair Service Society",
-      logo: "",
+      logo: nair,
       location: "Kalpetta - Wayanad",
     },
     {
       id: 3,
       name: "MCF Public School",
-      logo: "",
+      logo: mcf,
       location: "Kalpetta - Wayanad",
     },
     {
       id: 4,
       name: "Convent School",
-      logo: "",
+      logo: convent,
       location: "Kalpetta - Wayanad",
     },
     {
       id: 5,
       name: "Bhavan's Vidya Mandir",
-      logo: "",
+      logo: bhavans,
       location: "Sulthan Bathery - Wayanad",
     },
     {
@@ -258,7 +277,7 @@ const clients = [
     {
       id: 7,
       name: "The Greenhills Public School",
-      logo: "",
+      logo: greenhills,
       location: "Sulthan Bathery - Wayanad ",
     },
     
@@ -267,37 +286,37 @@ const clients = [
     {
       id: 1,
       name: "NewForm Bakes",
-      logo: "",
+      logo:newform,
       location: "Kalpetta - Wayanad",
     },
     {
       id: 2,
       name: "Mom's Bakes",
-      logo: "",
+      logo: momsbake,
       location: "Cheruppalassery - Palakkad",
     },
     {
       id: 3,
       name: "MAMMA ARABIA",
-      logo: "",
+      logo: arabia,
       location: "Koppam - Palakkad",
     },
     {
         id: 4,
         name: "Union ",
-        logo: "",
+        logo: union,
         location: "Nilambur - Malappuram",
       },
       {
         id: 5,
         name: "Ke Yem Holidays Restaurant ",
-        logo: "",
+        logo: yemkem,
         location: "Wayanad",
       },
       {
         id: 6,
         name: "Aastha Hotel ",
-        logo: "",
+        logo: aastha,
         location: "Pullpally - Wayanad",
       },
     
@@ -307,88 +326,46 @@ const clients = [
     {
       id: 1,
       name: "Alfa Agencies",
-      logo: "",
+      logo: alfa,
       location: "Calicut",
     },
     {
       id: 2,
       name: "N4 Medicals",
-      logo: "",
+      logo: n4medicals,
       location: "Cheruppalassery - Palakkad",
     },
     {
       id: 3,
       name: "Vinayaka Hospital",
-      logo: "",
+      logo: vinayaka,
       location: "Pandalur",
     },
-    {
-        id: 4,
-        name: "Alfa Agencies",
-        logo: "",
-        location: "Calicut",
-      },
-      {
-        id: 5,
-        name: "N4 Medicals",
-        logo: "",
-        location: "Cheruppalassery - Palakkad",
-      },
-      {
-        id: 6,
-        name: "Vinayaka Hospital",
-        logo: "",
-        location: "Pandalur",
-      },
+ 
     
   ];
   const clientstarstay = [
     {
       id: 1,
       name: "Mazuzs Inn",
-      logo: "",
+      logo: mazus,
       location: "Vythiri - Wayanad",
     },
     {
       id: 2,
       name: "Orfila Inn",
-      logo: "",
+      logo: orfila,
       location: "Nedumbassery - Cochin",
     },
     {
       id: 3,
       name: "LA VILLA INN",
-      logo: "",
+      logo: lavillainn,
       location: "Wayanad",
     },
-    {
-        id: 4,
-        name: "Mazuzs Inn",
-      logo: "",
-      location: "Vythiri - Wayanad",
-      },
-      {
-        id: 5,
-        name: "Orfila Inn",
-        logo: "",
-        location: "Nedumbassery - Cochin",
-      },
-    
-      {
-        id: 6,
-        name: "LA VILLA INN",
-        logo: "",
-        location: "Wayanad",
-      },
-    
+   
   ];
-  useEffect(() => {
-    const scrollActive = () => {
-        setActive(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", scrollActive);
-    return () => window.removeEventListener('scroll', scrollActive);
-}, []);
+
  
   const [activeIndex, setActiveIndex] = useState(0); // Default middle card index
   
@@ -563,7 +540,7 @@ const clients = [
 
       {/* client task */}
       <div className="pt-12 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="slienttask">
+        <section className=" relative  " id="slienttask">
           <div className=" h-[700px]">
             <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
               <img
@@ -574,7 +551,7 @@ const clients = [
             </div>
             <button
               onClick={prevSlide1}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronLeft className="w-8 h-8 text-black" />
             </button>
@@ -618,15 +595,15 @@ const clients = [
                   <SwiperSlide key={i}>
                     <div
                       className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative 
-                         h-[400px] mt-[50px] shadow-2xl border border-gray-400"
-                     
+                         h-[400px] shadow-2xl border border-gray-400"
                     >
-                      
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className="h-[300px] w-full object-contain "
-                      />
+                      <div className="mt-[-80px]">
+                        <img
+                          src={item.logo}
+                          alt={item.name}
+                          className="h-[300px] w-full object-contain "
+                        />
+                      </div>
                       <div className=" absolute bottom-5 flex flex-col justify-center items-center">
                         <h3 className="text-black font-bold text-lg mt-4 mb-3">
                           {item.name}
@@ -642,16 +619,17 @@ const clients = [
             </div>
             <button
               onClick={nextSlide1}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3           rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronRight className="w-8 h-8 text-black" />
             </button>
           </div>
         </section>
       </div>
+
       {/* client shade */}
       <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="clientshade">
+        <section className="mb-5 relative  " id="clientshade">
           <div className=" h-[700px]">
             <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
               <img
@@ -662,7 +640,7 @@ const clients = [
             </div>
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronLeft className="w-8 h-8 text-black" />
             </button>
@@ -706,15 +684,15 @@ const clients = [
                   <SwiperSlide key={i}>
                     <div
                       className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative 
-                         h-[400px] mt-[50px] gap-2 shadow-2xl border border-gray-400"
-                      
+                         h-[400px]  gap-2 shadow-2xl border border-gray-400"
                     >
-                      
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className=" w-full object-contain h-[200px] "
-                      />
+                      <div className="mt-[-80px]">
+                        <img
+                          src={item.logo}
+                          alt={item.name}
+                          className=" w-full object-contain h-[200px] "
+                        />
+                      </div>
                       <div className=" absolute bottom-5 flex flex-col justify-center items-center">
                         <h3 className="text-black font-bold text-lg mt-4 mb-3">
                           {item.name}
@@ -730,13 +708,14 @@ const clients = [
             </div>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronRight className="w-8 h-8 text-black" />
             </button>
           </div>
         </section>
       </div>
+
       {/* client magnet */}
       <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
         <section className="mb-5 relative py-5 " id="clientmagnet">
@@ -750,7 +729,7 @@ const clients = [
             </div>
             <button
               onClick={prevSlide2}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronLeft className="w-8 h-8 text-black" />
             </button>
@@ -792,16 +771,14 @@ const clients = [
               >
                 {clientmagnet.map((item, i) => (
                   <SwiperSlide key={i}>
-                    <div
-                      className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] mt-[50px]"
-                     
-                    >
-                      
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className=" w-full object-contain h-[200px]"
-                      />
+                    <div className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] shadow-2xl border border-gray-400">
+                      <div className="mt-[-80px]">
+                        <img
+                          src={item.logo}
+                          alt={item.name}
+                          className=" w-full object-contain h-[200px]"
+                        />
+                      </div>
                       <div className=" absolute bottom-5 flex flex-col justify-center items-center">
                         <h3 className="text-black font-bold text-lg mt-4 mb-3">
                           {item.name}
@@ -817,13 +794,14 @@ const clients = [
             </div>
             <button
               onClick={nextSlide2}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronRight className="w-8 h-8 text-black" />
             </button>
           </div>
         </section>
       </div>
+
       {/* client Dine */}
       <div className="pt-2 flex flex-col justify-center items-center w-full bg-white min-h-screen">
         <section className="mb-5 relative py-5 " id="clientdine">
@@ -835,16 +813,17 @@ const clients = [
                 className="object-contain justify-center items-center flex bg-white h-[150px] w-full"
               />
             </div>
+
             <button
               onClick={prevSlide3}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronLeft className="w-8 h-8 text-black" />
             </button>
             {/* Slider */}
             <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
               <Swiper
-                onSwiper={(swiper) => (swiperRef2.current = swiper)}
+                onSwiper={(swiper) => (swiperRef3.current = swiper)}
                 // centeredSlides={true}
                 autoplay={{
                   delay: 3000,
@@ -877,17 +856,16 @@ const clients = [
                   prevEl: ".swiper-button-prev",
                 }}
               >
-                {clientmagnet.map((item, i) => (
+                {clientdine.map((item, i) => (
                   <SwiperSlide key={i}>
-                    <div
-                      className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] mt-[50px]">
-                      
-                      
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className=" w-full object-contain h-[200px]"
-                      />
+                    <div className="shadow-2xl border border-gray-400 w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] ">
+                      <div className="mt-[-80px]">
+                        <img
+                          src={item.logo}
+                          alt={item.name}
+                          className=" w-full object-contain h-[200px]"
+                        />
+                      </div>
                       <div className=" absolute bottom-5 flex flex-col justify-center items-center">
                         <h3 className="text-black font-bold text-lg mt-4 mb-3">
                           {item.name}
@@ -903,17 +881,18 @@ const clients = [
             </div>
             <button
               onClick={nextSlide3}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3  rounded-3xl  bg-[#f68d2b84]"
             >
               <ChevronRight className="w-8 h-8 text-black" />
             </button>
           </div>
         </section>
       </div>
+
       {/* client V task */}
       <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
         <section className="mb-5 relative py-5 " id="clientvtask">
-          <div className=" h-[700px]">
+          <div className="h-[700px]">
             <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
               <img
                 src={vtask}
@@ -921,83 +900,37 @@ const clients = [
                 className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
               />
             </div>
-            <button
-              onClick={prevSlide4}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
-            >
-              <ChevronLeft className="w-8 h-8 text-black" />
-            </button>
-            {/* Slider */}
             <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
-              <Swiper
-                onSwiper={(swiper) => (swiperRef4.current = swiper)}
-                // centeredSlides={true}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
-                onSlideChange={(swiper) => setActiveIndex4(swiper.realIndex)}
-                modules={[Autoplay]}
-                className="w-full"
-                breakpoints={{
-                  640: {
-                    slidesPerView: 1,
-                    centeredSlides: false,
-                    spaceBetween: 20,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                    spaceBetween: 30,
-                  },
-                  1024: {
-                    slidesPerView: 4,
-                    centeredSlides: true,
-                    spaceBetween: 40,
-                  },
-                }}
-                navigation={{
-                  // Enable navigation
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                }}
-              >
-                {clientvtask.map((item, i) => (
-                  <SwiperSlide key={i}>
-                    <div
-                      className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative 
-                        h-[400px] mt-[50px]"
-                    
-                    >
-                      
+              {/* Static Items Display */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {clientvtask.slice(0, 3).map((item, i) => (
+                  <div
+                    key={i}
+                    className="w-[400px] flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] shadow-2xl border border-gray-400 "
+                  >
+                    <div className="mt-[-80px]">
                       <img
                         src={item.logo}
                         alt={item.name}
-                        className=" w-full object-contain h-[200px]"
+                        className="w-full object-contain h-[200px]"
                       />
-                      <div className=" absolute bottom-5 flex flex-col justify-center items-center">
-                        <h3 className="text-black font-bold text-lg mt-4 mb-3">
-                          {item.name}
-                        </h3>
-                        <p className="text-black text-sm text-center px-2">
-                          {item.location}
-                        </p>
-                      </div>
                     </div>
-                  </SwiperSlide>
+                    <div className="absolute bottom-5 flex flex-col justify-center items-center">
+                      <h3 className="text-black font-bold text-lg mt-4 mb-3">
+                        {item.name}
+                      </h3>
+                      <p className="text-black text-sm text-center px-2">
+                        {item.location}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </Swiper>
+              </div>
             </div>
-            <button
-              onClick={nextSlide4}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
-            >
-              <ChevronRight className="w-8 h-8 text-black" />
-            </button>
           </div>
         </section>
       </div>
+
       {/* client auric */}
       <div className="pt-5 flex flex-col justify-center items-center  bg-white min-h-screen w-full">
         <section className="mb-5 relative py-5 " id="clientauric">
@@ -1009,13 +942,13 @@ const clients = [
                 className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
               />
             </div>
-            <div className=" pt-10 relative h-[400px] w-[1400px] rounded-3xl flex flex-col justify-center items-center text-white  text-justify">
-              <div className="h-full w-[400px] border border-[#0000007a] absolute">
-                <div className="">
+            <div className=" pt-20 relative h-[400px] w-[1400px] rounded-3xl flex flex-col justify-center items-center text-white  text-justify">
+              <div className="h-[400px] w-[400px]   absolute  shadow-2xl border border-gray-400 flex flex-col items-center rounded-tr-[] justify-center ">
+                <div className="mt-[-80px]">
                   <img
-                    src=""
+                    src={anugraha}
                     alt="anugraha"
-                    className="h-full w-full object-cover"
+                    className="w-full object-contain h-[300px] "
                   />
                 </div>
                 <div className="absolute bottom-5 flex flex-col justify-center items-center w-full">
@@ -1031,90 +964,45 @@ const clients = [
           </div>
         </section>
       </div>
+
       {/* client  star stay */}
-      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="clientstarstay">
-          <div className=" h-[700px]">
+     <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+        <section className="mb-5 relative py-5 " id="clientvtask">
+          <div className="h-[700px]">
             <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
               <img
                 src={starstay}
                 alt="starstay"
-                className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
+                className="object-contain justify-center items-center flex bg-white h-[250px] w-full"
               />
             </div>
-            <button
-              onClick={prevSlide5}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
-            >
-              <ChevronLeft className="w-8 h-8 text-black" />
-            </button>
-            {/* Slider */}
             <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
-              <Swiper
-                onSwiper={(swiper) => (swiperRef5.current = swiper)}
-                centeredSlides={true}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
-                onSlideChange={(swiper) => setActiveIndex5(swiper.realIndex)}
-                modules={[Autoplay]}
-                className="w-full"
-                breakpoints={{
-                  640: {
-                    slidesPerView: 1,
-                    centeredSlides: false,
-                    spaceBetween: 20,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                    spaceBetween: 30,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    centeredSlides: true,
-                    spaceBetween: 40,
-                  },
-                }}
-                navigation={{
-                  // Enable navigation
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                }}
-              >
-                {clientvtask.map((item, i) => (
-                  <SwiperSlide key={i}>
-                    <div
-                      className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative  h-[400px] mt-[50px]"
-                     
-                    >
-                     
+              {/* Static Items Display */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {clientstarstay.slice(0, 3).map((item, i) => (
+                  <div
+                    key={i}
+                    className="w-[400px] flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] w shadow-2xl border border-gray-400 "
+                  >
+                    <div className="mt-[-80px]">
                       <img
                         src={item.logo}
                         alt={item.name}
-                        className=" w-full object-contain h-[200px]"
+                        className="w-full object-contain h-[200px]"
                       />
-                      <div className=" absolute bottom-5 flex flex-col justify-center items-center">
-                        <h3 className="text-black font-bold text-lg mt-4 mb-3">
-                          {item.name}
-                        </h3>
-                        <p className="text-black text-sm text-center px-2">
-                          {item.location}
-                        </p>
-                      </div>
                     </div>
-                  </SwiperSlide>
+                    <div className="absolute bottom-5 flex flex-col justify-center items-center">
+                      <h3 className="text-black font-bold text-lg mt-4 mb-3">
+                        {item.name}
+                      </h3>
+                      <p className="text-black text-sm text-center px-2">
+                        {item.location}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </Swiper>
+              </div>
             </div>
-            <button
-              onClick={nextSlide5}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full"
-            >
-              <ChevronRight className="w-8 h-8 text-black" />
-            </button>
           </div>
         </section>
       </div>
@@ -1130,13 +1018,13 @@ const clients = [
                 className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
               />
             </div>
-            <div className=" pt-10 relative h-[400px] w-[1400px] rounded-3xl flex flex-col justify-center items-center text-white  text-justify">
-              <div className="h-full w-[400px] border border-[#0000007a] absolute">
-                <div className="">
+            <div className=" pt-20 relative h-[400px] w-[1400px] rounded-3xl flex flex-col justify-center items-center text-white  text-justify">
+              <div className="h-[400px] w-[400px]   absolute  shadow-2xl border border-gray-400 flex flex-col items-center rounded-tr-[] justify-center ">
+                <div className="mt-[-80px]">
                   <img
-                    src=""
+                    src={bodyzone}
                     alt="bzfitness"
-                    className="h-full w-full object-cover"
+                    className="w-full object-contain h-[300px]"
                   />
                 </div>
                 <div className="absolute bottom-5 flex flex-col justify-center items-center w-full">

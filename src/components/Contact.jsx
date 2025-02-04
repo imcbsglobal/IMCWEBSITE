@@ -1,6 +1,14 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
 import Footer from './Footer'
 const Contact = () => {
+
+   useEffect(() => {
+      const scrollActive = () => {
+          setActive(window.scrollY > 20);
+      };
+      window.addEventListener("scroll", scrollActive);
+      return () => window.removeEventListener('scroll', scrollActive);
+  }, []);
   return (
     <div className='pt-20'>
        <section className="mb-20 max-w-[1400px] mx-auto w-full">
