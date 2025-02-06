@@ -1,6 +1,9 @@
 import React from "react";
 import Footer from "../Footer";
 import websiteandweb from "../../assets/websiteandweb.jpg";
+import website1 from '../../assets/website1.jpg'
+import website2 from '../../assets/website2.jpg'
+import website from '../../assets/website.jpg'
 const WebsiteWebApplication = () => {
   const WebData = [
     {
@@ -148,13 +151,16 @@ const WebsiteWebApplication = () => {
             </div>
             <div className="grid grid-cols-12 place-items-center gap-5 w-full">
               <div className=" col-span-6 bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px] w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={website} alt="website" className="w-full h-full flex object-cover
+                rounded-3xl"/></div>
               </div>
               <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={website1} alt="website1" className="w-full h-full flex object-cover
+                rounded-3xl"/></div>
               </div>
               <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={website2} alt="website2" className="w-full h-full flex object-cover
+                rounded-3xl"/></div>
               </div>
             </div>
           </div>

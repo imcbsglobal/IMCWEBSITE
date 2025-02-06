@@ -1,45 +1,91 @@
 import React from 'react'
 import Footer from '../Footer'
-
+import mobileapp from '../../assets/mobileapp1.jpeg'
+import app1 from '../../assets/app1.jpg'
+import app2 from '../../assets/app2.jpg'
+import app from '../../assets/app.jpg'
 const MobileApp = () => {
-  const WebData = [
-    { title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },
-    { title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },{ title : "Responsive Web Design", description : "In today's mobile-first world, having a website that works seamlessly on any device is crucial. Our responsive web design services ensure that your website is accessible and functional on any screen size, from smartphones to desktops." },
+  const MobileAppData = [
+    { title: "Custom Mobile App Development", description: "We design and develop mobile apps tailored to meet the unique needs of your business. From user interfaces to backend systems, we build apps that provide seamless experiences." },
+    { title: "Cross-Platform App Development", description: "Our cross-platform mobile app development ensures that your app works flawlessly on both Android and iOS, saving time and cost while maintaining high performance." },
+    { title: "Mobile App UI/UX Design", description: "We focus on creating intuitive and engaging user interfaces and experiences that ensure your mobile app stands out and provides users with a smooth, enjoyable journey." },
+    { title: "Mobile App Integration", description: "We integrate mobile apps with your existing systems, enabling seamless communication between platforms and delivering a cohesive experience across all touchpoints." },
+    { title: "Mobile App Testing", description: "We conduct thorough testing for every mobile app we build, ensuring that the app functions smoothly, with no bugs or performance issues, across all devices and platforms." },
+    { title: "App Maintenance and Support", description: "Our post-launch services include ongoing maintenance and support to keep your app updated, secure, and running efficiently, providing you peace of mind." },
+    { title: "App Security Features", description: "We prioritize security in mobile app development, implementing robust encryption, authentication, and data protection features to safeguard your app and user information." },
+    { title: "App Store Optimization (ASO)", description: "Our ASO services help your app gain visibility and rank higher in app stores, optimizing keywords, metadata, and visuals to attract more downloads and users." },
+    { title: "Mobile App Analytics", description: "We integrate advanced analytics into your mobile app, enabling you to track user behavior, app performance, and make data-driven decisions for continuous improvement." },
+
   ]
 
+
   const ChooseUsList = [
-    { titile : "Custom Solutions", description : "Tailored to your business."},
-    { titile : "Custom Solutions", description : "Tailored to your business."},
-    { titile : "Custom Solutions", description : "Tailored to your business."},
-    { titile : "Custom Solutions", description : "Tailored to your business."},
+    { titile : "Customer-Centric Approach", description : "We put your business goals and users at the center of everything we do. Our solutions are tailored to meet your specific needs, ensuring seamless experiences and ongoing improvements."},
+    { titile : "Innovative Mobile Solutions", description : "We leverage the latest technologies to create cutting-edge mobile apps that empower your business, offering smart, scalable, and future-proof solutions for all industries."},
+    { titile : "Customizable & Scalable Platforms", description : "We understand that each business is unique. Our mobile apps are designed to be flexible, scalable, and customizable to meet your evolving business needs as you grow."},
+    { titile : "End-to-End Mobile Solutions", description : "From initial app concept to post-launch maintenance, we provide complete mobile app development services to ensure your app remains secure, updated, and effective long-term."},
+    { titile : "Dedicated Support & Maintenance", description : "We offer continuous support and maintenance, ensuring that your app runs smoothly and is always up-to-date with the latest features and security enhancements."},
+
+    { titile : "Expert Development Team", description : "Our skilled development team excels in creating high-performance mobile apps for Android, iOS, and cross-platform solutions. We ensure smooth functionality and optimal performance, no matter the device."},
+
+    { titile : "On-Time Delivery", description : "We value your time. Our development process is streamlined to ensure that your mobile app is delivered within the agreed timeframe, without compromising quality."},
+
   ]
 
   const processList = [
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-    {titile : "Discovery Phase", description : "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.", img : "img"},
-  ]
+    {
+      titile: "Discovery Phase",
+      description:
+        "During the discovery phase, we work closely with our clients to understand their business objectives and gather project requirements. We identify the target audience and user personas, and conduct extensive research on industry trends and competitor websites to gain insights and ideas.",
+      img: "img",
+    },
+    {
+      titile: "Planning Phase",
+      description:
+        "In this phase, we map out the app's functionalities, define the user experience (UX) flow, and create wireframes to outline the app’s structure and key features. We also finalize the app's visual design, ensuring alignment with your brand identity.",
+      img: "img",
+    },
+    {
+      titile: "Design Phase",
+      description:
+        "We develop the app’s visual design, focusing on an intuitive user interface (UI) and seamless experience. Our team creates interactive prototypes and refines the design based on your feedback. The goal is to ensure that the design is both functional and visually appealing to your users.",
+      img: "img",
+    },
+    {
+      titile: "Development Phase",
+      description:
+        "In the development phase, we bring the app to life by coding it with the latest technologies. Our skilled developers use frameworks and tools to create high-performance mobile apps, whether for Android, iOS, or both. We ensure that the app is secure, fast, and capable of delivering a smooth user experience.",
+      img: "img",
+    },
+    {
+      titile: "Launch Phase",
+      description:
+        "Once the app is developed, we prepare for launch. We test the app thoroughly to eliminate any bugs, ensure compatibility with multiple devices, and perform final quality assurance checks. We then deploy the app to app stores, ensuring a smooth release and visibility.",
+      img: "img",
+    },
+    { titile: "Maintenance Phase", description: "Post-launch, we provide ongoing support and maintenance services. We ensure that the app is updated regularly, fix any issues that arise, and offer continuous improvements to meet evolving user needs and keep the app up-to-date with the latest OS versions", img: "img" },
+   
+  ];
   return (
     <div className="pt-[150px] flex flex-col justify-center items-center">
       <section className="max-w-[1400px] mx-auto w-full mb-20">
         <div>
           <div className="flex flex-col justify-center items-center gap-5">
             <div className="w-full h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={mobileapp} alt="mobileapp" className='w-full h-full rounded-3xl flex object-cover' /></div>
             </div>
             <div className="grid grid-cols-12 place-items-center gap-5 w-full">
               <div className=" col-span-6 bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px] w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={app} alt="app" className="w-full h-full flex object-cover
+                                rounded-3xl"/></div>
               </div>
               <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={app1} alt="app1" className="w-full h-full flex object-cover
+                                rounded-3xl"/></div>
               </div>
               <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={app2} alt="app2" className="w-full h-full flex object-cover
+                                rounded-3xl"/></div>
               </div>
             </div>
           </div>
@@ -63,9 +109,16 @@ const MobileApp = () => {
 
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
-              {WebData.map((item) => (
+            {MobileAppData.map((item) => (
                 <div className="w-full h-[300px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] p-10">
+                    <div className="text-[#fff] text-xl textGradient mb-3 font-black">
+                      {item.title}
+                    </div>
+                    <div className="textGradient6 text-[#fff]">
+                      {item.description}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -79,16 +132,23 @@ const MobileApp = () => {
             Why Choose Us?
           </div>
           <div className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum
-            eligendi explicabo aut dolores natus id iste sequi laudantium quis
-            deserunt, similique maxime iusto nemo incidunt in. Accusantium
-            beatae deserunt corrupti!
+            At IMC Bussiness Solutions, we specialize in creating innovative,
+            user-friendly mobile applications that deliver exceptional user
+            experiences. Here's why you should choose us for your mobile app
+            development needs:
           </div>
 
-          <div className="flex gap-10">
+          <div className="grid grid-cols-2 place-items-center lg:grid-cols-4 gap-10">
             {ChooseUsList.map((item) => (
-              <div className="w-full h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+              <div className="w-full h-[230px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] p-5">
+                  <div className="text-[#fff] mb-3 textGradient text-xl font-bold">
+                    {item.titile}
+                  </div>
+                  <div className="text-[#fff] textGradient">
+                    {item.description}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -98,21 +158,28 @@ const MobileApp = () => {
       <section className="mb-20 max-w-[1400px] w-full mx-auto">
         <div>
           <div className="md:flex justify-between items-center mb-10">
-            <div className="text-[#fff] textGradient4 text-[50px] leading-tight md:w-[60%]">
-              Lorem ipsum<span className="block">amet consectetur </span>
+            <div className="text-[#fff] textGradient4 text-[40px] leading-tight md:w-[60%]">
+              Our Comprehensive Mobile App Development Process
             </div>
             <div className="md:w-[40%] text-[#fff] textGradient6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-              delectus enim ad nam expedita porro architecto doloribus rerum.
-              Nesciunt voluptatem aperiam expedita eaque esse. Voluptatibus enim
-              esse ipsam error eum.
+              We follow a structured and efficient process to deliver
+              high-quality, user-centric mobile applications. From ideation to
+              development, deployment, and continuous support, our team ensures
+              a smooth journey from concept to execution
             </div>
           </div>
 
           <div className="grid grid-cols-1 w-full place-items-center md:grid-cols-2 gap-5">
             {processList.map((item) => (
               <div className="h-[250px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"></div>
+                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]">
+                  <div className="text-[#fff] mb-3 textGradient text-2xl font-bold p-5">
+                    {item.titile}
+                  </div>
+                  <div className="text-[#fff] textGradient">
+                    {item.description}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

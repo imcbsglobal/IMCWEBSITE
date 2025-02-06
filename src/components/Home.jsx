@@ -272,11 +272,13 @@ const Home = () => {
   return (
     <div className="relative overflow-hidden ">
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40">
+      
         <canvas
           ref={canvasRef}
           style={{ display: "block", width: "100vw", height: "100vh" }}
         />
-        ;
+        
+        
       </div>
       <div className="bottom-10 fixed right-10 z-50">
         <ChatBot />
@@ -389,7 +391,7 @@ const Home = () => {
               </div>
             </div>
             {/* right */}
-            <div className="md:w-[40%] bg-[#fc2727] h-[650px] rounded-md overflow-hidden">
+            <div className="md:w-[40%] bg-[#000] h-[650px] rounded-md overflow-hidden">
               <img
                 src={abouthome}
                 alt=""

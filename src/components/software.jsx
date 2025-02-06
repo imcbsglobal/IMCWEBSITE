@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import Footer from "./Footer";
@@ -53,6 +53,13 @@ const software = () => {
       img:operation,
     }
   ];
+   useEffect(() => {
+      const scrollActive = () => {
+          setActive(window.scrollY > 20);
+      };
+      window.addEventListener("scroll", scrollActive);
+      return () => window.removeEventListener('scroll', scrollActive);
+  }, []);
   
   return (
     <>
@@ -104,7 +111,7 @@ const software = () => {
         </div>
 
         {/* inventorymanagement */}
-        <div className="pt-[130px] flex flex-col justify-center items-center w-full">
+        <div className=" flex flex-col justify-center items-center w-full">
           <section
             id="inventorymanagement"
             className="mb-20 max-w-[1400px] mx-auto w-full"
@@ -176,14 +183,14 @@ const software = () => {
         </div>
 
         {/* healthcaremanagement */}
-        <div className="pt-[50px] flex flex-col justify-center items-center w-full">
+        <div className=" flex flex-col justify-center items-center w-full">
           <section
             id="healthcaremanagement"
             className="mb-20 max-w-[1400px] mx-auto"
           >
             <div>
-              <div className="flex justify-between items-center mb-10">
-                <div className="text-[50px] text-[#fff] textGradient4 leading-tight md:w-[60%]">
+              <div className="flex justify-between items-center gap-2 mb-10">
+                <div className="text-[48px] text-[#fff] textGradient4 leading-tight md:w-[60%]">
                   HEALTHCARE MANAGEMENT{" "}
                   <span className="block">Lorem ipsum dolor</span>
                 </div>
@@ -197,37 +204,37 @@ const software = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center w-full gap-5">
                 <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center ">
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
                     Comprehensive management of clinical, administrative, and
                     financial operations.
                   </div>
                 </div>
                 <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center ">
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
                     Handles appointments, doctor schedules, specialized
                     services, and international coding.
                   </div>
                 </div>
                 <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center ">
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
                     Includes 12 customizable modules to meet specific
                     institutional needs.
                   </div>
                 </div>
                 <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center ">
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
                     Flexible and scalable, adaptable to various healthcare
                     institutions.
                   </div>
                 </div>
                 <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center ">
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
                     Streamlines patient care and enhances operational
                     efficiency.
                   </div>
                 </div>
                 <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center ">
+                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
                     Easy integration and management of all patient-related data
                     and treatments.
                   </div>
@@ -238,8 +245,8 @@ const software = () => {
         </div>
 
         {/* Hospitality */}
-        <div className="pt-[50px] flex flex-col justify-center items-center w-full">
-          <div className="flex flex-col items-center justify-center">
+        <div className=" flex flex-col justify-center items-center w-full">
+          <div className="flex flex-col items-center justify-center mb-10">
             <div className="text-[50px] text-[#fff] textGradient4 leading-tight md:w-[60%] text-center justify-center">
               HOSPITALITY MANAGEMENT
             </div>
@@ -327,12 +334,12 @@ const software = () => {
         </div>
 
         {/* institutionmanagement */}
-        <div className="pt-[50px] flex flex-col justify-center items-center w-full">
+        <div className=" flex flex-col justify-center items-center w-full">
           <section
             id="institutionmanagement"
             className="mb-20 max-w-[1400px] mx-auto"
           >
-            <div className="w-full max-w-6xl mx-auto px-4 py-16 bg-black">
+            <div className="w-full max-w-6xl mx-auto px-4 bg-black">
               <div className="text-center mb-16">
                 <h2 className="text-[50px] text-gray-800 textGradient4 mb-2">
                   INSTITUTION MANAGEMENT
@@ -353,9 +360,9 @@ const software = () => {
                 </a>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                 {/* Card 1 */}
-                <div className="bg-[#F68B2C] rounded-lg p-6 text-white">
+                <div className="bg-[#F68B2C] rounded-lg p-6 text-white w-full">
                   <div className="border border-white/30 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                     <div className="bg-white rounded-full "><img src={communication} alt="communication" className="w-full h-full object-contain" /></div>
                   </div>

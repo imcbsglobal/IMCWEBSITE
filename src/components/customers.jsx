@@ -365,7 +365,13 @@ const clients = [
     },
    
   ];
-
+ useEffect(() => {
+    const scrollActive = () => {
+        setActive(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", scrollActive);
+    return () => window.removeEventListener('scroll', scrollActive);
+}, []);
  
   const [activeIndex, setActiveIndex] = useState(0); // Default middle card index
   
