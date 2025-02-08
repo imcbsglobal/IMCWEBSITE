@@ -60,12 +60,12 @@ const Navbar = () => {
       { name: "Business Branding", path: "/businessBranding" },
     ],
     business: [
-      { name: "Retails & Wholesale", path: "/retailWholeSale" },
-      { name: "Pharmacies", path: "/pharmacies" },
-      { name: "School / Colleges", path: "/schoolColleges" },
-      { name: "Hospital & Clinics", path: "/hospitalClinics" },
-      { name: "Restaurants", path: "/restaurantBusiness" },
-      { name: "Hotels", path: "/hotels" },
+      { name: "Retails & Wholesale", sectionId:"retailswholesale"  },
+      { name: "Pharmacies", sectionId: "pharmacies" },
+      { name: "School / Colleges", sectionId: "school" },
+      { name: "Hospital & Clinics", sectionId: "hospitalClinics" },
+      { name: "Restaurants", sectionId: "restaurantBusiness" },
+      { name: "Hotels", sectionId: "hotelBusiness" },
     ],
     faq: [
       { name: "Question Chat Boats", path: "/questionChatBoats" },
@@ -104,99 +104,130 @@ const Navbar = () => {
   return (
     <>
       <header
-      className={`fixed top-0 left-0 w-full z-[990] transition-all duration-300 ${
-        isScrolled ? "bg-white py-5 rounded-b-3xl shadow-lg" : "bg-transparent py-4"
-      }`}
-    >
-      <nav className="flex justify-between items-center w-full max-w-[1280px] mx-auto px-4 lg:px-8">
-        {/* Logo Section */}
-        <div className="w-auto h-[50px]">
-          {isScrolled ? 
-            <img src={logo} className="w-full h-full object-contain" alt="" />  : <img src={Logo} className="w-full h-full object-contain" alt="" />
-        }
-          {/* <img
+        className={`fixed top-0 left-0 w-full z-[990] transition-all duration-300 ${
+          isScrolled
+            ? "bg-white py-5 rounded-b-3xl shadow-lg"
+            : "bg-transparent py-4"
+        }`}
+      >
+        <nav className="flex justify-between items-center w-full max-w-[1280px] mx-auto px-4 lg:px-8">
+          {/* Logo Section */}
+          <div className="w-auto h-[50px]">
+            {isScrolled ? (
+              <img src={logo} className="w-full h-full object-contain" alt="" />
+            ) : (
+              <img src={Logo} className="w-full h-full object-contain" alt="" />
+            )}
+            {/* <img
             src={logo}
             alt="Logo"
             className={`w-full h-full object-contain transition-all duration-300 ${
               isScrolled ? "h-12" : "h-12 grayscale"
             }`}
           /> */}
-        </div>
-
-        {/* Navigation Links */}
-      <div className="flex justify-center items-center">
-          <ul className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${isScrolled ? "text-[#000]" : "text-[#fff]"}`}>
-            <Link to="/">
-              <li className="cursor-pointer hover:text-[#ff7f1e]">Home</li>
-            </Link>
-            <Link to="/company">
-            <li
-              className="cursor-pointer relative"
-              onMouseEnter={() => handleMouseEnter("company")}
-              onMouseLeave={handleMouseLeave}
-            >
-              
-              Company
-              {activeMenu === "company" && renderDropdown("company")}
-            </li>
-            </Link>
-            <Link to="/software">
-            <li
-              className="cursor-pointer relative"
-              onMouseEnter={() => handleMouseEnter("softwares")}
-              onMouseLeave={handleMouseLeave}
-            >
-              Softwares
-              {activeMenu === "softwares" && renderDropdown("softwares")}
-            </li>
-            </Link>
-            
-            <li
-              className="cursor-pointer relative"
-              onMouseEnter={() => handleMouseEnter("services")}
-              onMouseLeave={handleMouseLeave}
-            >
-              Services
-              {activeMenu === "services" && renderDropdown("services")}
-            </li>
-          
-            <li
-              className="cursor-pointer relative"
-              onMouseEnter={() => handleMouseEnter("business")}
-              onMouseLeave={handleMouseLeave}
-            >
-              Business
-              {activeMenu === "business" && renderDropdown("business")}
-            </li>
-            <li
-              className="cursor-pointer relative"
-              onMouseEnter={() => handleMouseEnter("faq")}
-              onMouseLeave={handleMouseLeave}
-            >
-              FAQ
-              {activeMenu === "faq" && renderDropdown("faq")}
-            </li>
-            <Link to="/contact">
-              <li className="cursor-pointer hover:text-[#ff7332]">Contact</li>
-            </Link>
-          </ul>
-        </div>
-
-        {/* Login Button */}
-        <div className="flex gap-5">
-          <button className={`rounded-3xl px-6 py-2 font-bold hover:bg-gray-800 ${isScrolled ? "bg-[#000] text-[#fff] border border-[#fff]" : "bg-[#fff] text-[#000]"}`}>
-            Login
-          </button>
-          <div className={` ${isScrolled ? "" :  "bg-gradient-to-r from-[#20ffff] via-[#ff850c] to-[#ffa600] p-[1px] bg-[#3c3333]" }  rounded-3xl`}>
-            <button className={`rounded-[calc(1.5rem-1px)]  px-6 py-2 font-bold hover:bg-gray-800 flex items-center gap-2 ${isScrolled ? "border-[#000] border "  : "border border-[#fff] text-[#fff] bg-[#000]"}`}>
-              Let's Talk <span><MdCall/></span>
-            </button>
           </div>
-        </div>
-      </nav>
-    </header>
 
-    {/* <div>
+          {/* Navigation Links */}
+          <div className="flex justify-center items-center">
+            <ul
+              className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${
+                isScrolled ? "text-[#000]" : "text-[#fff]"
+              }`}
+            >
+              <Link to="/">
+                <li className="cursor-pointer hover:text-[#ff7f1e]">Home</li>
+              </Link>
+              <Link to="/company">
+                <li
+                  className="cursor-pointer relative"
+                  onMouseEnter={() => handleMouseEnter("company")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  Company
+                  {activeMenu === "company" && renderDropdown("company")}
+                </li>
+              </Link>
+              <Link to="/software">
+                <li
+                  className="cursor-pointer relative"
+                  onMouseEnter={() => handleMouseEnter("softwares")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  Softwares
+                  {activeMenu === "softwares" && renderDropdown("softwares")}
+                </li>
+              </Link>
+
+              <li
+                className="cursor-pointer relative"
+                onMouseEnter={() => handleMouseEnter("services")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Services
+                {activeMenu === "services" && renderDropdown("services")}
+              </li>
+              <Link to="/business">
+                <li
+                  className="cursor-pointer relative"
+                  onMouseEnter={() => handleMouseEnter("business")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  Business
+                  {activeMenu === "business" && renderDropdown("business")}
+                </li>
+              </Link>
+              <li
+                className="cursor-pointer relative"
+                onMouseEnter={() => handleMouseEnter("faq")}
+                onMouseLeave={handleMouseLeave}
+              >
+                FAQ
+                {activeMenu === "faq" && renderDropdown("faq")}
+              </li>
+              <Link to="/contact">
+                <li className="cursor-pointer hover:text-[#ff7332]">Contact</li>
+              </Link>
+            </ul>
+          </div>
+
+          {/* Login Button */}
+          <div className="flex gap-5">
+            <Link to="/login">
+              <button
+                className={`rounded-3xl px-6 py-2 font-bold hover:bg-gray-800 ${
+                  isScrolled
+                    ? "bg-[#000] text-[#fff] border border-[#fff]"
+                    : "bg-[#fff] text-[#000]"
+                }`}
+              >
+                Login
+              </button>
+            </Link>
+            <div
+              className={` ${
+                isScrolled
+                  ? ""
+                  : "bg-gradient-to-r from-[#20ffff] via-[#ff850c] to-[#ffa600] p-[1px] bg-[#3c3333]"
+              }  rounded-3xl`}
+            >
+              <button
+                className={`rounded-[calc(1.5rem-1px)]  px-6 py-2 font-bold hover:bg-gray-800 flex items-center gap-2 ${
+                  isScrolled
+                    ? "border-[#000] border "
+                    : "border border-[#fff] text-[#fff] bg-[#000]"
+                }`}
+              >
+                Let's Talk{" "}
+                <span>
+                  <MdCall />
+                </span>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* <div>
       <MobileNavbar/>
     </div> */}
     </>

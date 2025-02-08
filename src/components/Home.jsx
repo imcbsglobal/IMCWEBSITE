@@ -634,7 +634,7 @@ const Home = () => {
               </div>
               <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
                 <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  School / College
+                  School and  College
                 </div>
                 <div className=" text-[#fff] relative textGradient6 text-center">
                   We provide comprehensive IT solutions for schools and

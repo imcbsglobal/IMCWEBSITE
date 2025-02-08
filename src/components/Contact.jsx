@@ -1,7 +1,7 @@
-import React ,{useEffect}from 'react'
+import React ,{useEffect,useState}from 'react'
 import Footer from './Footer'
 const Contact = () => {
-
+  const [active, setActive] = useState(false);
    useEffect(() => {
       const scrollActive = () => {
           setActive(window.scrollY > 20);
