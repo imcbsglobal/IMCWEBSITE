@@ -403,6 +403,11 @@ const clients = [
   const swiperRef5 = useRef(null);
   const nextSlide5 = () => swiperRef5.current?.slideNext();
   const prevSlide5 = () => swiperRef5.current?.slidePrev();
+  
+  useEffect(() => {
+    // Scroll to the top of the page on mount
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div>
       <div className="pt-[150px] flex flex-col justify-center items-center w-full">

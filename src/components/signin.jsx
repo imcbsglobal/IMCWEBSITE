@@ -4,6 +4,18 @@ import { useState } from "react";
 import { X } from "lucide-react";
 const signin = () => {
     const [isOpen, setIsOpen] = useState(true);
+    const location = useLocation();
+
+    // Scroll to the section based on the hash in the URL
+    useEffect(() => {
+      if (location.hash) {
+        const sectionId = location.hash.replace("#", "");
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    }, [location.hash]);
   return (
     isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">

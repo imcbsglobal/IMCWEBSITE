@@ -1,10 +1,14 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Footer from "../Footer";
 import websiteandweb from "../../assets/websiteandweb.jpg";
 import website1 from '../../assets/website1.jpg'
 import website2 from '../../assets/website2.jpg'
 import website from '../../assets/website.jpg'
 const WebsiteWebApplication = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   const WebData = [
     {
       title: "Responsive Web Design",

@@ -1,10 +1,14 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Footer from "../Footer";
 import brand from "../../assets/brand.jpg";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 const Branding = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   return (
     <div className="pt-[130px]">
       <section className="w-full max-w-[1400px] mb-20 mx-auto rounded-3xl bg-[#000] h-[600px]">

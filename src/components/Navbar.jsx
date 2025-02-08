@@ -9,6 +9,16 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  
+
+  const scrollToElement = () => {
+    const element = document.getElementById("aboutid");
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offset = 100; // Padding offset
+      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+    }
+  };
   // Handle scrolling effect
   useEffect(() => {
     const handleScroll = () => {
@@ -36,20 +46,20 @@ const Navbar = () => {
 
   const dropdownMenus = {
     company: [
-      { name: "About IMC",  sectionId: "aboutid"  },
-      { name: "Team", sectionId:"team" },
-      { name: "Goals & Missions", sectionId:"goalsmission" },
+      { name: "About IMC",  path: "/company#aboutid"  },
+      { name: "Team", path:"/company#team" },
+      { name: "Goals & Missions", path:"/company#goalsmission" },
       { name: "Customers", path:"/customers" },
-      { name: "Supports", sectionId:"supports" },
-      { name: "Business Opportunities", sectionId:"bussinessopportunities" },
+      { name: "Supports", path:"/company#supports" },
+      { name: "Business Opportunities", path:"/company#bussinessopportunities" },
     ],
     softwares: [
-      { name: "Restaurants", sectionId:"restaurant" },
-      { name: "Inventory Management", sectionId:"inventorymanagement" },
-      { name: "Health Care Management", sectionId:"healthcaremanagement" },
+      { name: "Restaurants", path:"/software#restaurant" },
+      { name: "Inventory Management", path:"/software#inventorymanagement" },
+      { name: "Health Care Management", path:"/software#healthcaremanagement" },
       
-      { name: "Hospitality", sectionId:"hospitality" },
-      { name: "Institution Management",  sectionId:"institutionmanagement" },
+      { name: "Hospitality", path:"/software#hospitality" },
+      { name: "Institution Management",  path:"/software#institutionmanagement" },
     ],
     services: [
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
@@ -60,12 +70,12 @@ const Navbar = () => {
       { name: "Business Branding", path: "/businessBranding" },
     ],
     business: [
-      { name: "Retails & Wholesale", sectionId:"retailswholesale"  },
-      { name: "Pharmacies", sectionId: "pharmacies" },
-      { name: "School / Colleges", sectionId: "school" },
-      { name: "Hospital & Clinics", sectionId: "hospitalClinics" },
-      { name: "Restaurants", sectionId: "restaurantBusiness" },
-      { name: "Hotels", sectionId: "hotelBusiness" },
+      { name: "Retails & Wholesale", path :"/business#retailswholesale"  },
+      { name: "Pharmacies", path :"/business#pharmacies" },
+      { name: "School / Colleges", path :"/business#school" },
+      { name: "Hospital & Clinics", path :"/business#hospitalClinics" },
+      { name: "Restaurants", path :"/business#restaurantBusiness" },
+      { name: "Hotels", path :"/business#hotelBusiness" },
     ],
     faq: [
       { name: "Question Chat Boats", path: "/questionChatBoats" },

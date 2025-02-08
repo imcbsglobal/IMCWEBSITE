@@ -8,8 +8,35 @@ import vision from "../assets/vision.jpg";
 import mission from "../assets/mission.jpg";
 import "swiper/css";
 import "swiper/css/autoplay";
-
+import { useLocation } from "react-router-dom";
 const company = () => {
+  const location = useLocation();
+
+  // Scroll to the section based on the hash in the URL
+  useEffect(() => {
+    // Function to handle scrolling with offset
+    const scrollToSection = (sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 100; // Height of your navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - navbarHeight,
+          behavior: "smooth"
+        });
+      }
+    };
+
+    // Handle initial load and hash changes
+    if (location.hash) {
+      // Remove the '#' from the hash to get the ID
+      const sectionId = location.hash.replace("#", "");
+      // Add a small delay to ensure the DOM is fully loaded
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 0);
+    }
+  }, [location.hash]);
   
   return (
     <>

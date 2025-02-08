@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useState,useRef } from 'react';
+import { useState,useRef,useEffect } from 'react';
 import Footer from '../Footer';
 const BusinessBranding = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   const [selectedService, setSelectedService] = useState(null);
   const services = [
     { title: 'Brand Research' },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { TiTick } from "react-icons/ti";
 import { PiPlusBold } from "react-icons/pi";
 import Footer from "./Footer";
@@ -15,10 +15,46 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import school from "../assets/school.jpeg";
 import hotel from '../assets/hotel.jpeg'
+import { useLocation } from "react-router-dom";
 const business = () => {
+   const location = useLocation();
+  
+    // Scroll to the section based on the hash in the URL
+    useEffect(() => {
+      // Function to handle scrolling with offset
+      const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navbarHeight = 100; // Height of your navbar
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementPosition - navbarHeight,
+            behavior: "smooth"
+          });
+        }
+      };
+  
+      // Handle initial load and hash changes
+      if (location.hash) {
+        // Remove the '#' from the hash to get the ID
+        const sectionId = location.hash.replace("#", "");
+        // Add a small delay to ensure the DOM is fully loaded
+        setTimeout(() => {
+          scrollToSection(sectionId);
+        }, 0);
+      }
+    }, [location.hash]);
   const [hovered, setHovered] = useState(false);
   const [hovered1, setHovered1] = useState(false);
   const [hovered2, setHovered2] = useState(false);
+  const scrollToElement = () => {
+    const element = document.getElementById("home");
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offset = 100; // Padding offset
+      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+    }
+  };
   return (
     <div>
       <div className="pt-[130px] flex-col w-full mx-auto flex justify-center items-center">

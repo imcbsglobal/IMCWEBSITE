@@ -1,6 +1,10 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 
 const ProductTutorials = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   return (
     <div className="pt-[130px] flex flex-col justify-center items-center">
       <section className="max-w-[1400px] w-full mb-10">

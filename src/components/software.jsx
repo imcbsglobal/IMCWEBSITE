@@ -20,7 +20,32 @@ import operation from '../assets/operation.jpeg'
 import communication from '../assets/communication.png'
 import user1 from '../assets/userfriendly.png'
 import time  from '../assets/time.png'
+import { useLocation } from "react-router-dom";
 const software = () => {
+  useEffect(() => {
+    // Function to handle scrolling with offset
+    const scrollToSection = (sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 100; // Height of your navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - navbarHeight,
+          behavior: "smooth"
+        });
+      }
+    };
+
+    // Handle initial load and hash changes
+    if (location.hash) {
+      // Remove the '#' from the hash to get the ID
+      const sectionId = location.hash.replace("#", "");
+      // Add a small delay to ensure the DOM is fully loaded
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 0);
+    }
+  }, [location.hash]);
   const hospitality = [
     {
       heading: "Comprehensive Property Management",
@@ -192,7 +217,7 @@ const software = () => {
               <div className="flex justify-between items-center gap-2 mb-10">
                 <div className="text-[48px] text-[#fff] textGradient4 leading-tight md:w-[60%]">
                   HEALTHCARE MANAGEMENT{" "}
-                  <span className="block">Lorem ipsum dolor</span>
+                  <span className="block text-[20px]">Empowering Health Services for a Digital Era</span>
                 </div>
                 <div className="md:w-[40%] textGradient6 text-[#fff]">
                   Shades Hospital Management Software provides a complete

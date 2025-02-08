@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Footer from "../Footer";
 import graphic from '../../assets/graphic.jpeg'
 import { FaUserCheck } from "react-icons/fa";
@@ -7,6 +7,10 @@ import { CgSmileMouthOpen } from "react-icons/cg";
 import visual from '../../assets/eye.png'
 import idea from '../../assets/ideas.png'
 const GraphicsCreatives = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   return (
     <div>
       {/* first section */}

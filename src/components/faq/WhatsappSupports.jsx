@@ -1,10 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Footer from '../Footer'
 import { CgArrowLongRight } from "react-icons/cg";
 import { MdContactSupport } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 
 const WhatsappSupports = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   return (
     <div className='pt-[130px] flex flex-col justify-center items-center w-full'>
       <section className='max-w-[1400px] w-full mb-10'>

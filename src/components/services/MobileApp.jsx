@@ -1,10 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Footer from '../Footer'
 import mobileapp from '../../assets/mobileapp1.jpeg'
 import app1 from '../../assets/app1.jpg'
 import app2 from '../../assets/app2.jpg'
 import app from '../../assets/app.jpg'
 const MobileApp = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   const MobileAppData = [
     { title: "Custom Mobile App Development", description: "We design and develop mobile apps tailored to meet the unique needs of your business. From user interfaces to backend systems, we build apps that provide seamless experiences." },
     { title: "Cross-Platform App Development", description: "Our cross-platform mobile app development ensures that your app works flawlessly on both Android and iOS, saving time and cost while maintaining high performance." },

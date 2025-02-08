@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
 import digi from "../../assets/digi.png"
 import digi1 from "../../assets/dig1.png"
 import Footer from '../Footer'
@@ -7,6 +7,10 @@ import customereg from '../../assets/customereg.jpeg'
 import seo from '../../assets/seo.jpg'
 import seo1 from '../../assets/seo2.jpg'
 const DigitalMarketingSEO = () => {
+  useEffect(() => {
+      // Scroll to the top of the page on mount
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   const data = [
     { label: "Increased Website Traffic:", value: "Boosts organic search visibility, driving more potential customers to your site." },
     { label: "Improved User Experience", value: "Enhances website usability with faster loading times, mobile-friendly design, and better navigation." },
