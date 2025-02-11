@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import logo from "../assets/imclogo.png";
 import { Link } from "react-router-dom";
 import Logo from "../assets/imclogo1.png";
-import { MdCall } from "react-icons/md";
+import { MdCall, MdMenu, MdClose } from "react-icons/md";
 import MobileNavbar from "./MobileNavbar";
-
+import { MdOutlineArrowDropDown } from "react-icons/md";
+import { IoMdArrowDropup } from "react-icons/io";
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
 
   const scrollToElement = () => {
@@ -43,6 +44,8 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     setActiveMenu(null);
   };
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const dropdownMenus = {
     company: [
@@ -109,8 +112,13 @@ const Navbar = () => {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-  
 
+    const [activeDropdown, setActiveDropdown] = useState(null);
+  
+    const toggleDropdown = (menuKey) => {
+      setActiveDropdown(activeDropdown === menuKey ? null : menuKey);
+    };
+  
   return (
     <>
       <header
@@ -121,6 +129,19 @@ const Navbar = () => {
         }`}
       >
         <nav className="flex justify-between items-center w-full max-w-[1280px] mx-auto px-4 lg:px-8">
+          <div className="md:hidden">
+            <button onClick={toggleMobileMenu}>
+              {isMobileMenuOpen ? (
+                <MdClose className="text-3xl text-black" />
+              ) : (
+                <MdMenu
+                  className={`text-3xl ${
+                    isScrolled ? "text-black" : "text-white"
+                  }`}
+                />
+              )}
+            </button>
+          </div>
           {/* Logo Section */}
           <div className="w-auto h-[50px]">
             {isScrolled ? (
@@ -236,6 +257,67 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
+      <div
+        className={` fixed top-0 left-0 w-[75%] max-w-[320px] bg-white text-black z-[999] h-full shadow-lg transition-transform ${
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="relative p-5 ">
+          {/* Close Button Positioned Top Left */}
+          <button onClick={toggleMobileMenu} className="absolute top-2 right-2">
+            <MdClose size={30} className="text-black" />
+          </button>
+
+          
+        </div>
+
+        {/* Navigation Links */}
+        <ul className="flex flex-col ml-5 p-5 gap-4">
+          {" "}
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-[130px] w-auto object-contain mb-4"
+          />
+          <Link to="/" onClick={toggleMobileMenu}>
+            <li className="hover:text-orange-500">Home</li>
+          </Link>
+          {Object.keys(dropdownMenus).map((menuKey) => (
+            <div key={menuKey}>
+              {/* Dropdown Header */}
+              <li
+                className="flex justify-between items-center cursor-pointer hover:text-orange-500"
+                onClick={() => toggleDropdown(menuKey)}
+              >
+                {menuKey.charAt(0).toUpperCase() + menuKey.slice(1)}
+                <span>
+                  {activeDropdown === menuKey ? (
+                    <IoMdArrowDropup />
+                  ) : (
+                    <MdOutlineArrowDropDown />
+                  )}
+                </span>
+              </li>
+
+              {/* Dropdown Items */}
+              {activeDropdown === menuKey && (
+                <ul className="pl-4 mt-2">
+                  {dropdownMenus[menuKey].map((item, index) => (
+                    <Link key={index} to={item.path} onClick={toggleMobileMenu}>
+                      <li className="py-1 hover:text-orange-500">
+                        {item.name}
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+          <Link to="/contact" onClick={toggleMobileMenu}>
+            <li className="hover:text-orange-500">Contact</li>
+          </Link>
+        </ul>
+      </div>
 
       {/* <div>
       <MobileNavbar/>

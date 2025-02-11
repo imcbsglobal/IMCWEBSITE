@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { useLocation } from "react-router-dom";
 const company = () => {
+  
   const location = useLocation();
 
   // Scroll to the section based on the hash in the URL
@@ -37,6 +38,19 @@ const company = () => {
       }, 0);
     }
   }, [location.hash]);
+  const [active, setActive] = useState(false);
+  
+    useEffect(() => {
+      // Scroll to top when this component loads
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  
+      const scrollActive = () => {
+        setActive(window.scrollY > 20);
+      };
+      window.addEventListener("scroll", scrollActive);
+  
+      return () => window.removeEventListener("scroll", scrollActive);
+    }, []);
   
   return (
     <>

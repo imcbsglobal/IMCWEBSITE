@@ -1,17 +1,24 @@
-import React ,{useEffect,useState}from 'react'
-import Footer from './Footer'
+import React, { useEffect, useState } from "react";
+import Footer from "./Footer";
+
 const Contact = () => {
   const [active, setActive] = useState(false);
-   useEffect(() => {
-      const scrollActive = () => {
-          setActive(window.scrollY > 20);
-      };
-      window.addEventListener("scroll", scrollActive);
-      return () => window.removeEventListener('scroll', scrollActive);
-  }, []);
+
+  useEffect(() => {
+    // Scroll to top when this component loads
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const scrollActive = () => {
+      setActive(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", scrollActive);
+
+    return () => window.removeEventListener("scroll", scrollActive);
+  }, []);
+
   return (
-    <div className='pt-20'>
-       <section className="mb-20 max-w-[1400px] mx-auto w-full">
+    <div className="pt-20">
+      <section className="mb-20 max-w-[1400px] mx-auto w-full">
         <div className="w-full">
           <div className="flex justify-between items-center w-full mb-16">
             <div className="md:w-[60%] flex flex-col justify-start gap-5">
@@ -20,7 +27,9 @@ const Contact = () => {
                 <span className="block">Make It Happen</span>
               </div>
               <div className="text-[#fff] textGradient6">
-              Get in touch with us! Whether you have questions, need support, or want to learn more about our services, we’re here to assist you. Simply fill out the form below, and we’ll respond promptly
+                Get in touch with us! Whether you have questions, need support,
+                or want to learn more about our services, we’re here to assist
+                you. Simply fill out the form below, and we’ll respond promptly
               </div>
             </div>
             <div className="md:w-[50%]"></div>
@@ -32,9 +41,9 @@ const Contact = () => {
                 <div className="text-[#fff]">info@imcbsglobal.com</div>
                 <div className="text-[#fff]">+91 75938 20007</div>
                 <div className="text-[#fff]">
-                  Palakkunnummal Building , Near Govt Ayurvedic Hospital Emily{" "}
+                  Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
                   <span className="block">
-                    Kalpetta, Wayanad, Kerala – 673121
+                    Kalpetta, Wayanad, Kerala – 673121
                   </span>{" "}
                 </div>
               </div>
@@ -60,17 +69,17 @@ const Contact = () => {
                   />
                   <input
                     type="text"
-                    placeholder="First Name*"
+                    placeholder="Last Name*"
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email*"
                     className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   />
                   <input
                     type="text"
-                    placeholder="First Name*"
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="text"
-                    placeholder="First Name*"
+                    placeholder="Phone*"
                     className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   />
                 </div>
@@ -95,7 +104,7 @@ const Contact = () => {
         <Footer />
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

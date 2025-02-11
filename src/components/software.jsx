@@ -1,4 +1,4 @@
-import React ,{useEffect} from "react";
+import React ,{useEffect,useState} from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import Footer from "./Footer";
@@ -78,13 +78,20 @@ const software = () => {
       img:operation,
     }
   ];
-   useEffect(() => {
+ 
+  const [active, setActive] = useState(false);
+  
+    useEffect(() => {
+      // Scroll to top when this component loads
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  
       const scrollActive = () => {
-          setActive(window.scrollY > 20);
+        setActive(window.scrollY > 20);
       };
       window.addEventListener("scroll", scrollActive);
-      return () => window.removeEventListener('scroll', scrollActive);
-  }, []);
+  
+      return () => window.removeEventListener("scroll", scrollActive);
+    }, []);
   
   return (
     <>

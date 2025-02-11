@@ -47,14 +47,20 @@ const business = () => {
   const [hovered, setHovered] = useState(false);
   const [hovered1, setHovered1] = useState(false);
   const [hovered2, setHovered2] = useState(false);
-  const scrollToElement = () => {
-    const element = document.getElementById("home");
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offset = 100; // Padding offset
-      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-    }
-  };
+const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    // Scroll to top when this component loads
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const scrollActive = () => {
+      setActive(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", scrollActive);
+
+    return () => window.removeEventListener("scroll", scrollActive);
+  }, []);
+
   return (
     <div>
       <div className="pt-[130px] flex-col w-full mx-auto flex justify-center items-center">
