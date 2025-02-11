@@ -59,9 +59,9 @@ const company = () => {
         <div className="pt-[180px] flex flex-col justify-center items-center w-full">
           <section id="aboutid" className="max-w-[1400px] w-full mx-auto mb-20">
             <div className="w-full">
-              <div className="text-[#fff] text-[30px] mb-5 textGradient4 text-center leading-tight">
+              <div className="text-[#fff] text-[16px] md:text-[30px] mb-5 textGradient4 text-center leading-tight">
                 WHO WE ARE
-                <span className="block text-[50px]">
+                <span className="block text-[36px] md:text-[50px]">
                   A Successful And Innovative IT Company
                 </span>
               </div>
@@ -89,14 +89,15 @@ const company = () => {
         {/* TEAM */}
         <div className="pt-[50px] flex flex-col justify-center items-center w-full">
           <section className="mb-20 w-full max-w-[1400px] mx-auto" id="team">
-            <div className="mb-10">
-              <div className="text-[#fff] textGradient4 text-[50px] text-center leading-tight mb-5">
+            {/* Section Heading */}
+            <div className="mb-10 text-center">
+              <div className="text-[#fff] textGradient4 text-[30px] md:text-[50px] leading-tight mb-5">
                 Behind the Vision
-                <span className="block text-[30px]">
+                <span className="block text-[20px] md:text-[30px]">
                   Collaboration, innovation, and dedication united.
                 </span>
               </div>
-              <div className="textGradient6 max-w-[700px] mx-auto text-center text-[#fff]">
+              <div className="textGradient6 max-w-[700px] mx-auto text-[#fff] text-sm md:text-base">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
                 dolor eligendi adipisci. Ad asperiores facilis quisquam
                 repellendus nemo expedita veritatis nisi facere, nihil ipsum
@@ -104,32 +105,33 @@ const company = () => {
               </div>
             </div>
 
+            {/* Team Member Images */}
             <div className="w-full">
-              <div className="grid grid-cols-3 w-full gap-5">
-                <div className="w-[90%] mx-auto h-[500px] bg-[#fff] rounded-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {/* Image 1 */}
+                <div className="w-[90%] mx-auto h-[300px] sm:h-[400px] md:h-[500px] bg-[#fff] rounded-lg overflow-hidden">
                   <img
                     src={ceo1}
                     alt="ceo1"
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-[90%] mx-auto h-[500px] bg-[#fff] rounded-lg">
+                {/* Image 2 */}
+                <div className="w-[90%] mx-auto h-[300px] sm:h-[400px] md:h-[500px] bg-[#fff] rounded-lg overflow-hidden">
                   <img
                     src={ceo2}
                     alt="ceo2"
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-[90%] mx-auto h-[500px] bg-[#fff] rounded-lg">
+                {/* Image 3 */}
+                <div className="w-[90%] mx-auto h-[300px] sm:h-[400px] md:h-[500px] bg-[#fff] rounded-lg overflow-hidden">
                   <img
                     src={ceo3}
                     alt="ceo3"
                     className="h-full w-full object-cover"
                   />
                 </div>
-                {/* <div className="w-[90%] mx-auto h-[500px] bg-[#fff] rounded-lg"></div>
-                <div className="w-[90%] mx-auto h-[500px] bg-[#fff] rounded-lg"></div>
-                <div className="w-[90%] mx-auto h-[500px] bg-[#fff] rounded-lg"></div> */}
               </div>
             </div>
           </section>
@@ -142,13 +144,13 @@ const company = () => {
             className="max-w-[1400px] mx-auto w-full mb-10"
           >
             <div>
-              <div className="text-[50px] textGradient4 text-[#fff] text-center leading-tight mb-5">
+              <div className="text-[30px] sm:text-[40px] md:text-[50px] textGradient4 text-[#fff] text-center leading-tight mb-5">
                 VISION AND MISSION
-                <span className="block text-[30px]">
+                <span className="block text-[18px] sm:text-[25px] md:text-[30px]">
                   Innovation with Impact
                 </span>
               </div>
-              <div className="text-[#fff] max-w-[900px] mx-auto text-center textGradient6">
+              <div className="text-[#fff] max-w-[900px] mx-auto text-center textGradient6 text-sm sm:text-base">
                 Our vision is to lead in technological innovation, providing
                 impactful solutions that drive business growth. We are committed
                 to creating lasting value through strategic partnerships and
@@ -162,96 +164,83 @@ const company = () => {
 
           <section className="w-full max-w-[1400px] mx-auto mb-20">
             <div>
-              <div className="grid grid-cols-12 place-items-center gap-3">
-                {/* Left */}
-                <div className=" col-span-6 w-full flex flex-col gap-3">
-                  <div className="w-full h-[200px] bg-[#fff] rounded-3xl overflow-hidden">
-                    {" "}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                {/* Left Section */}
+                <div className="w-full flex flex-col gap-5">
+                  <div className="w-full h-[200px] sm:h-[250px] bg-[#fff] rounded-3xl overflow-hidden">
                     <img
                       src={vision}
                       alt="vision"
-                      className="h-full w-full rounded-3xl object-cover"
+                      className="h-full w-full object-cover rounded-3xl"
                     />
                   </div>
-                  <div className="grid grid-cols-12 w-full gap-3">
-                    <div className="col-span-6 flex flex-col w-full gap-3">
-                      <div className=" w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                        <div className="w-full h-[150px] bg-[#000] rounded-3xl flex justify-center items-center ">
-                          <ul className="text-[#fff] justify-center flex flex-col gap-4">
-                            <li>Empowering Businesses</li>
-                            <li>Driving Digital Transformation</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className=" w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                        <div className="w-full h-[150px] bg-[#000] rounded-3xl flex justify-center items-center ">
-                          <ul className="text-[#fff] justify-center flex flex-col gap-4">
-                            <li>Innovation and Excellence</li>
-                            <li>Building Partnerships</li>
-                          </ul>
-                        </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-3xl">
+                      <div className="bg-[#000] text-[#fff] h-[150px] flex justify-center items-center rounded-3xl">
+                        <ul className="flex flex-col gap-2 text-center">
+                          <li>Empowering Businesses</li>
+                          <li>Driving Digital Transformation</li>
+                        </ul>
                       </div>
                     </div>
-                    <div className="col-span-6 w-full">
-                      <div className=" w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                        <div className="flex  justify-center text-justify items-center bg-black w-full h-[310px] text-[#fff]  rounded-3xl p-4">
-                          Our vision is to empower businesses with innovative
-                          and reliable technology solutions. We aim to drive
-                          digital transformation through cutting-edge services
-                          and personalized support. By fostering a culture of
-                          innovation and excellence, we strive to be a trusted
-                          partner in our clients' success. Together, we shape a
-                          smarter, more connected future
-                        </div>
+                    <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-3xl">
+                      <div className="bg-[#000] text-[#fff] h-[150px] flex justify-center items-center rounded-3xl">
+                        <ul className="flex flex-col gap-2 text-center">
+                          <li>Innovation and Excellence</li>
+                          <li>Building Partnerships</li>
+                        </ul>
                       </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-3xl">
+                    <div className="bg-black text-[#fff] h-auto p-4 rounded-3xl">
+                      Our vision is to empower businesses with innovative and
+                      reliable technology solutions. We aim to drive digital
+                      transformation through cutting-edge services and
+                      personalized support. By fostering a culture of innovation
+                      and excellence, we strive to be a trusted partner in our
+                      clients' success. Together, we shape a smarter, more
+                      connected future.
                     </div>
                   </div>
                 </div>
-                {/* Right */}
-                <div className="col-span-6 w-full">
-                  <div className="flex flex-col gap-3">
-                    {/* Top */}
-                    <div className="grid grid-cols-12 place-items-center gap-3 w-full">
-                      <div className="col-span-6 w-full">
-                        <div className=" w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                          <div className="flex  justify-center text-justify items-center bg-black w-full h-[310px] text-[#fff]  rounded-3xl p-4">
-                            Our mission is to deliver innovative solutions that
-                            empower businesses to thrive in a digital world. We
-                            strive to create products that simplify processes
-                            and drive efficiency. Through collaboration and
-                            constant improvement, we aim to exceed client
-                            expectations. We are dedicated to fostering
-                            long-term relationships built on trust and success
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-span-6 flex flex-col w-full gap-3">
-                        <div className=" w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                          <div className="w-full h-[150px] bg-[#000] rounded-3xl flex justify-center items-center">
-                            <ul className="text-[#fff] justify-center flex flex-col gap-4">
-                              <li>Innovative Solutions</li>
-                              <li>Efficiency & Simplicity</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className=" w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                          <div className="w-full h-[150px] bg-[#000] rounded-3xl flex justify-center items-center">
-                            <ul className="text-[#fff] justify-center flex flex-col gap-4">
-                              <li>Continuous Improvement</li>
-                              <li>Client Relationships</li>
-                            </ul>
-                          </div>
-                        </div>
+                {/* Right Section */}
+                <div className="w-full flex flex-col gap-5">
+                  <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-3xl">
+                    <div className="bg-black text-[#fff] h-auto p-4 rounded-3xl">
+                      Our mission is to deliver innovative solutions that
+                      empower businesses to thrive in a digital world. We strive
+                      to create products that simplify processes and drive
+                      efficiency. Through collaboration and constant
+                      improvement, we aim to exceed client expectations. We are
+                      dedicated to fostering long-term relationships built on
+                      trust and success.
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-3xl">
+                      <div className="bg-[#000] text-[#fff] h-[150px] flex justify-center items-center rounded-3xl">
+                        <ul className="flex flex-col gap-2 text-center">
+                          <li>Innovative Solutions</li>
+                          <li>Efficiency & Simplicity</li>
+                        </ul>
                       </div>
                     </div>
-                    {/* Bottom */}
-                    <div className="w-full h-[200px] bg-[#fff] rounded-3xl">
-                      <img
-                        src={mission}
-                        alt="vision"
-                        className="h-full w-full rounded-3xl object-cover"
-                      />
+                    <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-3xl">
+                      <div className="bg-[#000] text-[#fff] h-[150px] flex justify-center items-center rounded-3xl">
+                        <ul className="flex flex-col gap-2 text-center">
+                          <li>Continuous Improvement</li>
+                          <li>Client Relationships</li>
+                        </ul>
+                      </div>
                     </div>
+                  </div>
+                  <div className="w-full h-[200px] sm:h-[250px] bg-[#fff] rounded-3xl overflow-hidden">
+                    <img
+                      src={mission}
+                      alt="mission"
+                      className="h-full w-full object-cover rounded-3xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -262,11 +251,32 @@ const company = () => {
         {/* SUPPORTS */}
         <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen">
           <section
+            id="goalsmission"
+            className="max-w-[1400px] mx-auto w-full mb-10 p-6"
+          >
+            <div className="text-[30px] sm:text-[40px] md:text-[50px] textGradient4 text-[#fff] text-center leading-tight mb-5">
+              VISION AND MISSION
+              <span className="block text-[18px] sm:text-[25px] md:text-[30px]">
+                Innovation with Impact
+              </span>
+            </div>
+            <div className="text-[#fff] max-w-[900px] mx-auto text-center textGradient6 text-sm sm:text-base">
+              Our vision is to lead in technological innovation, providing
+              impactful solutions that drive business growth. We are committed
+              to creating lasting value through strategic partnerships and
+              cutting-edge products. Our mission is to empower our clients with
+              the tools and expertise to succeed in an ever-evolving digital
+              landscape. We strive for excellence, integrity, and a future of
+              continuous progress.
+            </div>
+          </section>
+
+          <section
             id="supports"
             className="max-w-[1400px] mx-auto w-full mb-2 p-6"
           >
-            <div className="h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] overflow-hidden">
+            <div className="h-auto w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
+              <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden p-4">
                 <div className="text-center mb-8">
                   <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 textGradient4 pt-5">
                     Support
@@ -277,65 +287,64 @@ const company = () => {
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 p-2 gap-8">
-                  <div className="bg-[#F7922C] rounded-lg p-6 flex items-center justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="bg-[#F7922C] rounded-lg p-6 flex flex-col justify-center gap-4">
                     <h3 className="text-white font-semibold text-lg">
-                      Lorem, ipsum.
+                      Software Support
                     </h3>
                     <p className="text-white">
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, consequuntur?
+                      Our expert team assists with installations,
+                      troubleshooting, and updates for all software solutions.
                     </p>
                   </div>
-                  <div className="bg-[#fff] rounded-lg p-6 flex items-center justify-center border border-gray-200">
+
+                  <div className="bg-[#fff] rounded-lg p-6 flex flex-col justify-center gap-4 border border-gray-200">
                     <h3 className="text-gray-800 font-semibold text-lg">
-                      Lorem, ipsum.
+                      Hardware Support
                     </h3>
-                    <p className="text-white">
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, consequuntur?
+                    <p className="text-gray-800">
+                      We provide hardware maintenance, upgrades, and repair
+                      services to ensure seamless operation.
                     </p>
                   </div>
-                  <div className="bg-[#F7922C] rounded-lg p-6 flex items-center justify-center">
+
+                  <div className="bg-[#F7922C] rounded-lg p-6 flex flex-col justify-center gap-4">
                     <h3 className="text-white font-semibold text-lg">
-                      Lorem, ipsum.
+                      24/7 Customer Service
                     </h3>
                     <p className="text-white">
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, consequuntur?
+                      Our dedicated customer service team is available around
+                      the clock to assist with urgent needs.
                     </p>
                   </div>
-                  <div className="bg-gray-100 rounded-lg p-6 flex items-center justify-center border border-gray-200">
+
+                  <div className="bg-gray-100 rounded-lg p-6 flex flex-col justify-center gap-4 border border-gray-200">
                     <h3 className="text-gray-800 font-semibold text-lg">
-                      Lorem, ipsum.
+                      Cloud Solutions
                     </h3>
-                    <p className="text-white">
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, consequuntur?
+                    <p className="text-gray-800">
+                      We help you migrate, manage, and secure your data on cloud
+                      platforms for optimal efficiency.
                     </p>
                   </div>
-                  <div className="bg-[#F7922C] rounded-lg p-6 flex items-center justify-center">
+
+                  <div className="bg-[#F7922C] rounded-lg p-6 flex flex-col justify-center gap-4">
                     <h3 className="text-white font-semibold text-lg">
-                      Lorem, ipsum.
+                      Network Support
                     </h3>
                     <p className="text-white">
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, consequuntur?
+                      Get assistance with network setup, security, and
+                      maintenance to keep your business connected.
                     </p>
                   </div>
-                  <div className="bg-gray-100 rounded-lg p-6 flex items-center justify-center border border-gray-200">
+
+                  <div className="bg-gray-100 rounded-lg p-6 flex flex-col justify-center gap-4 border border-gray-200">
                     <h3 className="text-gray-800 font-semibold text-lg">
-                      Lorem, ipsum.
+                      Training & Consultation
                     </h3>
-                    <p className="text-white">
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, consequuntur?
+                    <p className="text-gray-800">
+                      We provide training and consulting services to empower
+                      your team with IT skills and best practices.
                     </p>
                   </div>
                 </div>
@@ -347,26 +356,73 @@ const company = () => {
         {/* bussiness opportunities */}
         <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen">
           <section
-            id="bussinessopportunities"
+            id="business-opportunities"
             className="max-w-[1400px] mx-auto w-full mb-10 p-6"
           >
-            <div className="h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] overflow-hidden">
-                <div className="text-center mb-8 w-full">
-                  <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 textGradient4 pt-5">
-                    Bussiness Opportunities
+            <div className="w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
+              <div className="rounded-3xl w-full bg-[#000] overflow-hidden p-8 text-white">
+                {/* Section Header */}
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl md:text-4xl font-extrabold mb-4 textGradient4">
+                    Business Opportunities
                   </h2>
-                  <p className="text-white text-sm md:text-base">
-                    Explore growth avenues through strategic collaborations,
-                    innovative solutions, and tailored services designed to meet
-                    dynamic market demands. Unlock potential and scale your
-                    business efficiently with our expert guidance.
+                  <p className="text-sm md:text-base">
+                    Unlock growth through partnerships, technological
+                    innovation, and market-driven solutions. Whether you're a
+                    startup or a growing enterprise, we are your partner for
+                    business transformation.
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8 h-[400px] p-5 ">
-                  <div className="bg-slate-50 p-2 rounded-3xl h-full "></div>
-                  <div className="bg-slate-50 p-2 rounded-3xl h-full"></div>
+                {/* Grid Section */}
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {/* Opportunity 1 */}
+                  <div className="bg-slate-50 p-5 rounded-3xl text-black flex flex-col justify-center items-start gap-4">
+                    <h3 className="text-xl font-semibold">
+                      Collaborative Partnerships
+                    </h3>
+                    <p className="text-sm">
+                      Build powerful alliances to expand your market reach and
+                      share technological advancements. We connect you with key
+                      players to accelerate growth.
+                    </p>
+                  </div>
+
+                  {/* Opportunity 2 */}
+                  <div className="bg-slate-50 p-5 rounded-3xl text-black flex flex-col justify-center items-start gap-4">
+                    <h3 className="text-xl font-semibold">
+                      Tailored IT Solutions
+                    </h3>
+                    <p className="text-sm">
+                      Empower your business with cutting-edge IT services
+                      designed to streamline operations, enhance productivity,
+                      and deliver customer-centric solutions.
+                    </p>
+                  </div>
+
+                  {/* Opportunity 3 */}
+                  <div className="bg-slate-50 p-5 rounded-3xl text-black flex flex-col justify-center items-start gap-4">
+                    <h3 className="text-xl font-semibold">
+                      Emerging Market Strategies
+                    </h3>
+                    <p className="text-sm">
+                      Navigate new markets with confidence through data-driven
+                      strategies and comprehensive market insights tailored to
+                      your unique business needs.
+                    </p>
+                  </div>
+
+                  {/* Opportunity 4 */}
+                  <div className="bg-slate-50 p-5 rounded-3xl text-black flex flex-col justify-center items-start gap-4">
+                    <h3 className="text-xl font-semibold">
+                      Scalable Digital Transformation
+                    </h3>
+                    <p className="text-sm">
+                      Leverage our expertise in digital transformation to
+                      seamlessly transition your business into a scalable,
+                      efficient, and digitally-driven enterprise.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

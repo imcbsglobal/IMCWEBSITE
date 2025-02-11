@@ -409,141 +409,66 @@ const clients = [
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
-    <div>
-      <div className="pt-[150px] flex flex-col justify-center items-center w-full">
-        <section id="customers" className="max-w-[1400px] mx-auto mb-10 w-full">
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 place-items- w-full gap-7">
-              <div className="w-full px-2">
-                <div className="textGradient4 text-[#fff] text-[40px] mb-5">
-                  CUSTOMERS
-                </div>
-                <div className="textGradient6 text-[#fff] mb-5">
-                  Customers play a crucial role in defining a business's dignity
-                  and credibility. For us, they are our greatest strength. Our
-                  primary focus is to maintain strong and positive relationships
-                  with them. Here, we are pleased to introduce a few of our
-                  valued customers.
-                </div>
-                <div className="w-full h-[355px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                  <div className="bg-black h-full w-full rounded-3xl flex flex-col justify-center items-center text-white p-4 text-justify">
-                    <img
-                      src={client}
-                      alt="client"
-                      className="w-full h-full flex justify-center items-center rounded-3xl"
-                    />
-                  </div>
+    <div className="overflow-hidden">
+      {/* intro */}
+      <div className="pt-[150px] flex flex-col justify-center items-center w-full overflow-hidden">
+        <section
+          id="customers"
+          className="max-w-[1400px] mx-auto mb-10 w-full px-4"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
+            {/* Left Section */}
+            <div className="w-full">
+              <h2 className="textGradient4 text-white text-3xl md:text-4xl mb-5">
+                CUSTOMERS
+              </h2>
+              <p className="textGradient6 text-white mb-5">
+                Customers play a crucial role in defining a business's dignity
+                and credibility. For us, they are our greatest strength. Our
+                primary focus is to maintain strong and positive relationships
+                with them. Here, we are pleased to introduce a few of our valued
+                customers.
+              </p>
+
+              <div className="w-full h-[355px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl">
+                <div className="bg-black h-full w-full rounded-3xl flex justify-center items-center">
+                  <img
+                    src={client}
+                    alt="Client"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
                 </div>
               </div>
+            </div>
 
-              <div className="w-full  px-4">
-                <div className="grid grid-cols-3 grid-rows-3 gap-4 h-auto">
-                  {/* First row */}
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={task}
-                          alt="task"
-                          className="object-contain justify-center items-center flex bg-white h-[100px w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={shade}
-                          alt="shade"
-                          className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={magnet}
-                          alt="magnet"
-                          className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Second row */}
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl ">
-                        <img
-                          src={dine}
-                          alt="dine"
-                          className="object-contain justify-center items-center flex bg-white h-full w-full p-2"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={vtask}
-                          alt="vtask"
-                          className="object-contain justify-center items-center flex bg-white h-full w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl">
-                        <img
-                          src={starstay}
-                          alt="starstay"
-                          className="object-cover justify-center items-center flex bg-white h-full w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Third row */}
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={clublogic}
-                          alt="clublogic"
-                          className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={auric}
-                          alt="auric"
-                          className="object-contain justify-center items-center flex bg-white h-full w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center h-[165px] justify-center bg-gray-100  rounded-2xl">
-                    <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                      <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-5">
-                        <img
-                          src={taskpro}
-                          alt="taskpro"
-                          className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
-                        />
-                      </div>
+            {/* Right Section - Grid of Logos */}
+            <div className="w-full grid grid-cols-3 gap-4">
+              {[
+                task,
+                shade,
+                magnet,
+                dine,
+                vtask,
+                starstay,
+                clublogic,
+                auric,
+                taskpro,
+              ].map((logo, index) => (
+                <div
+                  key={index}
+                  className="h-[140px] flex items-center justify-center bg-gray-100 rounded-2xl overflow-hidden"
+                >
+                  <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl">
+                    <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-4">
+                      <img
+                        src={logo}
+                        alt={`Logo ${index + 1}`}
+                        className="object-contain h-[80px] w-full"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -551,26 +476,36 @@ const clients = [
 
       {/* client task */}
       <div className="pt-12 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className=" relative  " id="slienttask">
-          <div className=" h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+        <section className="relative w-full" id="slienttask">
+          <div className="w-full max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-6">
               <img
                 src={task}
                 alt="task"
-                className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[80px] md:h-[100px]"
               />
             </div>
+
+            {/* Navigation Buttons */}
             <button
               onClick={prevSlide1}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
             >
-              <ChevronLeft className="w-8 h-8 text-black" />
+              <ChevronLeft className="w-6 h-6 text-black" />
             </button>
-            {/* Slider */}
-            <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
+
+            <button
+              onClick={nextSlide1}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
+            >
+              <ChevronRight className="w-6 h-6 text-black" />
+            </button>
+
+            {/* Swiper Slider */}
+            <div className="w-full">
               <Swiper
                 onSwiper={(swiper) => (swiperRef1.current = swiper)}
-                // centeredSlides={true}
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
@@ -580,86 +515,80 @@ const clients = [
                 modules={[Autoplay]}
                 className="w-full"
                 breakpoints={{
-                  640: {
+                  0: {
                     slidesPerView: 1,
                     centeredSlides: false,
+                    spaceBetween: 16,
+                  },
+                  640: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   768: {
                     slidesPerView: 2,
-                    centeredSlides: true,
-                    spaceBetween: 30,
+                    spaceBetween: 24,
                   },
                   1024: {
                     slidesPerView: 4,
-                    centeredSlides: true,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                   },
-                }}
-                navigation={{
-                  // Enable navigation
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
                 }}
               >
                 {clienttask.map((item, i) => (
                   <SwiperSlide key={i}>
-                    <div
-                      className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative 
-                         h-[400px] shadow-2xl border border-gray-400"
-                    >
-                      <div className="mt-[-80px]">
-                        <img
-                          src={item.logo}
-                          alt={item.name}
-                          className="h-[300px] w-full object-contain "
-                        />
-                      </div>
-                      <div className=" absolute bottom-5 flex flex-col justify-center items-center">
-                        <h3 className="text-black font-bold text-lg mt-4 mb-3">
+                    <div className="flex flex-col items-center justify-center h-[300px] md:h-[400px] shadow-lg border border-gray-200 rounded-lg transition-all duration-300 relative p-4">
+                      <img
+                        src={item.logo}
+                        alt={item.name}
+                        className="h-[200px] md:h-[300px] object-contain"
+                      />
+                      <div className="absolute bottom-5 w-full px-2 text-center">
+                        <h3 className="text-black font-bold text-base md:text-lg mt-2">
                           {item.name}
                         </h3>
-                        <p className="text-black text-sm text-center px-2">
-                          {item.location}
-                        </p>
+                        <p className="text-black text-sm">{item.location}</p>
                       </div>
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-            <button
-              onClick={nextSlide1}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3           rounded-3xl  bg-[#f68d2b84]"
-            >
-              <ChevronRight className="w-8 h-8 text-black" />
-            </button>
           </div>
         </section>
       </div>
 
       {/* client shade */}
       <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative  " id="clientshade">
-          <div className=" h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+        <section className="relative w-full" id="clientshade">
+          <div className="w-full max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-6">
               <img
                 src={shade}
                 alt="shade"
-                className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[80px] md:h-[100px]"
               />
             </div>
+
+            {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
             >
-              <ChevronLeft className="w-8 h-8 text-black" />
+              <ChevronLeft className="w-6 h-6 text-black" />
             </button>
-            {/* Slider */}
-            <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto gap-3">
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
+            >
+              <ChevronRight className="w-6 h-6 text-black" />
+            </button>
+
+            {/* Swiper Slider */}
+            <div className="w-full">
               <Swiper
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
-                // centeredSlides={true}
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
@@ -669,86 +598,80 @@ const clients = [
                 modules={[Autoplay]}
                 className="w-full"
                 breakpoints={{
-                  640: {
+                  0: {
                     slidesPerView: 1,
                     centeredSlides: false,
+                    spaceBetween: 16,
+                  },
+                  640: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   768: {
                     slidesPerView: 2,
-                    centeredSlides: true,
-                    spaceBetween: 30,
+                    spaceBetween: 24,
                   },
                   1024: {
                     slidesPerView: 4,
-                    centeredSlides: true,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                   },
-                }}
-                navigation={{
-                  // Enable navigation
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
                 }}
               >
                 {clients.map((item, i) => (
                   <SwiperSlide key={i}>
-                    <div
-                      className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative 
-                         h-[400px]  gap-2 shadow-2xl border border-gray-400"
-                    >
-                      <div className="mt-[-80px]">
-                        <img
-                          src={item.logo}
-                          alt={item.name}
-                          className=" w-full object-contain h-[200px] "
-                        />
-                      </div>
-                      <div className=" absolute bottom-5 flex flex-col justify-center items-center">
-                        <h3 className="text-black font-bold text-lg mt-4 mb-3">
+                    <div className="flex flex-col items-center justify-center h-[300px] md:h-[400px] shadow-lg border border-gray-200 rounded-lg transition-all duration-300 relative p-4">
+                      <img
+                        src={item.logo}
+                        alt={item.name}
+                        className="h-[180px] md:h-[200px] object-contain"
+                      />
+                      <div className="absolute bottom-5 w-full px-2 text-center">
+                        <h3 className="text-black font-bold text-base md:text-lg mt-2">
                           {item.name}
                         </h3>
-                        <p className="text-black text-sm text-center px-2">
-                          {item.location}
-                        </p>
+                        <p className="text-black text-sm">{item.location}</p>
                       </div>
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
-            >
-              <ChevronRight className="w-8 h-8 text-black" />
-            </button>
           </div>
         </section>
       </div>
 
       {/* client magnet */}
       <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="clientmagnet">
-          <div className=" h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+        <section className="relative py-5 w-full" id="clientmagnet">
+          <div className="w-full max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-6">
               <img
                 src={magnet}
                 alt="magnet"
-                className="object-contain justify-center items-center flex bg-white h-[150px] w-full"
+                className="object-contain mx-auto bg-white h-[100px] md:h-[150px]"
               />
             </div>
+
+            {/* Navigation Buttons */}
             <button
               onClick={prevSlide2}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
             >
-              <ChevronLeft className="w-8 h-8 text-black" />
+              <ChevronLeft className="w-6 h-6 text-black" />
             </button>
-            {/* Slider */}
-            <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
+
+            <button
+              onClick={nextSlide2}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
+            >
+              <ChevronRight className="w-6 h-6 text-black" />
+            </button>
+
+            {/* Swiper Slider */}
+            <div className="w-full">
               <Swiper
                 onSwiper={(swiper) => (swiperRef2.current = swiper)}
-                // centeredSlides={true}
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
@@ -758,84 +681,80 @@ const clients = [
                 modules={[Autoplay]}
                 className="w-full"
                 breakpoints={{
-                  640: {
+                  0: {
                     slidesPerView: 1,
                     centeredSlides: false,
+                    spaceBetween: 16,
+                  },
+                  640: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   768: {
                     slidesPerView: 2,
-                    centeredSlides: true,
-                    spaceBetween: 30,
+                    spaceBetween: 24,
                   },
                   1024: {
                     slidesPerView: 4,
-                    centeredSlides: true,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                   },
-                }}
-                navigation={{
-                  // Enable navigation
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
                 }}
               >
                 {clientmagnet.map((item, i) => (
                   <SwiperSlide key={i}>
-                    <div className="w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] shadow-2xl border border-gray-400">
-                      <div className="mt-[-80px]">
-                        <img
-                          src={item.logo}
-                          alt={item.name}
-                          className=" w-full object-contain h-[200px]"
-                        />
-                      </div>
-                      <div className=" absolute bottom-5 flex flex-col justify-center items-center">
-                        <h3 className="text-black font-bold text-lg mt-4 mb-3">
+                    <div className="flex flex-col items-center justify-center h-[300px] md:h-[400px] shadow-lg border border-gray-200 rounded-lg transition-all duration-300 relative p-4">
+                      <img
+                        src={item.logo}
+                        alt={item.name}
+                        className="h-[160px] md:h-[200px] object-contain"
+                      />
+                      <div className="absolute bottom-5 w-full px-2 text-center">
+                        <h3 className="text-black font-bold text-base md:text-lg mt-2">
                           {item.name}
                         </h3>
-                        <p className="text-black text-sm text-center px-2">
-                          {item.location}
-                        </p>
+                        <p className="text-black text-sm">{item.location}</p>
                       </div>
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-            <button
-              onClick={nextSlide2}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
-            >
-              <ChevronRight className="w-8 h-8 text-black" />
-            </button>
           </div>
         </section>
       </div>
 
       {/* client Dine */}
       <div className="pt-2 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="clientdine">
-          <div className=" h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+        <section className="relative py-5 w-full" id="clientdine">
+          <div className="w-full max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-6">
               <img
                 src={dine}
                 alt="dine"
-                className="object-contain justify-center items-center flex bg-white h-[150px] w-full"
+                className="object-contain mx-auto bg-white h-[100px] md:h-[150px]"
               />
             </div>
 
+            {/* Navigation Buttons */}
             <button
               onClick={prevSlide3}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-3xl  bg-[#f68d2b84]"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
             >
-              <ChevronLeft className="w-8 h-8 text-black" />
+              <ChevronLeft className="w-6 h-6 text-black" />
             </button>
-            {/* Slider */}
-            <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
+
+            <button
+              onClick={nextSlide3}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-orange-300 hover:bg-orange-400"
+            >
+              <ChevronRight className="w-6 h-6 text-black" />
+            </button>
+
+            {/* Swiper Slider */}
+            <div className="w-full">
               <Swiper
                 onSwiper={(swiper) => (swiperRef3.current = swiper)}
-                // centeredSlides={true}
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
@@ -845,130 +764,112 @@ const clients = [
                 modules={[Autoplay]}
                 className="w-full"
                 breakpoints={{
-                  640: {
+                  0: {
                     slidesPerView: 1,
                     centeredSlides: false,
+                    spaceBetween: 16,
+                  },
+                  640: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   768: {
                     slidesPerView: 2,
-                    centeredSlides: true,
-                    spaceBetween: 30,
+                    spaceBetween: 24,
                   },
                   1024: {
                     slidesPerView: 4,
-                    centeredSlides: true,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                   },
-                }}
-                navigation={{
-                  // Enable navigation
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
                 }}
               >
                 {clientdine.map((item, i) => (
                   <SwiperSlide key={i}>
-                    <div className="shadow-2xl border border-gray-400 w-full flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] ">
-                      <div className="mt-[-80px]">
-                        <img
-                          src={item.logo}
-                          alt={item.name}
-                          className=" w-full object-contain h-[200px]"
-                        />
-                      </div>
-                      <div className=" absolute bottom-5 flex flex-col justify-center items-center">
-                        <h3 className="text-black font-bold text-lg mt-4 mb-3">
+                    <div className="shadow-lg border border-gray-200 w-full flex flex-col items-center justify-center transition-all duration-300 relative h-[300px] md:h-[400px] p-4 rounded-lg">
+                      <img
+                        src={item.logo}
+                        alt={item.name}
+                        className="h-[160px] md:h-[200px] object-contain"
+                      />
+                      <div className="absolute bottom-5 w-full px-2 text-center">
+                        <h3 className="text-black font-bold text-base md:text-lg mt-2">
                           {item.name}
                         </h3>
-                        <p className="text-black text-sm text-center px-2">
-                          {item.location}
-                        </p>
+                        <p className="text-black text-sm">{item.location}</p>
                       </div>
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-            <button
-              onClick={nextSlide3}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3  rounded-3xl  bg-[#f68d2b84]"
-            >
-              <ChevronRight className="w-8 h-8 text-black" />
-            </button>
           </div>
         </section>
       </div>
 
       {/* client V task */}
       <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="clientvtask">
-          <div className="h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+        <section className="relative py-5 w-full" id="clientvtask">
+          <div className="w-full max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-8">
               <img
                 src={vtask}
                 alt="vtask"
-                className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[100px] md:h-[150px]"
               />
             </div>
-            <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
-              {/* Static Items Display */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {clientvtask.slice(0, 3).map((item, i) => (
-                  <div
-                    key={i}
-                    className="w-[400px] flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] shadow-2xl border border-gray-400 "
-                  >
-                    <div className="mt-[-80px]">
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className="w-full object-contain h-[200px]"
-                      />
-                    </div>
-                    <div className="absolute bottom-5 flex flex-col justify-center items-center">
-                      <h3 className="text-black font-bold text-lg mt-4 mb-3">
-                        {item.name}
-                      </h3>
-                      <p className="text-black text-sm text-center px-2">
-                        {item.location}
-                      </p>
-                    </div>
+
+            {/* Static Items Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {clientvtask.slice(0, 3).map((item, i) => (
+                <div
+                  key={i}
+                  className="shadow-xl border border-gray-300 w-full flex flex-col items-center justify-center p-5 transition-all duration-300 relative h-[300px] md:h-[400px] rounded-lg"
+                >
+                  <img
+                    src={item.logo}
+                    alt={item.name}
+                    className="h-[160px] md:h-[200px] object-contain"
+                  />
+                  <div className="absolute bottom-5 w-full px-3 text-center">
+                    <h3 className="text-black font-bold text-base md:text-lg mt-3">
+                      {item.name}
+                    </h3>
+                    <p className="text-black text-sm">{item.location}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
       </div>
 
       {/* client auric */}
-      <div className="pt-5 flex flex-col justify-center items-center  bg-white min-h-screen w-full">
-        <section className="mb-5 relative py-5 " id="clientauric">
-          <div className=" h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+      <div className="pt-5 flex flex-col justify-center items-center bg-white min-h-screen w-full">
+        <section className="mb-5 relative py-5 w-full" id="clientauric">
+          <div className="w-full max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-8">
               <img
                 src={auric}
                 alt="auric"
-                className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[100px] md:h-[150px] w-full"
               />
             </div>
-            <div className=" pt-20 relative h-[400px] w-[1400px] rounded-3xl flex flex-col justify-center items-center text-white  text-justify">
-              <div className="h-[400px] w-[400px]   absolute  shadow-2xl border border-gray-400 flex flex-col items-center rounded-tr-[] justify-center ">
-                <div className="mt-[-80px]">
-                  <img
-                    src={anugraha}
-                    alt="anugraha"
-                    className="w-full object-contain h-[300px] "
-                  />
-                </div>
-                <div className="absolute bottom-5 flex flex-col justify-center items-center w-full">
-                  <h3 className="text-black font-bold text-lg mt-4 mb-3 text-center">
+
+            {/* Single Client Display */}
+            <div className="relative flex justify-center items-center">
+              <div className="shadow-xl border border-gray-300 bg-white p-5 rounded-2xl w-full max-w-[400px]">
+                <img
+                  src={anugraha}
+                  alt="anugraha"
+                  className="object-contain mx-auto h-[200px] md:h-[300px]"
+                />
+                <div className="mt-4 text-center">
+                  <h3 className="text-black font-bold text-lg">
                     Anugraha Gold & Diamonds
                   </h3>
-                  <p className="text-black text-sm text-center px-2">
-                    Muttil Wayanad
-                  </p>
+                  <p className="text-black text-sm">Muttil Wayanad</p>
                 </div>
               </div>
             </div>
@@ -977,78 +878,77 @@ const clients = [
       </div>
 
       {/* client  star stay */}
-     <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
-        <section className="mb-5 relative py-5 " id="clientvtask">
-          <div className="h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+        <section className="mb-5 relative py-5 w-full" id="clientvtask">
+          <div className="max-w-[1400px] mx-auto">
+            {/* Header */}
+            <div className="text-center mb-8">
               <img
                 src={starstay}
                 alt="starstay"
-                className="object-contain justify-center items-center flex bg-white h-[250px] w-full"
+                className="object-contain mx-auto bg-white h-[150px] md:h-[250px] w-full"
               />
             </div>
-            <div className="w-full flex justify-center items-center max-w-[1400px] mx-auto">
-              {/* Static Items Display */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {clientstarstay.slice(0, 3).map((item, i) => (
-                  <div
-                    key={i}
-                    className="w-[400px] flex flex-col items-center rounded-tr-[] justify-center transition-all duration-500 relative h-[400px] w shadow-2xl border border-gray-400 "
-                  >
-                    <div className="mt-[-80px]">
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className="w-full object-contain h-[200px]"
-                      />
-                    </div>
-                    <div className="absolute bottom-5 flex flex-col justify-center items-center">
-                      <h3 className="text-black font-bold text-lg mt-4 mb-3">
-                        {item.name}
-                      </h3>
-                      <p className="text-black text-sm text-center px-2">
-                        {item.location}
-                      </p>
-                    </div>
+
+            {/* Static Items Display */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-5 md:px-0">
+              {clientstarstay.slice(0, 3).map((item, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center justify-center bg-white shadow-lg border border-gray-300 p-5 rounded-xl relative h-[400px] transition-transform transform hover:scale-105"
+                >
+                  <img
+                    src={item.logo}
+                    alt={item.name}
+                    className="w-full object-contain h-[200px]"
+                  />
+                  <div className="mt-5 text-center">
+                    <h3 className="text-black font-bold text-lg">
+                      {item.name}
+                    </h3>
+                    <p className="text-black text-sm">{item.location}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
       </div>
 
       {/* client clublogic */}
-      <div className="pt-5 flex flex-col justify-center items-center  bg-white min-h-screen w-full">
-        <section className="mb-5 relative py-5 " id="clientauric">
-          <div className=" h-[700px]">
-            <div className="md:text-[50px] text-[30px] font-bold text-center mb-6">
+      <div className="pt-5 flex flex-col justify-center items-center bg-white min-h-screen w-full">
+        <section className="mb-5 relative py-5 w-full" id="clientauric">
+          <div className="max-w-[1400px] mx-auto">
+            {/* Header Image */}
+            <div className="text-center mb-8">
               <img
                 src={clublogic}
                 alt="clublogic"
-                className="object-contain justify-center items-center flex bg-white h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[80px] md:h-[100px] w-full"
               />
             </div>
-            <div className=" pt-20 relative h-[400px] w-[1400px] rounded-3xl flex flex-col justify-center items-center text-white  text-justify">
-              <div className="h-[400px] w-[400px]   absolute  shadow-2xl border border-gray-400 flex flex-col items-center rounded-tr-[] justify-center ">
-                <div className="mt-[-80px]">
+
+            {/* Static Item Display */}
+            <div className="flex justify-center">
+              <div className="relative shadow-lg border border-gray-300 p-5 rounded-2xl bg-white w-full max-w-[400px] h-[400px]">
+                <div className="flex justify-center mt-[-50px]">
                   <img
                     src={bodyzone}
                     alt="bzfitness"
-                    className="w-full object-contain h-[300px]"
+                    className="w-full object-contain h-[250px]"
                   />
                 </div>
-                <div className="absolute bottom-5 flex flex-col justify-center items-center w-full">
-                  <h3 className="text-black font-bold text-lg mt-4 mb-3 text-center">
+                <div className="absolute bottom-5 w-full text-center">
+                  <h3 className="text-black font-bold text-lg mb-2">
                     BZ Fitness
                   </h3>
-                  <p className="text-black text-sm text-center px-2"></p>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
+
       {/* footer */}
       <section className="py-10 bg-[#fff] w-full">
         <Footer />
