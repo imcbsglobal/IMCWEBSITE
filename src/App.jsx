@@ -21,6 +21,7 @@ import Login from './components/login';
 import Admin from './components/admin';
 import AddUser from './components/adduser';
 import Signinlogin from './components/signin'
+// import Addproduct from './components/addproduct'
 function App() {
   return (
     <Router>
@@ -33,7 +34,7 @@ const AppWithRouting = () => {
   const location = useLocation();
 
   // Hide Navbar for these routes
-  const hideNavbarRoutes = ['/login', '/admin'];
+  const hideNavbarRoutes = ['/login', '/admin','/addproduct'];
   const showNavbar = !hideNavbarRoutes.includes(location.pathname);
 
   return (
@@ -49,8 +50,8 @@ const AppWithRouting = () => {
         <Route path="/branding" element={<Branding />} />
         <Route path="/graphicsandCreatives" element={<GraphicsCreatives />} />
         <Route path="/businessBranding" element={<BusinessBrading />} />
-        <Route path="/productTutorials" element={<ProductTutorials />} />
-        <Route path="/productVideo" element={<ProductVideo />} />
+        <Route path="/productVideo" element={<ProductTutorials />} />
+        <Route path="/productTutorials" element={<ProductVideo />} />
         <Route path="/questionChatBoats" element={<QuestionChatBoats />} />
         <Route path="/whatsappSupports" element={<WhatsappSupports />} />
         <Route path="/contact" element={<Contact />} />
@@ -60,6 +61,7 @@ const AppWithRouting = () => {
         <Route path="/login" element={<Login />} />
         <Route path='/signinlogin' element={<Signinlogin/>}/>
         <Route path="/admin" element={<Admin />} />
+        {/* <Route path="/addproduct" element={<Addproduct />} /> */}
       </Routes>
     </>
   );

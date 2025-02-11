@@ -1,34 +1,73 @@
-import React ,{useEffect} from 'react'
+import React, { useEffect, useState } from 'react';
+import { collection, getDocs } from "firebase/firestore";
+import { dbFirestore } from "../../firebaseConfig";
 
 const ProductTutorials = () => {
+  const [demonstrations, setDemonstrations] = useState([]);
+
   useEffect(() => {
-      // Scroll to the top of the page on mount
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
+    // Scroll to the top of the page on mount
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    // Fetch product demonstrations from Firestore
+    const fetchDemonstrations = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(dbFirestore, "productdemo"));
+        const demoList = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setDemonstrations(demoList);
+      } catch (error) {
+        console.error("Error fetching demonstrations:", error);
+      }
+    };
+
+    fetchDemonstrations();
+  }, []);
+
   return (
-    <div className="pt-[130px] flex flex-col justify-center items-center">
-      <section className="max-w-[1400px] w-full mb-10">
-        <div>
-          <div className="text-[#fff] text-[50px] textGradient4 mb-5 text-center leading-tight">
-            Learn, Implement, Excel{" "}
-            <span className="block text-[20px]">
-              Step by Step Tutorials to Unlock Your Product's Full Potential
-            </span>
+    <div className="min-h-screen bg-black">
+      <section className="py-16 px-4 mt-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-white mb-4">
+              PRODUCT DEMONSTRATION
+            </h1>
+            <p className="text-lg text-white max-w-3xl mx-auto">
+              Explore our product demonstrations to learn more about our products' features and capabilities. Watch detailed tutorials and guides to make the most of your purchase.
+            </p>
           </div>
-          <div className="max-w-[1000px] mx-auto text-center text-[#fff] textGradient6">
-            Empower yourself or your team with in-depth product tutorials
-            designed to simplify learning and enhance efficiency. Our guided
-            lessons make it easy to understand complex features, implement
-            solutions, and maximize your product usage.
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            {demonstrations.map((demo) => (
+              <div key={demo.id} className="bg-black rounded-lg shadow-md overflow-hidden ">
+                <div className='border border-white rounded-lg p-4'>
+                <div className="aspect-w-16 aspect-h-9">
+                  {demo.videoUrl && (
+                    <iframe
+                      className="w-full h-64"
+                      src={demo.videoUrl}
+                      title={demo.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  )}
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {demo.title}
+                  </h3>
+                </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
-      <section className="mb-20 max-w-[1400px] mx-auto w-full bg-gradient-to-r h-[500px] from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-full">
-        <div className='h-full w-full rounded-full bg-[#000]'></div>
-      </section>
     </div>
   );
-}
+};
 
-export default ProductTutorials
+export default ProductTutorials;

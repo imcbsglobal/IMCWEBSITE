@@ -11,12 +11,12 @@ const firebaseConfig = {
   messagingSenderId: "513961941476",
   appId: "1:513961941476:web:ca2b92c659c101353a0ff1",
   measurementId: "G-CLXWK3WPSD",
+  databaseURL: "https://imcwebsite-66100-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase services
 export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const database = getDatabase(app);
+export const dbFirestore = getFirestore(app); // Consistent export naming
+export const dbRealtime = getDatabase(app); // Consistent export naming

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { database } from "../firebaseConfig";
+// import { database } from "./Firebase";
 import { ref, push, set } from "firebase/database";
-
+import { dbFirestore, dbRealtime } from "../firebaseConfig";
 function AddUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

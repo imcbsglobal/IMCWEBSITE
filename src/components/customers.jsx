@@ -480,7 +480,7 @@ const clients = [
                         <img
                           src={dine}
                           alt="dine"
-                          className="object-cover justify-center items-center flex bg-white h-full w-full p-2"
+                          className="object-contain justify-center items-center flex bg-white h-full w-full p-2"
                         />
                       </div>
                     </div>
