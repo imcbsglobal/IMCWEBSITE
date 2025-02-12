@@ -72,86 +72,79 @@ const MobileApp = () => {
   ];
   return (
     <div className="pt-[150px] flex flex-col justify-center items-center">
-      <section className="max-w-[1400px] mx-auto w-full mb-20">
+      {/* intro */}
+      <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
         <div>
           <div className="flex flex-col justify-center items-center gap-5">
-            <div className="w-full h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={mobileapp} alt="mobileapp" className='w-full h-full rounded-3xl flex object-cover' /></div>
+            <div className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl">
+              <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                <img
+                  src={mobileapp}
+                  alt="mobileapp"
+                  className="w-full h-full rounded-3xl object-cover"
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-12 place-items-center gap-5 w-full">
-              <div className=" col-span-6 bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px] w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={app} alt="app" className="w-full h-full flex object-cover
-                                rounded-3xl"/></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+                <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                  <img
+                    src={app}
+                    alt="app"
+                    className="w-full h-full rounded-3xl object-cover"
+                  />
+                </div>
               </div>
-              <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={app1} alt="app1" className="w-full h-full flex object-cover
-                                rounded-3xl"/></div>
+              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+                <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                  <img
+                    src={app1}
+                    alt="app1"
+                    className="w-full h-full rounded-3xl object-cover"
+                  />
+                </div>
               </div>
-              <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={app2} alt="app2" className="w-full h-full flex object-cover
-                                rounded-3xl"/></div>
+              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+                <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                  <img
+                    src={app2}
+                    alt="app2"
+                    className="w-full h-full rounded-3xl object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="max-w-[1400px] mx-auto w-full mb-20">
+      {/* mobile app DEVELOPMENT */}
+      <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
         <div>
-          <div className="flex flex-col gap-5 mb-10">
-            <div className="text-[#fff] text-[50px] textGradient4 leading-tight flex justify-center items-center text-center">
-              MOBILE APP DEVELOPMENT{" "}
-            </div>
-            <div className=" text-[#fff] textGradient6 flex justify-center items-center text-center">
+          <div className="flex flex-col gap-5 mb-10 text-center">
+            <h2 className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 leading-tight">
+              MOBILE APP DEVELOPMENT
+            </h2>
+            <p className="text-[#fff] textGradient6">
               In today's fast-paced world, every entrepreneur seeks real-time
               insights into their business. That's why mobile solutions have
               become essential. We are committed to delivering affordable,
               high-quality mobile applications while also offering tailored
-              solutions designed to meet unique business needs and drive growth
-            </div>
+              solutions designed to meet unique business needs and drive growth.
+            </p>
           </div>
 
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {MobileAppData.map((item) => (
-                <div className="w-full h-[300px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] p-10">
-                    <div className="text-[#fff] text-xl textGradient mb-3 font-black">
-                      {item.title}
-                    </div>
-                    <div className="textGradient6 text-[#fff]">
-                      {item.description}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-20 max-w-[1400px] w-full mx-auto">
-        <div>
-          <div className="text-[#fff] text-[50px] textGradient4 text-center mb-5">
-            Why Choose Us?
-          </div>
-          <div className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
-            At IMC Bussiness Solutions, we specialize in creating innovative,
-            user-friendly mobile applications that deliver exceptional user
-            experiences. Here's why you should choose us for your mobile app
-            development needs:
-          </div>
-
-          <div className="grid grid-cols-2 place-items-center lg:grid-cols-4 gap-10">
-            {ChooseUsList.map((item) => (
-              <div className="w-full h-[230px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] p-5">
-                  <div className="text-[#fff] mb-3 textGradient text-xl font-bold">
-                    {item.titile}
-                  </div>
-                  <div className="text-[#fff] textGradient">
+              <div className="w-full h-[220px] md:h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl">
+                <div className="rounded-3xl w-full h-full bg-[#000] p-5">
+                  <h3 className="text-[#fff] text-xl textGradient mb-3 font-black">
+                    {item.title}
+                  </h3>
+                  <p className="textGradient6 text-[#fff]">
                     {item.description}
-                  </div>
+                  </p>
                 </div>
               </div>
             ))}
@@ -159,30 +152,27 @@ const MobileApp = () => {
         </div>
       </section>
 
-      <section className="mb-20 max-w-[1400px] w-full mx-auto">
+      {/* why choose */}
+      <section className="mb-20 max-w-[1400px] w-full mx-auto px-4">
         <div>
-          <div className="md:flex justify-between items-center mb-10">
-            <div className="text-[#fff] textGradient4 text-[40px] leading-tight md:w-[60%]">
-              Our Comprehensive Mobile App Development Process
-            </div>
-            <div className="md:w-[40%] text-[#fff] textGradient6">
-              We follow a structured and efficient process to deliver
-              high-quality, user-centric mobile applications. From ideation to
-              development, deployment, and continuous support, our team ensures
-              a smooth journey from concept to execution
-            </div>
-          </div>
+          <h2 className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 text-center mb-5">
+            Why Choose Us?
+          </h2>
+          <p className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
+            At IMC Business Solutions, we specialize in creating innovative,
+            user-friendly mobile applications that deliver exceptional user
+            experiences. Here's why you should choose us for your mobile app
+            development needs:
+          </p>
 
-          <div className="grid grid-cols-1 w-full place-items-center md:grid-cols-2 gap-5">
-            {processList.map((item) => (
-              <div className="h-[250px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]">
-                  <div className="text-[#fff] mb-3 textGradient text-2xl font-bold p-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {ChooseUsList.map((item) => (
+              <div className="w-full h-[215px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl">
+                <div className="rounded-3xl w-full h-full bg-[#000] p-5">
+                  <h3 className="text-[#fff] mb-3 textGradient text-xl font-bold">
                     {item.titile}
-                  </div>
-                  <div className="text-[#fff] textGradient">
-                    {item.description}
-                  </div>
+                  </h3>
+                  <p className="text-[#fff] textGradient">{item.description}</p>
                 </div>
               </div>
             ))}

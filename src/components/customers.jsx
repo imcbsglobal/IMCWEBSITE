@@ -475,7 +475,7 @@ const clients = [
       </div>
 
       {/* client task */}
-      <div className="pt-12 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+      <div className="pt-12 flex flex-col justify-center items-center w-full bg-white ">
         <section className="relative w-full" id="slienttask">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}
@@ -483,7 +483,7 @@ const clients = [
               <img
                 src={task}
                 alt="task"
-                className="object-contain mx-auto bg-white h-[80px] md:h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[50px] md:h-[70px] md:w-full md:mt-10"
               />
             </div>
 
@@ -558,7 +558,7 @@ const clients = [
       </div>
 
       {/* client shade */}
-      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white ">
         <section className="relative w-full" id="clientshade">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}
@@ -566,7 +566,7 @@ const clients = [
               <img
                 src={shade}
                 alt="shade"
-                className="object-contain mx-auto bg-white h-[80px] md:h-[100px]"
+                className="object-contain mx-auto bg-white h-[50px] md:h-[70px] md:w-full md:mt-10"
               />
             </div>
 
@@ -641,7 +641,7 @@ const clients = [
       </div>
 
       {/* client magnet */}
-      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white ">
         <section className="relative py-5 w-full" id="clientmagnet">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}
@@ -649,7 +649,7 @@ const clients = [
               <img
                 src={magnet}
                 alt="magnet"
-                className="object-contain mx-auto bg-white h-[100px] md:h-[150px]"
+                className="object-contain mx-auto bg-white h-[70px] md:h-[130px] md:w-full md:mt-10"
               />
             </div>
 
@@ -724,7 +724,7 @@ const clients = [
       </div>
 
       {/* client Dine */}
-      <div className="pt-2 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+      <div className="pt-2 flex flex-col justify-center items-center w-full bg-white">
         <section className="relative py-5 w-full" id="clientdine">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}
@@ -732,7 +732,7 @@ const clients = [
               <img
                 src={dine}
                 alt="dine"
-                className="object-contain mx-auto bg-white h-[100px] md:h-[150px]"
+                className="object-contain mx-auto bg-white h-[100px] md:h-[100px] w-[300px] md:w-full md:mt-6"
               />
             </div>
 
@@ -807,7 +807,7 @@ const clients = [
       </div>
 
       {/* client V task */}
-      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white">
         <section className="relative py-5 w-full" id="clientvtask">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}
@@ -815,7 +815,7 @@ const clients = [
               <img
                 src={vtask}
                 alt="vtask"
-                className="object-contain mx-auto bg-white h-[100px] md:h-[150px]"
+                className="object-contain mx-auto bg-white  h-[100px] md:h-[70px] w-[200px] md:w-full md:mt-6"
               />
             </div>
 
@@ -845,7 +845,7 @@ const clients = [
       </div>
 
       {/* client auric */}
-      <div className="pt-5 flex flex-col justify-center items-center bg-white min-h-screen w-full ">
+      <div className="pt-5 flex flex-col justify-center items-center bg-white  w-full ">
         <section className="mb-5 relative py-5 w-full" id="clientauric">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}
@@ -853,7 +853,7 @@ const clients = [
               <img
                 src={auric}
                 alt="auric"
-                className="object-contain mx-auto bg-white h-[100px] md:h-[150px] w-full"
+                className="object-contain mx-auto bg-white h-[100px] md:h-[100px] w-[250px] md:w-full md:mt-6"
               />
             </div>
 
@@ -878,7 +878,7 @@ const clients = [
       </div>
 
       {/* client  star stay */}
-      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white min-h-screen">
+      <div className="pt-5 flex flex-col justify-center items-center w-full bg-white ">
         <section className="mb-5 relative py-5 w-full" id="clientvtask">
           <div className="max-w-[1400px] mx-auto">
             {/* Header */}
@@ -886,7 +886,7 @@ const clients = [
               <img
                 src={starstay}
                 alt="starstay"
-                className="object-contain mx-auto bg-white h-[150px] md:h-[250px] w-full"
+                className="object-contain mx-auto bg-white h-[70px] md:h-[100px] w-[300px] md:w-full md:mt-6"
               />
             </div>
 
@@ -916,7 +916,7 @@ const clients = [
       </div>
 
       {/* client clublogic */}
-      <div className="pt-5 flex flex-col justify-center items-center bg-white min-h-screen w-full">
+      <div className="pt-5 flex flex-col justify-center items-center bg-white  w-full">
         <section className="mb-5 relative py-5 w-full" id="clientauric">
           <div className="max-w-[1400px] mx-auto">
             {/* Header Image */}
@@ -924,7 +924,7 @@ const clients = [
               <img
                 src={clublogic}
                 alt="clublogic"
-                className="object-contain mx-auto bg-white h-[80px] md:h-[100px] w-full"
+                className="object-contain mx-auto bg-white h-[50px] md:h-[70px] md:w-full md:mt-6"
               />
             </div>
 

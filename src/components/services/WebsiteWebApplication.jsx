@@ -140,136 +140,120 @@ const WebsiteWebApplication = () => {
   ];
 
   return (
-    <div className="pt-[150px] flex flex-col justify-center items-center">
-      <section className="max-w-[1400px] mx-auto w-full mb-20">
-        <div>
-          <div className="flex flex-col justify-center items-center gap-5">
-            <div className="w-full h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]">
-                <img
-                  src={websiteandweb}
-                  alt="websiteandweb"
-                  className="w-full h-full object-cover rounded-3xl"
-                />
-              </div>
+    <div className="pt-[100px] flex flex-col justify-center items-center">
+    <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
+      <div className="flex flex-col justify-center items-center gap-5">
+        <div className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl">
+          <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+            <img
+              src={websiteandweb}
+              alt="websiteandweb"
+              className="w-full h-full object-cover rounded-3xl"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+            <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+              <img
+                src={website}
+                alt="website"
+                className="w-full h-full object-cover rounded-3xl"
+              />
             </div>
-            <div className="grid grid-cols-12 place-items-center gap-5 w-full">
-              <div className=" col-span-6 bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px] w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={website} alt="website" className="w-full h-full flex object-cover
-                rounded-3xl"/></div>
-              </div>
-              <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={website1} alt="website1" className="w-full h-full flex object-cover
-                rounded-3xl"/></div>
-              </div>
-              <div className="col-span-3 w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[300px]">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]"><img src={website2} alt="website2" className="w-full h-full flex object-cover
-                rounded-3xl"/></div>
-              </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+            <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+              <img
+                src={website1}
+                alt="website1"
+                className="w-full h-full object-cover rounded-3xl"
+              />
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+            <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+              <img
+                src={website2}
+                alt="website2"
+                className="w-full h-full object-cover rounded-3xl"
+              />
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="max-w-[1400px] mx-auto w-full mb-20">
-        <div>
-          <div className="flex flex-col gap-5 mb-10">
-            <div className="text-[#fff] text-[50px] textGradient4 leading-tight">
-              Best Web Design and Development{" "}
-              <span className="block">Company Wayanad, Kerala</span>{" "}
-            </div>
-            <div className="max-w-[900px] text-[#fff] textGradient6">
-              As a leading web design and development company in Wayanad,
-              Kerala, India,IMC Bussiness Solutions specialises in creating
-              custom web solutions that help businesses of all sizes succeed
-              online.we understand that your website is your business's online
-              face and we work hard to make sure it makes a lasting impression
-              on your visitors
+      </div>
+    </section>
+  
+    <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
+      <div className="flex flex-col gap-5 mb-10 text-center md:text-left">
+        <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 leading-tight">
+          Best Web Design and Development
+          <span className="block">Company Wayanad, Kerala</span>
+        </div>
+        <div className="max-w-[900px] text-[#fff] textGradient6 mx-auto">
+          As a leading web design and development company in Wayanad, Kerala,
+          India, IMC Business Solutions specializes in creating custom web
+          solutions that help businesses of all sizes succeed online. We
+          understand that your website is your business's online face, and we work
+          hard to make sure it makes a lasting impression on your visitors.
+        </div>
+      </div>
+  
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
+        {WebData.map((item, index) => (
+          <div
+            key={index}
+            className="w-full h-[250px] md:h-[300px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl"
+          >
+            <div className="rounded-3xl w-full h-full bg-[#000] p-5">
+              <div className="text-[#fff] text-lg md:text-xl textGradient mb-3 font-black">
+                {item.title}
+              </div>
+              <div className="textGradient6 text-[#fff] text-sm md:text-base">
+                {item.description}
+              </div>
             </div>
           </div>
-
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
-              {WebData.map((item) => (
-                <div className="w-full h-[300px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] p-10">
-                    <div className="text-[#fff] text-xl textGradient mb-3 font-black">
-                      {item.title}
-                    </div>
-                    <div className="textGradient6 text-[#fff]">
-                      {item.description}
-                    </div>
-                  </div>
+        ))}
+      </div>
+    </section>
+  
+    <section className="mb-20 max-w-[1400px] w-full mx-auto px-4">
+      <div>
+        <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 text-center mb-5">
+          Why Choose Us?
+        </div>
+        <div className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
+          We offer innovative, scalable IT solutions tailored for healthcare,
+          education, and business sectors. Our user-friendly platforms and
+          dedicated support ensure seamless operations and lasting success.
+        </div>
+  
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {ChooseUsList.map((item, index) => (
+            <div
+              key={index}
+              className="w-full h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl"
+            >
+              <div className="rounded-3xl w-full h-full bg-[#000] p-5">
+                <div className="text-[#fff] mb-3 textGradient text-lg font-bold">
+                  {item.titile}
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-20 max-w-[1400px] w-full mx-auto">
-        <div>
-          <div className="text-[#fff] text-[50px] textGradient4 text-center mb-5">
-            Why Choose Us?
-          </div>
-          <div className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
-            We offer innovative, scalable IT solutions tailored for healthcare,
-            education, and business sectors. Our user-friendly platforms and
-            dedicated support ensure seamless operations and lasting success.
-          </div>
-
-          <div className="grid grid-cols-2 place-items-center lg:grid-cols-4 gap-10">
-            {ChooseUsList.map((item) => (
-              <div className="w-full h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] p-5">
-                  <div className="text-[#fff] mb-3 textGradient text-xl font-bold">
-                    {item.titile}
-                  </div>
-                  <div className="text-[#fff] textGradient">
-                    {item.description}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-20 max-w-[1400px] w-full mx-auto">
-        <div>
-          <div className="md:flex justify-between items-center mb-10">
-            <div className="text-[#fff] textGradient4 text-[50px] leading-tight md:w-[60%]">
-              Our Comprehensive
-              <span className="block">Website Development Process </span>
-            </div>
-            <div className="md:w-[40%] text-[#fff] textGradient6">
-              We follow a structured and efficient process to deliver
-              high-quality, user-centric websites. From discovery and planning
-              to design, development, launch, and ongoing maintenance, our
-              expert team ensures a seamless journey from concept to completion,
-              helping your business achieve its digital goals.
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 w-full place-items-center md:grid-cols-2 gap-5">
-            {processList.map((item) => (
-              <div className="h-[250px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl w-full">
-                <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] px-5 py-10">
-                  <div className="textGradient text-3xl font-bold mb-5">
-                    {item.titile}
-                  </div>
-                  <div className="textGradient">{item.description}</div>
+                <div className="text-[#fff] textGradient text-sm">
+                  {item.description}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-
-      <section className="w-full bg-[#fff] py-10">
-        <Footer />
-      </section>
-    </div>
+      </div>
+    </section>
+  
+    <section className="w-full bg-[#fff] py-10">
+      <Footer />
+    </section>
+  </div>
+  
   );
 };
 

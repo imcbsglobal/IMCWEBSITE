@@ -100,18 +100,19 @@ const software = () => {
         <div className="pt-[90px] flex flex-col justify-center items-center w-full">
           <section
             id="restaurant"
-            className="max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl w-full rounded-3xl h-[600px] overflow-hidden mb-20"
+            className="max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl w-full rounded-3xl h-auto overflow-hidden mb-20"
           >
-            <div className=" md:flex md:justify-center md:items-center overflow-hidden text-[#fff] md:gap-2 rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]">
-              <div className="md:w-[60%] w-full h-full mx-auto flex justify-center items-center">
-                <div className="pl-10">
-                  <div className="text-[60px] textGradient4 leading-tight mb-5">
+            <div className="flex flex-col md:flex-row md:justify-center md:items-center overflow-hidden text-[#fff] md:gap-2 rounded-3xl w-full h-full bg-[#000]">
+              {/* Text Section */}
+              <div className="w-full md:w-[60%] h-full flex justify-center items-center p-5 md:p-10">
+                <div>
+                  <div className="text-[40px] md:text-[60px] textGradient4 leading-tight mb-3 md:mb-5">
                     RESTAURANT
-                    <span className="block text-[30px]">
+                    <span className="block text-[20px] md:text-[30px]">
                       Streamlining operations and service.
                     </span>
                   </div>
-                  <div className="textGradient6 pr-36 mb-10">
+                  <div className="textGradient6 md:pr-36 mb-5 md:mb-10 text-[14px] md:text-[16px]">
                     DINE is a comprehensive restaurant management software that
                     automates order management, menu handling, billing, and
                     payments. By streamlining operations, it improves efficiency
@@ -119,9 +120,9 @@ const software = () => {
                     Windows and Android platforms, DINE offers flexibility for
                     your business needs.
                   </div>
-                  <div className="flex items-center gap-10">
-                    <div className="px-10 py-3 rounded-3xl border border-[#000000] flex gap-5 items-center textGradient5">
-                      <Link to="/customers">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                    <div className="px-8 py-3 rounded-3xl border border-[#000000] flex gap-3 items-center textGradient5">
+                      <Link to="/customers" className="flex items-center gap-2">
                         Discover More <FaArrowRightLong />
                       </Link>
                     </div>
@@ -131,11 +132,12 @@ const software = () => {
                   </div>
                 </div>
               </div>
-              <div className="md:w-[50%] w-full bg-[#282626] h-full rounded-l-full overflow-hidden">
+              {/* Image Section */}
+              <div className="w-full md:w-[50%] h-[300px] md:h-full rounded-l-full overflow-hidden">
                 <img
                   src={restaurant}
                   className="w-full h-full object-cover"
-                  alt=""
+                  alt="Restaurant"
                 />
               </div>
             </div>
@@ -143,44 +145,43 @@ const software = () => {
         </div>
 
         {/* inventorymanagement */}
-        <div className=" flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full">
           <section
             id="inventorymanagement"
             className="mb-20 max-w-[1400px] mx-auto w-full"
           >
             <div className="w-full">
-              <div className="md:flex w-full md:justify-center md:items-center md:gap-10">
-                {/* left */}
-                <div className="md:w-[50%] h-[500px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000]">
-                    {" "}
+              <div className="flex flex-col md:flex-row w-full md:justify-center md:items-center md:gap-10">
+                {/* Left - Image Section */}
+                <div className="w-full md:w-[50%] h-[300px] md:h-[500px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl mb-5 md:mb-0">
+                  <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
                     <img
                       src={inventory}
                       alt="inventory"
-                      className="h-full w-full rounded-3xl"
+                      className="h-full w-full object-cover rounded-3xl"
                     />
                   </div>
                 </div>
-                {/* right */}
-                <div className="md:w-[50%]">
-                  <div className="text-[#fff] text-[50px] mb-5 textGradient4 leading-tight">
+                {/* Right - Text Section */}
+                <div className="w-full md:w-[50%] flex flex-col justify-center items-start p-5">
+                  <div className="text-[#fff] text-[40px] md:text-[50px] mb-3 md:mb-5 textGradient4 leading-tight">
                     INVENTORY MANAGEMENT{" "}
-                    <span className="block text-[30px]">
+                    <span className="block text-[20px] md:text-[30px]">
                       Optimize, track, manage inventory
                     </span>
                   </div>
-                  <div className="text-[#fff] textGradient6 mb-5">
+                  <div className="text-[#fff] textGradient6 mb-5 text-[14px] md:text-[16px]">
                     We provide IT solutions to streamline inventory management
                     across industries like healthcare, retail, and hospitality.
                     Our software, including VTASK, AURIC, and DINE, offers
                     real-time tracking with barcode scanning and automated
                     updates. These tools reduce errors and save time, ensuring
-                    efficient operations
+                    efficient operations.
                   </div>
                   <div>
-                    <ul className="textGradient6 flex flex-col justify-center gap-5">
-                      <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-xl">
-                        <li className="px-3 py-4 rounded-xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] flex items-center gap-2">
+                    <ul className="textGradient6 flex flex-col gap-3">
+                      <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-xl">
+                        <li className="px-3 py-4 rounded-xl w-full h-full bg-[#000] flex items-center gap-2">
                           <span className="text-xl">
                             <TiTick />
                           </span>
@@ -188,8 +189,8 @@ const software = () => {
                           operations.
                         </li>
                       </div>
-                      <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-xl">
-                        <li className="px-3 py-4 rounded-xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] flex items-center gap-2">
+                      <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-xl">
+                        <li className="px-3 py-4 rounded-xl w-full h-full bg-[#000] flex items-center gap-2">
                           <span className="text-xl">
                             <TiTick />
                           </span>
@@ -197,8 +198,8 @@ const software = () => {
                           barcode-enabled concepts.
                         </li>
                       </div>
-                      <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-xl">
-                        <li className="px-3 py-4 rounded-xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] flex items-center gap-2">
+                      <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-xl">
+                        <li className="px-3 py-4 rounded-xl w-full h-full bg-[#000] flex items-center gap-2">
                           <span className="text-xl">
                             <TiTick />
                           </span>
@@ -215,18 +216,20 @@ const software = () => {
         </div>
 
         {/* healthcaremanagement */}
-        <div className=" flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full">
           <section
             id="healthcaremanagement"
-            className="mb-20 max-w-[1400px] mx-auto"
+            className="mb-20 max-w-[1400px] mx-auto px-4"
           >
             <div>
-              <div className="flex justify-between items-center gap-2 mb-10">
-                <div className="text-[48px] text-[#fff] textGradient4 leading-tight md:w-[60%]">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+                <div className="text-[36px] md:text-[48px] text-[#fff] textGradient4 leading-tight w-full md:w-[60%] text-center md:text-left">
                   HEALTHCARE MANAGEMENT{" "}
-                  <span className="block text-[20px]">Empowering Health Services for a Digital Era</span>
+                  <span className="block text-[18px] md:text-[20px]">
+                    Empowering Health Services for a Digital Era
+                  </span>
                 </div>
-                <div className="md:w-[40%] textGradient6 text-[#fff]">
+                <div className="w-full md:w-[40%] textGradient6 text-[#fff] text-center md:text-left">
                   Shades Hospital Management Software provides a complete
                   solution for managing clinical, administrative, and financial
                   aspects of patient care, allowing healthcare institutions to
@@ -234,39 +237,40 @@ const software = () => {
                   scalability, tailored to meet specific needs.
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center w-full gap-5">
-                <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                  <div className="rounded-3xl w-full h-full bg-[#000] text-center flex justify-center items-center px-4 text-sm md:text-lg">
                     Comprehensive management of clinical, administrative, and
                     financial operations.
                   </div>
                 </div>
-                <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
+                <div className="w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                  <div className="rounded-3xl w-full h-full bg-[#000] text-center flex justify-center items-center px-4 text-sm md:text-lg">
                     Handles appointments, doctor schedules, specialized
                     services, and international coding.
                   </div>
                 </div>
-                <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
+                <div className="w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                  <div className="rounded-3xl w-full h-full bg-[#000] text-center flex justify-center items-center px-4 text-sm md:text-lg">
                     Includes 12 customizable modules to meet specific
                     institutional needs.
                   </div>
                 </div>
-                <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
+                <div className="w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                  <div className="rounded-3xl w-full h-full bg-[#000] text-center flex justify-center items-center px-4 text-sm md:text-lg">
                     Flexible and scalable, adaptable to various healthcare
                     institutions.
                   </div>
                 </div>
-                <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
+                <div className="w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                  <div className="rounded-3xl w-full h-full bg-[#000] text-center flex justify-center items-center px-4 text-sm md:text-lg">
                     Streamlines patient care and enhances operational
                     efficiency.
                   </div>
                 </div>
-                <div className="w-full h-[250px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl">
-                  <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] text-center flex justify-center items-center lg:text-lg lg:px-5">
+                <div className="w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] text-[#fff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                  <div className="rounded-3xl w-full h-full bg-[#000] text-center flex justify-center items-center px-4 text-sm md:text-lg">
                     Easy integration and management of all patient-related data
                     and treatments.
                   </div>
@@ -277,12 +281,12 @@ const software = () => {
         </div>
 
         {/* Hospitality */}
-        <div className=" flex flex-col justify-center items-center w-full">
-          <div className="flex flex-col items-center justify-center mb-10">
-            <div className="text-[50px] text-[#fff] textGradient4 leading-tight md:w-[60%] text-center justify-center">
+        <div className="flex flex-col justify-center items-center w-full">
+          <div className="flex flex-col items-center justify-center mb-10 px-4">
+            <div className="text-[36px] md:text-[50px] text-[#fff] textGradient4 leading-tight text-center justify-center">
               HOSPITALITY MANAGEMENT
             </div>
-            <div className="md:w-[40%] textGradient6 text-[#fff] justify-center text-center">
+            <div className="text-sm md:text-base md:w-[60%] textGradient6 text-[#fff] text-center mt-4">
               STARSTAY is an intuitive hotel management software designed for
               hotels, motels, guest houses, and bed & breakfasts, covering
               booking, guest services, billing, and reporting. It simplifies
@@ -293,9 +297,9 @@ const software = () => {
 
           <section
             id="hospitality"
-            className="max-w-[1400px] mx-auto bg-gradient-to-l from-[#8d8d8d] via-[#ffffff] to-[#f4b45f] p-[1px] bg-[#222222] backdrop-blur-3xl w-full rounded-3xl h-[600px] overflow-hidden mb-20"
+            className="max-w-[1400px] mx-auto bg-gradient-to-l from-[#8d8d8d] via-[#ffffff] to-[#f4b45f] p-[1px] bg-[#222222] backdrop-blur-3xl w-full rounded-3xl h-[800px] md:h-full overflow-hidden mb-20"
           >
-            <div className="h-full  bg-[#000] p-8 relative overflow-hidden rounded-3xl">
+            <div className="h-full bg-[#000] p-4 md:p-8 relative overflow-hidden rounded-3xl">
               <Swiper
                 modules={[Autoplay]}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -307,8 +311,8 @@ const software = () => {
                   <SwiperSlide key={index}>
                     <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center h-full">
                       {/* Left Column */}
-                      <div className="space-y-8 z-10">
-                        <h1 className="text-6xl font-light text-white leading-tight">
+                      <div className="space-y-4 md:space-y-8 z-10 text-center md:text-left">
+                        <h1 className="text-4xl md:text-6xl font-light text-white leading-tight">
                           {list.heading.split("\n").map((line, idx) => (
                             <span key={idx}>
                               {line}
@@ -317,41 +321,41 @@ const software = () => {
                           ))}
                         </h1>
 
-                        <button className="text-white border border-[#fff] rounded-full py-4 px-8 flex items-center space-x-2 hover:bg-yellow-400 transition-colors">
+                        <button className="text-white border border-[#fff] rounded-full py-2 md:py-4 px-6 md:px-8 flex items-center justify-center space-x-2 hover:bg-yellow-400 transition-colors mx-auto md:mx-0">
                           <span className="font-medium">Know more</span>
                           <ArrowUpRight className="w-4 h-4" />
                         </button>
                       </div>
 
                       {/* Center Image */}
-                      <div className="relative flex justify-center items-center h-[550px] p-5">
-                        <div className="relative z-20 w-[300px] h-full bg-white rounded-[40px]">
+                      <div className="relative flex justify-center items-center h-[300px] md:h-[550px] p-2 md:p-5">
+                        <div className="relative z-20 w-[200px] md:w-[300px] h-full bg-white rounded-[30px] md:rounded-[40px] overflow-hidden shadow-lg">
                           <img
                             src={list.img}
                             alt="property"
-                            className="w-full h-full rounded-[40px] object-cover"
+                            className="w-full h-full object-cover"
                           />
                         </div>
                       </div>
 
                       {/* Right Column */}
-                      <div className="absolute right-20 text-right z-10">
+                      <div className="relative z-10 text-center md:text-right">
                         <div className="inline-block">
                           <div className="backdrop-blur-sm rounded-full p-4 mb-4"></div>
                           <div className="text-white">
-                            <p className="uppercase text-sm tracking-wide mb-1">
+                            <p className="uppercase text-xs md:text-sm tracking-wide mb-1">
                               {list.description.split("\n")[0]}
                             </p>
-                            <p className="uppercase text-sm tracking-wide mb-1">
+                            <p className="uppercase text-xs md:text-sm tracking-wide mb-1">
                               {list.description.split("\n")[1]}
                             </p>
-                            <p className="uppercase text-sm tracking-wide mb-1">
+                            <p className="uppercase text-xs md:text-sm tracking-wide mb-1">
                               {list.description.split("\n")[2]}
                             </p>
                           </div>
                           <a
                             href="#"
-                            className="text-yellow-300 hover:underline inline-block mt-4"
+                            className="text-yellow-300 hover:underline inline-block mt-4 text-xs md:text-sm"
                           >
                             Learn More
                           </a>
@@ -366,17 +370,17 @@ const software = () => {
         </div>
 
         {/* institutionmanagement */}
-        <div className=" flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full">
           <section
             id="institutionmanagement"
-            className="mb-20 max-w-[1400px] mx-auto"
+            className="mb-20 max-w-[1400px] mx-auto w-full"
           >
-            <div className="w-full max-w-6xl mx-auto px-4 bg-black">
-              <div className="text-center mb-16">
-                <h2 className="text-[50px] text-gray-800 textGradient4 mb-2">
+            <div className="w-full max-w-6xl mx-auto px-4 bg-black py-10 rounded-3xl">
+              <div className="text-center mb-10">
+                <h2 className="text-[32px] md:text-[50px] text-gray-800 textGradient4 mb-2">
                   INSTITUTION MANAGEMENT
                 </h2>
-                <h3 className="text-[20px] text-white textGradient6 mb-4">
+                <h3 className="text-[16px] md:text-[20px] text-white textGradient6 mb-4">
                   Institution Management software streamlines operations for
                   educational organizations, managing activities like
                   scheduling, attendance, and academic progress. It offers
@@ -392,14 +396,20 @@ const software = () => {
                 </a>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Card 1 */}
-                <div className="bg-[#F68B2C] rounded-lg p-6 text-white w-full">
+                <div className="bg-[#F68B2C] rounded-lg p-6 text-white w-full shadow-lg hover:shadow-xl transition-shadow">
                   <div className="border border-white/30 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <div className="bg-white rounded-full "><img src={communication} alt="communication" className="w-full h-full object-contain" /></div>
+                    <div className="bg-white rounded-full p-2">
+                      <img
+                        src={communication}
+                        alt="communication"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
-                  <h4 className="font-medium mb-3">
-                    Streamlined Communication{" "}
+                  <h4 className="font-semibold mb-3 text-lg">
+                    Streamlined Communication
                   </h4>
                   <p className="text-white/90 text-sm">
                     Institution Management software ensures seamless
@@ -411,29 +421,40 @@ const software = () => {
                 </div>
 
                 {/* Card 2 */}
-                <div className="bg-white rounded-lg p-6 text-gray-800 shadow-lg">
+                <div className="bg-white rounded-lg p-6 text-gray-800 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="border border-teal-700/30 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <div className=" rounded-full "><img src={user1} alt="communication" className="w-full h-full object-contain rounded-full" /></div>
+                    <div className="rounded-full p-2">
+                      <img
+                        src={user1}
+                        alt="user-friendly"
+                        className="w-full h-full object-contain rounded-full"
+                      />
+                    </div>
                   </div>
-                  <h4 className="font-medium mb-3">
-                    {" "}
+                  <h4 className="font-semibold mb-3 text-lg">
                     Customizable and User-Friendly Interface
                   </h4>
-                  <p className="text-black text-sm">
+                  <p className="text-gray-700 text-sm">
                     The system offers a user-friendly interface with
                     customization options to suit various educational
                     institutions. Whether for schools, colleges, or other
                     organizations, the software can adapt to the institution's
-                    specific needs
+                    specific needs.
                   </p>
                 </div>
 
                 {/* Card 3 */}
-                <div className=" bg-[#F68B2C] rounded-lg p-6 text-white">
+                <div className="bg-[#F68B2C] rounded-lg p-6 text-white shadow-lg hover:shadow-xl transition-shadow">
                   <div className="border border-white/30 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <div className="bg-white rounded-full"><img src={time} alt="communication" className="w-full h-full object-contain" /></div>
+                    <div className="bg-white rounded-full p-2">
+                      <img
+                        src={time}
+                        alt="real-time access"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
-                  <h4 className="font-medium mb-3">
+                  <h4 className="font-semibold mb-3 text-lg">
                     Real-Time Academic Access
                   </h4>
                   <p className="text-white/90 text-sm">
@@ -447,6 +468,7 @@ const software = () => {
             </div>
           </section>
         </div>
+
         {/* footer */}
         <section className="bg-[#fff] py-10 w-full">
           <Footer />

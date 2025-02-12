@@ -151,54 +151,54 @@ const [active, setActive] = useState(false);
 
         {/* retailswholesale */}
         <section
-          className="w-full max-w-[1400px] mx-auto mb-20 mt-[100px] "
+          className="w-full max-w-[1400px] mx-auto mb-20 mt-[100px]"
           id="retailswholesale"
         >
           <div>
-            <div className="text-[#fff] text-center text-[50px] textGradient4 mb-5">
+            <div className="text-[#fff] text-center text-[40px] md:text-[50px] textGradient4 mb-5">
               RETAILS AND WHOLESALES
             </div>
-            <div className="text-center max-w-[900px] mx-auto text-[#fff] mb-10 textGradient6">
+            <div className="text-center max-w-[900px] mx-auto text-[#fff] mb-10 textGradient6 text-[14px] md:text-[16px]">
               We offer both retail and wholesale services, providing quality
               products for individual consumers and businesses alike. Whether
               you're shopping for personal use or need bulk purchases for your
-              business, we ensure exceptional value and service
+              business, we ensure exceptional value and service.
             </div>
-            {/* retails */}
-            <div className="md:flex justify-center items-center gap-10">
+            {/* Retails Section */}
+            <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-10">
               <div className="w-full">
-                <div className="text-[40px] textGradient4 text-[#fff] mb-5">
-                  What we offer for retails
+                <div className="text-[30px] md:text-[40px] textGradient4 text-[#fff] mb-3 md:mb-5">
+                  What we offer for Retail
                 </div>
-                <div className="text-[#fff] textGradient6 mb-10">
-                  "We offer an exceptional retail experience, focusing on
-                  quality products, convenience, and personalized customer
-                  service for individual shoppers."
+                <div className="text-[#fff] textGradient6 mb-5 md:mb-10 text-[14px] md:text-[16px]">
+                  We offer an exceptional retail experience, focusing on quality
+                  products, convenience, and personalized customer service for
+                  individual shoppers.
                 </div>
-                <div className="flex flex-col justify-center gap-5 text-lg ">
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
+                <div className="flex flex-col justify-center gap-3 md:gap-5 text-[14px] md:text-lg">
+                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
                       <TiTick />
                       Diverse Products: From essentials to premium options, we
                       cater to all needs.
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
+                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
                       <TiTick />
                       Easy In-Store Experience: Our stores are welcoming, with
                       helpful staff ready to assist.
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
+                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
                       <TiTick />
                       Customer-Focused: We prioritize your satisfaction with
                       every shopping experience.
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
+                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
                       <TiTick />
                       Convenient Online Shopping: Enjoy easy browsing and
                       doorstep delivery.
@@ -206,65 +206,62 @@ const [active, setActive] = useState(false);
                   </div>
                 </div>
               </div>
-              <div className="w-full h-[490px] flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                <div className=" bg-black w-full h-full rounded-lg  flex items-center ">
-                  <img
-                    src={retail}
-                    alt="retail"
-                    className="h-full w-full rounded-lg object-cover"
-                  />
-                </div>
+              <div className="w-full h-[300px] md:h-[490px] rounded-lg overflow-hidden bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                <img
+                  src={retail}
+                  alt="retail"
+                  className="h-full w-full rounded-lg object-cover"
+                />
               </div>
             </div>
-          </div>
-          {/* wholesale */}
-          <div className="pt-10">
-            <div className="md:flex justify-center items-center gap-10">
-              <div className="w-full h-[560px] flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                <div className=" bg-black w-full h-full rounded-lg  flex items-center ">
+
+            {/* Wholesale Section */}
+            <div className="pt-10">
+              <div className="flex flex-col md:flex-row justify-center items-center gap-10">
+                <div className="w-full h-[300px] md:h-[560px] rounded-lg overflow-hidden bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
                   <img
                     src={wholesale}
                     alt="wholesale"
                     className="h-full w-full rounded-lg object-cover"
                   />
                 </div>
-              </div>
-              <div className="w-full">
-                <div className="text-[40px] textGradient4 text-[#fff] mb-5">
-                  What we offer for Wholesale
-                </div>
-                <div className="text-[#fff] textGradient6 mb-10">
-                  We offer tailored wholesale services to businesses and bulk
-                  buyers, ensuring cost-effective solutions and timely
-                  deliveries for large-scale purchases.
-                </div>
-                <div className="flex flex-col justify-center gap-5 text-lg ">
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
-                      <TiTick />
-                      Competitive Pricing: Enjoy discounts on bulk purchases
-                      without compromising quality.
-                    </div>
+                <div className="w-full">
+                  <div className="text-[30px] md:text-[40px] textGradient4 text-[#fff] mb-3 md:mb-5">
+                    What we offer for Wholesale
                   </div>
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
-                      <TiTick />
-                      Efficient Large-Volume Orders: Timely delivery to meet
-                      your business needs.
-                    </div>
+                  <div className="text-[#fff] textGradient6 mb-5 md:mb-10 text-[14px] md:text-[16px]">
+                    We offer tailored wholesale services to businesses and bulk
+                    buyers, ensuring cost-effective solutions and timely
+                    deliveries for large-scale purchases.
                   </div>
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
-                      <TiTick />
-                      Flexible Payment Options: Manage cash flow with convenient
-                      payment terms.
+                  <div className="flex flex-col justify-center gap-3 md:gap-5 text-[14px] md:text-lg">
+                    <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                      <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
+                        <TiTick />
+                        Competitive Pricing: Enjoy discounts on bulk purchases
+                        without compromising quality.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] ">
-                    <div className="bg-black w-full h-full rounded-lg p-3 flex items-center ">
-                      <TiTick />
-                      Dedicated Support: Specialized assistance for orders,
-                      logistics, and business needs.
+                    <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                      <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
+                        <TiTick />
+                        Efficient Large-Volume Orders: Timely delivery to meet
+                        your business needs.
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                      <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
+                        <TiTick />
+                        Flexible Payment Options: Manage cash flow with
+                        convenient payment terms.
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-[#fff] rounded-lg bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
+                      <div className="bg-black w-full h-full rounded-lg p-3 flex items-center gap-2">
+                        <TiTick />
+                        Dedicated Support: Specialized assistance for orders,
+                        logistics, and business needs.
+                      </div>
                     </div>
                   </div>
                 </div>

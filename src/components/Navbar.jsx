@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "../assets/imclogo.png";
 import { Link } from "react-router-dom";
 import Logo from "../assets/imclogo1.png";
-import { MdCall, MdMenu, MdClose } from "react-icons/md";
+import { MdCall, MdMenu, MdClose,MdLogin } from "react-icons/md";
 import MobileNavbar from "./MobileNavbar";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropup } from "react-icons/io";
@@ -229,29 +229,46 @@ const Navbar = () => {
                   isScrolled
                     ? "bg-[#000] text-[#fff] border border-[#fff]"
                     : "bg-[#fff] text-[#000]"
-                }`}
+                } hidden sm:flex`} // Hide on mobile
               >
                 Login
               </button>
+              <button
+                className={`sm:hidden flex items-center justify-center`} // Show on mobile
+              >
+                <MdLogin
+                  className={`text-3xl ${
+                    isScrolled ? "text-[#000]" : "text-[#fff]"
+                  }`}
+                />
+              </button>
             </Link>
+
             <div
-              className={` ${
+              className={`${
                 isScrolled
                   ? ""
                   : "bg-gradient-to-r from-[#20ffff] via-[#ff850c] to-[#ffa600] p-[1px] bg-[#3c3333]"
-              }  rounded-3xl`}
+              } rounded-3xl`}
             >
               <button
-                className={`rounded-[calc(1.5rem-1px)]  px-6 py-2 font-bold hover:bg-gray-800 flex items-center gap-2 ${
+                className={`rounded-[calc(1.5rem-1px)] px-6 py-2 font-bold hover:bg-gray-800 flex items-center gap-2 ${
                   isScrolled
-                    ? "border-[#000] border "
+                    ? "border-[#000] border"
                     : "border border-[#fff] text-[#fff] bg-[#000]"
-                }`}
+                } hidden sm:flex`} // Hide on mobile
               >
-                Let's Talk{" "}
-                <span>
-                  <MdCall />
-                </span>
+                <span>Let's Talk</span>
+                <MdCall className="text-xl" />
+              </button>
+              <button
+                className="sm:hidden flex items-center justify-center" // Show on mobile
+              >
+                <MdCall
+                  className={`text-3xl ${
+                    isScrolled ? "text-[#000] " : "text-[#fff] p-1"
+                  }`}
+                />
               </button>
             </div>
           </div>
@@ -267,8 +284,6 @@ const Navbar = () => {
           <button onClick={toggleMobileMenu} className="absolute top-2 right-2">
             <MdClose size={30} className="text-black" />
           </button>
-
-          
         </div>
 
         {/* Navigation Links */}
