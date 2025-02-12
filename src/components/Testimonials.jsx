@@ -50,20 +50,20 @@ const Testimonials = () => {
           {/* Previous Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 top-[40%] md:static p-2 rounded-full  bg-black text-white hover:bg-gray-700 hover:text-white"
+            className="absolute left-2 top-[40%]  p-2 rounded-full  bg-black text-white hover:bg-gray-700 hover:text-white"
           >
             <ChevronLeft size={40} />
           </button>
 
-          <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 p-3  ">
+          <div className="flex flex-col md:flex-row justify-center gap-4  p-3  ">
             {testimonials
               .slice(currentStart, currentStart + 2)
               .map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="flex flex-col md:flex-row items-center p-2 w-full md:w-[700px] gap-6"
+                  className="flex flex-col  items-center p-2 w-full  gap-6"
                 >
-                  <div className="w-[200px] h-[250px] md:w-[250px] md:h-[300px] rounded-tl-[40%] bg-white overflow-hidden">
+                  <div className="w-[200px] h-[250px]  rounded-tl-[40%] bg-white overflow-hidden">
                     <img
                       src={
                         testimonial.image ||
@@ -74,12 +74,12 @@ const Testimonials = () => {
                     />
                   </div>
 
-                  <div className="flex flex-col justify-around gap-4 md:gap-10">
+                  <div className="flex flex-col justify-around gap-4 ">
                     <div className="textGradient italic text-sm md:text-base">
                       {testimonial.description || "Amazing experience!"}
                     </div>
                     <div className="flex flex-col">
-                      <div className="textGradient6 text-white text-lg md:text-xl">
+                      <div className="textGradient6 text-white text-lg ">
                         {testimonial.name || "Name"}
                       </div>
                     </div>
@@ -91,7 +91,7 @@ const Testimonials = () => {
           {/* Next Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-2 top-[40%] md:static p-2 rounded-full bg-black text-white hover:bg-gray-700 hover:text-white"
+            className="absolute right-2 top-[40%]  p-2 rounded-full bg-black text-white hover:bg-gray-700 hover:text-white"
           >
             <ChevronRight size={40} />
           </button>

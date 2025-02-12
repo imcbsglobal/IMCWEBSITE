@@ -483,7 +483,7 @@ const clients = [
               <img
                 src={task}
                 alt="task"
-                className="object-contain mx-auto bg-white h-[80px] md:h-[100px]"
+                className="object-contain mx-auto bg-white h-[80px] md:h-[100px] w-full"
               />
             </div>
 
@@ -845,7 +845,7 @@ const clients = [
       </div>
 
       {/* client auric */}
-      <div className="pt-5 flex flex-col justify-center items-center bg-white min-h-screen w-full">
+      <div className="pt-5 flex flex-col justify-center items-center bg-white min-h-screen w-full ">
         <section className="mb-5 relative py-5 w-full" id="clientauric">
           <div className="w-full max-w-[1400px] mx-auto">
             {/* Header */}

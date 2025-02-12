@@ -354,7 +354,7 @@ const company = () => {
         </div>
 
         {/* bussiness opportunities */}
-        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen">
+        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-150px] md:mt-[-50px]">
           <section
             id="business-opportunities"
             className="max-w-[1400px] mx-auto w-full mb-10 p-6"
