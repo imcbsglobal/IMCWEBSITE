@@ -18,12 +18,12 @@ const QuestionChatBoats = () => {
       return () => window.removeEventListener("scroll", scrollActive);
     }, []);
   return (
-    <div className="w-full flex flex-col justify-center items-center relative">
+    <div className="w-full flex flex-col justify-center items-center relative h-auto">
       <div className="fixed bottom-10 z-[999] right-10">
         <ChatBot />
       </div>
 
-      <section className="w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center h-screen mb-20 mt-[-200px] md:mt-[10px] px-4">
+      <section className="w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center h-screen mb-20 mt-[-50px] md:mt-[10px] px-4">
         <div>
           {/* Highlight Banner */}
           <div className="w-full flex justify-center items-center mb-5">
