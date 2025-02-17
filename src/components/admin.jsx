@@ -11,7 +11,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { dbFirestore } from "../firebaseConfig";
-
+import { Menu } from 'lucide-react';
 import logo from "../assets/imclogo1.png";
 import { useNavigate } from "react-router-dom";
 const AdminPanel = () => {
@@ -20,6 +20,7 @@ const AdminPanel = () => {
   const handleLogout = () => {
     alert("You have been logged out.");
     navigate("/");
+    setIsSidebarOpen(false);
   };
   // product
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -36,6 +37,7 @@ const AdminPanel = () => {
       ...doc.data(),
     }));
     setProducts(productList);
+    setIsSidebarOpen(false);
   };
 
   useEffect(() => {
@@ -108,6 +110,7 @@ const AdminPanel = () => {
       ...doc.data(),
     }));
     setDemonstrations(demonstrationList);
+    setIsSidebarOpen(false);
   };
 
   useEffect(() => {
@@ -186,6 +189,7 @@ const AdminPanel = () => {
     setTestimonials(
       querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
     );
+    setIsSidebarOpen(false);
   };
 
   const handleImageChange = (e) => {
@@ -211,6 +215,7 @@ const AdminPanel = () => {
 
       reader.readAsDataURL(file);
     }
+    setIsSidebarOpen(false);
   };
 
   const handleSaveTestimonial = async () => {
@@ -248,6 +253,7 @@ const AdminPanel = () => {
       console.error("Error adding testimonial:", error);
       alert("Error adding testimonial. Please try again.");
     }
+    setIsSidebarOpen(false);
   };
 
   const clearTestimonialForm = () => {
@@ -259,6 +265,7 @@ const AdminPanel = () => {
     if (imageInputRef.current) {
       imageInputRef.current.value = "";
     }
+    setIsSidebarOpen(false);
   };
 
   const handleEditTestimonial = (testimonial) => {
@@ -275,6 +282,7 @@ const AdminPanel = () => {
     if (imageInputRef.current) {
       imageInputRef.current.value = ""; // Reset file input for editing
     }
+    setIsSidebarOpen(false);
   };
 
   const handleDeleteTestimonial = async (id) => {
@@ -285,11 +293,13 @@ const AdminPanel = () => {
     } catch (error) {
       alert("Error: " + error.message);
     }
+    setIsSidebarOpen(false);
   };
 
   const imageInputRef = useRef(null);
   const handleSubSectionSelect = (section) => {
     setSelectedSection(section);
+    setIsSidebarOpen(false);
   };
 
 
@@ -313,6 +323,7 @@ const AdminPanel = () => {
     } catch (error) {
       alert("Error fetching video testimonials: " + error.message);
     }
+    setIsSidebarOpen(false);
   };
   
   useEffect(() => {
@@ -323,6 +334,7 @@ const AdminPanel = () => {
     if (!videoTestimonialName || !videoTestimonialUrl) {
       alert("Please fill out all fields.");
       return;
+ 
     }
 
     try {
@@ -351,18 +363,21 @@ const AdminPanel = () => {
     } catch (error) {
       alert("Error: " + error.message);
     }
+    setIsSidebarOpen(false);
   };
 
   const clearVideoTestimonialForm = () => {
     setVideoTestimonialName("");
     setVideoTestimonialUrl("");
     setEditingVideoTestimonialId(null);
+    setIsSidebarOpen(false);
   };
 
   const handleEditVideoTestimonial = (testimonial) => {
     setVideoTestimonialName(testimonial.name);
     setVideoTestimonialUrl(testimonial.videoUrl);
     setEditingVideoTestimonialId(testimonial.id);
+    setIsSidebarOpen(false);
   };
 
   const handleDeleteVideoTestimonial = async (id) => {
@@ -373,47 +388,75 @@ const AdminPanel = () => {
     } catch (error) {
       alert("Error: " + error.message);
     }
+    setIsSidebarOpen(false);
   };
  
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+ 
+
+
   
   return (
     <div>
+      <div className="h-[900px] w-full flex ">
+        {/* Left Panel */}
+        <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900 z-30 h-16 flex items-center justify-between px-4 border-b border-gray-700">
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="text-white p-2"
+        >
+          <Menu size={24} />
+        </button>
+        <img src={logo} alt="logo" className="h-12 w-12" />
+      </div>
 
-    <div className="h-[900px] w-full flex ">
-      {/* Left Panel */}
-      <div className="w-[25%] bg-black p-6 border-r border-gray-700 text-white fixed h-full overflow-hidden">
-        <div className="w-full h-[60px] flex items-center justify-center mt-10">
-          <img src={logo} alt="logo" className="w-[150px] h-[150px]" />
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] bg-black text-white p-6 border-r border-gray-700 overflow-auto transition-all duration-300 ease-in-out z-20
+        ${isSidebarOpen ? "translate-x-0 w-64" : "-translate-x-full w-0"} 
+        md:translate-x-0 md:w-1/4 md:top-0 md:h-screen`}
+      >
+        <div className="hidden md:flex w-full h-[60px] items-center justify-center mt-10">
+          <img src={logo} alt="logo" className="w-[100px] h-[100px]" />
         </div>
-        <h2 className="text-[40px] font-bold mb-6 text-center mt-20">
+        
+        <h2 className="text-2xl font-bold mb-6 text-center mt-4 md:mt-10">
           Admin Panel
         </h2>
-        <ul className="space-y-4">
+        
+        <ul className="space-y-4 overflow-hidden">
           <li>
             <button
-              onClick={() => setSelectedSection("manageProductVideo")}
-              className="block w-full p-3 text-left text-[20px] text-white rounded hover:bg-gray-700"
+              onClick={() => {
+                setSelectedSection("manageProductVideo");
+                setIsSidebarOpen(false);
+              }}
+              className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
             >
               Manage Product Video
             </button>
           </li>
           <li>
             <button
-              onClick={() => setSelectedSection("manageProductDemonstration")}
-              className="block w-full p-3 text-left text-[20px] text-white rounded hover:bg-gray-700"
+              onClick={() => {
+                setSelectedSection("manageProductDemonstration");
+                setIsSidebarOpen(false);
+              }}
+              className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
             >
               Manage Product Demonstration
             </button>
           </li>
-          <li className="relative">
+          <li>
             <button
               onClick={() => setIsTestimonialsOpen(!isTestimonialsOpen)}
-              className="w-full p-3 text-left text-[20px] text-white rounded hover:bg-gray-700 flex justify-between items-center"
+              className="w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700 flex justify-between items-center"
             >
               <span>Testimonials</span>
               <svg
                 className={`w-5 h-5 transition-transform ${
-                  isTestimonialsOpen ? "transform rotate-180" : ""
+                  isTestimonialsOpen ? "rotate-180" : ""
                 }`}
                 fill="none"
                 stroke="currentColor"
@@ -428,16 +471,22 @@ const AdminPanel = () => {
               </svg>
             </button>
             {isTestimonialsOpen && (
-              <div className="mt-1 bg-gray-800 rounded-lg py-2 z-10">
+              <div className="ml-4 mt-2 space-y-2">
                 <button
-                  onClick={() => handleSubSectionSelect("testimonialList")}
-                  className="block w-full px-4 py-2 text-left text-[20px] text-white hover:bg-gray-700"
+                  onClick={() => {
+                    setSelectedSection("testimonialList");
+                    setIsSidebarOpen(false);
+                  }}
+                  className="block w-full p-2 text-left text-lg text-white hover:bg-gray-700 rounded"
                 >
                   Testimonial List
                 </button>
                 <button
-                  onClick={() => handleSubSectionSelect("videoTestimonials")}
-                  className="block w-full px-4 py-2 text-left text-[20px] text-white hover:bg-gray-700"
+                  onClick={() => {
+                    setSelectedSection("videoTestimonials");
+                    setIsSidebarOpen(false);
+                  }}
+                  className="block w-full p-2 text-left text-lg text-white hover:bg-gray-700 rounded"
                 >
                   Video Testimonial List
                 </button>
@@ -447,7 +496,7 @@ const AdminPanel = () => {
           <li>
             <button
               onClick={handleLogout}
-              className=" w-full p-3 botton-0 text-white text-[20px] rounded hover:bg-red-500"
+              className="w-full p-3 text-white text-lg rounded hover:bg-red-500"
             >
               Logout
             </button>
@@ -455,431 +504,480 @@ const AdminPanel = () => {
         </ul>
       </div>
 
-      {/* Right Panel */}
-      <div className="flex-1 p-10 bg-black text-white ml-[25%]">
-        {selectedSection === "dashboard" && (
-          <h1 className="text-3xl font-bold text-center">
-            Welcome to the Admin Panel
-          </h1>
-        )}
+      {/* Overlay for Mobile */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-10 md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+        {/* Right Panel */}
+        <div className="flex-1 md:p-10 bg-black text-white md:ml-[25%] mt-[65px]">
+          {selectedSection === "dashboard" && (
+            <h1 className="text-lg sm:text-xl md:text-3xl font-bold text-center mt-6 px-4 ">
+              Welcome to the Admin Panel
+            </h1>
+          )}
 
-        {/* Manage Product Video Section */}
-        {selectedSection === "manageProductVideo" && (
-          <>
-            <h2 className="text-[37px] font-bold mb-4 text-center">
-              Manage Product Videos
-            </h2>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSaveProduct();
-              }}
-              className="space-y-4 flex flex-col items-center"
-            >
-              <input
-                type="text"
-                placeholder="Product Name"
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
-                className="w-[500px] p-3 border rounded text-black"
-              />
-              <input
-                type="text"
-                placeholder="YouTube Video URL"
-                value={videoUrl}
-                onChange={(e) => setVideoUrl(e.target.value)}
-                className="w-[500px] p-3 border rounded text-black"
-              />
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded"
+          {/* Manage Product Video Section */}
+          {selectedSection === "manageProductVideo" && (
+            <>
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Product Videos
+              </h2>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveProduct();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4 "
               >
-                {editingProductId ? "Update Product" : "Submit"}
-              </button>
-              {editingProductId && (
-                <button
-                  type="button"
-                  className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded mt-2"
-                  onClick={clearForm}
-                >
-                  Cancel Edit
-                </button>
-              )}
-            </form>
-
-            <h3 className="text-xl font-bold mt-8 text-center">
-              Video Product List
-            </h3>
-            <div className="w-full flex justify-center">
-              <table className="w-[900px] mt-4 text-white">
-                <thead>
-                  <tr className="bg-gray-800">
-                    <th className="p-2 border">Product Name</th>
-                    <th className="p-2 border">Video</th>
-                    <th className="p-2 border">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product) => (
-                    <tr key={product.id} className="bg-gray-700">
-                      <td className="p-2 border">{product.name}</td>
-                      <td className="p-2 border">
-                        {product.videoUrl ? (
-                          <iframe
-                            width="200"
-                            height="100"
-                            src={product.videoUrl}
-                            title="YouTube Video"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        ) : (
-                          "No video URL"
-                        )}
-                      </td>
-                      <td className="p-2 border">
-                        <button
-                          onClick={() => handleEditProduct(product)}
-                          className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDeleteProduct(product.id)}
-                          className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
-
-        {selectedSection === "manageProductDemonstration" && (
-          <>
-            {/* Section Title */}
-            <h2 className="text-2xl font-bold text-center">
-              Product Demonstration Management
-            </h2>
-
-            {/* Form for Adding or Editing Demonstration Videos */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSaveDemonstration();
-              }}
-              className="space-y-4 flex flex-col items-center mt-6"
-            >
-              {/* Demonstration Title Field */}
-              <input
-                type="text"
-                placeholder="Enter Demonstration Title"
-                value={demoTitle}
-                onChange={(e) => setDemoTitle(e.target.value)}
-                className="w-[500px] p-3 border rounded text-black"
-              />
-
-              {/* Video URL Field */}
-              <input
-                type="text"
-                placeholder="Enter YouTube Video URL"
-                value={demoVideoUrl}
-                onChange={(e) => setDemoVideoUrl(e.target.value)}
-                className="w-[500px] p-3 border rounded text-black"
-              />
-
-              {/* Submit and Cancel Buttons */}
-              <div className="flex space-x-4">
+                <input
+                  type="text"
+                  placeholder="Product Name"
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <input
+                  type="text"
+                  placeholder="YouTube Video URL"
+                  value={videoUrl}
+                  onChange={(e) => setVideoUrl(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded"
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
                 >
-                  {editingDemoId ? "Update Demonstration" : "Add Demonstration"}
+                  {editingProductId ? "Update Product" : "Submit"}
                 </button>
-                {editingDemoId && (
+                {editingProductId && (
                   <button
                     type="button"
                     className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-                    onClick={clearDemoForm}
+                    onClick={clearForm}
                   >
                     Cancel Edit
                   </button>
                 )}
+              </form>
+
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Video Product List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Product Name</th>
+                      <th className="p-2 border">Video</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.map((product) => (
+                      <tr key={product.id} className="bg-gray-700">
+                        <td className="p-2 border">{product.name}</td>
+                        <td className="p-2 border">
+                          {product.videoUrl ? (
+                            <iframe
+                              className="w-full max-w-[200px] h-[100px]"
+                              src={product.videoUrl}
+                              title="YouTube Video"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : (
+                            "No video URL"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditProduct(product)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDeleteProduct(product.id)}
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-            </form>
+            </>
+          )}
 
-            {/* Demonstration Video List Table */}
-            <h3 className="text-xl font-bold mt-8 text-center">
-              Product Demonstration List
-            </h3>
-            <div className="w-full flex justify-center">
-              <table className="w-[900px] mt-4 text-white">
-                <thead>
-                  <tr className="bg-gray-800">
-                    <th className="p-2 border">Title</th>
-                    <th className="p-2 border">Video Preview</th>
-                    <th className="p-2 border">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {demonstrations.map((demo) => (
-                    <tr key={demo.id} className="bg-gray-700">
-                      <td className="p-2 border">{demo.title}</td>
-                      <td className="p-2 border">
-                        {demo.videoUrl ? (
-                          <iframe
-                            width="200"
-                            height="100"
-                            src={demo.videoUrl}
-                            title="Product Demonstration Video"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        ) : (
-                          "No video available"
-                        )}
-                      </td>
-                      <td className="p-2 border">
-                        <button
-                          onClick={() => handleEditDemonstration(demo)}
-                          className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDeleteDemonstration(demo.id)}
-                          className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
+          {selectedSection === "manageProductDemonstration" && (
+            <>
+              {/* Section Title */}
+              <h2 className="text-2xl md:text-[37px] font-bold text-center mt-4">
+                Product Demonstration Management
+              </h2>
 
-        {/* Add this inside your Right Panel div, at the same level as other section conditionals */}
-
-        {/* testimonial */}
-        {selectedSection === "testimonialList" && (
-         <div className="p-6">
-         <h2 className="text-2xl font-bold mb-4 text-center">Manage Testimonials</h2>
-   
-         <form
-           onSubmit={(e) => {
-             e.preventDefault();
-             handleSaveTestimonial();
-           }}
-           className="space-y-4 flex flex-col items-center"
-         >
-           <input
-             ref={imageInputRef}
-             type="text"
-             placeholder="Client Name"
-             value={testimonialName}
-             onChange={(e) => setTestimonialName(e.target.value)}
-             className="w-[500px] p-3 border rounded text-black"
-           />
-           <textarea
-             placeholder="Testimonial Description"
-             value={testimonialDescription}
-             onChange={(e) => setTestimonialDescription(e.target.value)}
-             className="w-[500px] p-3 border rounded text-black h-32"
-           />
-           <div className="w-[500px]">
-             <input
-               type="file"
-               onChange={handleImageChange}
-               accept="image/*"
-               ref={imageInputRef}
-               className="text-white"
-             />
-             {imagePreview && (
-               <img src={imagePreview} alt="Preview" className="mt-2 max-h-40" />
-             )}
-           </div>
-           <button
-             type="submit"
-             className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded"
-           >
-             {editingTestimonialId ? "Update Testimonial" : "Add Testimonial"}
-           </button>
-           {editingTestimonialId && (
-             <button
-               type="button"
-               className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-               onClick={clearTestimonialForm}
-             >
-               Cancel Edit
-             </button>
-           )}
-         </form>
-   
-         <h3 className="text-xl font-bold mt-8 text-center">Testimonials List</h3>
-         <div className="w-full flex justify-center">
-           <table className="w-[900px] mt-4 text-white">
-             <thead>
-               <tr className="bg-gray-800">
-                 <th className="p-2 border">Name</th>
-                 <th className="p-2 border">Description</th>
-                 <th className="p-2 border">Image</th>
-                 <th className="p-2 border">Actions</th>
-               </tr>
-             </thead>
-             <tbody>
-               {testimonials.map((testimonial) => (
-                 <tr key={testimonial.id} className="bg-gray-700">
-                   <td className="p-2 border text-white">{testimonial.name}</td>
-                   <td className="p-2 border text-white">{testimonial.description}</td>
-                   <td className="p-2 border">
-                     {testimonial.image ? (
-                       <img
-                         src={testimonial.image}
-                         alt="Testimonial"
-                         className="max-h-20"
-                       />
-                     ) : (
-                       "No image uploaded"
-                     )}
-                   </td>
-                   <td className="p-2  flex flex-col items-center justify-center gap-1">
-                     <button
-                       onClick={() => handleEditTestimonial(testimonial)}
-                       className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded h-8 w-36"
-                     >
-                       Edit
-                     </button>
-                     <button
-                       onClick={() => handleDeleteTestimonial(testimonial.id)}
-                       className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2 h-8 w-36"
-                     >
-                       Delete
-                     </button>
-                   </td>
-                 </tr>
-               ))}
-             </tbody>
-           </table>
-         </div>
-       </div>
-        )}
-
-        {/* videotestimonials */}
-        {selectedSection === "videoTestimonials" && (
-          <div className="p-6">
-            <h2 className="text-[37px] font-bold mb-4 text-center">
-              Manage Video Testimonials
-            </h2>
-
-            {/* Video Testimonials Form */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSaveVideoTestimonial();
-              }}
-              className="space-y-4 flex flex-col items-center"
-            >
-              <input
-                type="text"
-                placeholder="Client Name"
-                value={videoTestimonialName}
-                onChange={(e) => setVideoTestimonialName(e.target.value)}
-                className="w-[500px] p-3 border rounded text-black"
-              />
-              <input
-                type="text"
-                placeholder="YouTube Video URL"
-                value={videoTestimonialUrl}
-                onChange={(e) => setVideoTestimonialUrl(e.target.value)}
-                className="w-[500px] p-3 border rounded text-black"
-              />
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded"
+              {/* Form for Adding or Editing Demonstration Videos */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveDemonstration();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4 mt-6"
               >
-                {editingVideoTestimonialId
-                  ? "Update Video Testimonial"
-                  : "Add Video Testimonial"}
-              </button>
-              {editingVideoTestimonialId && (
-                <button
-                  type="button"
-                  className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-                  onClick={clearVideoTestimonialForm}
-                >
-                  Cancel Edit
-                </button>
-              )}
-            </form>
+                {/* Demonstration Title Field */}
+                <input
+                  type="text"
+                  placeholder="Enter Demonstration Title"
+                  value={demoTitle}
+                  onChange={(e) => setDemoTitle(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
 
-            {/* Video Testimonials List */}
-            <h3 className="text-xl font-bold mt-8 text-center">
-              Video Testimonials List
-            </h3>
-            <div className="w-full flex justify-center">
-              <table className="w-[900px] mt-4 text-white">
-                <thead>
-                  <tr className="bg-gray-800">
-                    <th className="p-2 border">Name</th>
-                    <th className="p-2 border">Video</th>
-                    <th className="p-2 border">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {videoTestimonials.map((testimonial) => (
-                    <tr key={testimonial.id} className="bg-gray-700">
-                      <td className="p-2 border">{testimonial.name}</td>
-                      <td className="p-2 border">
-                        {testimonial.videoUrl ? (
-                          <iframe
-                            width="200"
-                            height="100"
-                            src={testimonial.videoUrl}
-                            title="YouTube Video"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        ) : (
-                          "No video URL"
-                        )}
-                      </td>
-                      <td className="p-2 border">
-                        <button
-                          onClick={() =>
-                            handleEditVideoTestimonial(testimonial)
-                          }
-                          className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() =>
-                            handleDeleteVideoTestimonial(testimonial.id)
-                          }
-                          className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-                        >
-                          Delete
-                        </button>
-                      </td>
+                {/* Video URL Field */}
+                <input
+                  type="text"
+                  placeholder="Enter YouTube Video URL"
+                  value={demoVideoUrl}
+                  onChange={(e) => setDemoVideoUrl(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+
+                {/* Submit and Cancel Buttons */}
+                <div className="flex flex-col md:flex-row md:space-x-4 w-full md:w-auto">
+                  <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded mb-2 md:mb-0"
+                  >
+                    {editingDemoId
+                      ? "Update Demonstration"
+                      : "Add Demonstration"}
+                  </button>
+                  {editingDemoId && (
+                    <button
+                      type="button"
+                      className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                      onClick={clearDemoForm}
+                    >
+                      Cancel Edit
+                    </button>
+                  )}
+                </div>
+              </form>
+
+              {/* Demonstration Video List Table */}
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Product Demonstration List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Title</th>
+                      <th className="p-2 border">Video Preview</th>
+                      <th className="p-2 border">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {demonstrations.map((demo) => (
+                      <tr key={demo.id} className="bg-gray-700">
+                        <td className="p-2 border">{demo.title}</td>
+                        <td className="p-2 border">
+                          {demo.videoUrl ? (
+                            <iframe
+                              className="w-full max-w-[200px] h-[100px]"
+                              src={demo.videoUrl}
+                              title="Product Demonstration Video"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : (
+                            "No video available"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditDemonstration(demo)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDeleteDemonstration(demo.id)}
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
+         
+
+          {/* testimonial */}
+          {selectedSection === "testimonialList" && (
+            <div className="p-2 md:p-6">
+              {/* Section Title */}
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Testimonials
+              </h2>
+
+              {/* Form for Adding or Editing Testimonials */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveTestimonial();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4"
+              >
+                {/* Client Name Field */}
+                <input
+                  ref={imageInputRef}
+                  type="text"
+                  placeholder="Client Name"
+                  value={testimonialName}
+                  onChange={(e) => setTestimonialName(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+
+                {/* Testimonial Description Field */}
+                <textarea
+                  placeholder="Testimonial Description"
+                  value={testimonialDescription}
+                  onChange={(e) => setTestimonialDescription(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black h-32"
+                />
+
+                {/* Image Upload Section */}
+                <div className="w-full md:w-[500px]">
+                  <input
+                    type="file"
+                    onChange={handleImageChange}
+                    accept="image/*"
+                    ref={imageInputRef}
+                    className="text-white"
+                  />
+                  {imagePreview && (
+                    <img
+                      src={imagePreview}
+                      alt="Preview"
+                      className="mt-2 max-h-40 rounded"
+                    />
+                  )}
+                </div>
+
+                {/* Submit and Cancel Buttons */}
+                <div className="flex flex-col md:flex-row md:space-x-4 w-full md:w-auto">
+                  <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded mb-2 md:mb-0"
+                  >
+                    {editingTestimonialId
+                      ? "Update Testimonial"
+                      : "Add Testimonial"}
+                  </button>
+                  {editingTestimonialId && (
+                    <button
+                      type="button"
+                      className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                      onClick={clearTestimonialForm}
+                    >
+                      Cancel Edit
+                    </button>
+                  )}
+                </div>
+              </form>
+
+              {/* Testimonials List Title */}
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Testimonials List
+              </h3>
+
+              {/* Responsive Table Wrapper */}
+              <div className="md:w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Name</th>
+                      <th className="p-2 border">Description</th>
+                      <th className="p-2 border">Image</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {testimonials.map((testimonial) => (
+                      <tr key={testimonial.id} className="bg-gray-700">
+                        <td className="p-2 border text-white">
+                          {testimonial.name}
+                        </td>
+                        <td className="p-2 border text-white">
+                          {testimonial.description}
+                        </td>
+                        <td className="p-2 border">
+                          {testimonial.image ? (
+                            <img
+                              src={testimonial.image}
+                              alt="Testimonial"
+                              className="max-h-20 rounded"
+                            />
+                          ) : (
+                            "No image uploaded"
+                          )}
+                        </td>
+                        <td className="p-2 border flex flex-col md:flex-row items-center justify-center gap-1">
+                          <button
+                            onClick={() => handleEditTestimonial(testimonial)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded h-8 w-full md:w-auto"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleDeleteTestimonial(testimonial.id)
+                            }
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded h-8 w-full md:w-auto mt-1 md:mt-0 md:ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {/* videotestimonials */}
+          {selectedSection === "videoTestimonials" && (
+            <div className="p-2 md:p-6">
+              {/* Section Title */}
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Video Testimonials
+              </h2>
+
+              {/* Video Testimonials Form */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveVideoTestimonial();
+                }}
+                className="space-y-4 flex flex-col items-center md:w-full px-4"
+              >
+                {/* Client Name Field */}
+                <input
+                  type="text"
+                  placeholder="Client Name"
+                  value={videoTestimonialName}
+                  onChange={(e) => setVideoTestimonialName(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+
+                {/* YouTube Video URL Field */}
+                <input
+                  type="text"
+                  placeholder="YouTube Video URL"
+                  value={videoTestimonialUrl}
+                  onChange={(e) => setVideoTestimonialUrl(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+
+                {/* Submit and Cancel Buttons */}
+                <div className="flex flex-col md:flex-row md:space-x-4 w-full md:w-auto">
+                  <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded mb-2 md:mb-0"
+                  >
+                    {editingVideoTestimonialId
+                      ? "Update Video Testimonial"
+                      : "Add Video Testimonial"}
+                  </button>
+                  {editingVideoTestimonialId && (
+                    <button
+                      type="button"
+                      className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                      onClick={clearVideoTestimonialForm}
+                    >
+                      Cancel Edit
+                    </button>
+                  )}
+                </div>
+              </form>
+
+              {/* Video Testimonials List */}
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Video Testimonials List
+              </h3>
+
+              {/* Responsive Table Wrapper */}
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Name</th>
+                      <th className="p-2 border">Video</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {videoTestimonials.map((testimonial) => (
+                      <tr key={testimonial.id} className="bg-gray-700">
+                        <td className="p-2 border">{testimonial.name}</td>
+                        <td className="p-2 border">
+                          {testimonial.videoUrl ? (
+                            <iframe
+                              className="w-full md:w-[200px] h-[150px]"
+                              src={testimonial.videoUrl}
+                              title="YouTube Video"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : (
+                            "No video URL"
+                          )}
+                        </td>
+                        <td className="p-2 border flex flex-col md:flex-row items-center justify-center gap-1">
+                          <button
+                            onClick={() =>
+                              handleEditVideoTestimonial(testimonial)
+                            }
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded h-8 w-full md:w-auto"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleDeleteVideoTestimonial(testimonial.id)
+                            }
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded h-8 w-full md:w-auto mt-1 md:mt-0 md:ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 };
