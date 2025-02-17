@@ -44,6 +44,8 @@ import pharmacies from "../assets/pharmacies.jpg"
 import schoolcollege from "../assets/schoolcollege.jpg"
 import hospitalandclinics from "../assets/hospitalandclinics.jpg"
 import restaurants from "../assets/restaurant.jpg"
+
+
 const Home = () => {
   const canvasRef = useRef(null);
   const mainRef = useRef();
@@ -268,19 +270,53 @@ const Home = () => {
 //     window.addEventListener("scroll", scrollActive);
 //     return () => window.removeEventListener('scroll', scrollActive);
 // }, []);
+// const containerRef = useRef(null);
+  
+
+//   useEffect(() => {
+//     if (!containerRef.current) return;
+
+//     const locoScroll = new LocomotiveScroll({
+//       el: containerRef.current,
+//       smooth: true,
+//       lerp: 0.1,
+//       multiplier: 1,
+//       smartphone: {
+//         smooth: true
+//       },
+//       tablet: {
+//         smooth: true
+//       }
+//     });
+
+//     // Update scroll on content change
+//     setTimeout(() => {
+//       locoScroll.update();
+//     }, 500);
+
+//     return () => {
+//       if (locoScroll) {
+//         locoScroll.destroy();
+//       }
+//     };
+//   }, []);
+
 
   return (
-    <div className="relative overflow-hidden ">
+    <div className="relative overflow-hidden " >
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40">
         <canvas
           ref={canvasRef}
           style={{ display: "block", width: "100vw", height: "100vh" }}
         />
       </div>
+      
+      {/* chatbot */}
       <div className="bottom-10 fixed right-10 z-50">
         <ChatBot />
       </div>
-      <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 "></div>
+      <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 " ></div>
+   
       {/* Banner */}
       <section className="h-screen mb-20">
         <div></div>
@@ -479,7 +515,7 @@ const Home = () => {
           {/* Software List */}
           <div>
             {softwareList.map((item) => (
-              <div className="border-b-2 border-[#ffffff] pb-5 pt-5">
+              <div className="border-b-2 border-[#ffffff] pb-5 pt-5 ">
                 <div className="grid grid-cols-1 md:grid-cols-3   justify-center  gap-10 max-w-[1400px] mx-auto">
                   <div className="flex flex-col gap-2 text-[#fff] p-16">
                     <div className=" italic">{item.no}</div>

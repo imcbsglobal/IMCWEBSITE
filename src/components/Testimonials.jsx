@@ -104,10 +104,10 @@ const Testimonials = () => {
                     />
                   </div>
                   <div className="flex flex-col justify-around gap-4">
-                    <div className="textGradient italic text-[22px] md:text-base  text-justify">
+                    <div className="textGradient italic text-[22px] md:text-base  text-justify p-4 px-2">
                       {testimonial.description || "Amazing experience!"}
                     </div>
-                    <div className="textGradient6 text-white text-2xl">
+                    <div className="textGradient6 text-white text-2xl p-4 px-2">
                       {testimonial.name || "Name"}
                     </div>
                   </div>

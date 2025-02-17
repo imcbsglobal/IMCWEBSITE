@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { TiTick } from "react-icons/ti";
 import { PiPlusBold } from "react-icons/pi";
 import Footer from "./Footer";
@@ -14,41 +14,42 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import school from "../assets/school.jpeg";
-import hotel from '../assets/hotel.jpeg'
+import hotel from "../assets/hotel.jpeg";
 import { useLocation } from "react-router-dom";
 import { TiArrowRight } from "react-icons/ti";
 const business = () => {
-   const location = useLocation();
-  
-    // Scroll to the section based on the hash in the URL
-    useEffect(() => {
-      // Function to handle scrolling with offset
-      const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const navbarHeight = 100; // Height of your navbar
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({
-            top: elementPosition - navbarHeight,
-            behavior: "smooth"
-          });
-        }
-      };
-  
-      // Handle initial load and hash changes
-      if (location.hash) {
-        // Remove the '#' from the hash to get the ID
-        const sectionId = location.hash.replace("#", "");
-        // Add a small delay to ensure the DOM is fully loaded
-        setTimeout(() => {
-          scrollToSection(sectionId);
-        }, 0);
+  const location = useLocation();
+
+  // Scroll to the section based on the hash in the URL
+  useEffect(() => {
+    // Function to handle scrolling with offset
+    const scrollToSection = (sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 100; // Height of your navbar
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - navbarHeight,
+          behavior: "smooth",
+        });
       }
-    }, [location.hash]);
+    };
+
+    // Handle initial load and hash changes
+    if (location.hash) {
+      // Remove the '#' from the hash to get the ID
+      const sectionId = location.hash.replace("#", "");
+      // Add a small delay to ensure the DOM is fully loaded
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 0);
+    }
+  }, [location.hash]);
   const [hovered, setHovered] = useState(false);
   const [hovered1, setHovered1] = useState(false);
   const [hovered2, setHovered2] = useState(false);
-const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     // Scroll to top when this component loads
@@ -168,7 +169,7 @@ const [active, setActive] = useState(false);
         </section>
 
         {/* retailswholesale */}
-        <section className="w-full max-w-[1400px] mx-auto mb-20 md:mt-[100px] mt-[10px] px-4">
+        <section className="w-full max-w-[1400px] mx-auto mb-20 md:mt-[100px] mt-[10px] px-4" id="retailswholesale">
           <div>
             <div className="text-[#fff] text-center text-[32px] md:text-[50px] textGradient4 mb-5">
               RETAILS AND WHOLESALES
@@ -457,7 +458,7 @@ const [active, setActive] = useState(false);
         </section>
 
         {/* hospital and clinics */}
-        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen">
+        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-200px] md:mt-[5px]">
           <section
             id="hospitalClinics"
             className="max-w-[1400px] mx-auto w-full mb-6 px-4"
@@ -552,67 +553,67 @@ const [active, setActive] = useState(false);
         </div>
 
         {/* RESTAURANTS */}
-        <div className="pt-2 p-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-100px]">
-        
-        <section
-          className="w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl mt-10"
-          id="restaurantBusiness"
-        >
-          <div className="bg-black w-full rounded-[calc(1.5rem-1px)] p-8 sm:p-6">
-            <div className="text-center">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white textGradient4 mb-3">
-                IT Solutions for Restaurants
-              </h2>
-              <p className="text-xs sm:text-sm md:text-base text-white mb-6 textGradient6">
-                Boost your restaurant's efficiency with advanced IT services
-                tailored to streamline operations, enhance customer experiences,
-                and manage resources seamlessly.
-              </p>
+        <div className="pt-2 p-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-600px] md:mt-[-200px]">
+          <section
+            className="w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl mt-10"
+            id="restaurantBusiness"
+          >
+            <div className="bg-black w-full rounded-[calc(1.5rem-1px)] p-8 sm:p-6">
+              <div className="text-center">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white textGradient4 mb-3">
+                  IT Solutions for Restaurants
+                </h2>
+                <p className="text-xs sm:text-sm md:text-base text-white mb-6 textGradient6">
+                  Boost your restaurant's efficiency with advanced IT services
+                  tailored to streamline operations, enhance customer
+                  experiences, and manage resources seamlessly.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl transition-shadow hover:shadow-2xl">
+                  <div className="bg-black h-full w-full rounded-2xl p-4">
+                    <h3 className="text-base font-semibold text-white mb-2">
+                      POS Systems Integration
+                    </h3>
+                    <p className="text-xs text-white">
+                      Streamline order processing and payments with cutting-edge
+                      Point of Sale systems.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl transition-shadow hover:shadow-2xl">
+                  <div className="bg-black h-full w-full rounded-2xl p-4">
+                    <h3 className="text-base font-semibold text-white mb-2">
+                      Inventory Management
+                    </h3>
+                    <p className="text-xs text-white">
+                      Gain control over your stock levels and reduce waste with
+                      real-time tracking.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl transition-shadow hover:shadow-2xl">
+                  <div className="bg-black h-full w-full rounded-2xl p-4">
+                    <h3 className="text-base font-semibold text-white mb-2">
+                      Customer Engagement Tools
+                    </h3>
+                    <p className="text-xs text-white">
+                      Enhance loyalty with personalized offers, feedback
+                      systems, and reservation platforms.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </section>
+        </div>
 
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl transition-shadow hover:shadow-2xl">
-                <div className="bg-black h-full w-full rounded-2xl p-4">
-                  <h3 className="text-base font-semibold text-white mb-2">
-                    POS Systems Integration
-                  </h3>
-                  <p className="text-xs text-white">
-                    Streamline order processing and payments with cutting-edge
-                    Point of Sale systems.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl transition-shadow hover:shadow-2xl">
-                <div className="bg-black h-full w-full rounded-2xl p-4">
-                  <h3 className="text-base font-semibold text-white mb-2">
-                    Inventory Management
-                  </h3>
-                  <p className="text-xs text-white">
-                    Gain control over your stock levels and reduce waste with
-                    real-time tracking.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl transition-shadow hover:shadow-2xl">
-                <div className="bg-black h-full w-full rounded-2xl p-4">
-                  <h3 className="text-base font-semibold text-white mb-2">
-                    Customer Engagement Tools
-                  </h3>
-                  <p className="text-xs text-white">
-                    Enhance loyalty with personalized offers, feedback systems,
-                    and reservation platforms.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-</div>
         {/* HOTELS */}
         <section
-          className="w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl mt-10"
+          className="mt-[-300px] w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl md:mt-10"
           id="hotelBusiness"
         >
           <div className="bg-black w-full rounded-[calc(1.5rem-1px)] p-4 sm:p-6">
