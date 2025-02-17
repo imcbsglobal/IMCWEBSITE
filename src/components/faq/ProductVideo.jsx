@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
-
+import Footer from '../Footer';
 const ProductVideo = () => {
   const [items, setItems] = useState([]);
 
@@ -48,7 +48,7 @@ const ProductVideo = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className="p-4 text-white rounded-2xl shadow-lg border border-white"
+              className="p-4 text-white rounded-2xl shadow-lg border border-white px-4"
             >
               {/* Video Frame */}
               {item.videoUrl && (
@@ -67,6 +67,10 @@ const ProductVideo = () => {
             </div>
           ))}
         </div>
+      </section>
+      
+      <section className="bg-[#fff] py-10 mt-10">
+        <Footer />
       </section>
     </div>
   );

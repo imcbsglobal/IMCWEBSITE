@@ -2,7 +2,7 @@ import React ,{useState,useEffect} from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaRocketchat } from "react-icons/fa";
 import ChatBot from '../ChatBot';
-
+import Footer from '../Footer';
 const QuestionChatBoats = () => {
    const [active, setActive] = useState(false);
   
@@ -81,6 +81,9 @@ const QuestionChatBoats = () => {
             </button>
           </div>
         </div>
+      </section>
+      <section className="bg-[#fff] py-10">
+        <Footer />
       </section>
     </div>
   );

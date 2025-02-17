@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
-
+import Footer from '../Footer';
 const ProductTutorials = () => {
   const [demonstrations, setDemonstrations] = useState([]);
 
@@ -67,6 +67,9 @@ const ProductTutorials = () => {
         </div>
       </div>
     </section>
+    <section className="bg-[#fff] py-10">
+        <Footer />
+      </section>
   </div>
   
   );
