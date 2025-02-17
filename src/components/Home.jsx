@@ -287,40 +287,46 @@ const Home = () => {
       </section>
 
       {/* About */}
-      <section className="w-full max-w-[1440px] mx-auto mb-20">
-        <div>
-          <div className="md:flex md:justify-center md:items-center md:gap-10 w-full">
+      <section className="w-full max-w-[1440px] mx-auto mb-20 ">
+        <div className="">
+          <div className="md:flex md:justify-center md:items-center md:gap-10 w-full px-4">
             {/* left */}
-            <div className="md:w-[60%] py-5 flex flex-col gap-2">
+            <div className="md:w-[60%] py-5 flex flex-col gap-2 ">
               <div>
                 <div className="flex flex-col gap-2 mb-5">
                   <div className="text-[36px] md:text-[50px] leading-[50px] textGradient5 text-[#fff] font-semibold ">
                     IMC BUSSINESS SOLUTIONS
-                    <span className="block ">
-                      Know more about us
-                    </span>
+                    <span className="block ">Know more about us</span>
                   </div>
                   <div className="textGradient4 text-[16px] md:text-[30px]   leading-tight text-[#fff]">
                     Our Journey to Digital Excellence
                   </div>
                 </div>
                 <div className="textGradient6 text-[#fff]">
-                 IMC Business Solutions is a leading software company in India
+                  IMC Business Solutions is a leading software company in India
                   since 2017, offering a comprehensive management platform and a
                   wide range of IT solutions, including business software,
                   Android/iOS development, web development, hardware services,
                   and IT support.
-                  <span className="block"> Our primary mission is to bring RITS
-                  Software’s innovative products to global markets. As a
-                  professionally competent IT firm, RITS Software blends expert
-                  software development with a customer-focused management
-                  approach.</span>
-                  <span className="block"> We also operate Sysmac, a dedicated division
-                  providing hardware solutions and services to our clients.</span> IMC
-                  <span className="block">delivers tailored software and technology solutions for
-                  businesses in India and beyond. With over 1,200 happy clients
-                  and 10+ branches across South India, we continue to empower
-                  businesses with cutting-edge technology solutions.</span>
+                  <span className="block">
+                    {" "}
+                    Our primary mission is to bring RITS Software’s innovative
+                    products to global markets. As a professionally competent IT
+                    firm, RITS Software blends expert software development with
+                    a customer-focused management approach.
+                  </span>
+                  <span className="block">
+                    {" "}
+                    We also operate Sysmac, a dedicated division providing
+                    hardware solutions and services to our clients.
+                  </span>{" "}
+                  IMC
+                  <span className="block">
+                    delivers tailored software and technology solutions for
+                    businesses in India and beyond. With over 1,200 happy
+                    clients and 10+ branches across South India, we continue to
+                    empower businesses with cutting-edge technology solutions.
+                  </span>
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 place-items-center w-full gap-5">
@@ -411,45 +417,57 @@ const Home = () => {
       </section>
 
       {/* Count */}
-      <section className="mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
-        <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 `rounded-[calc(1.5rem-1px)]`">
-          <div className="md:flex grid grid-cols-1 place-items-center w-full justify-between px-10 items-center h-full gap-10">
-            <div className="flex items-center justify-center gap-2">
-              <div className="text-[65px] textGradient font-black">5+</div>
-              <div className="leading-tight text-[30px] textGradient">
+      <div className="px-3 md:px-0 ">
+      <section className=" mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
+        <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-3 md:px-0">
+          <div className="grid grid-cols-2 md:flex w-full justify-between items-center h-full gap-5">
+            <div className="flex flex-col items-center md:flex-row gap-2">
+              <div className="text-[65px] textGradient font-black leading-none">
+                5+
+              </div>
+              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
                 Years of <span className="block">Experience</span>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <div className="text-[65px] textGradient font-black">20+</div>
-              <div className="leading-tight text-[30px] textGradient">
+            <div className="flex flex-col items-center md:flex-row gap-2">
+              <div className="text-[65px] textGradient font-black leading-none">
+                20+
+              </div>
+              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
                 Skilled <span className="block">Professionals</span>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <div className="text-[65px] textGradient font-black">100%</div>
-              <div className="leading-tight text-[30px] textGradient">
+            <div className="flex flex-col items-center md:flex-row gap-2">
+              <div className="text-[65px] textGradient font-black leading-none">
+                100%
+              </div>
+              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
                 Customer <span className="block">Satisfaction</span>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <div className="text-[65px] textGradient font-black">1500+</div>
-              <div className="leading-tight text-[30px] textGradient">
+            <div className="flex flex-col items-center md:flex-row gap-2">
+              <div className="text-[65px] textGradient font-black leading-none">
+                1500+
+              </div>
+              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
                 Clients
               </div>
             </div>
           </div>
         </div>
       </section>
+      </div>
 
       {/* Softwares */}
-      <section className="mb-20">
+      <section className="mb-20 px-3 md:px-0 ">
         <div>
           {/* Title Portion */}
           <div className="md:flex md:justify-between md:items-center md:gap-10 mb-10 max-w-[1400px] mx-auto">
             <div className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight md:w-[60%]">
               Softwares
-              <span className="block text-[26px] md:text-[40px]">What We Build for You</span>
+              <span className="block text-[26px] md:text-[40px]">
+                What We Build for You
+              </span>
             </div>
             <div className="text-[#fff] md:w-[40%] textGradient6">
               Explore our suite of cutting-edge software products designed to
@@ -494,7 +512,7 @@ const Home = () => {
       </section>
 
       {/* Services */}
-      <section className="mb-20 max-w-[1400px] mx-auto w-full">
+      <section className="mb-20 max-w-[1400px] mx-auto w-full px-5 md:px-0">
         <div>
           <div className="mb-5">
             <div className="text-[#fff] text-[36px] md:text-[50px] leading-tight textGradient4">
@@ -537,7 +555,7 @@ const Home = () => {
                         <span className="block">closely with clients</span>{" "}
                       </div>
                     </div>
-                    <div className="w-full h-[250px] bg-[#ffffff60] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
+                    <div className="  w-full h-[250px] bg-[#ffffff60] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
                       <div className="relative rounded-3xl w-full h-full overflow-hidden">
                         <img
                           src={service.img1}
@@ -576,7 +594,7 @@ const Home = () => {
       </section>
 
       {/* Business */}
-      <section className="max-w-[1400px] mx-auto mb-20">
+      <section className="max-w-[1400px] mx-auto mb-20 px-3 md:px-0">
         <div>
           <div className="text-[#fff] mb-2 text-[36px] md:text-[50px] textGradient4 text-center">
             Business Capabilities
@@ -728,92 +746,91 @@ const Home = () => {
 
       {/* Contact */}
       <section className="mb-20 max-w-[1400px] mx-auto w-full px-5">
-  <div className="w-full">
-    {/* Heading Section */}
-    <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">
-      <div className="md:w-[60%] flex flex-col gap-4">
-        <div className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight">
-          Get in Touch and Lets
-          <span className="block">Make It Happen</span>
-        </div>
-        <div className="text-[#fff] textGradient6 text-base md:text-lg">
-          Get in touch with us! Whether you have questions, need support, or
-          want to learn more about our services, we’re here to assist you.
-          Simply fill out the form below, and we’ll respond promptly.
-        </div>
-      </div>
-      <div className="md:w-[50%]"></div>
-    </div>
+        <div className="w-full">
+          {/* Heading Section */}
+          <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">
+            <div className="md:w-[60%] flex flex-col gap-4">
+              <div className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight">
+                Get in Touch and Lets
+                <span className="block">Make It Happen</span>
+              </div>
+              <div className="text-[#fff] textGradient6 text-base md:text-lg">
+                Get in touch with us! Whether you have questions, need support,
+                or want to learn more about our services, we’re here to assist
+                you. Simply fill out the form below, and we’ll respond promptly.
+              </div>
+            </div>
+            <div className="md:w-[50%]"></div>
+          </div>
 
-    {/* Contact Form Section */}
-    <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full">
-      {/* Contact Details Section */}
-      <div className="w-full md:w-[50%]">
-        <div className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl">
-          <div className="text-[#fff]">info@imcbsglobal.com</div>
-          <div className="text-[#fff]">+91 75938 20007</div>
-          <div className="text-[#fff]">
-            Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
-            <span className="block">
-              Kalpetta, Wayanad, Kerala – 673121
-            </span>
-          </div>
-        </div>
-        <div className="flex">
-          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffbf00] to-[#ffb62d] p-[1px] backdrop-blur-3xl rounded-3xl">
-            <button className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6">
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </div>
+          {/* Contact Form Section */}
+          <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full">
+            {/* Contact Details Section */}
+            <div className="w-full md:w-[50%]">
+              <div className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl">
+                <div className="text-[#fff]">info@imcbsglobal.com</div>
+                <div className="text-[#fff]">+91 75938 20007</div>
+                <div className="text-[#fff]">
+                  Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
+                  <span className="block">
+                    Kalpetta, Wayanad, Kerala – 673121
+                  </span>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffbf00] to-[#ffb62d] p-[1px] backdrop-blur-3xl rounded-3xl">
+                  <button className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6">
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            </div>
 
-      {/* Contact Form */}
-      <div className="w-full md:w-[50%] flex flex-col gap-5">
-        <div className="text-[#fff] textGradient6 text-xl md:text-2xl">
-          Here to bring your concept to life, manage your ongoing project, or
-          expand your existing development team.
+            {/* Contact Form */}
+            <div className="w-full md:w-[50%] flex flex-col gap-5">
+              <div className="text-[#fff] textGradient6 text-xl md:text-2xl">
+                Here to bring your concept to life, manage your ongoing project,
+                or expand your existing development team.
+              </div>
+              <form action="">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 textGradient6">
+                  <input
+                    type="text"
+                    placeholder="First Name*"
+                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name*"
+                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email*"
+                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone*"
+                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                  />
+                </div>
+                <div className="w-full mb-5">
+                  <textarea
+                    placeholder="Enter Your Message"
+                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                  ></textarea>
+                </div>
+                <div className="w-full">
+                  <button className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <form action="">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 textGradient6">
-            <input
-              type="text"
-              placeholder="First Name*"
-              className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
-            />
-            <input
-              type="text"
-              placeholder="Last Name*"
-              className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
-            />
-            <input
-              type="email"
-              placeholder="Email*"
-              className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
-            />
-            <input
-              type="tel"
-              placeholder="Phone*"
-              className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
-            />
-          </div>
-          <div className="w-full mb-5">
-            <textarea
-              placeholder="Enter Your Message"
-              className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
-            ></textarea>
-          </div>
-          <div className="w-full">
-            <button className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6">
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Footer */}
       <section className="bg-[#fff] py-10">

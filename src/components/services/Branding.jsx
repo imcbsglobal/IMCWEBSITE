@@ -12,6 +12,7 @@ const Branding = () => {
     }, []);
   return (
     <div className="md:pt-[130px] pt-[60px]">
+      {/* first */}
       <section className="w-full max-w-[1400px] mb-20 mx-auto rounded-3xl bg-[#000]">
         <div className="px-4 py-10 flex flex-col md:flex-row gap-10">
           <div className="md:w-[50%] flex flex-col justify-center items-start gap-5">
@@ -79,9 +80,9 @@ const Branding = () => {
           </div>
         </div>
       </section>
-
+     {/* second */}
       <section className="w-full max-w-[1400px] mb-20 mx-auto rounded-3xl bg-[#000]">
-        <div className="flex flex-col md:flex-row gap-10 px-4 py-10">
+        <div className="flex flex-col  gap-10 px-4 py-10 md:flex-row-reverse">
           <div className="md:w-[50%] flex flex-col justify-center items-center md:items-start gap-5">
             <div className="text-[#fff] text-[32px] md:text-[50px] mb-5 textGradient4 text-center md:text-left leading-tight">
               Innovative Brand Solutions
@@ -104,8 +105,10 @@ const Branding = () => {
               </Link>
             </div>
           </div>
-          <div className="md:w-[50%] flex justify-center bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl">
-            <div className="rounded-3xl w-full h-full bg-[#e3d3d3] overflow-hidden"><img src={B} alt="" className="w-full h-full rounded-3xl" /></div>
+          <div className=" md:w-[50%] flex justify-center bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl">
+            <div className="rounded-3xl w-full h-full bg-[#e3d3d3] overflow-hidden">
+              <img src={B} alt="" className="w-full h-full rounded-3xl" />
+              </div>
           </div>
         </div>
       </section>

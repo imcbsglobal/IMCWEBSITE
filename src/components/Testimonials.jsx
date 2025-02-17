@@ -55,7 +55,7 @@ const Testimonials = () => {
             <ChevronLeft size={40} />
           </button>
 
-          <div className="flex flex-col md:flex-row justify-center gap-4  p-3  ">
+          <div className="flex flex-col md:flex-row justify-center gap-4  p-3  px-20 md:px-0">
             {testimonials
               .slice(currentStart, currentStart + 2)
               .map((testimonial) => (
@@ -75,7 +75,7 @@ const Testimonials = () => {
                   </div>
 
                   <div className="flex flex-col justify-around gap-4 ">
-                    <div className="textGradient italic text-sm md:text-base">
+                    <div className="textGradient italic  md:text-base text-[29px] md:text-sm]">
                       {testimonial.description || "Amazing experience!"}
                     </div>
                     <div className="flex flex-col">
@@ -99,7 +99,7 @@ const Testimonials = () => {
       </div>
 
       {/* Render Video Testimonials */}
-      <div>
+      <div className="px-10 md:px-0">
         <div className="flex items-center justify-center mt-20">
           <h1 className="text-white text-[40px] textGradient4">
             Voices of Trust: Client Video Testimonials
