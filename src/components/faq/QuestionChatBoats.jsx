@@ -23,7 +23,7 @@ const QuestionChatBoats = () => {
         <ChatBot />
       </div>
 
-      <section className="w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center h-screen mb-20 mt-[-50px] md:mt-[10px] px-4">
+      <section className="w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center h-screen mb-20 mt-[-20px] md:mt-[10px] px-4">
         <div>
           {/* Highlight Banner */}
           <div className="w-full flex justify-center items-center mb-5">
