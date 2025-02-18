@@ -951,7 +951,7 @@ const AdminPanel = () => {
                             "No video URL"
                           )}
                         </td>
-                        <td className="p-2 border flex flex-col md:flex-row items-center justify-center gap-1">
+                        <td className="p-2 border flex flex-col md:flex-col items-center justify-center gap-1 ">
                           <button
                             onClick={() =>
                               handleEditVideoTestimonial(testimonial)
