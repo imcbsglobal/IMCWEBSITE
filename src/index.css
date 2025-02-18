@@ -87,3 +87,6 @@ body{
   .ChatBoxInput::placeholder{
     color: white;
   }
+  .ScrollBar::-webkit-scrollbar{
+    display: none;
+  }

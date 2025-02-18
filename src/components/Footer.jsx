@@ -12,7 +12,8 @@ const Footer = () => {
           <img src={logo} className="w-full h-full object-contain" alt="Logo" />
         </div>
         <div className="md:w-[60%] lg:w-[500px] text-start textGradient6 text-sm md:text-base">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nobis nihil, iste voluptas doloribus ut incidunt? Voluptates cupiditate praesentium asperiores.
+        © 2025 IMC Business Solutions. Leading IT solutions provider in Kerala since 2017.  
+        Empowering businesses with innovative software and technology solutions.
         </div>
       </div>
 

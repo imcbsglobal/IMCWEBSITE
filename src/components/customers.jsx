@@ -68,6 +68,8 @@ import orfila from '../assets/orfila.png'
 import lavillainn from '../assets/lavillainn.png'
 import bodyzone from '../assets/bodyzone.png'
 const customers = () => {
+
+  const [active, setActive]= useState()
 const clients = [
     {
       id: 1,
@@ -542,7 +544,7 @@ const clients = [
                         alt={item.name}
                         className="h-[200px] md:h-[300px] object-contain"
                       />
-                      <div className="absolute bottom-5 w-full px-2 text-center">
+                      <div className="absolute bottom-1 w-full px-2 text-center ">
                         <h3 className="text-black font-bold text-base md:text-lg mt-2">
                           {item.name}
                         </h3>

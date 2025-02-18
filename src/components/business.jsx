@@ -458,7 +458,7 @@ const business = () => {
         </section>
 
         {/* hospital and clinics */}
-        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-200px] md:mt-[5px]">
+        <div className="pt-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-100px] md:mt-[0px]">
           <section
             id="hospitalClinics"
             className="max-w-[1400px] mx-auto w-full mb-6 px-4"
@@ -553,7 +553,7 @@ const business = () => {
         </div>
 
         {/* RESTAURANTS */}
-        <div className="pt-2 p-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-600px] md:mt-[-200px]">
+        <div className="pt-2 p-2 flex flex-col justify-center items-center w-full min-h-screen mt-[-50px] md:mt-[-200px]">
           <section
             className="w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl mt-10"
             id="restaurantBusiness"
@@ -613,7 +613,7 @@ const business = () => {
 
         {/* HOTELS */}
         <section
-          className="mt-[-300px] w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl md:mt-10"
+          className="mt-[0px] w-full max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl md:mt-10"
           id="hotelBusiness"
         >
           <div className="bg-black w-full rounded-[calc(1.5rem-1px)] p-4 sm:p-6">

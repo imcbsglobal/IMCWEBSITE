@@ -91,9 +91,9 @@ const Testimonials = () => {
               .map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="flex flex-col items-center p-4 w-full gap-6  rounded-3xl"
+                  className="flex justify-center items-center p-4 w-full gap-6  rounded-3xl"
                 >
-                  <div className="w-[200px] h-[250px] rounded-tl-[40%] bg-white overflow-hidden">
+                  <div className="w-[200px] h-[300px] rounded-tl-[40%] bg-white overflow-hidden">
                     <img
                       src={
                         testimonial.image ||
@@ -103,7 +103,7 @@ const Testimonials = () => {
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <div className="flex flex-col justify-around gap-4">
+                  <div className="flex flex-col justify-around gap-4 w-[300px]">
                     <div className="textGradient italic text-[22px] md:text-base  text-justify p-4 px-2">
                       {testimonial.description || "Amazing experience!"}
                     </div>

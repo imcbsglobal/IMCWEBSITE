@@ -252,7 +252,8 @@ const Navbar = () => {
               } rounded-3xl`}
             >
               <button
-                className={`rounded-[calc(1.5rem-1px)] px-6 py-2 font-bold hover:bg-gray-800 flex items-center gap-2 ${
+                onClick={() => (window.location.href = "tel:+917593820007")}
+                className={`rounded-[calc(1.5rem-1px)] px-6 py-2 font-bold hover:bg-gray-200 flex items-center gap-2 ${
                   isScrolled
                     ? "border-[#000] border"
                     : "border border-[#fff] text-[#fff] bg-[#000]"
@@ -261,6 +262,7 @@ const Navbar = () => {
                 <span>Let's Talk</span>
                 <MdCall className="text-xl" />
               </button>
+
               <button
                 className="sm:hidden flex items-center justify-center" // Show on mobile
               >
@@ -275,7 +277,7 @@ const Navbar = () => {
         </nav>
       </header>
       <div
-        className={` fixed top-0 left-0 w-[75%] max-w-[320px] bg-white text-black z-[999] h-full shadow-lg transition-transform ${
+        className={` fixed top-0 left-0 w-[75%] max-w-[320px] bg-white text-black z-[990] h-full shadow-lg transition-transform ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

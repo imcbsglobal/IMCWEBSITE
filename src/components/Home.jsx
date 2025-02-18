@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import blackshade from "../assets/whiteshade.png";
 import banner from "../assets/banner.jpg";
 import { MdOutlineArrowOutward } from "react-icons/md";
@@ -48,7 +48,18 @@ import restaurants from "../assets/restaurant.jpg"
 
 const Home = () => {
   const canvasRef = useRef(null);
-  const mainRef = useRef();
+  const [result, setResult] = React.useState("");
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  
+
+  // const mainRef = useRef();
+  const [formData, setFormData] = useState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: ""
+    });
 
   useEffect(() => {
     // Ensure the container and its children are fully rendered
@@ -66,6 +77,14 @@ const Home = () => {
       if (locoScroll) locoScroll.destroy();
     };
   }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const softwareList = [
     {
@@ -159,109 +178,81 @@ const Home = () => {
     },
   ];
 
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    
+    const formDataToSend = new FormData();
+    formDataToSend.append("access_key", "3e557a00-0b21-45e5-b274-496427ac9210");
+    Object.entries(formData).forEach(([key, value]) => {
+      formDataToSend.append(key, value);
+    });
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+        setIsPopupVisible(true);
+        setTimeout(() => setIsPopupVisible(false), 3000); // Hide popup after 3 seconds
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+      setResult("Error submitting form");
+    }
+  };
+ 
+  const mainRef = useRef();
+
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const gl = canvas.getContext("webgl");
+    // Ensure the container and its children are fully rendered
+    if (!mainRef.current) return;
 
-    if (!gl) {
-      console.error("WebGL not supported");
-      return;
-    }
+    // Initialize Locomotive Scroll
+    const locoScroll = new LocomotiveScroll({
+      el: mainRef.current, // Reference to the scroll container
+      smooth: true,
+      lerp: 0.1,
+    });
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const fragmentShaderSource = `
-      precision mediump float;
-      uniform vec2 iResolution;
-      uniform float iTime;
-
-      void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-        vec2 uv = (2.0 * fragCoord - iResolution.xy) / min(iResolution.x, iResolution.y);
-        
-        for(float i = 1.0; i < 10.0; i++) {
-          uv.x += 0.6 / i * cos(i * 2.5 * uv.y + iTime);
-          uv.y += 0.6 / i * cos(i * 1.5 * uv.x + iTime);
-        }
-
-        fragColor = vec4(vec3(0.1) / abs(sin(iTime - uv.y - uv.x)), 1.0);
-      }
-
-      void main() {
-        mainImage(gl_FragColor, gl_FragCoord.xy);
-      }
-    `;
-
-    const vertexShaderSource = `
-      attribute vec2 position;
-      void main() {
-        gl_Position = vec4(position, 0.0, 1.0);
-      }
-    `;
-
-    function compileShader(source, type) {
-      const shader = gl.createShader(type);
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error(gl.getShaderInfoLog(shader));
-        gl.deleteShader(shader);
-        return null;
-      }
-      return shader;
-    }
-
-    const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-    const fragmentShader = compileShader(
-      fragmentShaderSource,
-      gl.FRAGMENT_SHADER
-    );
-
-    const program = gl.createProgram();
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
-
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error(gl.getProgramInfoLog(program));
-    }
-
-    gl.useProgram(program);
-
-    const vertices = new Float32Array([
-      -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1,
-    ]);
-
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-
-    const positionLocation = gl.getAttribLocation(program, "position");
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-
-    const iResolution = gl.getUniformLocation(program, "iResolution");
-    const iTime = gl.getUniformLocation(program, "iTime");
-
-    function render(time) {
-      gl.viewport(0, 0, canvas.width, canvas.height);
-
-      gl.uniform2f(iResolution, canvas.width, canvas.height);
-      gl.uniform1f(iTime, time * 0.001);
-
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-
-      requestAnimationFrame(render);
-    }
-
-    render(0);
-
+    // Cleanup Locomotive Scroll instance on unmount
     return () => {
-      cancelAnimationFrame(render);
+      if (locoScroll) locoScroll.destroy();
     };
   }, []);
+
+useEffect(() => {
+  // Ensure the container and its children are fully rendered
+  if (!mainRef.current) return;
+
+  // Initialize Locomotive Scroll
+  const locoScroll = new LocomotiveScroll({
+    el: mainRef.current, // Reference to the scroll container
+    smooth: true,
+    lerp: 0.1,
+  });
+
+  // Cleanup Locomotive Scroll instance on unmount
+  return () => {
+    if (locoScroll) locoScroll.destroy();
+  };
+}, []);
 
 //  useEffect(() => {
 //     const scrollActive = () => {
@@ -301,19 +292,25 @@ const Home = () => {
 //     };
 //   }, []);
 
+   const [openChat, setOpenChat] = useState(false)
 
   return (
-    <div className="relative overflow-hidden " >
+    <div className="relative overflow-hidden ">
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40">
-        <canvas
-          ref={canvasRef}
-          style={{ display: "block", width: "100vw", height: "100vh" }}
-        />
+        
       </div>
       
       {/* chatbot */}
-      <div className="bottom-10 fixed right-10 z-50">
-        <ChatBot />
+      <div className="bottom-10 fixed right-10 z-[999]">
+      {openChat ? (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        ) : (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        )}
       </div>
       <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 " ></div>
    
@@ -455,8 +452,8 @@ const Home = () => {
       {/* Count */}
       <div className="px-3 md:px-0 ">
       <section className=" mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
-        <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-3 md:px-0">
-          <div className="grid grid-cols-2 md:flex w-full justify-between items-center h-full gap-5">
+        <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-5 md:px-0">
+          <div className="grid grid-cols-2 md:flex w-full justify-between items-center h-full gap-5 px-3">
             <div className="flex flex-col items-center md:flex-row gap-2">
               <div className="text-[65px] textGradient font-black leading-none">
                 5+
@@ -815,7 +812,9 @@ const Home = () => {
               </div>
               <div className="flex">
                 <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffbf00] to-[#ffb62d] p-[1px] backdrop-blur-3xl rounded-3xl">
-                  <button className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6">
+                  <button 
+                  onClick={() => (window.location.href = "tel:+917593820007")}
+                  className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700">
                     Contact Us
                   </button>
                 </div>
@@ -828,37 +827,57 @@ const Home = () => {
                 Here to bring your concept to life, manage your ongoing project,
                 or expand your existing development team.
               </div>
-              <form action="">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 textGradient6">
+              <form onSubmit={onSubmit}>
+                <div className="w-full grid grid-cols-2 gap-5 mb-3 textGradient6">
                   <input
                     type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     placeholder="First Name*"
-                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                    required
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   />
                   <input
                     type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     placeholder="Last Name*"
-                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                    required
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   />
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Email*"
-                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                    required
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   />
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="Phone*"
-                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                    required
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   />
                 </div>
-                <div className="w-full mb-5">
+                <div className="w-full mb-3">
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Enter Your Message"
-                    className="py-2 px-4 w-full outline-none bg-transparent text-[#fff] border-b"
+                    required
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
                   ></textarea>
                 </div>
                 <div className="w-full">
-                  <button className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6">
+                  <button type="submit" className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6">
                     Send Message
                   </button>
                 </div>

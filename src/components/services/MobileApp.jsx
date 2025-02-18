@@ -139,7 +139,7 @@ const MobileApp = () => {
             {MobileAppData.map((item) => (
               <div className="w-full h-[220px] md:h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl">
                 <div className="rounded-3xl w-full h-full bg-[#000] p-5">
-                  <h3 className="text-[#fff] text-xl textGradient mb-3 font-black">
+                  <h3 className="text-[#fff] text-xl textGradient mb-3 font-black text-center">
                     {item.title}
                   </h3>
                   <p className="textGradient6 text-[#fff]">
@@ -169,7 +169,7 @@ const MobileApp = () => {
             {ChooseUsList.map((item) => (
               <div className="w-full h-[215px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl">
                 <div className="rounded-3xl w-full h-full bg-[#000] p-5">
-                  <h3 className="text-[#fff] mb-3 textGradient text-xl font-bold">
+                  <h3 className="text-[#fff] mb-3 textGradient text-xl font-bold text-center ">
                     {item.titile}
                   </h3>
                   <p className="text-[#fff] textGradient">{item.description}</p>
