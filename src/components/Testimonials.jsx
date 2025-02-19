@@ -91,9 +91,9 @@ const Testimonials = () => {
               .map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="flex justify-center items-center p-4 w-full gap-6  rounded-3xl"
+                  className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6  rounded-3xl"
                 >
-                  <div className="w-[200px] h-[300px] rounded-tl-[40%] bg-white overflow-hidden">
+                  <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
                     <img
                       src={
                         testimonial.image ||
@@ -104,10 +104,10 @@ const Testimonials = () => {
                     />
                   </div>
                   <div className="flex flex-col justify-around gap-4 w-[300px]">
-                    <div className="textGradient italic text-[22px] md:text-base  text-justify p-4 px-2">
+                    <div className="textGradient italic md:text-[22px] text-center md:text-base  md:text-justify pt-2 px-2">
                       {testimonial.description || "Amazing experience!"}
                     </div>
-                    <div className="textGradient6 text-white text-2xl p-4 px-2">
+                    <div className="textGradient6 text-white md:text-2xl md:p-4 px-2 text-center md:text-start">
                       {testimonial.name || "Name"}
                     </div>
                   </div>

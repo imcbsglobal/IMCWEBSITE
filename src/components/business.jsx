@@ -65,6 +65,7 @@ const business = () => {
 
   return (
     <div>
+
       <div className="pt-[130px] flex-col w-full mx-auto flex justify-center items-center">
         {/* banner */}
         <section className="max-w-[1400px] mx-auto w-full rounded-3xl mb-5 overflow-hidden px-4">
@@ -691,6 +692,8 @@ const business = () => {
           </div>
         </section>
 
+
+        
         <section className="bg-[#fff] py-10 w-full">
           <Footer />
         </section>

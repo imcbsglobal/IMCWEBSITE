@@ -148,7 +148,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
   useEffect(() => {
     setContext(`
       You are a helpful customer service assistant for IMC Business Solutions. Use the following information to answer customer queries:
-  
+      my name is IMC BOT
       **Company Overview:**
       IMC Business Solutions is a leading software company in India since 2017, offering a comprehensive management platform and a wide range of IT solutions, including business software, Android/iOS development, web development, hardware services, and IT support. Our primary mission is to bring RITS Software’s innovative products to global markets. We also operate Sysmac, a dedicated division providing hardware solutions and services to our clients.
   
@@ -187,8 +187,8 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
 
 
   return (
-    <div className="">
-      {/* Chat Icon */}
+    <div className="fixed md:relative">
+      {/* Chat Icon - Responsive positioning */}
       <div className="flex justify-center items-center relative rounded-full p-2 bg-[#fff] text-[30px] cursor-pointer">
         <PiChatCircleTextFill onClick={() => setOpenChatx(!openChatx)}/>
         <span className="text-[10px] font-bold rounded-full bg-[#f00] text-[#fff] absolute -top-2 right-2 w-4 h-4 flex justify-center items-center drop-shadow-lg">
@@ -196,40 +196,41 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
         </span>
       </div>
 
-      {/* Chat Box */}
+      {/* Chat Box - Responsive sizing and positioning */}
       {openChatx && (
-        <div className="fixed bottom-24 z-[999] w-[400px] h-[600px] rounded-3xl bg-[#fff] right-10 overflow-hidden">
+        <div className="fixed bottom-0 right-0 md:bottom-24 md:right-10 z-[999] w-full md:w-[400px] h-[100vh] md:h-[600px] rounded-none md:rounded-3xl bg-[#fff] overflow-hidden">
+          {/* Background Image */}
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
             <img src={chattingBg} className="w-full h-full object-cover" alt="" />
           </div>
 
-          {/* Header */}
-          <div className="p-2 w-full ChatBox px-4 flex justify-between items-center">
+          {/* Header - Made more touch-friendly */}
+          <div className="p-4 w-full ChatBox flex justify-between items-center">
             <div className="text-[30px] text-[#fff]">
-            <IoMdClose onClick={() => setOpenChatx(false)} className="cursor-pointer text-2xl" />
+              <IoMdClose onClick={() => setOpenChatx(false)} className="cursor-pointer text-2xl hover:scale-110 transition-transform" />
             </div>
             <div className="w-auto h-[40px]">
               <img src={imc} alt="" className="w-full h-full object-contain drop-shadow-sm" />
             </div>
           </div>
 
-          {/* Profile Images */}
-          <div className="flex justify-center items-center pt-14 relative max-w-[200px] mx-auto">
-            <div className="w-[60px] h-[60px] rounded-full overflow-hidden absolute left-10 drop-shadow-2xl z-20">
+          {/* Profile Images - Adjusted for better mobile display */}
+          <div className="flex justify-center items-center pt-8 md:pt-14 relative max-w-[200px] mx-auto">
+            <div className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-full overflow-hidden absolute left-10 drop-shadow-2xl z-20">
               <img src={imclogo} className="drop-shadow-2xl" alt="" />
             </div>
-            <div className="w-[60px] h-[60px] rounded-full overflow-hidden drop-shadow-lg bg-[#fff] absolute left-[90px]">
+            <div className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-full overflow-hidden drop-shadow-lg bg-[#fff] absolute left-[80px] md:left-[90px]">
               <img src={model1} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className="w-[60px] h-[60px] rounded-full overflow-hidden bg-[#fff] drop-shadow-lg absolute left-[140px]">
+            <div className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-full overflow-hidden bg-[#fff] drop-shadow-lg absolute left-[120px] md:left-[140px]">
               <img src={model2} className="w-full h-full object-cover rounded-full" alt="" />
             </div>
           </div>
 
-          {/* Chat Messages */}
+          {/* Chat Messages - Adjusted spacing and sizing */}
           <div 
             ref={chatContainerRef}
-            className="h-[350px] overflow-y-auto ScrollBar px-4 mt-16 space-y-4"
+            className="h-[calc(100vh-250px)] md:h-[350px] overflow-y-auto ScrollBar px-4 mt-12 md:mt-16 space-y-4"
           >
             {chatHistory.map((chat, index) => (
               <div key={index} className={`flex ${chat.sender === 'user' ? 'justify-end' : 'items-start'} gap-2`}>
@@ -238,7 +239,9 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
                     <img src={imclogo} alt="Logo" className="w-full h-full object-contain" />
                   </div>
                 )}
-                <div className={`max-w-[70%] rounded-xl px-4 py-2 ${chat.sender === 'user' ? 'bg-[#25D366] text-white' : 'bg-white'}`}>
+                <div className={`max-w-[80%] md:max-w-[70%] rounded-xl px-3 md:px-4 py-2 ${
+                  chat.sender === 'user' ? 'bg-[#25D366] text-white' : 'bg-white'
+                }`}>
                   {chat.message}
                 </div>
               </div>
@@ -255,8 +258,8 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
             )}
           </div>
 
-          {/* Input Area */}
-          <div className="absolute bottom-0 flex justify-center items-center px-2 py-3 w-full">
+          {/* Input Area - Made more touch-friendly */}
+          <div className="absolute bottom-0 flex justify-center items-center px-2 py-4 w-full bg-[rgba(0,0,0,0.1)]">
             <input
               type="text"
               placeholder="message...."
@@ -265,8 +268,8 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
               onKeyPress={handleKeyPress}
               className="px-4 ChatBoxInput py-3 w-full border-none outline-none rounded-3xl ChatBox text-[#fff] font-semibold"
             />
-            <div className="absolute right-5 flex items-center gap-3 text-2xl text-[#251306] drop-shadow-sm">
-              <MdAttachFile />
+            <div className="absolute right-5 flex items-center gap-4 text-2xl text-[#251306] drop-shadow-sm">
+              <MdAttachFile className="hidden md:block" />
               <MdEmojiEmotions onClick={toggleEmojiPicker} className="cursor-pointer" />
               {showSender && (
                 <IoArrowUpOutline
@@ -279,9 +282,12 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
         </div>
       )}
 
+      {/* Emoji Picker - Adjusted positioning for mobile */}
       {showEmojiPicker && (
-        <div className="absolute bottom-28 right-5 z-[999]">
-          <Picker onEmojiSelect={addEmoji} theme="light" className="h-full" />
+        <div className="absolute bottom-16 md:bottom-28 right-2 md:right-5 z-[999]">
+          <div className="scale-75 md:scale-100 origin-bottom-right">
+            <Picker onEmojiSelect={addEmoji} theme="light" />
+          </div>
         </div>
       )}
     </div>

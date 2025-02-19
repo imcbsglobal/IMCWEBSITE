@@ -20,7 +20,7 @@ const QuestionChatBoats = () => {
     }, []);
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center relative h-auto">
+      <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1">
         {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />

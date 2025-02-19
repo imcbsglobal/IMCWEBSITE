@@ -97,7 +97,7 @@ const software = () => {
     <>
       <div>
         {/* restaurant */}
-        <div className="pt-[90px] flex flex-col justify-center items-center w-full">
+        <div className="pt-[90px] flex flex-col justify-center items-center w-full px-2">
           <section
             id="restaurant"
             className="max-w-[1400px] mx-auto bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl w-full rounded-3xl h-auto overflow-hidden mb-20"
@@ -150,7 +150,7 @@ const software = () => {
             id="inventorymanagement"
             className="mb-20 max-w-[1400px] mx-auto w-full"
           >
-            <div className="w-full">
+            <div className="w-full px-2" >
               <div className="flex flex-col md:flex-row w-full md:justify-center md:items-center md:gap-10">
                 {/* Left - Image Section */}
                 <div className="w-full md:w-[50%] h-[300px] md:h-[500px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl mb-5 md:mb-0">
@@ -281,7 +281,7 @@ const software = () => {
         </div>
 
         {/* Hospitality */}
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full px-1">
           <div className="flex flex-col items-center justify-center mb-10 px-4">
             <div className="text-[36px] md:text-[50px] text-[#fff] textGradient4 leading-tight text-center justify-center">
               HOSPITALITY MANAGEMENT

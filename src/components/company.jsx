@@ -56,9 +56,9 @@ const company = () => {
     <>
       <div>
         {/* about */}
-        <div className="pt-[180px] flex flex-col justify-center items-center w-full">
+        <div className="md:pt-[180px] pt-[100px]  flex flex-col justify-center items-center w-full">
           <section id="aboutid" className="max-w-[1400px] w-full mx-auto mb-20">
-            <div className="w-full">
+            <div className="w-full px-2">
               <div className="text-[#fff] text-[16px] md:text-[30px] mb-5 textGradient4 text-center leading-tight">
                 WHO WE ARE
                 <span className="block text-[36px] md:text-[50px]">
@@ -73,7 +73,7 @@ const company = () => {
                 services. Our goal is to bring RITS Software’s products to
                 global markets.
               </div>
-              <div className="h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
+              <div className=" h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
                 <div className="rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)] bg-[#000] overflow-hidden">
                   <img
                     src={aboutmain}
@@ -88,7 +88,7 @@ const company = () => {
 
         {/* TEAM */}
         <div className="pt-[50px] flex flex-col justify-center items-center w-full">
-          <section className="mb-20 w-full max-w-[1400px] mx-auto" id="team">
+          <section className="mb-20 w-full max-w-[1400px] mx-auto " id="team">
             {/* Section Heading */}
             <div className="mb-10 text-center">
               <div className="text-[#fff] textGradient4 text-[30px] md:text-[50px] leading-tight mb-5">
@@ -162,7 +162,7 @@ const company = () => {
             </div>
           </section>
 
-          <section className="w-full max-w-[1400px] mx-auto mb-20">
+          <section className="w-full max-w-[1400px] mx-auto mb-20 px-2">
             <div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {/* Left Section */}

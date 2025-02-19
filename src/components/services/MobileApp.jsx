@@ -71,7 +71,7 @@ const MobileApp = () => {
    
   ];
   return (
-    <div className="pt-[150px] flex flex-col justify-center items-center">
+    <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center">
       {/* intro */}
       <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
         <div>

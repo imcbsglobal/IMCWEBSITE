@@ -453,7 +453,7 @@ useEffect(() => {
       <div className="px-3 md:px-0 ">
       <section className=" mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
         <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-5 md:px-0">
-          <div className="grid grid-cols-2 md:flex w-full justify-between items-center h-full gap-5 px-3">
+          <div className="grid grid-cols-2 md:flex w-full justify-between  h-full gap-6 px-3">
             <div className="flex flex-col items-center md:flex-row gap-2">
               <div className="text-[65px] textGradient font-black leading-none">
                 5+
@@ -471,7 +471,7 @@ useEffect(() => {
               </div>
             </div>
             <div className="flex flex-col items-center md:flex-row gap-2">
-              <div className="text-[65px] textGradient font-black leading-none">
+              <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
                 100%
               </div>
               <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
@@ -479,7 +479,7 @@ useEffect(() => {
               </div>
             </div>
             <div className="flex flex-col items-center md:flex-row gap-2">
-              <div className="text-[65px] textGradient font-black leading-none">
+              <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
                 1500+
               </div>
               <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">

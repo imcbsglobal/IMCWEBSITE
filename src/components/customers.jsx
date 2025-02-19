@@ -413,7 +413,7 @@ const clients = [
   return (
     <div className="overflow-hidden">
       {/* intro */}
-      <div className="pt-[150px] flex flex-col justify-center items-center w-full overflow-hidden">
+      <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden">
         <section
           id="customers"
           className="max-w-[1400px] mx-auto mb-10 w-full px-4"
