@@ -28,7 +28,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [context, setContext] = useState("");
-  
+  const fileInputRef = useRef(null);
   const chatContainerRef = useRef(null);
 
   useEffect(() => {
@@ -185,12 +185,36 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
     `);
   }, []);
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        alert('Please upload only image files.');
+        return;
+      }
 
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const userMessage = {
+          sender: 'user',
+          message: e.target.result,
+          timestamp: new Date(),
+          type: 'image'
+        };
+        setChatHistory(prev => [...prev, userMessage]);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
   return (
     <div className="fixed md:relative">
       {/* Chat Icon - Responsive positioning */}
       <div className="flex justify-center items-center relative rounded-full p-2 bg-[#fff] text-[30px] cursor-pointer right-3 bottom-4">
-        <PiChatCircleTextFill onClick={() => setOpenChatx(!openChatx)}/>
+        <PiChatCircleTextFill onClick={() => setOpenChatx(!openChatx)} />
         <span className="text-[10px] font-bold rounded-full bg-[#f00] text-[#fff] absolute -top-2 right-2 w-4 h-4 flex justify-center items-center drop-shadow-lg">
           1
         </span>
@@ -201,16 +225,27 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
         <div className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden">
           {/* Background Image */}
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
-            <img src={chattingBg} className="w-full h-full object-cover" alt="" />
+            <img
+              src={chattingBg}
+              className="w-full h-full object-cover"
+              alt=""
+            />
           </div>
 
           {/* Header - Made more touch-friendly */}
           <div className="p-4 w-full ChatBox flex justify-between items-center">
             <div className="text-[30px] text-[#fff]">
-              <IoMdClose onClick={() => setOpenChatx(false)} className="cursor-pointer text-2xl hover:scale-110 transition-transform" />
+              <IoMdClose
+                onClick={() => setOpenChatx(false)}
+                className="cursor-pointer text-2xl hover:scale-110 transition-transform"
+              />
             </div>
             <div className="w-auto h-[40px]">
-              <img src={imc} alt="" className="w-full h-full object-contain drop-shadow-sm" />
+              <img
+                src={imc}
+                alt=""
+                className="w-full h-full object-contain drop-shadow-sm"
+              />
             </div>
           </div>
 
@@ -223,25 +258,42 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
               <img src={model1} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="w-[50px] md:w-[60px] h-[50px] md:h-[60px] rounded-full overflow-hidden bg-[#fff] drop-shadow-lg absolute left-[120px] md:left-[140px]">
-              <img src={model2} className="w-full h-full object-cover rounded-full" alt="" />
+              <img
+                src={model2}
+                className="w-full h-full object-cover rounded-full"
+                alt=""
+              />
             </div>
           </div>
 
           {/* Chat Messages - Adjusted spacing and sizing */}
-          <div 
+          <div
             ref={chatContainerRef}
             className="h-[350px] md:h-[350px] overflow-y-auto ScrollBar px-4 mt-12 md:mt-16 space-y-4"
           >
             {chatHistory.map((chat, index) => (
-              <div key={index} className={`flex ${chat.sender === 'user' ? 'justify-end' : 'items-start'} gap-2`}>
-                {chat.sender === 'bot' && (
+              <div
+                key={index}
+                className={`flex ${
+                  chat.sender === "user" ? "justify-end" : "items-start"
+                } gap-2`}
+              >
+                {chat.sender === "bot" && (
                   <div className="w-8 h-8 flex-shrink-0">
-                    <img src={imclogo} alt="Logo" className="w-full h-full object-contain" />
+                    <img
+                      src={imclogo}
+                      alt="Logo"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 )}
-                <div className={`max-w-[80%] md:max-w-[70%] rounded-xl px-3 md:px-4 py-2 ${
-                  chat.sender === 'user' ? 'bg-[#25D366] text-white' : 'bg-white'
-                }`}>
+                <div
+                  className={`max-w-[80%] md:max-w-[70%] rounded-xl px-3 md:px-4 py-2 ${
+                    chat.sender === "user"
+                      ? "bg-[#25D366] text-white"
+                      : "bg-white"
+                  }`}
+                >
                   {chat.message}
                 </div>
               </div>
@@ -249,11 +301,13 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
             {isTyping && (
               <div className="flex items-start gap-2">
                 <div className="w-8 h-8">
-                  <img src={imclogo} alt="Logo" className="w-full h-full object-contain" />
+                  <img
+                    src={imclogo}
+                    alt="Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <div className="bg-white rounded-xl px-4 py-2">
-                  Typing...
-                </div>
+                <div className="bg-white rounded-xl px-4 py-2">Typing...</div>
               </div>
             )}
           </div>
@@ -268,9 +322,22 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
               onKeyPress={handleKeyPress}
               className="px-4 ChatBoxInput py-3 w-full border-none outline-none rounded-3xl ChatBox text-[#fff] font-semibold"
             />
+            {/* <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileUpload}
+              accept="image/*"
+              className="hidden"
+            /> */}
             <div className="absolute right-5 flex items-center gap-4 text-2xl text-[#251306] drop-shadow-sm">
-              <MdAttachFile className="hidden md:block" />
-              <MdEmojiEmotions onClick={toggleEmojiPicker} className="cursor-pointer" />
+              {/* <MdAttachFile
+                className=" md:block cursor-pointer"
+                onClick={triggerFileInput}
+              /> */}
+              <MdEmojiEmotions
+                onClick={toggleEmojiPicker}
+                className="cursor-pointer"
+              />
               {showSender && (
                 <IoArrowUpOutline
                   className="p-1 text-3xl rounded-full text-[#fff] bg-[#25D366] shadow-sm cursor-pointer"
