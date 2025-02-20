@@ -44,7 +44,7 @@ import pharmacies from "../assets/pharmacies.jpg"
 import schoolcollege from "../assets/schoolcollege.jpg"
 import hospitalandclinics from "../assets/hospitalandclinics.jpg"
 import restaurants from "../assets/restaurant.jpg"
-
+import bannerVideo from "../assets/bannervideo.mp4";
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -296,13 +296,11 @@ useEffect(() => {
 
   return (
     <div className="relative overflow-hidden ">
-      <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40">
-        
-      </div>
-      
+      <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40"></div>
+
       {/* chatbot */}
       <div className="bottom-10 fixed right-10 z-[999]">
-      {openChat ? (
+        {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
           </div>
@@ -312,11 +310,39 @@ useEffect(() => {
           </div>
         )}
       </div>
-      <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 " ></div>
-   
+      <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 "></div>
+
       {/* Banner */}
-      <section className="h-screen mb-20">
-        <div></div>
+      <section className="relative h-screen mb-20 overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            poster="/path-to-fallback-image.jpg" // Optional: Add a fallback image
+          >
+            <source src={bannerVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Overlay to make text more readable */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-[1400px] mx-auto h-full px-4 md:px-6 flex items-center justify-center">
+          <div className="text-white ">
+            <h1
+              className="textGradient text-5xl md:text-7xl font-bold "
+            >
+              IMC BUSINESS SOLUTIONS
+              
+            </h1>
+          </div>
+        </div>
       </section>
 
       {/* About */}
@@ -451,44 +477,44 @@ useEffect(() => {
 
       {/* Count */}
       <div className="px-3 md:px-0 ">
-      <section className=" mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
-        <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-5 md:px-0">
-          <div className="grid grid-cols-2 md:flex w-full justify-between  h-full gap-6 px-3">
-            <div className="flex flex-col items-center md:flex-row gap-2">
-              <div className="text-[65px] textGradient font-black leading-none">
-                5+
+        <section className=" mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
+          <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-5 md:px-0">
+            <div className="grid grid-cols-2 md:flex w-full justify-between  h-full gap-6 px-3">
+              <div className="flex flex-col items-center md:flex-row gap-2">
+                <div className="text-[65px] textGradient font-black leading-none">
+                  5+
+                </div>
+                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
+                  Years of <span className="block">Experience</span>
+                </div>
               </div>
-              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                Years of <span className="block">Experience</span>
+              <div className="flex flex-col items-center md:flex-row gap-2">
+                <div className="text-[65px] textGradient font-black leading-none">
+                  20+
+                </div>
+                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
+                  Skilled <span className="block">Professionals</span>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col items-center md:flex-row gap-2">
-              <div className="text-[65px] textGradient font-black leading-none">
-                20+
+              <div className="flex flex-col items-center md:flex-row gap-2">
+                <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
+                  100%
+                </div>
+                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
+                  Customer <span className="block">Satisfaction</span>
+                </div>
               </div>
-              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                Skilled <span className="block">Professionals</span>
-              </div>
-            </div>
-            <div className="flex flex-col items-center md:flex-row gap-2">
-              <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
-                100%
-              </div>
-              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                Customer <span className="block">Satisfaction</span>
-              </div>
-            </div>
-            <div className="flex flex-col items-center md:flex-row gap-2">
-              <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
-                1500+
-              </div>
-              <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                Clients
+              <div className="flex flex-col items-center md:flex-row gap-2">
+                <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
+                  1500+
+                </div>
+                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
+                  Clients
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
 
       {/* Softwares */}
@@ -812,9 +838,10 @@ useEffect(() => {
               </div>
               <div className="flex">
                 <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffbf00] to-[#ffb62d] p-[1px] backdrop-blur-3xl rounded-3xl">
-                  <button 
-                  onClick={() => (window.location.href = "tel:+917593820007")}
-                  className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700">
+                  <button
+                    onClick={() => (window.location.href = "tel:+917593820007")}
+                    className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700"
+                  >
                     Contact Us
                   </button>
                 </div>
@@ -877,7 +904,10 @@ useEffect(() => {
                   ></textarea>
                 </div>
                 <div className="w-full">
-                  <button type="submit" className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6">
+                  <button
+                    type="submit"
+                    className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6"
+                  >
                     Send Message
                   </button>
                 </div>
