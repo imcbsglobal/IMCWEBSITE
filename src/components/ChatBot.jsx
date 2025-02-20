@@ -189,7 +189,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
   return (
     <div className="fixed md:relative">
       {/* Chat Icon - Responsive positioning */}
-      <div className="flex justify-center items-center relative rounded-full p-2 bg-[#fff] text-[30px] cursor-pointer">
+      <div className="flex justify-center items-center relative rounded-full p-2 bg-[#fff] text-[30px] cursor-pointer right-3 bottom-4">
         <PiChatCircleTextFill onClick={() => setOpenChatx(!openChatx)}/>
         <span className="text-[10px] font-bold rounded-full bg-[#f00] text-[#fff] absolute -top-2 right-2 w-4 h-4 flex justify-center items-center drop-shadow-lg">
           1
@@ -198,7 +198,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
 
       {/* Chat Box - Responsive sizing and positioning */}
       {openChatx && (
-        <div className="fixed bottom-0 right-0 md:bottom-24 md:right-10 z-[999] w-full md:w-[400px] h-[100vh] md:h-[600px] rounded-none md:rounded-3xl bg-[#fff] overflow-hidden">
+        <div className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden">
           {/* Background Image */}
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
             <img src={chattingBg} className="w-full h-full object-cover" alt="" />
@@ -259,7 +259,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
           </div>
 
           {/* Input Area - Made more touch-friendly */}
-          <div className="absolute bottom-0 flex justify-center items-center px-2 py-4 w-full bg-[rgba(0,0,0,0.1)]">
+          <div className="absolute bottom-0 flex justify-center items-center px-2 py-4 w-full ">
             <input
               type="text"
               placeholder="message...."
