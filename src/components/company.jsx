@@ -98,10 +98,10 @@ const company = () => {
                 </span>
               </div>
               <div className="textGradient6 max-w-[700px] mx-auto text-[#fff] text-sm md:text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-                dolor eligendi adipisci. Ad asperiores facilis quisquam
-                repellendus nemo expedita veritatis nisi facere, nihil ipsum
-                itaque omnis dolore id voluptatibus voluptas!
+                "Our dedicated team of experts collaborates to deliver
+                innovative IT solutions, ensuring seamless business operations.
+                With a passion for technology, we drive success through
+                excellence and commitment."
               </div>
             </div>
 

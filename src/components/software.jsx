@@ -321,10 +321,10 @@ const software = () => {
                           ))}
                         </h1>
 
-                        <button className="text-white border border-[#fff] rounded-full py-2 md:py-4 px-6 md:px-8 flex items-center justify-center space-x-2 hover:bg-yellow-400 transition-colors mx-auto md:mx-0">
+                        {/* <button className="text-white border border-[#fff] rounded-full py-2 md:py-4 px-6 md:px-8 flex items-center justify-center space-x-2 hover:bg-yellow-400 transition-colors mx-auto md:mx-0">
                           <span className="font-medium">Know more</span>
                           <ArrowUpRight className="w-4 h-4" />
-                        </button>
+                        </button> */}
                       </div>
 
                       {/* Center Image */}
@@ -353,12 +353,12 @@ const software = () => {
                               {list.description.split("\n")[2]}
                             </p>
                           </div>
-                          <a
+                          {/* <a
                             href="#"
                             className="text-yellow-300 hover:underline inline-block mt-4 text-xs md:text-sm"
                           >
                             Learn More
-                          </a>
+                          </a> */}
                         </div>
                       </div>
                     </div>

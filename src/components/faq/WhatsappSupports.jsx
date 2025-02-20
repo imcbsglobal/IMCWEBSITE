@@ -3,7 +3,7 @@ import Footer from '../Footer'
 import { CgArrowLongRight } from "react-icons/cg";
 import { MdContactSupport } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
-
+import whatsapp from '../../assets/whatsapp.jpeg'
 const WhatsappSupports = () => {
   useEffect(() => {
       // Scroll to the top of the page on mount
@@ -16,7 +16,7 @@ const WhatsappSupports = () => {
           <div className="text-[#fff] text-3xl sm:text-[50px] textGradient4 mb-5 text-center leading-tight">
             IMC Technology Solutions{" "}
             <span className="block text-base sm:text-[20px]">
-              Your Trusted Partner in IT Solutions & Support
+              Your Trusted Partner in IT Solutions and Support
             </span>
           </div>
           <div className="max-w-[1000px] mx-auto text-center text-[#fff] textGradient6 text-base sm:text-lg">
@@ -28,8 +28,8 @@ const WhatsappSupports = () => {
         </div>
       </section>
 
-      <section className="mb-20 max-w-[1400px] mx-auto w-full bg-[#fff] md:h-[400px] sm:h-[600px] h-[200px] rounded-full px-5">
-        <div></div>
+      <section className="mb-20 max-w-[1400px] mx-auto w-full bg-[#fff] md:h-[400px] sm:h-[600px] h-[200px] rounded-full px-5 md:px-0">
+        <div className='w-full h-full'><img src={whatsapp} alt="" className=' w-full h-full rounded-full object-cover' /></div>
       </section>
 
       <section className="w-full max-w-[1400px] mx-auto mb-20 px-2">

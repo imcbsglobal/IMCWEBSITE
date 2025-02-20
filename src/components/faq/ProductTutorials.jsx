@@ -35,7 +35,7 @@ const ProductTutorials = () => {
             PRODUCT DEMONSTRATION
           </h1>
           <p className="text-base sm:text-lg text-white max-w-3xl mx-auto">
-            Explore our product demonstrations to learn more about our products' features and capabilities. Watch detailed tutorials and guides to make the most of your purchase.
+            Explore our product demonstrations to learn more about our products features and capabilities. Watch detailed tutorials and guides to make the most of your purchase.
           </p>
         </div>
   

@@ -30,7 +30,7 @@ const ProductVideo = () => {
           <div className="text-[#fff] text-[40px] sm:text-[50px] textGradient4 mb-5 text-center leading-tight">
             Learn, Implement, Excel{" "}
             <span className="block text-[16px] sm:text-[20px]">
-              Step by Step Tutorials to Unlock Your Product's Full Potential
+              Step by Step Tutorials to Unlock Your Products Full Potential
             </span>
           </div>
           <div className="max-w-[1000px] mx-auto text-center text-[#fff] textGradient6 text-sm sm:text-base">
