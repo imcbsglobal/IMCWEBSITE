@@ -230,7 +230,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
           {/* Chat Messages - Adjusted spacing and sizing */}
           <div 
             ref={chatContainerRef}
-            className="h-[calc(100vh-250px)] md:h-[350px] overflow-y-auto ScrollBar px-4 mt-12 md:mt-16 space-y-4"
+            className="h-[350px] md:h-[350px] overflow-y-auto ScrollBar px-4 mt-12 md:mt-16 space-y-4"
           >
             {chatHistory.map((chat, index) => (
               <div key={index} className={`flex ${chat.sender === 'user' ? 'justify-end' : 'items-start'} gap-2`}>
