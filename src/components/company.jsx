@@ -275,7 +275,7 @@ const company = () => {
             id="supports"
             className="max-w-[1400px] mx-auto w-full mb-2 p-6"
           >
-            <div className="h-auto w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
+            <div className="h-auto w-full  overflow-hidden   rounded-3xl">
               <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden p-4">
                 <div className="text-center mb-8">
                   <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 textGradient4 pt-5">
@@ -310,11 +310,12 @@ const company = () => {
 
                   <div className="bg-[#F7922C] rounded-lg p-6 flex flex-col justify-center gap-4">
                     <h3 className="text-white font-semibold text-lg">
-                      24/7 Customer Service
+                      Quality Service
                     </h3>
                     <p className="text-white">
-                      Our dedicated customer service team is available around
-                      the clock to assist with urgent needs.
+                      We are committed to delivering exceptional quality
+                      service, ensuring reliability, efficiency, and customer
+                      satisfaction at every step.
                     </p>
                   </div>
 
@@ -356,17 +357,17 @@ const company = () => {
         {/* bussiness opportunities */}
         <div className="pt-2 flex flex-col justify-center items-center w-full  ">
           <section
-            id="business-opportunities"
+            id="bussinessopportunities"
             className="max-w-[1400px] mx-auto w-full mb-10 p-6"
           >
-            <div className="w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-              <div className="rounded-3xl w-full bg-[#000] overflow-hidden p-8 text-white">
+            <div className="w-full  overflow-hidden   rounded-3xl">
+              <div className="rounded-3xl w-full bg-[#000] overflow-hidden p-4 text-white">
                 {/* Section Header */}
                 <div className="text-center mb-8">
                   <h2 className="text-3xl md:text-4xl font-extrabold mb-4 textGradient4">
                     Business Opportunities
                   </h2>
-                  <p className="text-sm md:text-base">
+                  <p className="text-sm md:text-base max-w-[1000px] mx-auto">
                     Unlock growth through partnerships, technological
                     innovation, and market-driven solutions. Whether you're a
                     startup or a growing enterprise, we are your partner for

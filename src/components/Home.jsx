@@ -45,12 +45,25 @@ import schoolcollege from "../assets/schoolcollege.jpg"
 import hospitalandclinics from "../assets/hospitalandclinics.jpg"
 import restaurants from "../assets/restaurant.jpg"
 import bannerVideo from "../assets/bannervideo.mp4";
-
+import GradientText from './GradientText';
+import { motion } from "framer-motion";
+import ASCIIText from './ASCIIText';
+import { Link } from "react-router-dom";
 const Home = () => {
   const canvasRef = useRef(null);
   const [result, setResult] = React.useState("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  
+  // const dropdownMenus = {
+    
+  //   softwares: [
+  //     { name: "Restaurants", path:"/software#restaurant" },
+  //     { name: "Inventory Management", path:"/software#inventorymanagement" },
+  //     { name: "Health Care Management", path:"/software#healthcaremanagement" },
+      
+  //     { name: "Hospitality", path:"/software#hospitality" },
+  //     { name: "Institution Management",  path:"/software#institutionmanagement" },
+  //   ]
+  // };
 
   // const mainRef = useRef();
   const [formData, setFormData] = useState({
@@ -94,7 +107,7 @@ const Home = () => {
       title: "Efficiently Managing Your Inventory",
       section: "Inventory Solutions",
       para: "Optimize your operations with a smart inventory management system designed to track, manage, and streamline stock levels. Reduce errors, boost efficiency, and make informed decisions with ease.",
-      link: "",
+      link: "/software#inventorymanagement ",
     },
     {
       no: "02",
@@ -103,7 +116,7 @@ const Home = () => {
       title: "Optimizing Health Care Delivery",
       section: "Health Care",
       para: " Streamlining processes and optimizing resources are key to improving patient care and reducing costs in healthcare.",
-      link: "",
+      link: "/software#healthcaremanagement",
     },
     {
       no: "03",
@@ -112,7 +125,7 @@ const Home = () => {
       title: "Elevating Dining Experiences",
       section: "Restaurant Management",
       para: "Efficient management and a focus on customer service are essential for creating memorable dining experiences and driving business success.",
-      link: "",
+      link: "/software#restaurant",
     },
     {
       no: "04",
@@ -121,7 +134,7 @@ const Home = () => {
       title: "Enhancing Guest Satisfaction",
       section: "Hospitality Management",
       para: "Providing exceptional service and seamless operations are crucial in creating memorable guest experiences and ensuring long-term success in the hospitality industry.",
-      link: "",
+      link: "/software#hospitality",
     },
     {
       no: "05",
@@ -130,7 +143,7 @@ const Home = () => {
       title: "Streamlining Institutional Operations",
       section: "Institution Management",
       para: "Effective management practices are key to optimizing resources, improving efficiency, and fostering a positive environment within educational or organizational institutions.",
-      link: "",
+      link: "/software#institutionmanagement",
     },
   ];
   const services = [
@@ -322,26 +335,25 @@ useEffect(() => {
             muted
             playsInline
             className="w-full h-full object-cover"
-            poster="/path-to-fallback-image.jpg" // Optional: Add a fallback image
+            poster="/path-to-fallback-image.jpg"
           >
             <source src={bannerVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
           {/* Overlay to make text more readable */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/50">
+            {/* <ASCIIText
+              text="IMC BUSSINESS SOLUTIONS"
+              enableWaves={true}
+              asciiFontSize={8}
+            /> */}
+          </div>
         </div>
 
         {/* Content Container */}
         <div className="relative z-10 max-w-[1400px] mx-auto h-full px-4 md:px-6 flex items-center justify-center">
-          <div className="text-white ">
-            <h1
-              className="textGradient text-5xl md:text-7xl font-bold "
-            >
-              IMC BUSINESS SOLUTIONS
-              
-            </h1>
-          </div>
+          <div className=" "></div>
         </div>
       </section>
 
@@ -353,42 +365,39 @@ useEffect(() => {
             <div className="md:w-[60%] py-5 flex flex-col gap-2 ">
               <div>
                 <div className="flex flex-col gap-2 mb-5">
-                  <div className="text-[36px] md:text-[50px] leading-[50px] textGradient5 text-[#fff] font-semibold ">
-                    IMC BUSSINESS SOLUTIONS
-                    <span className="block ">Know more about us</span>
+                  <div className="text-[36px] md:text-[50px] leading-[70px] textGradient4 text-[#fff] font-semibold ">
+                    Know more about us
                   </div>
-                  <div className="textGradient4 text-[16px] md:text-[30px]   leading-tight text-[#fff]">
+                  <div className="textGradient5 text-[16px] md:text-[30px]  font-bold  text-[#fff]">
                     Our Journey to Digital Excellence
                   </div>
                 </div>
-                <div className="textGradient6 text-[#fff]">
+                <div className="textGradient6 text-[#fff] leading-relaxed text-justify">
                   IMC Business Solutions is a leading software company in India
                   since 2017, offering a comprehensive management platform and a
                   wide range of IT solutions, including business software,
                   Android/iOS development, web development, hardware services,
                   and IT support.
-                  <span className="block">
-                    {" "}
+                  <span>
                     Our primary mission is to bring RITS Software’s innovative
                     products to global markets. As a professionally competent IT
                     firm, RITS Software blends expert software development with
-                    a customer-focused management approach.
+                    a customer-focused management approach.{" "}
                   </span>
-                  <span className="block">
+                  <span>
                     {" "}
                     We also operate Sysmac, a dedicated division providing
                     hardware solutions and services to our clients.
-                  </span>{" "}
-                  IMC
-                  <span className="block">
-                    delivers tailored software and technology solutions for
+                  </span>
+                  <span>
+                    IMC delivers tailored software and technology solutions for
                     businesses in India and beyond. With over 1,200 happy
                     clients and 10+ branches across South India, we continue to
                     empower businesses with cutting-edge technology solutions.
                   </span>
                 </div>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 place-items-center w-full gap-5">
+              {/* <div className="grid grid-cols-2 md:grid-cols-3 place-items-center w-full gap-5">
                 <div className="relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
                   <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
                     <img
@@ -461,10 +470,10 @@ useEffect(() => {
                     INNOVATIVE UI/UX DESIGNS
                   </h1>
                 </div>
-              </div>
+              </div> */}
             </div>
             {/* right */}
-            <div className="md:w-[40%] bg-[#000] h-[650px] rounded-md overflow-hidden">
+            <div className="md:w-[40%] bg-[#000] h-[500px] rounded-md overflow-hidden">
               <img
                 src={abouthome}
                 alt=""
@@ -541,7 +550,7 @@ useEffect(() => {
               <div className="border-b-2 border-[#ffffff] pb-5 pt-5 ">
                 <div className="grid grid-cols-1 md:grid-cols-3   justify-center  gap-10 max-w-[1400px] mx-auto">
                   <div className="flex flex-col gap-2 text-[#fff] p-16">
-                    <div className=" italic">{item.no}</div>
+                    {/* <div className=" italic">{item.no}</div> */}
                     <div className="text-3xl textGradient4">{item.name}</div>
                   </div>
                   <div className="w-full h-[250px] rounded-3xl bg-[#ffffff5d] backdrop-blur-md border border-[#fff] overflow-hidden">
@@ -560,7 +569,12 @@ useEffect(() => {
                       <div className="text-[#ffff]">{item.para}</div>
                     </div>
                     <div className="mt-5 flex justify-start items-center gap-2 text-[#fff]">
-                      Learn More <MdOutlineArrowOutward />
+                      <Link
+                        to={item.link}
+                        className="flex items-center gap-2 hover:underline"
+                      >
+                        Learn More <MdOutlineArrowOutward />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -652,149 +666,8 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* Business */}
-      <section className="max-w-[1400px] mx-auto mb-20 px-3 md:px-0">
-        <div>
-          <div className="text-[#fff] mb-2 text-[36px] md:text-[50px] textGradient4 text-center">
-            Business Capabilities
-          </div>
-          <div className="text-center text-[#fff] mb-10 max-w-[900px] mx-auto font-semibold textGradient6">
-            We provide tailored business solutions designed to streamline
-            operations, enhance efficiency, and drive growth. Our services are
-            crafted to meet the unique needs of each business, ensuring success
-            in an ever-evolving market
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-6">
-            <div className=" bottom-0 w-full h-[300px] flex flex-col justify-center items-center p-5 bg-gradient-to-r from-[#8d8d8d] overflow-hidden via-[#ffffff] relative to-[#ffdd9e]  bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="absolute  bg-[#0000007c] top-0 bottom-0 left-0 right-0"></div>
-              <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]`  mix-blend-multiply -z-10">
-                <img
-                  src={retailandwholesale}
-                  alt="retailandwholesale"
-                  className="object-cover w-full h-full rounded-3xl "
-                />
-              </div>
-              <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
-                <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  Retail and Wholesale
-                </div>
-                <div className=" text-[#fff] relative textGradient6 text-center">
-                  We provide retail and wholesale solutions for hardware and
-                  software, offering high-quality products from trusted brands.
-                  Our services cater to both individual customers and businesses
-                  with competitive pricing and reliable support
-                </div>
-              </div>
-            </div>
-
-            <div className=" bottom-0 w-full h-[300px] flex flex-col justify-center items-center p-5 bg-gradient-to-r from-[#8d8d8d] overflow-hidden via-[#ffffff] relative to-[#ffdd9e]  bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="absolute  bg-[#0000007c] top-0 bottom-0 left-0 right-0"></div>
-              <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]`  mix-blend-multiply -z-10">
-                <img
-                  src={pharmacies}
-                  alt="pharmacies"
-                  className="object-cover w-full h-full rounded-3xl "
-                />
-              </div>
-              <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
-                <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  Pharmacies
-                </div>
-                <div className=" text-[#fff] relative textGradient6 text-center">
-                  We offer advanced IT solutions for pharmacies, optimizing
-                  inventory management, improving customer service, and
-                  streamlining operational efficiency with reliable support and
-                  enhanced security.{" "}
-                </div>
-              </div>
-            </div>
-            <div className=" bottom-0 w-full h-[300px] flex flex-col justify-center items-center p-5 bg-gradient-to-r from-[#8d8d8d] overflow-hidden via-[#ffffff] relative to-[#ffdd9e]  bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="absolute  bg-[#0000007c] top-0 bottom-0 left-0 right-0"></div>
-              <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]`  mix-blend-multiply -z-10">
-                <img
-                  src={schoolcollege}
-                  alt="schoolcollege"
-                  className="object-cover w-full h-full rounded-3xl "
-                />
-              </div>
-              <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
-                <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  School and College
-                </div>
-                <div className=" text-[#fff] relative textGradient6 text-center">
-                  We provide comprehensive IT solutions for schools and
-                  colleges, empowering digital learning environments and
-                  ensuring smooth campus management through efficient and
-                  innovative technology
-                </div>
-              </div>
-            </div>
-            <div className=" bottom-0 w-full h-[300px] flex flex-col justify-center items-center p-5 bg-gradient-to-r from-[#8d8d8d] overflow-hidden via-[#ffffff] relative to-[#ffdd9e]  bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="absolute  bg-[#0000007c] top-0 bottom-0 left-0 right-0"></div>
-              <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]`  mix-blend-multiply -z-10">
-                <img
-                  src={hospitalandclinics}
-                  alt="hospitalandclinics"
-                  className="object-cover w-full h-full rounded-3xl "
-                />
-              </div>
-              <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
-                <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  Hospital and Clinics
-                </div>
-                <div className=" text-[#fff] relative textGradient6 text-center">
-                  We provide specialized IT solutions for hospitals and clinics,
-                  improving patient management, streamlining operations, and
-                  ensuring seamless healthcare delivery with secure and
-                  efficient technology.
-                </div>
-              </div>
-            </div>
-            <div className=" bottom-0 w-full h-[300px] flex flex-col justify-center items-center p-5 bg-gradient-to-r from-[#8d8d8d] overflow-hidden via-[#ffffff] relative to-[#ffdd9e]  bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="absolute  bg-[#0000007c] top-0 bottom-0 left-0 right-0"></div>
-              <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]`  mix-blend-multiply -z-10">
-                <img
-                  src={restaurants}
-                  alt="restaurants"
-                  className="object-cover w-full h-full rounded-3xl "
-                />
-              </div>
-              <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
-                <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  Restaurants
-                </div>
-                <div className=" text-[#fff] relative textGradient6 text-center">
-                  We provide tailored IT solutions for restaurants, enhancing
-                  order management, improving customer experience, and
-                  streamlining operations with reliable, efficient, and secure
-                  technology
-                </div>
-              </div>
-            </div>
-            <div className=" bottom-0 w-full h-[300px] flex flex-col justify-center items-center p-5 bg-gradient-to-r from-[#8d8d8d] overflow-hidden via-[#ffffff] relative to-[#ffdd9e]  bg-[#3c3333]  backdrop-blur-3xl rounded-3xl">
-              <div className="absolute  bg-[#0000007c]  top-0 bottom-0 left-0 right-0"></div>
-              <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]`  mix-blend-multiply -z-10">
-                <img
-                  src={retailandwholesale}
-                  alt="retailandwholesale"
-                  className="object-cover w-full h-full rounded-3xl "
-                />
-              </div>
-              <div className="absolute z-20 bottom-10 flex flex-col justify-center items-center">
-                <div className=" text-[#fff] relative text-[30px] font-black textGradient5">
-                  Hotels
-                </div>
-                <div className=" text-[#fff] relative textGradient6 text-center">
-                  We offer customized IT solutions for hotels, improving guest
-                  services, streamlining reservations, and enhancing operational
-                  efficiency with reliable, secure, and innovative technology.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+   
       {/* Testimonials */}
       <section className="max-w-[1400px] mx-auto mb-20">
         <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#fff] text-center">

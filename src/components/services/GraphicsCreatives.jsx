@@ -14,7 +14,7 @@ const GraphicsCreatives = () => {
   return (
     <div>
       {/* first section */}
-      <section className="w-full max-w-[1400px] mb-20 mx-auto rounded-3xl bg-[#000] md:pt-36 pt-28">
+      <section className="w-full max-w-[1400px] mb-20 mx-auto rounded-3xl  md:pt-36 pt-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-6">
           <div className="flex flex-col gap-6 justify-center">
             <h2 className="text-[32px] md:text-[50px] font-semibold textGradient4">
@@ -90,7 +90,7 @@ const GraphicsCreatives = () => {
       </section>
 
       {/* second section */}
-      <section className="w-full max-w-[1400px] mb-20 mx-auto rounded-3xl  h-[600px] ">
+      <section className="w-full max-w-[1400px]  mx-auto rounded-3xl  h-[300px] ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 px-6 ">
           <div className="flex items-center w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
             <div className="bg-black p-8 rounded-3xl shadow-md w-full h-full">

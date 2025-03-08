@@ -375,7 +375,7 @@ const software = () => {
             id="institutionmanagement"
             className="mb-20 max-w-[1400px] mx-auto w-full"
           >
-            <div className="w-full max-w-6xl mx-auto px-4 bg-black py-10 rounded-3xl">
+            <div className="w-full max-w-6xl mx-auto px-4 py-10 rounded-3xl">
               <div className="text-center mb-10">
                 <h2 className="text-[32px] md:text-[50px] text-gray-800 textGradient4 mb-2">
                   INSTITUTION MANAGEMENT

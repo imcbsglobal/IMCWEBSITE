@@ -72,14 +72,14 @@ const Navbar = () => {
       { name: "Graphics & Creatives", path: "/graphicsandCreatives" },
       { name: "Business Branding", path: "/businessBranding" },
     ],
-    business: [
-      { name: "Retails & Wholesale", path :"/business#retailswholesale"  },
-      { name: "Pharmacies", path :"/business#pharmacies" },
-      { name: "School / Colleges", path :"/business#school" },
-      { name: "Hospital & Clinics", path :"/business#hospitalClinics" },
-      { name: "Restaurants", path :"/business#restaurantBusiness" },
-      { name: "Hotels", path :"/business#hotelBusiness" },
-    ],
+    // business: [
+    //   { name: "Retails & Wholesale", path :"/business#retailswholesale"  },
+    //   { name: "Pharmacies", path :"/business#pharmacies" },
+    //   { name: "School / Colleges", path :"/business#school" },
+    //   { name: "Hospital & Clinics", path :"/business#hospitalClinics" },
+    //   { name: "Restaurants", path :"/business#restaurantBusiness" },
+    //   { name: "Hotels", path :"/business#hotelBusiness" },
+    // ],
     faq: [
       { name: "Question Chat Boats", path: "/questionChatBoats" },
       { name: "Product Tutorials", path: "/productTutorials" },
@@ -194,10 +194,10 @@ const Navbar = () => {
                 onMouseEnter={() => handleMouseEnter("services")}
                 onMouseLeave={handleMouseLeave}
               >
-                Services
+                Solutions
                 {activeMenu === "services" && renderDropdown("services")}
               </li>
-              <Link to="/business">
+              {/* <Link to="/business">
                 <li
                   className="cursor-pointer relative"
                   onMouseEnter={() => handleMouseEnter("business")}
@@ -206,7 +206,7 @@ const Navbar = () => {
                   Business
                   {activeMenu === "business" && renderDropdown("business")}
                 </li>
-              </Link>
+              </Link> */}
               <li
                 className="cursor-pointer relative"
                 onMouseEnter={() => handleMouseEnter("faq")}

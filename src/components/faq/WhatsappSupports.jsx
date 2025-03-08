@@ -28,7 +28,7 @@ const WhatsappSupports = () => {
         </div>
       </section>
 
-      <section className="mb-20 max-w-[1400px] mx-auto w-full bg-[#fff] md:h-[400px] sm:h-[600px] h-[200px] rounded-full px-5 md:px-0">
+      <section className="mb-20 max-w-[1400px] mx-auto w-full bg-[#fff] md:h-[500px] lg:h-[700px] h-[300px] rounded-full  md:px-0">
         <div className='w-full h-full'><img src={whatsapp} alt="" className=' w-full h-full rounded-full object-cover' /></div>
       </section>
 

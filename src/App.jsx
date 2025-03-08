@@ -16,7 +16,7 @@ import QuestionChatBoats from "./components/faq/QuestionChatBoats";
 import WhatsappSupports from "./components/faq/WhatsappSupports";
 import Company from "./components/company";
 import Software from "./components/software";
-import Business from "./components/business";
+// import Business from "./components/business";
 import Login from './components/login';
 import Admin from './components/admin';
 import AddUser from './components/adduser';
@@ -57,7 +57,7 @@ const AppWithRouting = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/company" element={<Company />} />
         <Route path="/software" element={<Software />} />
-        <Route path="/business" element={<Business />} />
+        {/* <Route path="/business" element={<Business />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path='/signinlogin' element={<Signinlogin/>}/>
         <Route path="/admin" element={<Admin />} />

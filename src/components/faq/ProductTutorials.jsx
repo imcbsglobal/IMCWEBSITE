@@ -69,7 +69,7 @@ const ProductTutorials = () => {
     </section>
     <section className="bg-[#fff] py-10">
         <Footer />
-      </section>
+    </section>
   </div>
   
   );

@@ -126,7 +126,7 @@ const MobileApp = () => {
             <h2 className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 leading-tight">
               MOBILE APP DEVELOPMENT
             </h2>
-            <p className="text-[#fff] textGradient6">
+            <p className="text-[#fff] textGradient6 max-w-[1000px] mx-auto">
               In today's fast-paced world, every entrepreneur seeks real-time
               insights into their business. That's why mobile solutions have
               become essential. We are committed to delivering affordable,
@@ -153,7 +153,7 @@ const MobileApp = () => {
       </section>
 
       {/* why choose */}
-      <section className="mb-20 max-w-[1400px] w-full mx-auto px-4">
+      <section className="mb-20 max-w-[1200px] w-full mx-auto px-4">
         <div>
           <h2 className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 text-center mb-5">
             Why Choose Us?
@@ -165,14 +165,26 @@ const MobileApp = () => {
             development needs:
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {ChooseUsList.map((item) => (
-              <div className="w-full h-[215px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl">
-                <div className="rounded-3xl w-full h-full bg-[#000] p-5">
-                  <h3 className="text-[#fff] mb-3 textGradient text-xl font-bold text-center ">
+          <div className="flex flex-col gap-2">
+            {ChooseUsList.map((item, index) => (
+              <div
+                key={index}
+                className={`relative flex items-center ${
+                  index % 2 === 0 ? "justify-start" : "justify-end"
+                }`}
+              >
+                {/* Background Glow */}
+                <div className="absolute w-[300px] h-[150px] bg-gradient-to-r from-[#ffdd9e] to-[#ffffff] blur-3xl opacity-50"></div>
+
+                {/* Content Box */}
+                <div
+                  className="relative max-w-[600px] p-4 rounded-[30px] bg-[#000] shadow-2xl border border-[#ffdd9e] 
+          transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,221,158,0.5)]"
+                >
+                  <h3 className="text-lg font-bold textGradient mb-2">
                     {item.titile}
                   </h3>
-                  <p className="text-[#fff] textGradient">{item.description}</p>
+                  <p className="textGradient">{item.description}</p>
                 </div>
               </div>
             ))}

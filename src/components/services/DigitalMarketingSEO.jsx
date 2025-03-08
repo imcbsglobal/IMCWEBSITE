@@ -189,10 +189,10 @@ const DigitalMarketingSEO = () => {
       </section>
 
       {/* benefits of seo and digital marketing */}
-      <section className="mb-10 max-w-[1400px] w-full mx-auto pt-10 px-4 mt-[-70px] md:mt-[-120px]">
-        <div className="min-h-screen flex items-center justify-center">
+      <section className="mb-1 max-w-[1400px] w-full mx-auto  px-4 mt-[-40px] md:mt-[0px]">
+        <div className=" flex items-center justify-center">
           <div className="w-full shadow-xl rounded-2xl p-6 md:p-8 bg-opacity-50 bg-black">
-            <h1 className="font-bold text-white mb-6 textGradient4 text-[32px] md:text-[50px] text-center leading-tight">
+            <h1 className="font-bold text-white mb-1 textGradient4 text-[32px] md:text-[50px] text-center leading-tight">
               Unlocking the Key Benefits of SEO for Business Growth
             </h1>
             <div className="overflow-x-auto">

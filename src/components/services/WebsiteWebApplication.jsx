@@ -141,119 +141,126 @@ const WebsiteWebApplication = () => {
 
   return (
     <div className="pt-[100px] flex flex-col justify-center items-center">
-    <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
-      <div className="flex flex-col justify-center items-center gap-5">
-        <div className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl">
-          <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
-            <img
-              src={websiteandweb}
-              alt="websiteandweb"
-              className="w-full h-full object-cover rounded-3xl"
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
-          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+      <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
+        <div className="flex flex-col justify-center items-center gap-5">
+          <div className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl">
             <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
               <img
-                src={website}
-                alt="website"
+                src={websiteandweb}
+                alt="websiteandweb"
                 className="w-full h-full object-cover rounded-3xl"
               />
             </div>
           </div>
-          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
-            <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
-              <img
-                src={website1}
-                alt="website1"
-                className="w-full h-full object-cover rounded-3xl"
-              />
-            </div>
-          </div>
-          <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
-            <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
-              <img
-                src={website2}
-                alt="website2"
-                className="w-full h-full object-cover rounded-3xl"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-    <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
-      <div className="flex flex-col gap-5 mb-10 text-center md:text-left">
-        <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 leading-tight text-center">
-          Best Web Design and Development
-          <span className="block">Company Wayanad, Kerala</span>
-        </div>
-        <div className="max-w-[900px] text-[#fff] textGradient6 mx-auto text-center">
-          As a leading web design and development company in Wayanad, Kerala,
-          India, IMC Business Solutions specializes in creating custom web
-          solutions that help businesses of all sizes succeed online. We
-          understand that your website is your business's online face, and we work
-          hard to make sure it makes a lasting impression on your visitors.
-        </div>
-      </div>
-  
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
-        {WebData.map((item, index) => (
-          <div
-            key={index}
-            className="w-full h-[250px] md:h-[300px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl"
-          >
-            <div className="rounded-3xl w-full h-full bg-[#000] p-5">
-              <div className="text-[#fff] text-lg md:text-xl textGradient mb-3 font-black text-center pt-10">
-                {item.title}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+            <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+              <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                <img
+                  src={website}
+                  alt="website"
+                  className="w-full h-full object-cover rounded-3xl"
+                />
               </div>
-              <div className="textGradient6 text-[#fff] text-sm md:text-base">
-                {item.description}
+            </div>
+            <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+              <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                <img
+                  src={website1}
+                  alt="website1"
+                  className="w-full h-full object-cover rounded-3xl"
+                />
+              </div>
+            </div>
+            <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+              <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                <img
+                  src={website2}
+                  alt="website2"
+                  className="w-full h-full object-cover rounded-3xl"
+                />
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
-  
-    <section className="mb-20 max-w-[1400px] w-full mx-auto px-4">
-      <div>
-        <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 text-center mb-5">
-          Why Choose Us?
         </div>
-        <div className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
-          We offer innovative, scalable IT solutions tailored for healthcare,
-          education, and business sectors. Our user-friendly platforms and
-          dedicated support ensure seamless operations and lasting success.
+      </section>
+
+      <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
+        <div className="flex flex-col gap-5 mb-10 text-center md:text-left">
+          <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 leading-tight text-center">
+            Best Web Design and Development
+            <span className="block">Company Wayanad, Kerala</span>
+          </div>
+          <div className="max-w-[900px] text-[#fff] textGradient6 mx-auto text-center">
+            As a leading web design and development company in Wayanad, Kerala,
+            India, IMC Business Solutions specializes in creating custom web
+            solutions that help businesses of all sizes succeed online. We
+            understand that your website is your business's online face, and we
+            work hard to make sure it makes a lasting impression on your
+            visitors.
+          </div>
         </div>
-  
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {ChooseUsList.map((item, index) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
+          {WebData.map((item, index) => (
             <div
               key={index}
-              className="w-full h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl"
+              className="w-full h-[250px] md:h-[300px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl"
             >
               <div className="rounded-3xl w-full h-full bg-[#000] p-5">
-                <div className="text-[#fff] mb-3 textGradient text-lg font-bold text-center pt-5">
-                  {item.titile}
+                <div className="text-[#fff] text-lg md:text-xl textGradient mb-3 font-black text-center pt-10">
+                  {item.title}
                 </div>
-                <div className="text-[#fff] textGradient text-sm">
+                <div className="textGradient6 text-[#fff] text-sm md:text-base">
                   {item.description}
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  
-    <section className="w-full bg-[#fff] py-10">
-      <Footer />
-    </section>
-  </div>
-  
+      </section>
+
+      <section className="mb-20 max-w-[1400px] w-full mx-auto px-4">
+        <div>
+          <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 text-center mb-5">
+            Why Choose Us?
+          </div>
+          <div className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
+            We offer innovative, scalable IT solutions tailored for healthcare,
+            education, and business sectors. Our user-friendly platforms and
+            dedicated support ensure seamless operations and lasting success.
+          </div>
+
+          <div className="flex flex-col gap-2">
+            {ChooseUsList.map((item, index) => (
+              <div
+                key={index}
+                className={`relative flex items-center ${
+                  index % 2 === 0 ? "justify-start" : "justify-end"
+                }`}
+              >
+                {/* Background Glow */}
+                <div className="absolute w-[300px] h-[150px] bg-gradient-to-r from-[#ffdd9e] to-[#ffffff] blur-3xl opacity-50"></div>
+
+                {/* Content Box */}
+                <div
+                  className="relative max-w-[600px] p-6 rounded-[30px] bg-[#000] shadow-2xl border border-[#ffdd9e] 
+          transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,221,158,0.5)]"
+                >
+                  <h3 className="text-lg font-bold textGradient mb-2">
+                    {item.titile}
+                  </h3>
+                  <p className="textGradient">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-[#fff] py-10">
+        <Footer />
+      </section>
+    </div>
   );
 };
 
