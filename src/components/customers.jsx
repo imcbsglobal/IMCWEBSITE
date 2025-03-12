@@ -67,7 +67,31 @@ import mazus from '../assets/mazus.png'
 import orfila from '../assets/orfila.png'
 import lavillainn from '../assets/lavillainn.png'
 import bodyzone from '../assets/bodyzone.png'
+import LocomotiveScroll from "locomotive-scroll";
+import "locomotive-scroll/dist/locomotive-scroll.css";
+
+
 const customers = () => {
+
+  const mainRef = useRef()
+
+  useEffect(() => {
+    // Ensure the container and its children are fully rendered
+    if (!mainRef.current) return;
+  
+    // Initialize Locomotive Scroll
+    const locoScroll = new LocomotiveScroll({
+      el: mainRef.current, // Reference to the scroll container
+      smooth: true,
+      lerp: 0.1,
+    });
+  
+    // Cleanup Locomotive Scroll instance on unmount
+    return () => {
+      if (locoScroll) locoScroll.destroy();
+    };
+  }, []);
+
 
   const [active, setActive]= useState()
 const clients = [
@@ -413,7 +437,7 @@ const clients = [
 
   
   return (
-    <div className="overflow-hidden">
+    <div ref={mainRef} data-scroll-container className="overflow-hidden">
       {/* intro */}
       <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden">
         <section

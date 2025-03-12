@@ -108,7 +108,7 @@ const software = () => {
                 <div>
                   <div className="text-[40px] md:text-[60px] textGradient4 leading-tight mb-3 md:mb-5">
                     RESTAURANT
-                    <span className="block text-[20px] md:text-[30px]">
+                    <span className="block text-[20px] md:text-[30px] textGradient5 font-bold">
                       Streamlining operations and service.
                     </span>
                   </div>
@@ -166,7 +166,7 @@ const software = () => {
                 <div className="w-full md:w-[50%] flex flex-col justify-center items-start p-5">
                   <div className="text-[#fff] text-[40px] md:text-[50px] mb-3 md:mb-5 textGradient4 leading-tight">
                     INVENTORY MANAGEMENT{" "}
-                    <span className="block text-[20px] md:text-[30px]">
+                    <span className="block text-[20px] textGradient5 font-bold md:text-[30px]">
                       Optimize, track, manage inventory
                     </span>
                   </div>
@@ -225,7 +225,7 @@ const software = () => {
               <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
                 <div className="text-[36px] md:text-[48px] text-[#fff] textGradient4 leading-tight w-full md:w-[60%] text-center md:text-left">
                   HEALTHCARE MANAGEMENT{" "}
-                  <span className="block text-[18px] md:text-[20px]">
+                  <span className="block text-[18px] md:text-[20px] textGradient5 font-bold">
                     Empowering Health Services for a Digital Era
                   </span>
                 </div>

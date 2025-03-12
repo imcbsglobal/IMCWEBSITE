@@ -15,12 +15,18 @@ import ProductVideo from "./components/faq/ProductVideo";
 import QuestionChatBoats from "./components/faq/QuestionChatBoats";
 import WhatsappSupports from "./components/faq/WhatsappSupports";
 import Company from "./components/company";
-import Software from "./components/software";
+// import Software from "./components/software";
 // import Business from "./components/business";
 import Login from './components/login';
 import Admin from './components/admin';
 import AddUser from './components/adduser';
 import Signinlogin from './components/signin'
+import HealthCare from './components/software/HealthCare';
+import Hospitality from './components/software/Hospitality';
+import Institution from './components/software/Institution';
+import Inventory from './components/software/Inventory';
+import Restaurant from './components/software/Restaurant'
+import Pharmacy from './components/software/Pharmacy';
 // import Addproduct from './components/addproduct'
 function App() {
   return (
@@ -56,12 +62,18 @@ const AppWithRouting = () => {
         <Route path="/whatsappSupports" element={<WhatsappSupports />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/company" element={<Company />} />
-        <Route path="/software" element={<Software />} />
+        {/* <Route path="/software" element={<Software />} /> */}
         {/* <Route path="/business" element={<Business />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path='/signinlogin' element={<Signinlogin/>}/>
         <Route path="/admin" element={<Admin />} />
         {/* <Route path="/addproduct" element={<Addproduct />} /> */}
+        <Route path="/healthcare" element={<HealthCare />} />
+        <Route path="/hospitality" element={<Hospitality />} />
+        <Route path="/institution" element={<Institution />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/restaurant" element={<Restaurant />} />
+        <Route path="/pharmacy" element={<Pharmacy />} />
       </Routes>
     </>
   );

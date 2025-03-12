@@ -24,10 +24,12 @@ import service12 from "../assets/service11.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
-
+import { MdPhone } from "react-icons/md";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Gradient from "./Gradient";
+import GradientText from "./GradientText";
 
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import healthcare from "../assets/healthcare.jpg";
@@ -45,10 +47,11 @@ import schoolcollege from "../assets/schoolcollege.jpg"
 import hospitalandclinics from "../assets/hospitalandclinics.jpg"
 import restaurants from "../assets/restaurant.jpg"
 import bannerVideo from "../assets/bannervideo.mp4";
-import GradientText from './GradientText';
 import { motion } from "framer-motion";
 import ASCIIText from './ASCIIText';
 import { Link } from "react-router-dom";
+import CircularText from "./CircularText";
+
 const Home = () => {
   const canvasRef = useRef(null);
   const [result, setResult] = React.useState("");
@@ -65,6 +68,20 @@ const Home = () => {
   //   ]
   // };
 
+  const locoRef = useRef(null);
+  useEffect(() => {
+    if (!locoRef.current) return;
+
+    const locoScroll = new LocomotiveScroll({
+      el: locoRef.current,
+      smooth: true,
+      lerp: 0.1,
+    });
+
+    return () => {
+      if (locoScroll) locoScroll.destroy();
+    };
+  }, []);
   // const mainRef = useRef();
   const [formData, setFormData] = useState({
       firstName: "",
@@ -107,7 +124,7 @@ const Home = () => {
       title: "Efficiently Managing Your Inventory",
       section: "Inventory Solutions",
       para: "Optimize your operations with a smart inventory management system designed to track, manage, and streamline stock levels. Reduce errors, boost efficiency, and make informed decisions with ease.",
-      link: "/software#inventorymanagement ",
+      link: "/inventory ",
     },
     {
       no: "02",
@@ -116,7 +133,7 @@ const Home = () => {
       title: "Optimizing Health Care Delivery",
       section: "Health Care",
       para: " Streamlining processes and optimizing resources are key to improving patient care and reducing costs in healthcare.",
-      link: "/software#healthcaremanagement",
+      link: "/healthcare",
     },
     {
       no: "03",
@@ -125,7 +142,7 @@ const Home = () => {
       title: "Elevating Dining Experiences",
       section: "Restaurant Management",
       para: "Efficient management and a focus on customer service are essential for creating memorable dining experiences and driving business success.",
-      link: "/software#restaurant",
+      link: "/restaurant",
     },
     {
       no: "04",
@@ -134,7 +151,7 @@ const Home = () => {
       title: "Enhancing Guest Satisfaction",
       section: "Hospitality Management",
       para: "Providing exceptional service and seamless operations are crucial in creating memorable guest experiences and ensuring long-term success in the hospitality industry.",
-      link: "/software#hospitality",
+      link: "/hospitality",
     },
     {
       no: "05",
@@ -143,7 +160,7 @@ const Home = () => {
       title: "Streamlining Institutional Operations",
       section: "Institution Management",
       para: "Effective management practices are key to optimizing resources, improving efficiency, and fostering a positive environment within educational or organizational institutions.",
-      link: "/software#institutionmanagement",
+      link: "/institution",
     },
   ];
   const services = [
@@ -308,7 +325,7 @@ useEffect(() => {
    const [openChat, setOpenChat] = useState(false)
 
   return (
-    <div className="relative overflow-hidden ">
+    <div data-scroll-container className="relative overflow-hidden ">
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40"></div>
 
       {/* chatbot */}
@@ -326,9 +343,99 @@ useEffect(() => {
       <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 "></div>
 
       {/* Banner */}
-      <section className="relative h-screen mb-20 overflow-hidden">
+      <section className="relative h-screen flex flex-col justify-start items-center">
         {/* Video Background */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute z-40 h-screen w-full">
+          <Gradient className="w-full h-screen" />
+        </div>
+        <div className="w-full absolute px-10 h-full flex flex-col justify-center">
+          <div className="flex flex-col  gap-4 mb-5 textGradient5">
+            <div className="text-[#fff] lg:flex text-4xl md:text-6xl lg:text-7xl items-center gap-4 font-bold">
+              <div className="flex items-center  gap-4">
+                Empower
+                <span className="md:w-[180px] md:h-[90px] w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden">
+                  <img
+                    src="https://img.freepik.com/free-vector/gradient-grainy-texture_23-2148976749.jpg?t=st=1741589607~exp=1741593207~hmac=198c2ad3cb453f42f909b5dce4647ef0d92677ef94dcdf99daf1ce7583f6ebf0&w=1060"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </span>
+              </div>
+              <span className="block lg:flex">innovation</span>
+            </div>
+            <div className="lg:flex text-[#fff] text-7xl gap-4 font-bold">
+              <div className="flex items-center gap-4">
+                <span className="md:w-[180px] md:h-[90px] w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden">
+                  <img
+                    src="https://img.freepik.com/free-vector/gradient-colorful-grainy-dynamic-background_52683-101908.jpg?t=st=1741589562~exp=1741593162~hmac=8d887516affc9733b6ad1cc071c1305798fefabad80a3ed166a338e4710e0d68&w=1060"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </span>
+                to
+              </div>
+              <div className="flex items-center gap-4">
+                redefine
+                <span className="w-[180px] h-[90px] rounded-full bg-[#fff] overflow-hidden">
+                  <img
+                    src="https://img.freepik.com/free-vector/gradient-grainy-texture_23-2148976750.jpg?t=st=1741589633~exp=1741593233~hmac=b3ae005026fe9b3aed0e5dae5e56850dafae6f0643b9ca06c333f3f71af4517b&w=1060"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </span>
+              </div>
+            </div>
+            <div className="flex text-[#fff] text-7xl font-bold">tomorrow</div>
+          </div>
+          <div className=" grid grid-cols-1 lg:flex justify-between w-full">
+            <div className="text-[#fff] max-w-[900px] w-full mb-10 lg:mb-0 text-center lg:text-start">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laudantium molestiae nostrum repudiandae optio, repellat, laborum
+              quaerat quam quidem illo, corporis suscipit dicta earum asperiores
+              magni obcaecati commodi porro voluptates tenetur. Obcaecati
+              voluptas, enim voluptatem voluptatibus earum repellendus, sapiente
+              fugit maxime maiores inventore vel, alias aliquam ea? Quod
+              similique commodi quis eius minima cum ex eos vero praesentium
+              itaque. Molestiae, sed.
+            </div>
+            <div className="grid grid-cols-1 lg:flex gap-3 items-center relative z-50">
+              {/* <ShinyText
+              text="Let's talk"
+              disabled={false}
+              speed={3}
+              className="custom-class text-xl"
+            /> */}
+              <div className="relative flex items-center">
+                <GradientText
+                  colors={[
+                    "#F7F7F7",
+                    "#D9DFC6",
+                    "#FFB22C",
+                    "#4079ff",
+                    "#2D336B",
+                  ]}
+                  animationSpeed={3}
+                  showBorder={true}
+                  className="custom-class px-10 py-2 text-xl"
+                >
+                  Let's talk
+                </GradientText>
+                <span className="text-[#fff] absolute right-4">
+                  <MdPhone />
+                </span>
+              </div>
+              <GradientText
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={3}
+                showBorder={true}
+                className="custom-class px-10 py-2 text-xl"
+              >
+                Join now !
+              </GradientText>
+            </div>
+          </div>
+        </div>
+        {/* <div className="absolute inset-0 w-full h-full">
           <video
             autoPlay
             loop
@@ -340,16 +447,7 @@ useEffect(() => {
             <source src={bannerVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
-          {/* Overlay to make text more readable */}
-          <div className="absolute inset-0 bg-black/50">
-            {/* <ASCIIText
-              text="IMC BUSSINESS SOLUTIONS"
-              enableWaves={true}
-              asciiFontSize={8}
-            /> */}
-          </div>
-        </div>
+        </div> */}
 
         {/* Content Container */}
         <div className="relative z-10 max-w-[1400px] mx-auto h-full px-4 md:px-6 flex items-center justify-center">
@@ -666,8 +764,6 @@ useEffect(() => {
         </div>
       </section>
 
-      
-   
       {/* Testimonials */}
       <section className="max-w-[1400px] mx-auto mb-20">
         <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#fff] text-center">

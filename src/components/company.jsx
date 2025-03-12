@@ -9,9 +9,28 @@ import mission from "../assets/mission.jpg";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { useLocation } from "react-router-dom";
+import LocomotiveScroll from "locomotive-scroll";
+import "locomotive-scroll/dist/locomotive-scroll.css";
+
+
 const company = () => {
   
   const location = useLocation();
+  const locoRef = useRef(null);
+
+  useEffect(() => {
+      if (!locoRef.current) return;
+  
+      const locoScroll = new LocomotiveScroll({
+        el: locoRef.current,
+        smooth: true,
+        lerp: 0.1,
+      });
+  
+      return () => {
+        if (locoScroll) locoScroll.destroy();
+      };
+    }, []);
 
   // Scroll to the section based on the hash in the URL
   useEffect(() => {
@@ -54,7 +73,7 @@ const company = () => {
   
   return (
     <>
-      <div>
+      <div  data-scroll-container>
         {/* about */}
         <div className="md:pt-[180px] pt-[100px]  flex flex-col justify-center items-center w-full">
           <section id="aboutid" className="max-w-[1400px] w-full mx-auto mb-20">

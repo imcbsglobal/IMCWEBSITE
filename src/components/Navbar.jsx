@@ -57,12 +57,12 @@ const Navbar = () => {
       { name: "Business Opportunities", path:"/company#bussinessopportunities" },
     ],
     softwares: [
-      { name: "Restaurants", path:"/software#restaurant" },
-      { name: "Inventory Management", path:"/software#inventorymanagement" },
-      { name: "Health Care Management", path:"/software#healthcaremanagement" },
-      
-      { name: "Hospitality", path:"/software#hospitality" },
-      { name: "Institution Management",  path:"/software#institutionmanagement" },
+      { name: "Inventory Management", path:"/inventory" },
+      { name: "Health Care Management", path:"/healthcare" },
+      { name: "Institution Management",  path:"/institution" },
+      { name: "Pharmacy", path: "/pharmacy"},
+      { name: "Restaurants", path:"/restaurant" },
+      { name: "Hospitality", path:"/hospitality" },
     ],
     services: [
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
@@ -178,7 +178,7 @@ const Navbar = () => {
                   {activeMenu === "company" && renderDropdown("company")}
                 </li>
               </Link>
-              <Link to="/software">
+              
                 <li
                   className="cursor-pointer relative"
                   onMouseEnter={() => handleMouseEnter("softwares")}
@@ -187,7 +187,7 @@ const Navbar = () => {
                   Softwares
                   {activeMenu === "softwares" && renderDropdown("softwares")}
                 </li>
-              </Link>
+              
 
               <li
                 className="cursor-pointer relative"
