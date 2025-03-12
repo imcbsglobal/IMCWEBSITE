@@ -16,7 +16,7 @@ import gpay from '../../assets/payment.jpg'
 import hybrid from '../../assets/hybriddata.jpg'
 import task from '../../assets/taskcopy.png'
 import icare from '../../assets/icarecopy.png'
-import bcare from '../../assets/bcare.png'
+import bcare from '../../assets/Bcare.png'
 
 const  Inventory = () => {
   const features = [
