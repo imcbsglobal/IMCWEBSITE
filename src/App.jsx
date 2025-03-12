@@ -15,11 +15,10 @@ import ProductVideo from "./components/faq/ProductVideo";
 import QuestionChatBoats from "./components/faq/QuestionChatBoats";
 import WhatsappSupports from "./components/faq/WhatsappSupports";
 import Company from "./components/company";
-// import Software from "./components/software";
-// import Business from "./components/business";
+
 import Login from './components/login';
 import Admin from './components/admin';
-import AddUser from './components/adduser';
+
 import Signinlogin from './components/signin'
 import HealthCare from './components/software/HealthCare';
 import Hospitality from './components/software/Hospitality';
@@ -27,7 +26,7 @@ import Institution from './components/software/Institution';
 import Inventory from './components/software/Inventory';
 import Restaurant from './components/software/Restaurant'
 import Pharmacy from './components/software/Pharmacy';
-// import Addproduct from './components/addproduct'
+
 function App() {
   return (
     <Router>

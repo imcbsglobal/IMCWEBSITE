@@ -3,8 +3,8 @@ import { FaClipboardCheck, FaShieldAlt, FaChartLine, FaStore, FaBoxes, FaCalenda
 import pharmacy from '../../assets/pharmacyimg.jpeg'
 import vtask from '../../assets/VTASK.png'
 import Footer from '../Footer';
-
-
+import pharmacy2 from '../../assets/pharmacyimg1.jpeg'
+import pharmacy3 from '../../assets/pharmacyimg2.jpeg'
 const PharmacyManagementPage = () => {
   
     useEffect(() => {
@@ -126,7 +126,7 @@ const PharmacyManagementPage = () => {
           </div>
           <div className="w-full h-[400px] overflow-hidden rounded-3xl">
             <img
-              src="https://www.tapmi.edu.in/wp-content/uploads/2018/07/05-Essential-skills.jpg"
+              src={pharmacy2}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -141,7 +141,7 @@ const PharmacyManagementPage = () => {
               <div className="relative overflow-hidden rounded-lg border border-gray-800 h-full w-full">
                 <div className='w-full h-full'>
                   <img
-                    src="https://www.tapmi.edu.in/wp-content/uploads/2018/07/05-Essential-skills.jpg"
+                    src={pharmacy3}
                     alt="Pharmacist using VTASK software"
                     className="w-full h-full object-cover"
                   />
