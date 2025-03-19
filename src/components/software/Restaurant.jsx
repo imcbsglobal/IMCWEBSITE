@@ -5,7 +5,7 @@ import restaurant from '../../assets/restaurantmanagement.jpg'
 import { FaBoxes, FaCalculator, FaChartBar, FaCoffee, FaConciergeBell, FaDatabase, FaGlassMartini, FaMobileAlt, FaPizzaSlice, FaPrint, FaQrcode, FaStream, FaTable, FaTruck, FaUtensils, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion"
 import Footer from '../Footer'
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dbFirestore } from "../../firebaseConfig";
 import {  AnimatePresence } from 'framer-motion';

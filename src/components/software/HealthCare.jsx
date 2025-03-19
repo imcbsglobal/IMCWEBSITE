@@ -6,7 +6,7 @@ import { dbFirestore } from "../../firebaseConfig";
 import HealthCareImg from '../../assets/healthcareimg.jpg';
 import shade from '../../assets/SHADEorg.png';
 import Footer from '../Footer';
-import darkGradient from '../../assets/darkgradient.jpg';
+import darkGradient from '../../assets/darkGradient.jpg';
 
 const features = [
   { icon: <FaUserMd />, title: 'Patient Registration & Appointment Management', desc: 'Hassle-free booking, scheduling, and queue management.' },

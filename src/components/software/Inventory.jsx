@@ -17,7 +17,7 @@ import hybrid from '../../assets/hybriddata.jpg'
 import task from '../../assets/taskcopy.png'
 import icare from '../../assets/icarecopy.png'
 import bcare from '../../assets/Bcare.png'
-import darkGradient from "../../assets/darkgradient.jpg"
+import darkGradient from "../../assets/darkGradient.jpg"
 import { motion } from "framer-motion"
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";

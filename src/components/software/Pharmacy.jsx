@@ -19,7 +19,7 @@ import vtask from "../../assets/VTASK.png";
 import Footer from "../Footer";
 import pharmacy2 from "../../assets/pharmacyimg1.jpeg";
 import pharmacy3 from "../../assets/pharmacyimg2.jpeg";
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { motion } from "framer-motion"
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dbFirestore } from "../../firebaseConfig";

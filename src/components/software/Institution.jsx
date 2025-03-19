@@ -5,7 +5,7 @@ import time from "../../assets/time.png";
 import institution from "../../assets/institutionmanagement1.jpeg";
 import institution1 from "../../assets/institutionmanagement.jpg";
 import institution2 from "../../assets/institutionmanagement2.jpg";
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dbFirestore } from "../../firebaseConfig";
