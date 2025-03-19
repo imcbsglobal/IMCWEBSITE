@@ -100,7 +100,7 @@ const CircularText = ({
         const factor = Number((Math.PI / letters.length).toFixed(0));
         const x = factor * i;
         const y = factor * i;
-        const transform = rotateZ(`${rotation}deg) translate3d(${x}px, ${y}px, 0`);
+        const transform = `rotateZ(${rotation}deg) translate3d(${x}px, ${y}px, 0)`;
 
         return (
           <span

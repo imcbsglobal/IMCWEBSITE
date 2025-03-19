@@ -55,6 +55,7 @@ const Navbar = () => {
       { name: "Customers", path:"/customers" },
       { name: "Supports", path:"/company#supports" },
       { name: "Business Opportunities", path:"/company#bussinessopportunities" },
+      {name: "Career", path:"/career"},
     ],
     softwares: [
       { name: "Inventory Management", path:"/inventory" },
@@ -65,12 +66,14 @@ const Navbar = () => {
       { name: "Hospitality", path:"/hospitality" },
     ],
     services: [
+      { name: "ERP Software", path: "/erpsoftware" },
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
       { name: "Mobile App Development", path: "/mobileApp" },
-      { name: "Digital Marketing / SEO", path: "/digitalmarketingandSEO" },
-      { name: "Branding", path: "/branding" },
-      { name: "Graphics & Creatives", path: "/graphicsandCreatives" },
-      { name: "Business Branding", path: "/businessBranding" },
+      { name: "Business Consultation", path: "/businessBranding" },
+      { name: "Digital Marketing", path: "/digitalmarketing" },
+      
+      { name: "Hardware Solutions", path: "/hardwaresolutions" },
+     
     ],
     // business: [
     //   { name: "Retails & Wholesale", path :"/business#retailswholesale"  },

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
+import darkGradient from "../assets/darkgradient.jpg";
 
 const Contact = () => {
   const [active, setActive] = useState(false);
@@ -72,7 +73,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-40">
+    <div className="pt-32 pb-20 relative w-full">
+      <div className=" absolute top-0 right-0 bottom-0 left-0 -z-10">
+        <img src={darkGradient} alt="" className="w-full h-full object-cover"/>
+      </div>
       <section className="mb-10 md:mb-20 max-w-[1400px] mx-auto w-full px-4 md:px-0">
         <div className="w-full">
           <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center w-full mb-8 md:mb-16">
@@ -103,10 +107,10 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex">
-                <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffbf00] to-[#ffb62d] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl w-full md:w-auto">
+                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl w-full md:w-auto">
                 <button 
                   onClick={() => (window.location.href = "tel:+917593820007")}
-                  className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700">
+                  className="text-[#fff] w-full h-full bg-[#ffffff07] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700">
                     Contact Us
                   </button>
                 </div>
@@ -114,7 +118,7 @@ const Contact = () => {
             </div>
 
             <div className="w-full md:w-[50%] flex flex-col gap-4 md:gap-5">
-              <div className="text-[#ffff] textGradient6 text-xl md:text-2xl">
+              <div className="text-[#ffff] textGradient6 text-lg">
                 Here to bring your concept to life, manage your ongoing project,
                 or expand your existing development team
               </div>

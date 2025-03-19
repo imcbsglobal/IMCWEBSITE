@@ -3,6 +3,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaRocketchat } from "react-icons/fa";
 import ChatBot from '../ChatBot';
 import Footer from '../Footer';
+import darkGradient from "../../assets/darkgradient.jpg";
+
 const QuestionChatBoats = () => {
    const [active, setActive] = useState(false);
    const [openChat, setOpenChat] = useState(false)
@@ -21,6 +23,9 @@ const QuestionChatBoats = () => {
   return (
     <>
       <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1">
+        <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
+          <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+        </div>
         {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />

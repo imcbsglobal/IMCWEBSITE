@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
 import Footer from '../Footer';
+import darkGradient from "../../assets/darkgradient.jpg";
+
 const ProductVideo = () => {
   const [items, setItems] = useState([]);
 
@@ -23,9 +25,12 @@ const ProductVideo = () => {
   }, []);
 
   return (
-    <div>
+    <div className='relative w-full'>
+      <div className='w-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
+        <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+      </div>
       {/* Heading Section */}
-      <section className="w-full flex justify-center mt-40 px-4">
+      <section className="w-full flex justify-center px-4 pb-16 pt-32">
         <div>
           <div className="text-[#fff] text-[40px] sm:text-[50px] textGradient4 mb-5 text-center leading-tight">
             Learn, Implement, Excel{" "}

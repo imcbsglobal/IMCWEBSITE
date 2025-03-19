@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../firebaseConfig";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+// Import Swiper components and required modules
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, EffectCreative } from "swiper/modules";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-creative";
 
 const Testimonials = () => {
   const [videoTestimonials, setVideoTestimonials] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
-  const [currentStart, setCurrentStart] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   // Handle Screen Resize
@@ -46,82 +52,83 @@ const Testimonials = () => {
     fetchTestimonials();
   }, []);
 
-  // Handle Previous Button Click
-  const handlePrev = () => {
-    if (isMobile) {
-      setCurrentStart(
-        (prev) => (prev - 1 + testimonials.length) % testimonials.length
-      );
-    } else {
-      setCurrentStart(
-        (prev) => (prev - 2 + testimonials.length) % testimonials.length
-      );
-    }
-  };
-
-  // Handle Next Button Click
-  const handleNext = () => {
-    if (isMobile) {
-      setCurrentStart((prev) => (prev + 1) % testimonials.length);
-    } else {
-      setCurrentStart((prev) => (prev + 2) % testimonials.length);
-    }
-  };
-
   return (
     <div className="overflow-auto">
       {/* Text/Image Testimonials Section */}
-      <div className="relative overflow-hidden ml-[10px]">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-5">
-          {/* Previous Arrow (Visible on both mobile and desktop) */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-2 top-[40%] p-2 rounded-full bg-black text-white hover:bg-gray-700 transition-all"
-          >
-            <ChevronLeft size={30} />
-          </button>
-
-          {/* Testimonials Container */}
-          <div className="flex flex-col md:flex-row justify-center gap-4 p-3 px-10 md:px-0">
-            {testimonials
-              .slice(
-                currentStart,
-                isMobile ? currentStart + 1 : currentStart + 2 // Show 1 item on mobile, 2 items on desktop
-              )
-              .map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6  rounded-3xl"
-                >
-                  <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
-                    <img
-                      src={
-                        testimonial.image ||
-                        "https://img.freepik.com/free-photo/portrait-handsome-fashion-stylish-hipster-model-dressed-warm-red-sweater-posing-studio_158538-11524.jpg"
-                      }
-                      alt="Testimonial"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-around gap-4 w-[300px]">
-                    <div className="textGradient italic md:text-[22px] text-center md:text-base  md:text-justify pt-2 px-2">
-                      {testimonial.description || "Amazing experience!"}
-                    </div>
-                    <div className="textGradient6 text-white md:text-2xl md:p-4 px-2 text-center md:text-start">
-                      {testimonial.name || "Name"}
-                    </div>
-                  </div>
-                </div>
-              ))}
+      <div className="relative overflow-hidden ml-[10px] my-8">
+        <div className="flex flex-col justify-center items-center mb-5">
+          {/* Custom Navigation Buttons */}
+          <div className="w-full hidden md:flex justify-between items-center px-4 mb-2">
+            <button
+              className="prev-testimonial p-2 rounded-full bg-black text-white hover:bg-gray-700 transition-all z-10"
+            >
+              <ChevronLeft size={30} />
+            </button>
+            <button
+              className="next-testimonial p-2 rounded-full bg-black text-white hover:bg-gray-700 transition-all z-10"
+            >
+              <ChevronRight size={30} />
+            </button>
           </div>
 
-          {/* Next Arrow (Visible on both mobile and desktop) */}
-          <button
-            onClick={handleNext}
-            className="absolute right-2 top-[40%] p-2 rounded-full bg-black text-white hover:bg-gray-700 transition-all"
-          >
-            <ChevronRight size={30} />
-          </button>
+          {/* Testimonials Swiper */}
+          <div className="w-full px-4">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={isMobile ? 1 : 2}
+              slidesPerGroup={isMobile ? 1 : 2}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              navigation={{
+                prevEl: '.prev-testimonial',
+                nextEl: '.next-testimonial',
+              }}
+              breakpoints={{
+                // when window width is < 768px
+                0: {
+                  slidesPerView: 1,
+                  slidesPerGroup: 1,
+                  spaceBetween: 10,
+                },
+                // when window width is >= 768px
+                768: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                  spaceBetween: 30,
+                }
+              }}
+              className="testimonial-swiper"
+            >
+              {testimonials.map((testimonial) => (
+                <SwiperSlide key={testimonial.id} className="py-4">
+                  <div className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6 rounded-3xl">
+                    <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
+                      <img
+                        src={
+                          testimonial.image ||
+                          "https://img.freepik.com/free-photo/portrait-handsome-fashion-stylish-hipster-model-dressed-warm-red-sweater-posing-studio_158538-11524.jpg"
+                        }
+                        alt="Testimonial"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-around gap-4 w-[300px]">
+                      <div className="textGradient italic md:text-[22px] text-center md:text-base md:text-justify pt-2 px-2">
+                        {testimonial.description || "Amazing experience!"}
+                      </div>
+                      <div className="textGradient6 text-white md:text-2xl md:p-4 px-2 text-center md:text-start">
+                        {testimonial.name || "Name"}
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
 
@@ -137,7 +144,7 @@ const Testimonials = () => {
           {videoTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="p-4  rounded-3xl text-center"
+              className="p-4 rounded-3xl text-center"
             >
               {testimonial.videoUrl ? (
                 <iframe
@@ -158,6 +165,37 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
+      
+      {/* Add custom CSS for futuristic effects */}
+      <style jsx>{`
+        .testimonial-swiper {
+          width: 100%;
+          height: 100%;
+        }
+        
+        .testimonial-swiper .swiper-slide {
+          transition: all 0.5s ease;
+          transform-origin: center center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .testimonial-swiper .swiper-slide-active,
+        .testimonial-swiper .swiper-slide-next {
+          z-index: 2;
+          transform: scale(1);
+          opacity: 1;
+          filter: blur(0px);
+        }
+        
+        .testimonial-swiper .swiper-slide-prev,
+        .testimonial-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next) {
+          transform: scale(0.85);
+          opacity: 0.7;
+          filter: blur(4px);
+        }
+      `}</style>
     </div>
   );
 };

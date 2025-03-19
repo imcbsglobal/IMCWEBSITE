@@ -4,10 +4,11 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Customers from "./components/customers";
-import Branding from "./components/services/Branding";
+import  ERPsoftware from "./components/services/ERPsoftware";
+// import Branding from "./components/services/Branding";
 import BusinessBrading from "./components/services/BusinessBranding";
 import DigitalMarketingSEO from "./components/services/DigitalMarketingSEO";
-import GraphicsCreatives from "./components/services/GraphicsCreatives";
+import Hardwaresolutions from "./components/services/Hardwaresolutions";
 import MobileApp from "./components/services/MobileApp";
 import WebsiteWebApplication from "./components/services/WebsiteWebApplication";
 import ProductTutorials from "./components/faq/ProductTutorials";
@@ -18,7 +19,7 @@ import Company from "./components/company";
 
 import Login from './components/login';
 import Admin from './components/admin';
-
+import Career from './components/Career';
 import Signinlogin from './components/signin'
 import HealthCare from './components/software/HealthCare';
 import Hospitality from './components/software/Hospitality';
@@ -51,12 +52,12 @@ const AppWithRouting = () => {
         <Route path="/customers" element={<Customers />} />
         <Route path="/websiteandWebApplications" element={<WebsiteWebApplication />} />
         <Route path="/mobileApp" element={<MobileApp />} />
-        <Route path="/digitalmarketingandSEO" element={<DigitalMarketingSEO />} />
-        <Route path="/branding" element={<Branding />} />
-        <Route path="/graphicsandCreatives" element={<GraphicsCreatives />} />
+        <Route path="/digitalmarketing" element={<DigitalMarketingSEO />} />
+        <Route path="/erpsoftware" element={<ERPsoftware />} />
+        <Route path="/hardwaresolutions" element={<Hardwaresolutions />} />
         <Route path="/businessBranding" element={<BusinessBrading />} />
-        <Route path="/productVideo" element={<ProductTutorials />} />
-        <Route path="/productTutorials" element={<ProductVideo />} />
+        <Route path="/productVideo" element={<ProductVideo />} />
+        <Route path="/productTutorials" element={<ProductTutorials />} />
         <Route path="/questionChatBoats" element={<QuestionChatBoats />} />
         <Route path="/whatsappSupports" element={<WhatsappSupports />} />
         <Route path="/contact" element={<Contact />} />
@@ -73,6 +74,7 @@ const AppWithRouting = () => {
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/pharmacy" element={<Pharmacy />} />
+        <Route path="/career" element={<Career />} />
       </Routes>
     </>
   );

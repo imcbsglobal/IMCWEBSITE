@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
 import Footer from '../Footer';
+import darkGradient from "../../assets/darkgradient.jpg";
+
 const ProductTutorials = () => {
   const [demonstrations, setDemonstrations] = useState([]);
 
@@ -27,8 +29,11 @@ const ProductTutorials = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
-    <section className="py-16 px-4 mt-20">
+    <div className="min-h-screen relative">
+      <div className='w-full h-full absolute top-0 left-0 right-0 bottom-0 -z-10'>
+        <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+      </div>
+    <section className="pb-16 pt-32 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">

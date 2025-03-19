@@ -4,6 +4,10 @@ import mobileapp from '../../assets/mobileapp1.jpeg'
 import app1 from '../../assets/app1.jpg'
 import app2 from '../../assets/app2.jpg'
 import app from '../../assets/app.jpg'
+import darkGradient from "../../assets/darkgradient.jpg";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+
 const MobileApp = () => {
   useEffect(() => {
       // Scroll to the top of the page on mount
@@ -70,132 +74,230 @@ const MobileApp = () => {
     { titile: "Maintenance Phase", description: "Post-launch, we provide ongoing support and maintenance services. We ensure that the app is updated regularly, fix any issues that arise, and offer continuous improvements to meet evolving user needs and keep the app up-to-date with the latest OS versions", img: "img" },
    
   ];
-  return (
-    <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center">
-      {/* intro */}
-      <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
-        <div>
-          <div className="flex flex-col justify-center items-center gap-5">
-            <div className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl">
-              <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
-                <img
-                  src={mobileapp}
-                  alt="mobileapp"
-                  className="w-full h-full rounded-3xl object-cover"
-                />
-              </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
-              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
+  return (
+    <>
+    <div className="flex flex-col justify-center items-center relative">
+      <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+          <img
+            src={darkGradient}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+      {/* intro */}
+      <div className="w-full relative pt-32 pb-20">
+        
+        <section className="max-w-[1400px] mx-auto w-full px-4">
+          <div>
+            <div className="flex flex-col justify-center items-center gap-5">
+              <motion.div
+                initial={{ scale: 1.2 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl"
+              >
                 <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
                   <img
-                    src={app}
-                    alt="app"
+                    src={mobileapp}
+                    alt="mobileapp"
                     className="w-full h-full rounded-3xl object-cover"
                   />
                 </div>
-              </div>
-              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
-                <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
-                  <img
-                    src={app1}
-                    alt="app1"
-                    className="w-full h-full rounded-3xl object-cover"
-                  />
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]  backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full">
-                <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
-                  <img
-                    src={app2}
-                    alt="app2"
-                    className="w-full h-full rounded-3xl object-cover"
-                  />
-                </div>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+                {[app, app1, app2].map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                    transition={{
+                      duration: 1,
+                      delay: index * 0.3,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className="bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full"
+                  >
+                    <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                      <img
+                        src={image}
+                        alt={`app${index}`}
+                        className="w-full h-full rounded-3xl object-cover"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* mobile app DEVELOPMENT */}
-      <section className="max-w-[1400px] mx-auto w-full mb-20 px-4">
-        <div>
-          <div className="flex flex-col gap-5 mb-10 text-center">
-            <h2 className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 leading-tight">
-              MOBILE APP DEVELOPMENT
-            </h2>
-            <p className="text-[#fff] textGradient6 max-w-[1000px] mx-auto">
-              In today's fast-paced world, every entrepreneur seeks real-time
-              insights into their business. That's why mobile solutions have
-              become essential. We are committed to delivering affordable,
-              high-quality mobile applications while also offering tailored
-              solutions designed to meet unique business needs and drive growth.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {MobileAppData.map((item) => (
-              <div className="w-full h-[220px] md:h-[200px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl">
-                <div className="rounded-3xl w-full h-full bg-[#000] p-5">
-                  <h3 className="text-[#fff] text-xl textGradient mb-3 font-black text-center">
-                    {item.title}
-                  </h3>
-                  <p className="textGradient6 text-[#fff]">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* why choose */}
-      <section className="mb-20 max-w-[1200px] w-full mx-auto px-4">
-        <div>
-          <h2 className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 text-center mb-5">
-            Why Choose Us?
-          </h2>
-          <p className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-10">
-            At IMC Business Solutions, we specialize in creating innovative,
-            user-friendly mobile applications that deliver exceptional user
-            experiences. Here's why you should choose us for your mobile app
-            development needs:
-          </p>
-
-          <div className="flex flex-col gap-2">
-            {ChooseUsList.map((item, index) => (
-              <div
-                key={index}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? "justify-start" : "justify-end"
-                }`}
+      <div className="py-20 relative w-full">
+        
+        <section className="max-w-[1400px] mx-auto w-full px-4">
+          <div>
+            <div className="flex flex-col gap-5 mb-10 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="text-[#fff] text-[30px] sm:text-[40px] lg:text-[50px] textGradient4 leading-tight"
               >
-                {/* Background Glow */}
-                <div className="absolute w-[300px] h-[150px] bg-gradient-to-r from-[#ffdd9e] to-[#ffffff] blur-3xl opacity-50"></div>
+                MOBILE APP DEVELOPMENT
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="text-[#fff] textGradient6 max-w-[1000px] mx-auto"
+              >
+                In today's fast-paced world, every entrepreneur seeks real-time
+                insights into their business. That's why mobile solutions have
+                become essential. We are committed to delivering affordable,
+                high-quality mobile applications while also offering tailored
+                solutions designed to meet unique business needs and drive
+                growth.
+              </motion.p>
+            </div>
 
-                {/* Content Box */}
-                <div
-                  className="relative max-w-[600px] p-4 rounded-[30px] bg-[#000] shadow-2xl border border-[#ffdd9e] 
-          transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,221,158,0.5)]"
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {MobileAppData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                    y: 50,
+                    rotateY: 45,
+                    filter: "blur(10px)",
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    rotateY: 0,
+                    filter: "blur(0px)",
+                  }}
+                  transition={{
+                    duration: 1,
+                    delay: index * 0.3,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  className="w-full h-[220px] md:h-[200px] bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl"
                 >
-                  <h3 className="text-lg font-bold textGradient mb-2">
+                  <div className="rounded-3xl w-full h-full bg-[#ffffff0c] p-5">
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      transition={{
+                        duration: 1,
+                        delay: index * 0.5,
+                        ease: "easeOut",
+                      }}
+                      className="text-[#fff] text-xl textGradient6 mb-3 font-black text-center"
+                    >
+                      {item.title}
+                    </motion.h3>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      transition={{
+                        duration: 1,
+                        delay: index * 0.7,
+                        ease: "easeOut",
+                      }}
+                      className="textGradient6 text-[#fff]"
+                    >
+                      {item.description}
+                    </motion.p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
+        {/* Why Choose Us Section */}
+      <div className="w-full relative py-20">
+        
+      
+        <section className="max-w-[1200px] w-full mx-auto px-4">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[#fff] text-[30px] md:text-[50px] textGradient4 text-center mb-5"
+          >
+            Why Choose Us?
+          </motion.div>
+      
+          <motion.div
+            initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center max-w-[900px] mx-auto text-[#fff] textGradient6 mb-12"
+          >
+            We offer innovative, scalable IT solutions tailored for
+            healthcare, education, and business sectors. Our user-friendly
+            platforms and dedicated support ensure seamless operations and
+            lasting success.
+          </motion.div>
+      
+          {/* Two-Column Layout with Rows */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+            {ChooseUsList.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20, y: 30 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+                className="relative flex items-start"
+              >
+                {/* Numbered Circle */}
+                <div className="mr-4 mt-1">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#ffdd9e] to-[#ffffff80] flex items-center justify-center shadow-lg">
+                    <span className="text-lg font-bold text-[#000]">{index + 1}</span>
+                  </div>
+                  <div className="absolute top-14 left-7 w-[1px] h-16 bg-gradient-to-b from-[#ffdd9e] to-transparent"></div>
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold textGradient6 text-[#fff] mb-3">
                     {item.titile}
                   </h3>
-                  <p className="textGradient">{item.description}</p>
+                  
+                  <p className="text-[#ffffffdd] text-base leading-relaxed">
+                    {item.description}
+                  </p>
+                  
+                  {/* Decorative Accent */}
+                  <div className="w-16 h-1 bg-gradient-to-r from-[#ffdd9e] to-transparent mt-4"></div>
                 </div>
-              </div>
+                
+                {/* Background Glow */}
+                <div className="absolute -z-10 top-0 left-0 w-14 h-14 bg-[#ffdd9e] blur-2xl opacity-20"></div>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
+        </section>
+      </div>
+      </div>
       <section className="w-full bg-[#fff] py-10">
         <Footer />
       </section>
-    </div>
+      </>
   );
 }
 

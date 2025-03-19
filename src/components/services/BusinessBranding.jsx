@@ -1,67 +1,69 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useState,useRef,useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Footer from '../Footer';
 import bs from '../../assets/bs.jpeg'
 import bs1 from '../../assets/bs1.jpg'
-const BusinessBranding = () => {
+import darkGradient from "../../assets/darkgradient.jpg";
+
+const BusinessConsultations = () => {
   useEffect(() => {
       // Scroll to the top of the page on mount
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
   const [selectedService, setSelectedService] = useState(null);
   const services = [
-    { title: 'Brand Research' },
-    { title: 'Brand Strategy' },
-    { title: 'Brand Identity' },
-    { title: 'Brand Engagement'}
+    { title: 'Strategic Planning' },
+    { title: 'Process Optimization' },
+    { title: 'Market Analysis' },
+    { title: 'Financial Advisory' }
   ];
   const serviceDetails = {
-    "Brand Research": {
-      title: "Brand Research",
-      description: "Brand research is a crucial first step in building a strong brand identity. It involves gathering insights and data about the market, competitors, customers, and the overall industry landscape. The goal of brand research is to understand how a brand is perceived, identify gaps, and define opportunities for differentiation. Here's why brand research is essential:",
+    "Strategic Planning": {
+      title: "Strategic Planning",
+      description: "Strategic planning is a systematic process that defines an organization's direction and makes decisions on allocating resources to pursue this strategy. It involves setting goals, determining actions to achieve those goals, and mobilizing resources to execute the actions. A well-crafted strategic plan provides a roadmap for growth and helps businesses navigate challenges effectively. Here's why strategic planning is essential:",
       list: [
-        "Understanding Your Audience: It helps businesses gain insights into their target audience’s needs.",
-        "Competitive Analysis: By examining competitors, brand research helps identify strengths.",
-        "Brand Perception: Research allows businesses to gauge how their brand is perceived.",
-        "Informed Decision-Making: With accurate data, businesses can make informed decisions.",
-        "Consistency in Branding: Brand research helps ensure that all brand elements align."
+        "Vision Alignment: It helps align your team around a shared vision for the future.",
+        "Resource Allocation: Strategic planning ensures efficient use of limited resources.",
+        "Risk Management: It identifies potential obstacles and develops contingency plans.",
+        "Competitive Advantage: Planning helps identify and leverage unique market opportunities.",
+        "Performance Measurement: It establishes clear metrics for evaluating success."
       ]
     },
-    "Brand Strategy": {
-      title: "Brand Strategy",
-      description: "Brand strategy is the long-term plan for developing a successful brand in order to achieve specific goals. It defines the brand's purpose, vision, values, and overall direction in the market. A strong brand strategy provides a clear road map for marketing, product development, and customer engagement, ensuring consistency in messaging and visual identity across all touchpoints. The key components include:",
+    "Process Optimization": {
+      title: "Process Optimization",
+      description: "Process optimization involves analyzing and improving business processes to enhance efficiency, productivity, and quality while reducing costs and eliminating waste. It focuses on streamlining workflows, automating repetitive tasks, and creating standardized procedures that maximize output while minimizing resource consumption. Our process optimization services help businesses identify bottlenecks and implement effective solutions. Key components include:",
      
       list: [
-        "Brand Purpose: Defining the core reason for the brand’s existence.",
-        "Target Audience: Identifying and understanding the needs and preferences.",
-        "Brand Positioning: Differentiating the brand from competitors.",
-        "Brand Messaging: Crafting consistent messages.",
-        "Brand Voice and Personality: Developing a tone and style."
+        "Process Mapping: Documenting current workflows to identify inefficiencies.",
+        "Bottleneck Analysis: Pinpointing constraints that limit overall productivity.",
+        "Technology Integration: Implementing tools to automate and streamline operations.",
+        "Continuous Improvement: Establishing systems for ongoing refinement.",
+        "Performance Metrics: Developing KPIs to measure process effectiveness."
       ]
     },
-    "Brand Identity": {
-      title: "Brand Identity",
-      description: "Brand identity is the visual and emotional representation of a brand, expressed through logos, typography, color schemes, and other design elements. It is how the brand communicates with the world and is perceived by customers. A well-crafted brand identity creates a lasting impression and helps customers instantly recognize the brand. The key elements of brand identity include:",
+    "Market Analysis": {
+      title: "Market Analysis",
+      description: "Market analysis is the comprehensive evaluation of market dynamics, including size, trends, competition, customer behavior, and growth potential. It provides essential insights that inform strategic decision-making, product development, and marketing strategies. Our market analysis services help businesses understand their competitive landscape and identify untapped opportunities. The key elements of market analysis include:",
 
       list: [
-        "Logo: The unique symbol that represents the brand.",
-        "Color Palette: Colors chosen to convey personality.",
-        "Typography: Fonts and text styles used in messaging.",
-        "Imagery and Graphics: Visuals accompanying the brand.",
-        "Brand Guidelines: Rules ensuring consistency."
+        "Industry Assessment: Evaluating market size, growth trajectory, and trends.",
+        "Competitive Intelligence: Analyzing competitors' strengths and weaknesses.",
+        "Customer Segmentation: Identifying target audiences and their preferences.",
+        "SWOT Analysis: Assessing strengths, weaknesses, opportunities, and threats.",
+        "Growth Forecasting: Projecting future market developments and opportunities."
       ]
     },
-    "Brand Engagement": {
-      title: "Brand Engagement",
-      description: "Brand engagement refers to the process of building a strong emotional connection between a brand and its customers. It involves creating positive, memorable experiences that foster customer loyalty, trust, and advocacy. Engaging with your audience leads to higher levels of interaction, satisfaction, and long-term brand success. Key strategies for brand engagement include:",
+    "Financial Advisory": {
+      title: "Financial Advisory",
+      description: "Financial advisory services provide expert guidance on managing business finances, investment decisions, risk mitigation, and strategic financial planning. Our financial advisory team helps businesses optimize their financial performance, ensure compliance with regulations, and achieve sustainable growth. We offer comprehensive solutions tailored to your unique business needs. Key services include:",
 
       list: [
-        "Social Media Interaction: Connecting with customers on platforms.",
-        "Customer Feedback: Listening to improve products.",
-        "Content Marketing: Providing relevant content.",
-        "Loyalty Programs: Offering rewards for repeat business.",
-        "Personalization: Tailoring communication to individual needs."
+        "Financial Planning: Developing strategies for sustainable growth and stability.",
+        "Cash Flow Management: Optimizing working capital and liquidity positions.",
+        "Investment Analysis: Evaluating potential returns and risks of investments.",
+        "Cost Reduction: Identifying opportunities to improve operational efficiency.",
+        "Risk Management: Developing strategies to mitigate financial vulnerabilities."
       ]
     }
   };
@@ -90,31 +92,23 @@ const BusinessBranding = () => {
       }, []);
   return (
     <div>
-      <div>
-        <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10 bg-black">
-          <div className="bg-black text-gray-200 p-4 md:p-8">
+      <div className='relative w-full'>
+        <div className='w-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
+          <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+        </div>
+        <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10">
+          <div className=" text-gray-200 p-4 md:p-8">
             {/* Header Section */}
             <div className="max-w-6xl mx-auto mb-8">
               <h1 className="text-4xl md:text-7xl font-light mb-4 md:mb-8 textGradient4 text-center">
-                BUSINESS BRANDING
+                BUSINESS CONSULTATIONS
               </h1>
 
               {/* Article Info Grid */}
               <div className="flex items-center justify-center textGradient6">
                 <div className="w-full md:w-[80%]">
                   <p className="text-sm leading-relaxed text-center px-4 md:px-0">
-                    A strong brand identity helps you stand out in a competitive
-                    market. Our strategies create a memorable presence that
-                    resonates with your audience and communicate your unique
-                    value through design, messaging, and strategy. From logo
-                    design to social media, we create cohesive branding
-                    solutions that elevate your business. We work closely with
-                    clients to bring their vision to life and deliver lasting
-                    impact, whether launching or rebranding. A strong brand
-                    isn't just about a logo; it's about creating a narrative
-                    that connects with your customers. Let us help you tell your
-                    brand's story in a way that builds trust, loyalty, and
-                    long-term success.
+                    Expert business consultation services designed to transform your operations and drive sustainable growth. Our strategic approach identifies key opportunities and addresses core challenges within your organization. We partner closely with clients to develop tailored solutions that optimize processes, enhance market positioning, and strengthen financial performance. From startup guidance to enterprise-level transformation, our consultants bring industry-specific expertise and proven methodologies to every engagement. Business consultation isn't just about solving immediate problems; it's about creating a foundation for long-term success and competitive advantage. Let our team help you navigate complex business challenges and unlock your company's full potential through data-driven insights and actionable strategies.
                   </p>
                 </div>
               </div>
@@ -124,35 +118,35 @@ const BusinessBranding = () => {
             <div className="flex flex-col md:flex-row w-full justify-center items-center gap-5">
               {/* Left Image */}
               <div className="w-full md:w-[30%] h-[300px] md:h-[400px] flex items-center bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl">
-                <div className="bg-black w-full h-full rounded-3xl">
+                <div className="w-full h-full rounded-3xl">
                   <img
                     src={bs}
-                    alt="bs"
+                    alt="Business Consultation"
                     className="w-full h-full rounded-3xl object-cover"
                   />
                 </div>
               </div>
 
               {/* Right Image with Text */}
-              <div className="relative h-[400px] md:w-[70%] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl">
-                <div className=" bg-black w-full h-full col-span-5 rounded-3xl p-6 text-white flex flex-col justify-center gap-4">
+              <div className="relative h-[400px] md:w-[70%] w-full bg-gradient-to-r overflow-hidden p-[1px] rounded-3xl">
+                <div className=" bg-[#fff1] backdrop-blur-sm border w-full h-full col-span-5 rounded-3xl p-6 text-white flex flex-col justify-center gap-4">
                   <h3 className="text-[24px] md:text-[28px] textGradient4 font-bold">
-                    Why Business Branding Matters
+                    Why Business Consultation Matters
                   </h3>
                   <ul className="list-disc pl-5 text-sm textGradient6 space-y-1">
-                    <li className="p-3">Stand Out in a Competitive Market</li>
-                    <li className="p-3">Create a Memorable Presence</li>
+                    <li className="p-3">Expert Analysis of Business Challenges</li>
+                    <li className="p-3">Data-Driven Decision Making</li>
                     <li className="p-3">
-                      Build Trust and Loyalty with Customers
+                      Sustainable Growth Strategies
                     </li>
                     <li className="p-3">
-                      Communicate Your Unique Value Effectively
+                      Operational Efficiency Improvements
                     </li>
                     <li className="p-3">
-                      Consistent Messaging Across Platforms
+                      Industry-Specific Best Practices
                     </li>
                     <li className="p-3">
-                      Long-term Business Growth and Success
+                      Objective Third-Party Perspective
                     </li>
                   </ul>
                 </div>
@@ -161,20 +155,16 @@ const BusinessBranding = () => {
           </div>
         </section>
 
-        <section className="w-full max-w-[1400px] mb-10 mx-auto pt-1 py-10 bg-black md:mt-[-90px]">
-          <div className="w-full mx-auto p-4 md:p-8 bg-black">
+        <section className="w-full max-w-[1400px] mb-10 mx-auto pt-1 py-10 md:mt-[-90px]">
+          <div className="w-full mx-auto p-4 md:p-8">
             {/* Main Title */}
             <h1 className="text-[36px] md:text-[50px] font-bold mb-4 md:mb-8 text-white textGradient4 text-center">
-              BRANDING SERVICES
+              CONSULTATION SERVICES
             </h1>
 
             {/* Description Text */}
             <p className="text-[18px] md:text-[20px] mb-8 md:mb-12 w-full text-white textGradient6 text-center">
-              Strategy is the foundation and superstructure of all we do. We
-              blend rigorous analytical thinking with world-class design to
-              deliver exceptional products—expert counsel, outstanding creative,
-              and engagement programs that measurably enhance business
-              performance.
+              Our consultation approach combines analytical expertise with practical implementation strategies to deliver measurable business results. We offer comprehensive solutions that address your unique challenges—providing expert guidance, actionable recommendations, and ongoing support that drives tangible performance improvements across your organization.
             </p>
 
             {/* Services Grid */}
@@ -182,10 +172,10 @@ const BusinessBranding = () => {
               {Object.keys(serviceDetails).map((key, index) => (
                 <div
                   key={index}
-                  className="rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] min-h-[200px] flex items-center justify-start cursor-pointer"
+                  className="rounded-3xl  overflow-hidden p-[1px] min-h-[200px] flex items-center justify-start cursor-pointer"
                   onClick={() => handleServiceClick(serviceDetails[key])}
                 >
-                  <div className="bg-black w-full h-full rounded-3xl flex flex-col items-center justify-center">
+                  <div className="bg-[#ffffff1c] w-full h-full rounded-3xl flex flex-col items-center justify-center">
                     <h2 className="text-2xl md:text-3xl font-bold textGradient5">
                       {key}
                     </h2>
@@ -223,6 +213,133 @@ const BusinessBranding = () => {
           </div>
         </section>
       </div>
+      {/* consultation form */}
+      <div className="w-full mt-20 mb-20">
+        <motion.section
+          className="w-full max-w-[1200px] mx-auto bg-[#ffffff0c] backdrop-blur-xl rounded-3xl border border-[#ffffff1a] overflow-hidden"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <div className="flex flex-col md:flex-row">
+            {/* Left Side - Form */}
+            <div className="p-8 md:p-10 md:w-[60%]">
+              <motion.h2
+                className="text-3xl md:text-4xl font-bold mb-6 text-white"
+                initial={{ y: -30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                Request a Free Consultation
+              </motion.h2>
+
+              <motion.p
+                className="text-white mb-8"
+                initial={{ y: -20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Fill out the form below to request a free consultation with our digital marketing experts.
+              </motion.p>
+
+              <form className="space-y-6">
+                <motion.div
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  <div>
+                    <label htmlFor="name" className="block text-white mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-3 rounded-lg bg-[#ffffff1a] border border-[#ffffff33] text-white"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-white mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-3 rounded-lg bg-[#ffffff1a] border border-[#ffffff33] text-white"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  <label htmlFor="service" className="block text-white mb-2">
+                    Service Interested In
+                  </label>
+                  <select
+                    id="service"
+                    className="w-full px-4 py-3 rounded-lg bg-[#ffffff1a] border border-[#ffffff33] text-white"
+                  >
+                    <option value="">Select a Service</option>
+                    <option value="seo">SEO</option>
+                    <option value="digitalMarketing">Digital Marketing</option>
+                    <option value="graphics">Graphics & Design</option>
+                    <option value="branding">Branding</option>
+                  </select>
+                </motion.div>
+
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <label htmlFor="message" className="block text-white mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="4"
+                    className="w-full px-4 py-3 rounded-lg bg-[#ffffff1a] border border-[#ffffff33] text-white"
+                    placeholder="Tell us about your project"
+                  ></textarea>
+                </motion.div>
+
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <button
+                    type="submit"
+                    className="w-full py-3 px-6 bg-gradient-to-r from-[#4d4d4d] to-[#1a1a1a] text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Submit Request
+                  </button>
+                </motion.div>
+              </form>
+            </div>
+
+            {/* Right Side - Image */}
+            <motion.div
+              className="md:w-[40%] bg-[#1a1a1a] h-[300px] md:h-auto"
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              <img
+                src={B}
+                alt="consultation"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+        </motion.section>
+      </div>
 
       <section className="w-full bg-[#fff] py-10">
         <Footer />
@@ -231,4 +348,4 @@ const BusinessBranding = () => {
   );
 }
 
-export default BusinessBranding
+export default BusinessConsultations

@@ -69,6 +69,8 @@ import lavillainn from '../assets/lavillainn.png'
 import bodyzone from '../assets/bodyzone.png'
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
+import { motion, useAnimation } from "framer-motion"
+import darkGradient from "../assets/darkgradient.jpg"
 
 
 const customers = () => {
@@ -437,13 +439,25 @@ const clients = [
 
   
   return (
-    <div ref={mainRef} data-scroll-container className="overflow-hidden">
+    <div  data-scroll-container className="overflow-hidden">
       {/* intro */}
       <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden">
         <section
           id="customers"
           className="max-w-[1400px] mx-auto mb-10 w-full px-4"
         >
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
+          >
+            <img
+              src={darkGradient}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
             {/* Left Section */}
             <div className="w-full">
@@ -503,7 +517,19 @@ const clients = [
       </div>
 
       {/* client task */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
+        >
+          <img
+            src={darkGradient}
+            alt=""
+            className="h-full w-full object-cover"
+          />
+        </motion.div>
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
             <div className="grid grid-cols-10">
@@ -619,7 +645,7 @@ const clients = [
       </section>
 
       {/* client shade */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
             <div className="grid grid-cols-10">
@@ -734,10 +760,8 @@ const clients = [
         </div>
       </section>
 
-     
-
       {/* client magnet */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
             <div className="grid grid-cols-10">
@@ -852,10 +876,8 @@ const clients = [
         </div>
       </section>
 
-      
-
       {/* client Dine */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
             <div className="grid grid-cols-10">
@@ -970,11 +992,8 @@ const clients = [
         </div>
       </section>
 
-
-     
-
       {/* client V task */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
             <div className="grid grid-cols-10">
@@ -1089,14 +1108,13 @@ const clients = [
         </div>
       </section>
 
-
       {/* client auric */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      {/* <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid grid-cols-10"> */}
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-4 text-center mb-10">
+              {/* <div className="col-span-4 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
                   <div className="w-full flex justify-center">
                     <img src={auric} alt="" className="w-full max-w-[250px]" />
@@ -1110,7 +1128,7 @@ const clients = [
                       across Kerala and beyond.
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* <div className="navigation-buttons flex justify-center mt-6 mb-8">
                   <div className="flex space-x-4">
@@ -1146,35 +1164,33 @@ const clients = [
                     </button>
                   </div>
                 </div> */}
-              </div>
+              {/* </div> */}
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-6 slider-container">
-              <div className="relative flex justify-center items-center">
-              <div className="shadow-xl   bg-white p-5 rounded-2xl w-full max-w-[400px]">
-                <img
-                  src={anugraha}
-                  alt="anugraha"
-                  className="object-contain mx-auto h-[200px] md:h-[300px]"
-                />
-                <div className="mt-4 text-center">
-                  <h3 className="text-black font-bold text-lg">
-                    Anugraha Gold & Diamonds
-                  </h3>
-                  <p className="text-black text-sm">Muttil Wayanad</p>
+              {/* <div className="col-span-6 slider-container">
+                <div className="relative flex justify-center items-center">
+                  <div className="shadow-xl   bg-white p-5 rounded-2xl w-full max-w-[400px]">
+                    <img
+                      src={anugraha}
+                      alt="anugraha"
+                      className="object-contain mx-auto h-[200px] md:h-[300px]"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-black font-bold text-lg">
+                        Anugraha Gold & Diamonds
+                      </h3>
+                      <p className="text-black text-sm">Muttil Wayanad</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-              </div>
-            </div>
+              </div> */}
+            {/* </div>
           </div>
         </div>
-      </section>
-
-      
+      </section> */}
 
       {/* client  star stay */}
-      <section className="bg-[#E6FFDA] py-16 border-b border-[#111B21]">
+      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
             <div className="grid grid-cols-10">
@@ -1182,7 +1198,11 @@ const clients = [
               <div className="col-span-3 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
                   <div className="w-full flex justify-center">
-                    <img src={starstay} alt="" className="w-full max-w-[200px]" />
+                    <img
+                      src={starstay}
+                      alt=""
+                      className="w-full max-w-[200px]"
+                    />
                   </div>
                   <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
                     Our Trusted Clients
@@ -1287,6 +1307,10 @@ const clients = [
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="">
+        
       </section>
 
       {/* footer */}

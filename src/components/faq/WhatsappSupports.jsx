@@ -4,13 +4,18 @@ import { CgArrowLongRight } from "react-icons/cg";
 import { MdContactSupport } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import whatsapp from '../../assets/whatsapp.jpeg'
+import darkGradient from "../../assets/darkgradient.jpg";
+
 const WhatsappSupports = () => {
   useEffect(() => {
       // Scroll to the top of the page on mount
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
   return (
-    <div className="pt-[130px] flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col justify-center items-center w-full relative pb-16 pt-32">
+      <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
+        <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+      </div>
       <section className="max-w-[1400px] w-full mb-10">
         <div>
           <div className="text-[#fff] text-3xl sm:text-[50px] textGradient4 mb-5 text-center leading-tight">

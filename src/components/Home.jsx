@@ -6,8 +6,8 @@ import { IoIosFlash } from "react-icons/io";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import ChatBot from "./ChatBot";
-import inv from "../assets/inv.jpeg";
-import abouthome from "../assets/abouthome.jpeg";
+import inv from "../assets/invorg.jpeg";
+import abouthome2 from "../assets/knowmoreabout.jpeg";
 import hosopitality from "../assets/hospitality.jpg";
 import service1 from "../assets/service1.jpg";
 import service2 from "../assets/service2.jpg";
@@ -30,7 +30,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Gradient from "./Gradient";
 import GradientText from "./GradientText";
-
+import { motion, useAnimation } from "framer-motion"
+import GradientBg from "../assets/gradientbg.jpg"
+import darkGradient from "../assets/darkgradient.jpg"
+import bannert1 from "../assets/bannert1.jpeg"
+import bannert2 from "../assets/bannert2.jpeg"
+import bannert3 from "../assets/bannert3.jpeg"
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import healthcare from "../assets/healthcare.jpg";
 import restaurant from "../assets/restaurants.jpg";
@@ -47,12 +52,30 @@ import schoolcollege from "../assets/schoolcollege.jpg"
 import hospitalandclinics from "../assets/hospitalandclinics.jpg"
 import restaurants from "../assets/restaurant.jpg"
 import bannerVideo from "../assets/bannervideo.mp4";
-import { motion } from "framer-motion";
 import ASCIIText from './ASCIIText';
 import { Link } from "react-router-dom";
+import { FaGlobe } from "react-icons/fa6";
 import CircularText from "./CircularText";
-
-const Home = () => {
+import { useInView } from "react-intersection-observer";
+import webdev from '../assets/webdev.jpeg'
+import mobileapp from '../assets/mobile.jpeg'
+import consultancy from '../assets/consultancy.jpeg'
+import digitalmarketing from '../assets/digital.jpeg'
+import hardware from '../assets/hardware.jpeg'
+import photoshop from '../assets/photoshop.png'
+import sap from '../assets/SAP.png'
+import firebase from '../assets/firebase.png'
+import react from '../assets/react.png'
+import github from '../assets/github.png'
+import aws from '../assets/aws.png'
+import adobexd from '../assets/adobexd.png'
+import illustrator from '../assets/illustrator.png'
+import figma from '../assets/figma.png'
+import flutter from '../assets/flutter.png'
+import python from '../assets/python.png'
+import hostinger from '../assets/hostinger.png'
+import pgadmin from '../assets/pgadmin.png'
+const Home = () => {pgadmin
   const canvasRef = useRef(null);
   const [result, setResult] = React.useState("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -118,51 +141,67 @@ const Home = () => {
 
   const softwareList = [
     {
-      no: "01",
-      name: "Inventory Management",
-      img: inv,
-      title: "Efficiently Managing Your Inventory",
-      section: "Inventory Solutions",
-      para: "Optimize your operations with a smart inventory management system designed to track, manage, and streamline stock levels. Reduce errors, boost efficiency, and make informed decisions with ease.",
-      link: "/inventory ",
+      "no": "01",
+      "name": "ERP SOFTWARE",
+      "img": inv,
+      "title": "Streamline Your Business Operations",
+      "section": "ERP SOFTWARE",
+      "para": "Enhance productivity with a powerful ERP system that integrates finance, HR, sales, and inventory. Automate processes, reduce costs, and gain real-time insights for smarter decision-making.",
+      "link": "/erp"
+    },
+    
+    {
+      "no": "02",
+      "name": "Website Development",
+      "img": webdev,
+      "title": "Building Engaging Digital Experiences",
+      "section": "Website Development",
+      "para": "Crafting responsive, high-performance websites that enhance user engagement, strengthen brand presence, and drive business growth.",
+      "link": "/website-development"
+    },
+    
+    {
+      "no": "03",
+      "name": "Mobile App Development",
+      "img": mobileapp,
+      "title": "Innovative And Scalable Mobile Solutions",
+      "section": "App Development",
+      "para": "Creating high-performance mobile applications that enhance user engagement, improve accessibility, and drive business growth in a digital-first world.",
+      "link": "/mobile-app-development"
+    },
+    
+    {
+      "no": "04",
+      "name": "Business Consultancy",
+      "img": consultancy,
+      "title": "Strategic Solutions for Business Growth",
+      "section": "Business Consultancy",
+      "para": "Empowering businesses with expert guidance, data-driven insights, and tailored strategies to enhance efficiency, maximize profitability, and drive sustainable growth.",
+      "link": "/business-consultancy"
+    }
+    ,
+    {
+      "no": "05",
+      "name": "Digital Marketing",
+      "img": digitalmarketing,
+      "title": "Boost Your Brand's Online Presence",
+      "section": "Digital Marketing",
+      "para": "Harness the power of data-driven strategies, SEO, and social media to increase brand visibility, drive engagement, and accelerate business growth in the digital landscape.",
+      "link": "/digital-marketing"
     },
     {
-      no: "02",
-      name: "Health Care Management",
-      img: healthcare,
-      title: "Optimizing Health Care Delivery",
-      section: "Health Care",
-      para: " Streamlining processes and optimizing resources are key to improving patient care and reducing costs in healthcare.",
-      link: "/healthcare",
-    },
-    {
-      no: "03",
-      name: "Restaurants",
-      img: restaurant,
-      title: "Elevating Dining Experiences",
-      section: "Restaurant Management",
-      para: "Efficient management and a focus on customer service are essential for creating memorable dining experiences and driving business success.",
-      link: "/restaurant",
-    },
-    {
-      no: "04",
-      name: "Hospitality",
-      img: hosopitality,
-      title: "Enhancing Guest Satisfaction",
-      section: "Hospitality Management",
-      para: "Providing exceptional service and seamless operations are crucial in creating memorable guest experiences and ensuring long-term success in the hospitality industry.",
-      link: "/hospitality",
-    },
-    {
-      no: "05",
-      name: "Institution Management",
-      img: institution,
-      title: "Streamlining Institutional Operations",
-      section: "Institution Management",
-      para: "Effective management practices are key to optimizing resources, improving efficiency, and fostering a positive environment within educational or organizational institutions.",
-      link: "/institution",
-    },
+      "no": "05",
+      "name": "Hardware Solutions",
+      "img": hardware,
+      "title": "Reliable IT Infrastructure & Support",
+      "section": "Hardware Solutions",
+      "para": "Providing high-quality hardware solutions, from servers to networking equipment, ensuring seamless performance, security, and scalability for your business needs.",
+      "link": "/hardware-solutions"
+    }
+    
+
   ];
+
   const services = [
     {
       title: "WEBSITE AND WEB APPLICATION DEVELOPMENT",
@@ -284,45 +323,208 @@ useEffect(() => {
   };
 }, []);
 
-//  useEffect(() => {
-//     const scrollActive = () => {
-//         setActive(window.scrollY > 20);
-//     };
-//     window.addEventListener("scroll", scrollActive);
-//     return () => window.removeEventListener('scroll', scrollActive);
-// }, []);
-// const containerRef = useRef(null);
-  
-
-//   useEffect(() => {
-//     if (!containerRef.current) return;
-
-//     const locoScroll = new LocomotiveScroll({
-//       el: containerRef.current,
-//       smooth: true,
-//       lerp: 0.1,
-//       multiplier: 1,
-//       smartphone: {
-//         smooth: true
-//       },
-//       tablet: {
-//         smooth: true
-//       }
-//     });
-
-//     // Update scroll on content change
-//     setTimeout(() => {
-//       locoScroll.update();
-//     }, 500);
-
-//     return () => {
-//       if (locoScroll) {
-//         locoScroll.destroy();
-//       }
-//     };
-//   }, []);
 
    const [openChat, setOpenChat] = useState(false)
+
+   const textRevealVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.8,
+        // Using a standard easing name instead of cubic-bezier
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const abouthome = abouthome2;
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  const fadeInRight = {
+    hidden: { opacity: 0, x: -60 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: 60 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  const scale3d = {
+    hidden: { opacity: 0, scale: 0.8, rotateY: 15 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      rotateY: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  const statCounter = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: (custom) => ({ 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        delay: custom * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
+  // Main content section animation
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  
+  // Image animation
+  const [imageRef, imageInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  
+  // Stats section animation
+  const [statsRef, statsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  
+  // Stats numbers animation controls
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+  
+  useEffect(() => {
+    if (statsInView) {
+      controls1.start("visible");
+      controls2.start("visible");
+      controls3.start("visible");
+      controls4.start("visible");
+    }
+  }, [statsInView, controls1, controls2, controls3, controls4]);
+
+  const techPartners = [
+    { name: "Photoshop", img: photoshop },
+    { name: "Illustrator", img: illustrator },
+    { name: "Adobe XD", img: adobexd },
+    { name: "Figma", img: figma },
+    { name: "React", img: react },
+    { name: "Python", img: python },
+    { name: "Flutter", img: flutter },
+    { name: "Hostinger", img: hostinger },
+    { name: "AWS", img: aws },
+    { name: "GitHub", img: github },
+    { name: "PgAdmin", img: pgadmin },
+    { name: "Firebase", img: firebase },
+    { name: "SAP", img: sap },
+  ];
+  // Service
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        when: "beforeChildren",
+      },
+    },
+    exit: {
+      opacity: 0,
+      filter: "blur(10px)",
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      y: 50, 
+      opacity: 0,
+      scale: 0.95,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15,
+        duration: 0.6
+      }
+    },
+    exit: {
+      y: -20,
+      opacity: 0,
+      filter: "blur(5px)",
+      transition: { duration: 0.4 }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { 
+      scale: 0.9, 
+      opacity: 0,
+      rotateX: 5,
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      rotateX: 0,
+      transition: { 
+        type: "spring", 
+        stiffness: 80, 
+        damping: 20,
+        duration: 0.8
+      }
+    },
+    exit: {
+      scale: 0.95,
+      opacity: 0,
+      filter: "blur(8px)",
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const SectionRef = React.useRef(null);
+  const isInView = useInView(SectionRef, { once: false, amount: 0.2 });
+
 
   return (
     <div data-scroll-container className="relative overflow-hidden ">
@@ -344,51 +546,118 @@ useEffect(() => {
 
       {/* Banner */}
       <section className="relative h-screen flex flex-col justify-start items-center">
+        <div className="w-full h-full object-cover absolute top-0 left-0 bottom-0 right-0">
+          <img src={GradientBg} className="w-full h-full object-cover" />
+        </div>
         {/* Video Background */}
         <div className="absolute z-40 h-screen w-full">
           <Gradient className="w-full h-screen" />
         </div>
-        <div className="w-full absolute px-10 h-full flex flex-col justify-center">
-          <div className="flex flex-col  gap-4 mb-5 textGradient5">
-            <div className="text-[#fff] lg:flex text-4xl md:text-6xl lg:text-7xl items-center gap-4 font-bold">
-              <div className="flex items-center  gap-4">
-                Empower
-                <span className="md:w-[180px] md:h-[90px] w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden">
+        <div className="w-full  pt-10 md:pt-0 absolute px-2 md:px-10 h-full flex flex-col justify-center">
+          <div className="flex flex-col gap-4 mb-2 md:mb-5 textGradient5">
+            <div className="text-[#fff] md:flex text-4xl md:text-[40px] lg:text-7xl items-center gap-4 font-bold">
+              <div className="flex items-center gap-4 overflow-hidden">
+                <motion.span
+                  initial="hidden"
+                  animate="visible"
+                  custom={0}
+                  variants={textRevealVariants}
+                >
+                  Empower
+                </motion.span>
+                <motion.span
+                  className="md:w-[120px] md:h-[50px] w-[150px] lg:h-[90px] lg:w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden"
+                  initial="hidden"
+                  animate="visible"
+                  custom={1}
+                  variants={textRevealVariants}
+                >
                   <img
-                    src="https://img.freepik.com/free-vector/gradient-grainy-texture_23-2148976749.jpg?t=st=1741589607~exp=1741593207~hmac=198c2ad3cb453f42f909b5dce4647ef0d92677ef94dcdf99daf1ce7583f6ebf0&w=1060"
+                    src={bannert1}
                     alt=""
                     className="w-full h-full object-cover"
                   />
-                </span>
+                </motion.span>
               </div>
-              <span className="block lg:flex">innovation</span>
+              <motion.span
+                className="block lg:flex"
+                initial="hidden"
+                animate="visible"
+                custom={2}
+                variants={textRevealVariants}
+              >
+                innovation
+              </motion.span>
             </div>
-            <div className="lg:flex text-[#fff] text-7xl gap-4 font-bold">
+
+            <div className="md:flex text-[#fff] md:text-[40px] text-4xl lg:text-7xl gap-4 font-bold">
               <div className="flex items-center gap-4">
-                <span className="md:w-[180px] md:h-[90px] w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden">
+                <motion.span
+                  className="md:w-[120px] md:h-[50px] w-[150px] lg:h-[90px] lg:w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden"
+                  initial="hidden"
+                  animate="visible"
+                  custom={3}
+                  variants={textRevealVariants}
+                >
                   <img
-                    src="https://img.freepik.com/free-vector/gradient-colorful-grainy-dynamic-background_52683-101908.jpg?t=st=1741589562~exp=1741593162~hmac=8d887516affc9733b6ad1cc071c1305798fefabad80a3ed166a338e4710e0d68&w=1060"
+                    src={bannert2}
                     alt=""
                     className="w-full h-full object-cover"
                   />
-                </span>
-                to
+                </motion.span>
+                <motion.span
+                  initial="hidden"
+                  animate="visible"
+                  custom={4}
+                  variants={textRevealVariants}
+                >
+                  to
+                </motion.span>
               </div>
               <div className="flex items-center gap-4">
-                redefine
-                <span className="w-[180px] h-[90px] rounded-full bg-[#fff] overflow-hidden">
+                <motion.span
+                  initial="hidden"
+                  animate="visible"
+                  custom={5}
+                  variants={textRevealVariants}
+                >
+                  redefine
+                </motion.span>
+                <motion.span
+                  className="w-[120px] h-[60px] md:w-[120px] md:h-[60px] lg:h-[90px] lg:w-[150px] rounded-full bg-[#fff] overflow-hidden"
+                  initial="hidden"
+                  animate="visible"
+                  custom={6}
+                  variants={textRevealVariants}
+                >
                   <img
-                    src="https://img.freepik.com/free-vector/gradient-grainy-texture_23-2148976750.jpg?t=st=1741589633~exp=1741593233~hmac=b3ae005026fe9b3aed0e5dae5e56850dafae6f0643b9ca06c333f3f71af4517b&w=1060"
+                    src={bannert3}
                     alt=""
                     className="w-full h-full object-cover"
                   />
-                </span>
+                </motion.span>
               </div>
             </div>
-            <div className="flex text-[#fff] text-7xl font-bold">tomorrow</div>
+
+            <motion.div
+              className="flex text-[#fff] md:text-[40px] mt-[-10px] md:mt-0 text-4xl lg:text-7xl font-bold"
+              initial="hidden"
+              animate="visible"
+              custom={7}
+              variants={textRevealVariants}
+            >
+              tomorrow
+            </motion.div>
           </div>
-          <div className=" grid grid-cols-1 lg:flex justify-between w-full">
-            <div className="text-[#fff] max-w-[900px] w-full mb-10 lg:mb-0 text-center lg:text-start">
+
+          <div className="grid grid-cols-1 lg:flex justify-between w-full">
+            <motion.div
+              className="text-[#fff] text-[12px] md:text-base max-w-[900px] w-full mb-3 md:mb-10 lg:mb-0 text-start lg:text-start"
+              initial="hidden"
+              animate="visible"
+              custom={8}
+              variants={textRevealVariants}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Laudantium molestiae nostrum repudiandae optio, repellat, laborum
               quaerat quam quidem illo, corporis suscipit dicta earum asperiores
@@ -397,268 +666,412 @@ useEffect(() => {
               fugit maxime maiores inventore vel, alias aliquam ea? Quod
               similique commodi quis eius minima cum ex eos vero praesentium
               itaque. Molestiae, sed.
-            </div>
-            <div className="grid grid-cols-1 lg:flex gap-3 items-center relative z-50">
-              {/* <ShinyText
-              text="Let's talk"
-              disabled={false}
-              speed={3}
-              className="custom-class text-xl"
-            /> */}
-              <div className="relative flex items-center">
+            </motion.div>
+
+            <div className="flex gap-3 items-center relative z-50">
+              <a href="https://imcportfolio.in/">
+                <motion.div
+                  className="relative flex items-center"
+                  initial="hidden"
+                  animate="visible"
+                  custom={9}
+                  variants={textRevealVariants}
+                >
+                  <GradientText
+                    colors={[
+                      "#F7F7F7",
+                      "#D9DFC6",
+                      "#FFB22C",
+                      "#4079ff",
+                      "#2D336B",
+                    ]}
+                    animationSpeed={3}
+                    showBorder={true}
+                    className="custom-class px-5 md:px-10 py-2 text-sm md:text-xl"
+                  >
+                    Portfolio
+                  </GradientText>
+                  <span className="text-[#fff] hidden md:flex absolute right-2 md:right-4">
+                    <FaGlobe />
+                  </span>
+                </motion.div>
+              </a>
+
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                custom={10}
+                variants={textRevealVariants}
+              >
                 <GradientText
                   colors={[
-                    "#F7F7F7",
-                    "#D9DFC6",
-                    "#FFB22C",
+                    "#40ffaa",
                     "#4079ff",
-                    "#2D336B",
+                    "#40ffaa",
+                    "#4079ff",
+                    "#40ffaa",
                   ]}
                   animationSpeed={3}
                   showBorder={true}
-                  className="custom-class px-10 py-2 text-xl"
+                  className="custom-class px-5 text-sm md:px-10 py-2 md:text-xl"
                 >
-                  Let's talk
+                  Enquire !
                 </GradientText>
-                <span className="text-[#fff] absolute right-4">
-                  <MdPhone />
-                </span>
-              </div>
-              <GradientText
-                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                animationSpeed={3}
-                showBorder={true}
-                className="custom-class px-10 py-2 text-xl"
-              >
-                Join now !
-              </GradientText>
+              </motion.div>
             </div>
           </div>
         </div>
-        {/* <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            poster="/path-to-fallback-image.jpg"
-          >
-            <source src={bannerVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div> */}
 
-        {/* Content Container */}
         <div className="relative z-10 max-w-[1400px] mx-auto h-full px-4 md:px-6 flex items-center justify-center">
-          <div className=" "></div>
+          <div className=""></div>
         </div>
       </section>
 
       {/* About */}
-      <section className="w-full max-w-[1440px] mx-auto mb-20 ">
-        <div className="">
+      <section className="w-full relative z-10 py-10">
+        <div className="absolute top-0 bottom-0 right-0 left-0 -z-10 w-full">
+          <motion.img
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // transition={{ duration: 1.5 }}
+            src={GradientBg}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-[1440px] mx-auto mb-10">
           <div className="md:flex md:justify-center md:items-center md:gap-10 w-full px-4">
-            {/* left */}
-            <div className="md:w-[60%] py-5 flex flex-col gap-2 ">
+            {/* left side content */}
+            <motion.div
+              className="md:w-[60%] py-5 flex flex-col gap-2"
+              ref={contentRef}
+              initial="hidden"
+              animate={contentInView ? "visible" : "hidden"}
+              variants={fadeInRight}
+            >
               <div>
                 <div className="flex flex-col gap-2 mb-5">
-                  <div className="text-[36px] md:text-[50px] leading-[70px] textGradient4 text-[#fff] font-semibold ">
+                  <motion.div
+                    className="text-[38px] md:text-[50px] leading-[50px] textGradient4 text-[#fff] font-semibold"
+                    variants={fadeInUp}
+                    transition={{ delay: 0.2 }}
+                  >
                     Know more about us
-                  </div>
-                  <div className="textGradient5 text-[16px] md:text-[30px]  font-bold  text-[#fff]">
+                  </motion.div>
+                  <motion.div
+                    className="textGradient5 text-[16px] md:text-[30px] font-bold text-[#fff]"
+                    variants={fadeInUp}
+                    transition={{ delay: 0.3 }}
+                  >
                     Our Journey to Digital Excellence
-                  </div>
+                  </motion.div>
                 </div>
-                <div className="textGradient6 text-[#fff] leading-relaxed text-justify">
+                <motion.div
+                  className="textGradient6 text-[#fff] leading-relaxed md:text-justify"
+                  variants={fadeInUp}
+                  transition={{ delay: 0.4 }}
+                >
                   IMC Business Solutions is a leading software company in India
                   since 2017, offering a comprehensive management platform and a
                   wide range of IT solutions, including business software,
                   Android/iOS development, web development, hardware services,
                   and IT support.
-                  <span>
-                    Our primary mission is to bring RITS Software’s innovative
+                  <motion.span variants={fadeInUp} transition={{ delay: 0.5 }}>
+                    Our primary mission is to bring RITS Software's innovative
                     products to global markets. As a professionally competent IT
                     firm, RITS Software blends expert software development with
                     a customer-focused management approach.{" "}
-                  </span>
-                  <span>
+                  </motion.span>
+                  <motion.span variants={fadeInUp} transition={{ delay: 0.6 }}>
                     {" "}
                     We also operate Sysmac, a dedicated division providing
                     hardware solutions and services to our clients.
-                  </span>
-                  <span>
+                  </motion.span>
+                  <motion.span variants={fadeInUp} transition={{ delay: 0.7 }}>
                     IMC delivers tailored software and technology solutions for
                     businesses in India and beyond. With over 1,200 happy
                     clients and 10+ branches across South India, we continue to
                     empower businesses with cutting-edge technology solutions.
-                  </span>
-                </div>
+                  </motion.span>
+                </motion.div>
               </div>
-              {/* <div className="grid grid-cols-2 md:grid-cols-3 place-items-center w-full gap-5">
-                <div className="relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
-                  <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
-                    <img
-                      src={hardwareicon}
-                      alt="harware"
-                      className="object-cover w-full h-full rounded-3xl opacity-60"
-                    />
-                  </div>
-                  <h1 className="relative z-10 flex justify-center items-center text-[#fff] text-center p-5 w-full h-full font-extrabold text-[20px]">
-                    CUSTOM HARDWARE INTEGRATION
-                  </h1>
-                </div>
-                <div className=" relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
-                  <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
-                    <img
-                      src={expertteam}
-                      alt="harware"
-                      className="object-cover w-full h-full rounded-3xl opacity-60"
-                    />
-                  </div>
-                  <h1 className="relative z-10 flex justify-center items-center text-[#fff] text-center p-5 w-full h-full font-extrabold text-[20px]">
-                    EXPERT TEAM
-                  </h1>
-                </div>
-                <div className=" relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
-                  <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
-                    <img
-                      src={mobileexpertise}
-                      alt="harware"
-                      className="object-cover w-full h-full rounded-3xl opacity-60"
-                    />
-                  </div>
-                  <h1 className="relative z-10 flex justify-center items-center text-[#fff] text-center p-5 w-full h-full font-extrabold text-[20px]">
-                    MOBILE EXPERTISE
-                  </h1>
-                </div>
-                <div className=" relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
-                  <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
-                    <img
-                      src={userfriendly}
-                      alt="harware"
-                      className="object-cover w-full h-full rounded-3xl opacity-60"
-                    />
-                  </div>
-                  <h1 className="relative z-10 flex justify-center items-center text-[#fff] text-center p-5 w-full h-full font-extrabold text-[20px]">
-                    USER FRIENDLY DESIGNS
-                  </h1>
-                </div>
-                <div className="relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
-                  <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
-                    <img
-                      src={security}
-                      alt="harware"
-                      className="object-cover w-full h-full rounded-3xl opacity-60"
-                    />
-                  </div>
-                  <h1 className="relative z-10 flex justify-center items-center text-[#fff] text-center p-5 w-full h-full font-extrabold text-[20px]">
-                    ROBUST SECURITY FRAMEWORKS
-                  </h1>
-                </div>
-                <div className="relative w-full h-[150px] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333]">
-                  <div className="absolute rounded-3xl w-full h-full `rounded-[calc(1.5rem-1px)]` bg-[#000]">
-                    <img
-                      src={uiux}
-                      alt="harware"
-                      className="object-cover w-full h-full rounded-3xl opacity-60"
-                    />
-                  </div>
-                  <h1 className="relative z-10 flex justify-center items-center text-[#fff] text-center p-5 w-full h-full font-extrabold text-[20px]">
-                    INNOVATIVE UI/UX DESIGNS
-                  </h1>
-                </div>
-              </div> */}
-            </div>
-            {/* right */}
-            <div className="md:w-[40%] bg-[#000] h-[500px] rounded-md overflow-hidden">
-              <img
+            </motion.div>
+
+            {/* right side image */}
+            <motion.div
+              className="md:w-[40%] bg-[#000] h-[500px] rounded-md overflow-hidden"
+              ref={imageRef}
+              initial="hidden"
+              animate={imageInView ? "visible" : "hidden"}
+              variants={scale3d}
+              style={{ perspective: "1000px" }}
+            >
+              <motion.img
                 src={abouthome}
                 alt=""
                 className="h-full w-full object-cover"
+                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
               />
-            </div>
+            </motion.div>
           </div>
+        </div>
+
+       {/* Stats section */}
+       <div className="px-3 md:px-0" ref={statsRef}>
+          <motion.section
+            className="w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r p-[1px]"
+            initial="hidden"
+            animate={statsInView ? "visible" : "hidden"}
+            variants={fadeInUp}
+          >
+            <motion.div
+              className="backdrop-blur-3xl bg-[#0000001a] rounded-3xl w-full px-10 py-10 md:px-0"
+              initial={{ opacity: 0 }}
+              animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="grid grid-cols-2 md:flex w-full justify-between h-full gap-6 px-3">
+                <motion.div
+                  className="flex flex-col items-center md:flex-row gap-2"
+                  custom={0}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="md:text-[65px] text-[50px] textGradient font-black leading-none"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    15+
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Years of <span className="block">Experience</span>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  className="flex flex-col items-center md:flex-row gap-2"
+                  custom={1}
+                  animate={controls2}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="md:text-[65px] text-[50px] textGradient font-black leading-none"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                    20+
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    Skilled <span className="block">Professionals</span>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  className="flex flex-col items-center md:flex-row gap-2"
+                  custom={2}
+                  animate={controls3}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[45px] md:text-[65px] textGradient font-black leading-none"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    100%
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                  >
+                    Customer <span className="block">Satisfaction</span>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  className="flex flex-col items-center md:flex-row gap-2"
+                  custom={3}
+                  animate={controls4}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[45px] md:text-[65px] textGradient font-black leading-none"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                  >
+                    1500+
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                  >
+                    Clients
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.section>
         </div>
       </section>
 
       {/* Count */}
-      <div className="px-3 md:px-0 ">
-        <section className=" mb-20 w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px]">
-          <div className="backdrop-blur-3xl bg-[#000000] rounded-3xl w-full p-10 px-5 md:px-0">
-            <div className="grid grid-cols-2 md:flex w-full justify-between  h-full gap-6 px-3">
-              <div className="flex flex-col items-center md:flex-row gap-2">
-                <div className="text-[65px] textGradient font-black leading-none">
-                  5+
-                </div>
-                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                  Years of <span className="block">Experience</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-center md:flex-row gap-2">
-                <div className="text-[65px] textGradient font-black leading-none">
-                  20+
-                </div>
-                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                  Skilled <span className="block">Professionals</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-center md:flex-row gap-2">
-                <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
-                  100%
-                </div>
-                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                  Customer <span className="block">Satisfaction</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-center md:flex-row gap-2">
-                <div className="text-[55px] md:text-[65px] textGradient font-black leading-none">
-                  1500+
-                </div>
-                <div className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left">
-                  Clients
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
 
       {/* Softwares */}
-      <section className="mb-20 px-3 md:px-0 ">
+      <section className="px-3 md:px-0 relative py-20">
+        <motion.div
+          className="absolute top-0 bottom-0 right-0 left-0 w-full h-full -z-10"
+          // initial={{ opacity: 0 }}
+          // whileInView={{ opacity: 1 }}
+          // exit={{ opacity: 0, filter: "blur(10px)" }}
+          // transition={{ duration: 0.8 }}
+          // viewport={{ once: false, amount: 0.3 }}
+        >
+          <img
+            src={darkGradient}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
         <div>
           {/* Title Portion */}
           <div className="md:flex md:justify-between md:items-center md:gap-10 mb-10 max-w-[1400px] mx-auto">
-            <div className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight md:w-[60%]">
-              Softwares
+            <motion.div
+              className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight md:w-[60%]"
+              initial={{ opacity: 0, y: 50, rotateX: 10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              exit={{ opacity: 0, y: -20, filter: "blur(5px)" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              Solutions
               <span className="block text-[26px] md:text-[40px]">
                 What We Build for You
               </span>
-            </div>
-            <div className="text-[#fff] md:w-[40%] textGradient6">
-              Explore our suite of cutting-edge software products designed to
-              transform business processes and elevate efficiency. From custom
-              enterprise solutions to dynamic web applications, we craft
-              technology that meets your unique needs.
-            </div>
+            </motion.div>
+            <motion.div
+              className="text-[#fff] md:w-[40%] textGradient6"
+              initial={{ opacity: 0, x: 30, rotateY: 5 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              exit={{ opacity: 0, x: -20, filter: "blur(5px)" }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              Explore our suite of innovative solutions designed to streamline
+              your business operations and enhance efficiency. From tailored
+              enterprise applications to dynamic web platforms, we deliver
+              technology that aligns with your unique goals.
+            </motion.div>
           </div>
           {/* Software List */}
           <div>
-            {softwareList.map((item) => (
-              <div className="border-b-2 border-[#ffffff] pb-5 pt-5 ">
-                <div className="grid grid-cols-1 md:grid-cols-3   justify-center  gap-10 max-w-[1400px] mx-auto">
-                  <div className="flex flex-col gap-2 text-[#fff] p-16">
+            {softwareList.map((item, index) => (
+              <motion.div
+                key={index}
+                className="border-b-2 border-[#ffffff] pb-5 pt-5"
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: false, amount: 0.2 }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-10 max-w-[1400px] mx-auto">
+                  <motion.div
+                    className="flex flex-col gap-2 text-[#fff] p-16"
+                    initial={{ opacity: 0, x: -40, rotateY: -10 }}
+                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                    exit={{ opacity: 0, x: 20, filter: "blur(5px)" }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 0.2 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: false, amount: 0.4 }}
+                  >
                     {/* <div className=" italic">{item.no}</div> */}
                     <div className="text-3xl textGradient4">{item.name}</div>
-                  </div>
-                  <div className="w-full h-[250px] rounded-3xl bg-[#ffffff5d] backdrop-blur-md border border-[#fff] overflow-hidden">
+                  </motion.div>
+                  <motion.div
+                    className="w-full h-[250px] rounded-3xl bg-[#ffffff5d] backdrop-blur-md border border-[#fff] overflow-hidden"
+                    initial={{
+                      opacity: 0,
+                      scale: 0.9,
+                      rotateX: 5,
+                      rotateY: 5,
+                      z: -100,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                      rotateX: 0,
+                      rotateY: 0,
+                      z: 0,
+                    }}
+                    whileHover={{
+                      scale: 1.02,
+                      rotateY: 2,
+                      z: 20,
+                      transition: { duration: 0.3 },
+                    }}
+                    exit={{ opacity: 0, scale: 0.9, filter: "blur(8px)" }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.3 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: false, amount: 0.4 }}
+                  >
                     <img
                       src={item.img}
                       alt="Descriptive image text"
                       className="w-full h-full object-cover"
                     />
-                  </div>
-                  <div className="pt-16">
+                  </motion.div>
+                  <motion.div
+                    className="pt-16"
+                    initial={{ opacity: 0, x: 40, rotateY: 10 }}
+                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                    exit={{ opacity: 0, x: -20, filter: "blur(5px)" }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 0.4 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: false, amount: 0.4 }}
+                  >
                     <div className="textGradient5 mb-3 font-bold text-[#fff]">
                       {item.title}
                     </div>
@@ -666,203 +1079,274 @@ useEffect(() => {
                       <div className="text-[#fff]">{item.section}</div>
                       <div className="text-[#ffff]">{item.para}</div>
                     </div>
-                    <div className="mt-5 flex justify-start items-center gap-2 text-[#fff]">
+                    <motion.div
+                      className="mt-5 flex justify-start items-center gap-2 text-[#fff]"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      whileHover={{ x: 5 }}
+                      exit={{ opacity: 0, y: -10, filter: "blur(3px)" }}
+                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                    >
                       <Link
                         to={item.link}
                         className="flex items-center gap-2 hover:underline"
                       >
                         Learn More <MdOutlineArrowOutward />
                       </Link>
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="mb-20 max-w-[1400px] mx-auto w-full px-5 md:px-0">
-        <div>
-          <div className="mb-5">
-            <div className="text-[#fff] text-[36px] md:text-[50px] leading-tight textGradient4">
-              Crafting Innovation with Creativity,
-              <span className="block">Passion and Skill</span>
-            </div>
-          </div>
+      {/* technology */}
+      <section className="w-full px-5 md:px-0 relative py-20  text-white">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
+        >
+          <img
+            src={darkGradient}
+            alt=""
+            className="h-full w-full object-cover"
+          />
+        </motion.div>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-bold leading-normal textGradient4">
+          Our Trusted Tech Allies
+          </h2>
+          <p className="text-lg text-gray-400 mt-3">
+            Our solutions are powered by the latest tools and technologies.
+          </p>
+        </div>
 
+        {/* Swiper for Partner Logos */}
+        <motion.div
+          className="max-w-[1400px] mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <Swiper
-            modules={[Pagination, Navigation, Autoplay]} // Added Autoplay module here
+            modules={[Autoplay]}
             spaceBetween={30}
-            slidesPerView={1}
-            navigation={true}
-            pagination={{ clickable: true }}
-            autoplay={{
-              delay: 3000, // Delay in milliseconds (3 seconds)
-              disableOnInteraction: false, // Keeps autoplay running even after user interaction
-            }}
+            slidesPerView={2}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
             breakpoints={{
-              640: {
-                slidesPerView: 1,
-              },
-              1024: {
-                slidesPerView: 1,
-              },
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 5 },
             }}
-            className="w-full relative"
+            className="w-full"
           >
-            {services.map((service, index) => (
+            {techPartners.map((partner, index) => (
               <SwiperSlide key={index}>
-                <div className="grid md:grid-cols-3 grid-cols-1 place-items-end gap-10">
-                  {/* first div */}
-                  <div className="w-full flex flex-col justify-center items-start gap-5">
-                    <div className="flex items-center gap-2">
-                      <div className="text-[#000] p-1 rounded-full bg-[#fff]">
-                        <IoIosFlash />
-                      </div>
-                      <div className="flex flex-col justify-center items-center text-[#fff] leading-tight">
-                        I thrive on working{" "}
-                        <span className="block">closely with clients</span>{" "}
-                      </div>
-                    </div>
-                    <div className="  w-full h-[250px] bg-[#ffffff60] rounded-3xl bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl">
-                      <div className="relative rounded-3xl w-full h-full overflow-hidden">
-                        <img
-                          src={service.img1}
-                          alt="img1"
-                          className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  {/* Second div */}
-                  <div className="flex flex-col gap-5">
-                    <div className="text-[#ffff] text-[38px] leading-tight textGradient5">
-                      {service.title}
-                    </div>
-                    <div className="text-[#fff] textGradient6">
-                      {service.description}
-                    </div>
-                    <div className="text-[#fff] textGradient6 font-bold flex items-center gap-2">
-                      Learn More <MdOutlineArrowOutward />
-                    </div>
-                  </div>
-                  <div className="w-full h-[400px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl">
-                    <div className="relative rounded-3xl w-full h-full overflow-hidden">
-                      <img
-                        src={service.img2}
-                        alt="img2"
-                        className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <motion.div
+                  className="relative flex flex-col items-center  p-5 rounded-lg hover:scale-105 transition-transform"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <img
+                    src={partner.img}
+                    alt={partner.name}
+                    className="w-[200px] h-[150px] object-contain "
+                  />
+                  {/* <p className="mt-3 text-lg font-semibold text-white drop-shadow-md">
+                    {partner.name}
+                  </p> */}
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </section>
 
       {/* Testimonials */}
-      <section className="max-w-[1400px] mx-auto mb-20">
-        <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#fff] text-center">
-          Words from Our Valued Clients
+      <section className="relative py-20">
+        <div className="absolute top-0 bottom-0 left-0 right-0 w-full -z-10">
+          <img
+            src="https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30471.jpg?uid=R125770999&ga=GA1.1.845910522.1736145162&semt=ais_hybrid"
+            alt=""
+            className="w-full h-full object-cover"
+          />
         </div>
-        <Testimonials />
+        <div className="max-w-[1400px] mx-auto">
+          <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#fff] text-center">
+            Words from Our Valued Clients
+          </div>
+          <Testimonials />
+        </div>
       </section>
 
-      {/* Contact */}
-      <section className="mb-20 max-w-[1400px] mx-auto w-full px-5">
-        <div className="w-full">
+      <section className="w-full px-5 py-20 relative">
+        <motion.div
+          // initial={{ opacity: 0 }}
+          // whileInView={{ opacity: 1 }}
+          // transition={{ duration: 0.8 }}
+          className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
+        >
+          <img
+            src={darkGradient}
+            alt=""
+            className="h-full w-full object-cover"
+          />
+        </motion.div>
+        <div className="w-full max-w-[1400px] mx-auto">
           {/* Heading Section */}
           <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">
             <div className="md:w-[60%] flex flex-col gap-4">
-              <div className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight"
+              >
                 Get in Touch and Lets
                 <span className="block">Make It Happen</span>
-              </div>
-              <div className="text-[#fff] textGradient6 text-base md:text-lg">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-[#fff] textGradient6 text-base md:text-lg"
+              >
                 Get in touch with us! Whether you have questions, need support,
-                or want to learn more about our services, we’re here to assist
-                you. Simply fill out the form below, and we’ll respond promptly.
-              </div>
+                or want to learn more about our services, we're here to assist
+                you. Simply fill out the form below, and we'll respond promptly.
+              </motion.div>
             </div>
-            <div className="md:w-[50%]"></div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -180 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="md:w-[50%]"
+            >
+              <CircularText
+                text="IMC*BUSINESS*SOLUTIONS"
+                onHover="speedUp"
+                spinDuration={20}
+                className="custom-class"
+              />
+            </motion.div>
           </div>
 
           {/* Contact Form Section */}
           <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full">
             {/* Contact Details Section */}
             <div className="w-full md:w-[50%]">
-              <div className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl">
-                <div className="text-[#fff]">info@imcbsglobal.com</div>
-                <div className="text-[#fff]">+91 75938 20007</div>
-                <div className="text-[#fff]">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="text-[#fff]"
+                >
+                  info@imcbsglobal.com
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  className="text-[#fff]"
+                >
+                  +91 75938 20007
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
+                  className="text-[#fff]"
+                >
                   Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
                   <span className="block">
                     Kalpetta, Wayanad, Kerala – 673121
                   </span>
-                </div>
-              </div>
-              <div className="flex">
-                <div className="bg-gradient-to-r from-[#8d8d8d] via-[#ffbf00] to-[#ffb62d] p-[1px] backdrop-blur-3xl rounded-3xl">
-                  <button
+                </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex"
+              >
+                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => (window.location.href = "tel:+917593820007")}
-                    className="text-[#fff] w-full h-full bg-[#000] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700"
+                    className="text-[#fff] w-full h-full bg-[#00000020] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700"
                   >
                     Contact Us
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Contact Form */}
-            <div className="w-full md:w-[50%] flex flex-col gap-5">
-              <div className="text-[#fff] textGradient6 text-xl md:text-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="w-full md:w-[50%] flex flex-col gap-5"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="text-[#fff] textGradient6 text-xl md:text-2xl"
+              >
                 Here to bring your concept to life, manage your ongoing project,
                 or expand your existing development team.
-              </div>
-              <form onSubmit={onSubmit}>
+              </motion.div>
+              <motion.form
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                onSubmit={onSubmit}
+              >
                 <div className="w-full grid grid-cols-2 gap-5 mb-3 textGradient6">
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    placeholder="First Name*"
-                    required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    placeholder="Last Name*"
-                    required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email*"
-                    required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Phone*"
-                    required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
+                  {/* Input fields with individual animations */}
+                  {["firstName", "lastName", "email", "phone"].map(
+                    (field, index) => (
+                      <motion.input
+                        key={field}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                        type={
+                          field === "email"
+                            ? "email"
+                            : field === "phone"
+                            ? "tel"
+                            : "text"
+                        }
+                        name={field}
+                        value={formData[field]}
+                        onChange={handleInputChange}
+                        placeholder={`${
+                          field.charAt(0).toUpperCase() + field.slice(1)
+                        }*`}
+                        required
+                        className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
+                      />
+                    )
+                  )}
                 </div>
-                <div className="w-full mb-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.1 }}
+                  className="w-full mb-3"
+                >
                   <textarea
                     name="message"
                     value={formData.message}
@@ -870,18 +1354,25 @@ useEffect(() => {
                     placeholder="Enter Your Message"
                     required
                     className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  ></textarea>
-                </div>
-                <div className="w-full">
-                  <button
+                  />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.2 }}
+                  className="w-full"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6"
                   >
                     Send Message
-                  </button>
-                </div>
-              </form>
-            </div>
+                  </motion.button>
+                </motion.div>
+              </motion.form>
+            </motion.div>
           </div>
         </div>
       </section>
