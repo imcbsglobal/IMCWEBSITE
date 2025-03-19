@@ -9,6 +9,7 @@ import { Navigation, Autoplay, EffectCreative } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-creative";
+import {motion} from "framer-motion"
 
 const Testimonials = () => {
   const [videoTestimonials, setVideoTestimonials] = useState([]);
@@ -79,7 +80,7 @@ const Testimonials = () => {
               slidesPerView={isMobile ? 1 : 2}
               slidesPerGroup={isMobile ? 1 : 2}
               autoplay={{
-                delay: 5000,
+                delay: 3000,
                 disableOnInteraction: false,
               }}
               loop={true}
@@ -103,29 +104,35 @@ const Testimonials = () => {
               }}
               className="testimonial-swiper"
             >
-              {testimonials.map((testimonial) => (
+              {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={testimonial.id} className="py-4">
-                  <div className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6 rounded-3xl">
-                    <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
-                      <img
-                        src={
-                          testimonial.image ||
-                          "https://img.freepik.com/free-photo/portrait-handsome-fashion-stylish-hipster-model-dressed-warm-red-sweater-posing-studio_158538-11524.jpg"
-                        }
-                        alt="Testimonial"
-                        className="h-full w-full object-cover"
-                      />
+                <motion.div
+                  className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6 rounded-3xl"
+                  initial={{ opacity: 0.5, scale: 0.9, filter: "blur(5px)" }}
+                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  exit={{ opacity: 0.5, scale: 0.9, filter: "blur(5px)" }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                >
+                  <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
+                    <img
+                      src={
+                        testimonial.image ||
+                        "https://img.freepik.com/free-photo/portrait-handsome-fashion-stylish-hipster-model-dressed-warm-red-sweater-posing-studio_158538-11524.jpg"
+                      }
+                      alt="Testimonial"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-around gap-4 w-[300px]">
+                    <div className="textGradient italic md:text-[22px] text-center md:text-base md:text-justify pt-2 px-2">
+                      {testimonial.description || "Amazing experience!"}
                     </div>
-                    <div className="flex flex-col justify-around gap-4 w-[300px]">
-                      <div className="textGradient italic md:text-[22px] text-center md:text-base md:text-justify pt-2 px-2">
-                        {testimonial.description || "Amazing experience!"}
-                      </div>
-                      <div className="textGradient6 text-white md:text-2xl md:p-4 px-2 text-center md:text-start">
-                        {testimonial.name || "Name"}
-                      </div>
+                    <div className="textGradient6 text-white md:text-2xl md:p-4 px-2 text-center md:text-start">
+                      {testimonial.name || "Name"}
                     </div>
                   </div>
-                </SwiperSlide>
+                </motion.div>
+              </SwiperSlide>
               ))}
             </Swiper>
           </div>
@@ -167,36 +174,6 @@ const Testimonials = () => {
       </div>
       
       {/* Add custom CSS for futuristic effects */}
-      <style jsx>{`
-        .testimonial-swiper {
-          width: 100%;
-          height: 100%;
-        }
-        
-        .testimonial-swiper .swiper-slide {
-          transition: all 0.3s ease;
-          transform-origin: center center;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transform: scale(1);
-          opacity: 1;
-          filter: blur(0px);
-        }
-        
-        .testimonial-swiper .swiper-slide-active,
-        .testimonial-swiper .swiper-slide-next {
-          z-index: 2;
-          transform: scale(1.05);
-        }
-        
-        .testimonial-swiper .swiper-slide-prev,
-        .testimonial-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next) {
-          transform: scale(0.9);
-          opacity: 0.5;
-          filter: blur(2px);
-        }
-      `}</style>
     </div>
   );
 };

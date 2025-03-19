@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import h1 from "../../assets/h1.jpeg";
 import hospitality from "../../assets/hospitality.jpg";
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import starstay from "../../assets/starstay.png";
 // import darkgradient from "../../assets/darkGradient.jpg";
 import {motion} from "framer-motion";
