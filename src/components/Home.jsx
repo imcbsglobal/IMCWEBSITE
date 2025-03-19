@@ -31,7 +31,7 @@ import "swiper/css/navigation";
 import Gradient from "./Gradient";
 import GradientText from "./GradientText";
 import { motion, useAnimation } from "framer-motion"
-import GradientBg from "../assets/gradientbg.jpg"
+import GradientBg from "../assets/gradientBg.jpg"
 import darkGradient from "../assets/darkGradient.jpg"
 import bannert1 from "../assets/bannert1.jpeg"
 import bannert2 from "../assets/bannert2.jpeg"
