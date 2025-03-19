@@ -225,7 +225,7 @@ const Navbar = () => {
           </div>
 
           {/* Login Button */}
-          <div className="flex gap-5">
+          <div className="md:flex gap-5 hidden">
             <Link to="/login">
               <button
                 className={`rounded-3xl px-6 py-2 font-bold hover:bg-gray-800 ${
@@ -236,22 +236,22 @@ const Navbar = () => {
               >
                 Login
               </button>
-              <button
-                className={`sm:hidden flex items-center justify-center`} // Show on mobile
+              {/* <button
+                className={sm:hidden flex items-center justify-center} // Show on mobile
               >
                 <MdLogin
                   className={`text-3xl ${
                     isScrolled ? "text-[#000]" : "text-[#fff]"
                   }`}
                 />
-              </button>
+              </button> */}
             </Link>
 
             <div
               className={`${
                 isScrolled
                   ? ""
-                  : "bg-gradient-to-r from-[#20ffff] via-[#ff850c] to-[#ffa600] p-[1px] bg-[#3c3333]"
+                  : "bg-gradient-to-r hidden md:flex from-[#20ffff] via-[#ff850c] to-[#ffa600] p-[1px] bg-[#3c3333]"
               } rounded-3xl`}
             >
               <button
@@ -266,17 +266,18 @@ const Navbar = () => {
                 <MdCall className="text-xl" />
               </button>
 
-              <button
-                className="sm:hidden flex items-center justify-center" // Show on mobile
+              {/* <button
+                className="sm:hidden flex items-center justify-center" 
               >
                 <MdCall
                   className={`text-3xl ${
                     isScrolled ? "text-[#000] " : "text-[#fff] p-1"
                   }`}
                 />
-              </button>
+              </button> */}
             </div>
           </div>
+
         </nav>
       </header>
       <div
@@ -292,13 +293,15 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex flex-col ml-5 p-5 gap-4">
+        <ul className="flex flex-col p-5 gap-4">
           {" "}
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-[130px] w-auto object-contain mb-4"
-          />
+          <div className="flex justify-end w-full right-0">
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-[130px] w-auto object-contain mb-4"
+            />
+          </div>
           <Link to="/" onClick={toggleMobileMenu}>
             <li className="hover:text-orange-500">Home</li>
           </Link>
@@ -336,6 +339,10 @@ const Navbar = () => {
           <Link to="/contact" onClick={toggleMobileMenu}>
             <li className="hover:text-orange-500">Contact</li>
           </Link>
+          <Link to="/login" onClick={toggleMobileMenu}>
+            <li className="hover:text-orange-500">Login</li>
+          </Link>
+          
         </ul>
       </div>
 

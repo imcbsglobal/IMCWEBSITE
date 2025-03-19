@@ -147,7 +147,7 @@ const Home = () => {pgadmin
       "title": "Streamline Your Business Operations",
       "section": "ERP SOFTWARE",
       "para": "Enhance productivity with a powerful ERP system that integrates finance, HR, sales, and inventory. Automate processes, reduce costs, and gain real-time insights for smarter decision-making.",
-      "link": "/erp"
+      "link": "/erpsoftware"
     },
     
     {
@@ -157,7 +157,7 @@ const Home = () => {pgadmin
       "title": "Building Engaging Digital Experiences",
       "section": "Website Development",
       "para": "Crafting responsive, high-performance websites that enhance user engagement, strengthen brand presence, and drive business growth.",
-      "link": "/website-development"
+      "link": "/websiteandWebApplications"
     },
     
     {
@@ -167,8 +167,8 @@ const Home = () => {pgadmin
       "title": "Innovative And Scalable Mobile Solutions",
       "section": "App Development",
       "para": "Creating high-performance mobile applications that enhance user engagement, improve accessibility, and drive business growth in a digital-first world.",
-      "link": "/mobile-app-development"
-    },
+      "link": "/mobileApp" 
+       },
     
     {
       "no": "04",
@@ -177,7 +177,7 @@ const Home = () => {pgadmin
       "title": "Strategic Solutions for Business Growth",
       "section": "Business Consultancy",
       "para": "Empowering businesses with expert guidance, data-driven insights, and tailored strategies to enhance efficiency, maximize profitability, and drive sustainable growth.",
-      "link": "/business-consultancy"
+      "link": "/businessBranding"
     }
     ,
     {
@@ -187,7 +187,7 @@ const Home = () => {pgadmin
       "title": "Boost Your Brand's Online Presence",
       "section": "Digital Marketing",
       "para": "Harness the power of data-driven strategies, SEO, and social media to increase brand visibility, drive engagement, and accelerate business growth in the digital landscape.",
-      "link": "/digital-marketing"
+      "link": "/digitalmarketing"
     },
     {
       "no": "05",
@@ -196,7 +196,7 @@ const Home = () => {pgadmin
       "title": "Reliable IT Infrastructure & Support",
       "section": "Hardware Solutions",
       "para": "Providing high-quality hardware solutions, from servers to networking equipment, ensuring seamless performance, security, and scalability for your business needs.",
-      "link": "/hardware-solutions"
+      "link": "/hardwaresolutions"
     }
     
 
