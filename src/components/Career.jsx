@@ -6,7 +6,7 @@ import "swiper/css/autoplay";
 
 import careerBanner from "../assets/careerbanner.jpg";
 import blackShade from "../assets/blacksahde.png";
-import darkGradient from "../assets/darkgradient.jpg"
+import darkGradient from "../assets/darkGradient.jpg"
 import Footer from "./Footer";
 import CareerApply from "./CareerApply";
 

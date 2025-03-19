@@ -174,26 +174,27 @@ const Testimonials = () => {
         }
         
         .testimonial-swiper .swiper-slide {
-          transition: all 0.5s ease;
+          transition: all 0.3s ease;
           transform-origin: center center;
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-        
-        .testimonial-swiper .swiper-slide-active,
-        .testimonial-swiper .swiper-slide-next {
-          z-index: 2;
           transform: scale(1);
           opacity: 1;
           filter: blur(0px);
         }
         
+        .testimonial-swiper .swiper-slide-active,
+        .testimonial-swiper .swiper-slide-next {
+          z-index: 2;
+          transform: scale(1.05);
+        }
+        
         .testimonial-swiper .swiper-slide-prev,
         .testimonial-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next) {
-          transform: scale(0.85);
-          opacity: 0.7;
-          filter: blur(4px);
+          transform: scale(0.9);
+          opacity: 0.5;
+          filter: blur(2px);
         }
       `}</style>
     </div>

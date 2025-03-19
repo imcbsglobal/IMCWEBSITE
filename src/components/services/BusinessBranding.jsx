@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Footer from '../Footer';
 import bs from '../../assets/bs.jpeg'
 import bs1 from '../../assets/bs1.jpg'
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 
 const BusinessConsultations = () => {
   useEffect(() => {

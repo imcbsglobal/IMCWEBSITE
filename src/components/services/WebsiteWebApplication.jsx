@@ -5,7 +5,7 @@ import websiteandweb from "../../assets/websiteandweb.jpg";
 import website1 from "../../assets/website1.jpg";
 import website2 from "../../assets/website2.jpg";
 import website from "../../assets/website.jpg";
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 
 const WebsiteWebApplication = () => {
   useEffect(() => {

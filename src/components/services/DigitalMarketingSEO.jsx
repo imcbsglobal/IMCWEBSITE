@@ -6,7 +6,7 @@ import decision from '../../assets/decision.jpeg'
 import customereg from '../../assets/customereg.jpeg'
 import seo from '../../assets/seo.jpg'
 import seo1 from '../../assets/seo2.jpg'
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { motion } from "framer-motion"
 import brand from "../../assets/brand.jpg";
 import { Link } from "react-router-dom";

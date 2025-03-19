@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaRocketchat } from "react-icons/fa";
 import ChatBot from '../ChatBot';
 import Footer from '../Footer';
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 
 const QuestionChatBoats = () => {
    const [active, setActive] = useState(false);

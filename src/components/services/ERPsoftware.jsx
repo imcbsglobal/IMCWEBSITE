@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react';
 import Footer from '../Footer';
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import taskpro from '../../assets/Task Pro.png'
 import shade from '../../assets/SHADEorg.png'
 import vtask from '../../assets/VTASK.png'

@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
 import { useLocation } from "react-router-dom";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
-import darkGradient from "../assets/darkgradient.jpg"
+import darkGradient from "../assets/darkGradient.jpg"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useInView } from "framer-motion";
 
@@ -426,7 +426,7 @@ const company = () => {
               >
                 Behind the Vision
                 <motion.span
-                  className="block text-[20px] md:text-[30px] textGradient4"
+                  className="block text-[20px] md:text-[30px] textGradient4 px-2"
                   style={{
                     opacity: subheadingOpacity,
                     y: subheadingY,
@@ -440,7 +440,7 @@ const company = () => {
               </motion.div>
 
               <motion.div
-                className="textGradient6 max-w-[700px] mx-auto text-[#fff] text-sm md:text-base"
+                className="textGradient6 max-w-[700px] mx-auto text-[#fff] text-sm md:text-base px-2"
                 style={{
                   opacity: paragraphOpacity2,
                   y: paragraphY2,

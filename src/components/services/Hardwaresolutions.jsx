@@ -15,7 +15,7 @@ import support from '../../assets/eye.png';
 import quality from '../../assets/ideas.png';
 import innovation from '../../assets/innovation.png';
 import warranty from '../../assets/warranty.png';
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { motion } from "framer-motion";
 
 const Hardwaresolutions = () => {

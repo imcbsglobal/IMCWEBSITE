@@ -4,7 +4,7 @@ import { CgArrowLongRight } from "react-icons/cg";
 import { MdContactSupport } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import whatsapp from '../../assets/whatsapp.jpeg'
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 
 const WhatsappSupports = () => {
   useEffect(() => {

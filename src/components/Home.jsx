@@ -32,7 +32,7 @@ import Gradient from "./Gradient";
 import GradientText from "./GradientText";
 import { motion, useAnimation } from "framer-motion"
 import GradientBg from "../assets/gradientbg.jpg"
-import darkGradient from "../assets/darkgradient.jpg"
+import darkGradient from "../assets/darkGradient.jpg"
 import bannert1 from "../assets/bannert1.jpeg"
 import bannert2 from "../assets/bannert2.jpeg"
 import bannert3 from "../assets/bannert3.jpeg"
@@ -1313,7 +1313,7 @@ useEffect(() => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 onSubmit={onSubmit}
               >
-                <div className="w-full grid grid-cols-2 gap-5 mb-3 textGradient6">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 mb-3 textGradient6">
                   {/* Input fields with individual animations */}
                   {["firstName", "lastName", "email", "phone"].map(
                     (field, index) => (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import darkGradient from "../assets/darkgradient.jpg";
+import darkGradient from "../assets/darkGradient.jpg";
 
 const Contact = () => {
   const [active, setActive] = useState(false);

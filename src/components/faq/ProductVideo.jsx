@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
 import Footer from '../Footer';
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 
 const ProductVideo = () => {
   const [items, setItems] = useState([]);

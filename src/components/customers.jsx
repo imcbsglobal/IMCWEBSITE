@@ -70,7 +70,7 @@ import bodyzone from '../assets/bodyzone.png'
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import { motion, useAnimation } from "framer-motion"
-import darkGradient from "../assets/darkgradient.jpg"
+import darkGradient from "../assets/darkGradient.jpg"
 
 
 const customers = () => {

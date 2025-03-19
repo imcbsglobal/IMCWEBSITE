@@ -4,7 +4,7 @@ import mobileapp from '../../assets/mobileapp1.jpeg'
 import app1 from '../../assets/app1.jpg'
 import app2 from '../../assets/app2.jpg'
 import app from '../../assets/app.jpg'
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 
