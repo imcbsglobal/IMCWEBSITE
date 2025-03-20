@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import Footer from '../Footer'
 import mobileapp from '../../assets/mobileapp1.jpeg'
 import app1 from '../../assets/app1.jpg'
@@ -6,9 +6,14 @@ import app2 from '../../assets/app2.jpg'
 import app from '../../assets/app.jpg'
 import darkGradient from "../../assets/darkGradient.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 
 const MobileApp = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   useEffect(() => {
       // Scroll to the top of the page on mount
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -85,6 +90,24 @@ const MobileApp = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
       {/* intro */}
       <div className="w-full relative pt-32 pb-20">
         
@@ -184,7 +207,7 @@ const MobileApp = () => {
                     filter: "blur(0px)",
                   }}
                   transition={{
-                    duration: 1,
+                    duration: 0.5,
                     delay: index * 0.3,
                     ease: "easeOut",
                   }}
@@ -196,8 +219,8 @@ const MobileApp = () => {
                       initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       transition={{
-                        duration: 1,
-                        delay: index * 0.5,
+                        duration: 0.5,
+                        delay: index * 0.3,
                         ease: "easeOut",
                       }}
                       className="text-[#fff] text-xl textGradient6 mb-3 font-black text-center"
@@ -208,8 +231,8 @@ const MobileApp = () => {
                       initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       transition={{
-                        duration: 1,
-                        delay: index * 0.7,
+                        duration: 0.5,
+                        delay: index * 0.3,
                         ease: "easeOut",
                       }}
                       className="textGradient6 text-[#fff]"

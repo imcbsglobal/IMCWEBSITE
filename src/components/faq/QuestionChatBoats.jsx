@@ -4,6 +4,9 @@ import { FaRocketchat } from "react-icons/fa";
 import ChatBot from "../ChatBot";
 import Footer from "../Footer";
 import darkGradient from "../../assets/darkGradient.jpg";
+import { RiWhatsappLine } from "react-icons/ri";
+
+
 
 const QuestionChatBoats = () => {
   const [active, setActive] = useState(false);
@@ -20,6 +23,7 @@ const QuestionChatBoats = () => {
 
     return () => window.removeEventListener("scroll", scrollActive);
   }, []);
+  
   return (
     <>
       <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1">
@@ -30,6 +34,11 @@ const QuestionChatBoats = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
         {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -97,7 +106,7 @@ const QuestionChatBoats = () => {
             </button> */}
               <button
                 onClick={() => setOpenChat(true)}
-                className="px-8 py-3 rounded-full bg-[#fff] font-semibold flex items-center gap-2 text-sm md:text-base"
+                className="px-8 py-3 rounded-full bg-[#fff] font-semibold flex items-center gap-2 textGradient6 text-sm md:text-base"
               >
                 Chat Now{" "}
                 <span className="text-[#000000]">

@@ -71,6 +71,8 @@ import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import { motion, useAnimation } from "framer-motion"
 import darkGradient from "../assets/darkGradient.jpg"
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "./ChatBot";
 
 
 const customers = () => {
@@ -96,303 +98,60 @@ const customers = () => {
 
 
   const [active, setActive]= useState()
-const clients = [
-    {
-      id: 1,
-      name: "AROGYA",
-      logo: arogya,
-      location: "Meenangadi - Wayanad",
-    },
-    {
-      id: 2,
-      name: "Divine Grace Institutions",
-      logo: divine,
-      location: "Banglore",
-    },
-    {
-      id: 3,
-      name: "Janatha Hospital",
-      logo: janatha,
-      location: "Engappuzha - Calicut",
-    },
-    {
-      id: 4,
-      name: "hill blooms health care",
-      logo: hillroom,
-      location: "Coorge-Karnataka",
-    },
-    {
-      id: 5,
-      name: "shantha polyclinic & diagnostic center",
-      logo: shandha,
-      location: "Pullpally - Wayanad",
-    },
-    {
-      id: 6,
-      name: "Amminikkad Mediclic",
-      logo: amminikkad,
-      location: "Perinthalmanna - Calicut ",
-    },
-    {
-      id: 7,
-      name: "Immune Poly Clinic & Diagnostic Center",
-      logo: immune,
-      location: "Valad - Wayanad ",
-    },
-    {
-      id: 8,
-      name: "Vinayaka Hospital",
-      logo: vinayaka,
-      location: "Pondalur - Thamilnadu ",
-    },
+  const clients = [
+    { id: 1, name: "AROGYA", logo: arogya, location: "Meenangadi - Wayanad" },
+    { id: 2, name: "Divine Grace Institutions", logo: divine, location: "Banglore" },
+    { id: 3, name: "Janatha Hospital", logo: janatha, location: "Engappuzha - Calicut" },
+    { id: 4, name: "Hill Blooms Health Care", logo: hillroom, location: "Coorge-Karnataka" },
+    { id: 5, name: "Shantha Polyclinic & Diagnostic Center", logo: shandha, location: "Pullpally - Wayanad" },
+    { id: 6, name: "Amminikkad Mediclic", logo: amminikkad, location: "Perinthalmanna - Calicut" },
+    { id: 7, name: "Immune Poly Clinic & Diagnostic Center", logo: immune, location: "Valad - Wayanad" },
+    { id: 8, name: "Vinayaka Hospital", logo: vinayaka, location: "Pondalur - Tamil Nadu" },
+    { id: 9, name: "Mazuzs Inn", logo: mazus, location: "Vythiri - Wayanad" },
+    { id: 10, name: "Orfila Inn", logo: orfila, location: "Nedumbassery - Cochin" },
+    { id: 11, name: "LA VILLA INN", logo: lavillainn, location: "Wayanad" },
+    { id: 12, name: "Alfa Agencies", logo: alfa, location: "Calicut" },
+    { id: 13, name: "N4 Medicals", logo: n4medicals, location: "Cheruppalassery - Palakkad" },
+    { id: 14, name: "NewForm Bakes", logo: newform, location: "Kalpetta - Wayanad" },
+    { id: 15, name: "Mom's Bakes", logo: momsbake, location: "Cheruppalassery - Palakkad" },
+    { id: 16, name: "MAMMA ARABIA", logo: arabia, location: "Koppam - Palakkad" },
+    { id: 17, name: "Union", logo: union, location: "Nilambur - Malappuram" },
+    { id: 18, name: "Ke Yem Holidays Restaurant", logo: yemkem, location: "Wayanad" },
+    { id: 19, name: "Aastha Hotel", logo: aastha, location: "Pullpally - Wayanad" },
+    { id: 20, name: "IDEAL ENGLISH SCHOOL", logo: ideal, location: "Sulthan Bathery - Wayanad" },
+    { id: 21, name: "Nair Service Society", logo: nair, location: "Kalpetta - Wayanad" },
+    { id: 22, name: "MCF Public School", logo: mcf, location: "Kalpetta - Wayanad" },
+    { id: 23, name: "Convent School", logo: convent, location: "Kalpetta - Wayanad" },
+    { id: 24, name: "Bhavan's Vidya Mandir", logo: bhavans, location: "Sulthan Bathery - Wayanad" },
+    { id: 25, name: "The Greenhills Public School", logo: greenhills, location: "Sulthan Bathery - Wayanad" },
+    { id: 26, name: "Nahdha Hypermarket", logo: nahdha, location: "Nahdha - Wayanad" },
+    { id: 27, name: "Wayanad Floating Market", logo: wayanadfloat, location: "Lakkidi" },
+    { id: 28, name: "Shop More", logo: shopmore, location: "Pulpally - Wayanad" },
+    { id: 29, name: "PEEKAY Hypermarket", logo: peekay, location: "Banglore , Cochin" },
+    { id: 30, name: "Ogusto Baqes and Cafe", logo: ogusto, location: "Sulthan Bathery - Wayanad" },
+    { id: 31, name: "Marine World", logo: marineworld, location: "Chavakkad - Thrissur" },
+    { id: 32, name: "Tunes", logo: tunes, location: "Wayanad" },
+    { id: 33, name: "Global LPG Distributor", logo: globallpg, location: "Chalakkudy - Thrissur" },
+    { id: 34, name: "Global Glass", logo: globalglass, location: "Mananthavady - Wayanad" },
+    { id: 35, name: "Thalal Market", logo: talal, location: "Iritty" },
+    { id: 36, name: "Freshday Hypermarket", logo: freshday, location: "Mukkam - Calicut" },
+    { id: 37, name: "7 Fresh Supermarket", logo: fresh7, location: "Kunnamangalam - Calicut" },
+    { id: 38, name: "Geethas", logo: geethas, location: "Kalpetta - Wayanad" },
+    { id: 39, name: "Hyper City", logo: hypercity, location: "Kambalakkad , Kadavathoor" },
+    { id: 40, name: "Panthallookaran", logo: panthallookaran, location: "Kodakara - Thrissur" },
+    { id: 41, name: "Hyper One", logo: hyperone, location: "Calicut" },
+    { id: 42, name: "DanuVe Hypermarket", logo: danuve, location: "Calicut" },
+    { id: 43, name: "Seven Bridge", logo: sevenbridge, location: "Manjery - Malappuram" },
+    { id: 44, name: "KB Traders", logo: kb, location: "Wayanad" },
   ];
 
-  const clienttask = [
-    {
-      id: 1,
-      name: "Nahdha Hypermarket",
-      logo: nahdha,
-      location: "Nahdha - Wayanad",
-    },
-    {
-      id: 2,
-      name: "Wayanad Floating Market",
-      logo: wayanadfloat,
-      location: "Lakkidi",
-    },
-    {
-      id: 3,
-      name: "Shop More",
-      logo: shopmore,
-      location: "Pulpally - Wayanad",
-    },
-    {
-      id: 4,
-      name: "PEEKAY Hypermarket",
-      logo: peekay,
-      location: "Banglore , Cochin",
-    },
-    {
-      id: 5,
-      name: "Ogusto Baqes and Cafe",
-      logo: ogusto,
-      location: "Sulthan Bathery - Wayanad",
-    },
-    {
-      id: 6,
-      name: "Marine World",
-      logo: marineworld,
-      location: "Chavakkad - Thrissure ",
-    },
-    {
-      id: 7,
-      name: "Tunes",
-      logo: tunes,
-      location: " Wayanad ",
-    },
-    {
-      id: 9,
-      name: "Global LPG Distributor",
-      logo:globallpg,
-      location: "Chalakkudy - Thrissure ",
-    },
-    {
-      id: 10,
-      name: "Global Glass",
-      logo: globalglass,
-      location: "Mananthavady - Wayanad ",
-    },
-    {
-      id: 11,
-      name: "Thalal market",
-      logo: talal,
-      location: "Iritty ",
-    },
-    {
-      id:12,
-      name: "Freshday Hypermarket",
-      logo: freshday,
-      location: "Mukkam - Calicut ",
-    },
-    {
-      id: 13,
-      name: "7 Fresh Supermarket",
-      logo: fresh7,
-      location: "Kunnamangalam - Calicut ",
-    },
-    {
-      id: 14,
-      name: "Geethas ",
-      logo: geethas,
-      location: "Kalpetta - Wayanad ",
-    },
-    {
-      id: 15,
-      name: "Hyper City ",
-      logo: hypercity,
-      location: "Kambalakkad , Kadavathoor ",
-    },
-    {
-      id: 16,
-      name: "Panthallookaran ",
-      logo: panthallookaran,
-      location: "Kodakara - Thrissure ",
-    },
-    {
-      id: 17,
-      name: "Hyper One ",
-      logo: hyperone,
-      location: "calicut ",
-    },
-    {
-      id: 18,
-      name: "DanuVe Hypermarket ",
-      logo: danuve,
-      location: "calicut ",
-    },
-    {
-      id: 19,
-      name: "Seven Bridge",
-      logo: sevenbridge,
-      location: "Manjery - Malappuram ",
-    },
-    {
-      id: 20,
-      name: "KB Traders",
-      logo: kb,
-      location: "Wayanad ",
-    },
-  ];
-
-  const clientmagnet = [
-    {
-      id: 1,
-      name: "IDEAL ENGLISH SCHOOL",
-      logo: ideal,
-      location: "Sulthan Bathery - Wayanad",
-    },
-    {
-      id: 2,
-      name: "Nair Service Society",
-      logo: nair,
-      location: "Kalpetta - Wayanad",
-    },
-    {
-      id: 3,
-      name: "MCF Public School",
-      logo: mcf,
-      location: "Kalpetta - Wayanad",
-    },
-    {
-      id: 4,
-      name: "Convent School",
-      logo: convent,
-      location: "Kalpetta - Wayanad",
-    },
-    {
-      id: 5,
-      name: "Bhavan's Vidya Mandir",
-      logo: bhavans,
-      location: "Sulthan Bathery - Wayanad",
-    },
-    {
-      id: 6,
-      name: "Divine Grace Institutions",
-      logo: divine
-      ,
-      location: "Banglore ",
-    },
-    {
-      id: 7,
-      name: "The Greenhills Public School",
-      logo: greenhills,
-      location: "Sulthan Bathery - Wayanad ",
-    },
-    
-  ];
-  const clientdine = [
-    {
-      id: 1,
-      name: "NewForm Bakes",
-      logo:newform,
-      location: "Kalpetta - Wayanad",
-    },
-    {
-      id: 2,
-      name: "Mom's Bakes",
-      logo: momsbake,
-      location: "Cheruppalassery - Palakkad",
-    },
-    {
-      id: 3,
-      name: "MAMMA ARABIA",
-      logo: arabia,
-      location: "Koppam - Palakkad",
-    },
-    {
-        id: 4,
-        name: "Union ",
-        logo: union,
-        location: "Nilambur - Malappuram",
-      },
-      {
-        id: 5,
-        name: "Ke Yem Holidays Restaurant ",
-        logo: yemkem,
-        location: "Wayanad",
-      },
-      {
-        id: 6,
-        name: "Aastha Hotel ",
-        logo: aastha,
-        location: "Pullpally - Wayanad",
-      },
-    
-    
-  ];
-  const clientvtask = [
-    {
-      id: 1,
-      name: "Alfa Agencies",
-      logo: alfa,
-      location: "Calicut",
-    },
-    {
-      id: 2,
-      name: "N4 Medicals",
-      logo: n4medicals,
-      location: "Cheruppalassery - Palakkad",
-    },
-    {
-      id: 3,
-      name: "Vinayaka Hospital",
-      logo: vinayaka,
-      location: "Pandalur",
-    },
  
-    
-  ];
-  const clientstarstay = [
-    {
-      id: 1,
-      name: "Mazuzs Inn",
-      logo: mazus,
-      location: "Vythiri - Wayanad",
-    },
-    {
-      id: 2,
-      name: "Orfila Inn",
-      logo: orfila,
-      location: "Nedumbassery - Cochin",
-    },
-    {
-      id: 3,
-      name: "LA VILLA INN",
-      logo: lavillainn,
-      location: "Wayanad",
-    },
-   
-  ];
+
+
+     const [openChat, setOpenChat] = useState(false)
+  
+ 
+
  useEffect(() => {
     const scrollActive = () => {
         setActive(window.scrollY > 20);
@@ -439,865 +198,109 @@ const clients = [
 
   
   return (
-    <div  data-scroll-container className="overflow-hidden relative">
-      <div       
-           className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
-          >
-            <img
-              src={darkGradient}
-              alt=""
-              className="h-full w-full object-cover"
-            />
-          </div>
+    <div data-scroll-container className="overflow-hidden relative">
+      <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
+        <img src={darkGradient} alt="" className="h-full w-full object-cover" />
+      </div>
+      <a href="https://wa.me/+917593820007">
+              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                <RiWhatsappLine/>
+              </div>
+            </a>
+            
+            {/* chatbot */}
+            <div className="bottom-10 fixed right-10 z-[999]">
+              {openChat ? (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              ) : (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              )}
+            </div>
       {/* intro */}
       <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden">
         <section
           id="customers"
           className="max-w-[1400px] mx-auto mb-10 w-full px-4"
         >
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
-            {/* Left Section */}
-            <div className="w-full">
-              <h2 className="textGradient4 text-white text-3xl md:text-4xl mb-5">
+          <div className="w-full flex flex-col md:flex-row items-center gap-10  p-8 md:p-16 rounded-3xl">
+            {/* Left Section - Text Content */}
+            <div className="w-full md:w-1/2 text-left">
+              <h2 className="textGradient4 text-white text-3xl md:text-5xl font-bold mb-5">
                 CUSTOMERS
               </h2>
-              <p className="textGradient6 text-white mb-5">
+              <p className="textGradient6 text-white text-base md:text-lg mb-5">
                 Customers play a crucial role in defining a business's dignity
                 and credibility. For us, they are our greatest strength. Our
                 primary focus is to maintain strong and positive relationships
                 with them. Here, we are pleased to introduce a few of our valued
                 customers.
               </p>
-
-              <div className="w-full h-[355px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] rounded-3xl">
-                <div className="bg-black h-full w-full rounded-3xl flex justify-center items-center">
-                  <img
-                    src={client}
-                    alt="Client"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
             </div>
 
-            {/* Right Section - Grid of Logos */}
-            <div className="w-full grid grid-cols-3 gap-4">
-              {[
-                task,
-                shade,
-                magnet,
-                dine,
-                vtask,
-                starstay,
-                clublogic,
-                auric,
-                taskpro,
-              ].map((logo, index) => (
-                <div
-                  key={index}
-                  className="h-[140px] flex items-center justify-center bg-gray-100 rounded-2xl overflow-hidden"
-                >
-                  <div className="h-full w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] rounded-2xl">
-                    <div className="flex items-center justify-center bg-white h-full w-full rounded-xl p-4">
-                      <img
-                        src={logo}
-                        alt={`Logo ${index + 1}`}
-                        className="object-contain h-[80px] w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* Right Section - Image */}
+            <div className="w-full md:w-1/2">
+              <div className="w-full h-[300px] md:h-[400px] overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src={client}
+                  alt="Client"
+                  className="w-full h-full object-cover rounded-3xl"
+                />
+              </div>
             </div>
           </div>
         </section>
       </div>
 
-      {/* client task */}
-      <section className=" py-16 border-b border-[#111B21]">
-        
-        <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-              {/* Left column - 30% width (3/10 columns) */}
-              <div className="md:col-span-3 text-center mb-10">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center bg-white px-2">
-                    <img src={task} alt="" className="w-full max-w-[500px]" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 textGradient4">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#fff]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide1}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide1}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right column - 70% width (7/10 columns) */}
-              <div className="md:col-span-7 slider-container">
-                <Swiper
-                  ref={swiperRef1}
-                  onSwiper={(swiper) => (swiperRef1.current = swiper)}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  onSlideChange={(swiper) => setActiveIndex1(swiper.realIndex)}
-                  modules={[Autoplay, Navigation]}
-                  className="w-full"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                      spaceBetween: 16,
-                    },
-                    640: {
-                      slidesPerView: 1,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                      spaceBetween: 24,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 30,
-                    },
-                  }}
-                >
-                  {clienttask.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <div className="bg-white p-6 rounded-lg shadow-md min-h-64 pt-10">
-                        <div className="flex items-center justify-center mb-4 w-[200px] h-[200px] mx-auto">
-                          <img
-                            src={item.logo}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-bold text-lg mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* client shade */}
       <section className="py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-              {/* Left column - 30% width (3/10 columns) */}
-              <div className="md:col-span-3 text-center mb-10 ">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center bg-white px-2">
-                    <img src={shade} alt="" className="w-full max-w-[300px]" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 textGradient4">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#fff]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="white"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right column - 70% width (7/10 columns) */}
-              <div className="md:col-span-7 slider-container">
-                <Swiper
-                  ref={swiperRef}
-                  onSwiper={(swiper) => (swiperRef.current = swiper)}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                  modules={[Autoplay, Navigation]}
-                  className="w-full"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                      spaceBetween: 16,
-                    },
-                    640: {
-                      slidesPerView: 1,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                      spaceBetween: 24,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 30,
-                    },
-                  }}
-                >
-                  {clients.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <div className="bg-white p-6 rounded-lg shadow-md h-[350px] pt-10">
-                        <div className="flex items-center justify-center mb-4 w-[200px] h-[200px] mx-auto">
-                          <img
-                            src={item.logo}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-bold text-lg mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* client magnet */}
-      <section className=" py-16 border-b border-[#111B21]">
-        <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-              {/* Left column - 30% width (3/10 columns) */}
-              <div className="md:col-span-3 text-center mb-10">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center bg-white px-2">
-                    <img src={magnet} alt="" className="w-full max-w-[200px]" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 textGradient4">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#fff]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide2}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide2}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right column - 70% width (7/10 columns) */}
-              <div className="md:col-span-7 slider-container">
-                <Swiper
-                  ref={swiperRef2}
-                  onSwiper={(swiper) => (swiperRef2.current = swiper)}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  onSlideChange={(swiper) => setActiveIndex2(swiper.realIndex)}
-                  modules={[Autoplay, Navigation]}
-                  className="w-full"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                      spaceBetween: 16,
-                    },
-                    640: {
-                      slidesPerView: 1,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                      spaceBetween: 24,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 30,
-                    },
-                  }}
-                >
-                  {clientmagnet.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <div className="bg-white p-6 rounded-lg shadow-md h-[350px] pt-10">
-                        <div className="flex items-center justify-center mb-4 w-[200px] h-[200px] mx-auto">
-                          <img
-                            src={item.logo}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-bold text-lg mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* client Dine */}
-      <section className=" py-16 border-b border-[#111B21]">
-        <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-              {/* Left column - 30% width (3/10 columns) */}
-              <div className="md:col-span-3 text-center mb-10">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center bg-white px-2">
-                    <img src={dine} alt="" className="w-full max-w-[300px]" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 textGradient4">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#fff]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide3}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide3}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right column - 70% width (7/10 columns) */}
-              <div className="md:col-span-7 slider-container">
-                <Swiper
-                  ref={swiperRef3}
-                  onSwiper={(swiper) => (swiperRef3.current = swiper)}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  onSlideChange={(swiper) => setActiveIndex3(swiper.realIndex)}
-                  modules={[Autoplay, Navigation]}
-                  className="w-full"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                      spaceBetween: 16,
-                    },
-                    640: {
-                      slidesPerView: 1,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                      spaceBetween: 24,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 30,
-                    },
-                  }}
-                >
-                  {clientdine.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <div className="bg-white p-6 rounded-lg shadow-md h-[300px] pt-10">
-                        <div className="flex items-center justify-center mb-4 w-[200px] h-[140px] mx-auto">
-                          <img
-                            src={item.logo}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-bold text-lg mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* client V task */}
-      <section className=" py-16 border-b border-[#111B21]">
-        <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-              {/* Left column - 30% width (3/10 columns) */}
-              <div className="md:col-span-3 text-center mb-10">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center bg-white px-2">
-                    <img src={vtask} alt="" className="w-full max-w-[250px]" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 textGradient4">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#fff]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
-                </div>
-
-                {/* <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide4}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide4}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div> */}
-              </div>
-
-              {/* Right column - 70% width (7/10 columns) */}
-              <div className="md:col-span-7 slider-container">
-                <Swiper
-                  ref={swiperRef4}
-                  onSwiper={(swiper) => (swiperRef4.current = swiper)}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  onSlideChange={(swiper) => setActiveIndex4(swiper.realIndex)}
-                  modules={[Autoplay, Navigation]}
-                  className="w-full"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                      spaceBetween: 16,
-                    },
-                    640: {
-                      slidesPerView: 1,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                      spaceBetween: 24,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 30,
-                    },
-                  }}
-                >
-                  {clientvtask.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <div className="bg-white p-6 rounded-lg shadow-md h-[350px] pt-10">
-                        <div className="flex items-center justify-center mb-4 w-[200px] h-[200px] mx-auto">
-                          <img
-                            src={item.logo}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-bold text-lg mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* client auric */}
-      {/* <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
-        <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid grid-cols-10"> */}
-              {/* Left column - 30% width (3/10 columns) */}
-              {/* <div className="col-span-4 text-center mb-10">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
-                    <img src={auric} alt="" className="w-full max-w-[250px]" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#1C1E21]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
-                </div> */}
-
-                {/* <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide4}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide4}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div> */}
-              {/* </div> */}
-
-              {/* Right column - 70% width (7/10 columns) */}
-              {/* <div className="col-span-6 slider-container">
-                <div className="relative flex justify-center items-center">
-                  <div className="shadow-xl   bg-white p-5 rounded-2xl w-full max-w-[400px]">
+          <Swiper
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            modules={[Autoplay, Navigation]}
+            className="w-full"
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 16,
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+            }}
+          >
+            {clients.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="bg-white p-6 rounded-lg shadow-md min-h-64 pt-10 flex flex-col items-center h-[300px] md:h-[340px]">
+                  <div className="w-[200px] h-[200px] mb-4">
                     <img
-                      src={anugraha}
-                      alt="anugraha"
-                      className="object-contain mx-auto h-[200px] md:h-[300px]"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-black font-bold text-lg">
-                        Anugraha Gold & Diamonds
-                      </h3>
-                      <p className="text-black text-sm">Muttil Wayanad</p>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-            {/* </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* client  star stay */}
-      <section className=" py-16 border-b border-[#111B21]">
-        <div className="container mx-auto px-4">
-          <div className="animation-wrapper">
-            <div className="grid gap-2 grid-cols-1 md:grid-cols-10">
-              {/* Left column - 30% width (3/10 columns) */}
-              <div className="md:col-span-3 text-center mb-10">
-                <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center bg-white px-2 ">
-                    <img
-                      src={starstay}
-                      alt=""
-                      className="w-full max-w-[200px]"
+                      src={item.logo}
+                      alt={item.name}
+                      className="w-full h-full object-contain"
                     />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 textGradient4">
-                    Our Trusted Clients
-                  </h2>
-                  <div className="mt-2">
-                    <p className="text-[#fff]">
-                      We're proud to partner with these amazing businesses
-                      across Kerala and beyond.
-                    </p>
-                  </div>
+                  <h3 className="font-bold text-lg mb-2">{item.name}</h3>
+                  <p className="text-gray-700">{item.location}</p>
                 </div>
-
-                {/* <div className="navigation-buttons flex justify-center mt-6 mb-8">
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={prevSlide4}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Previous Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextSlide4}
-                      className="p-2 border rounded-full flex items-center justify-center"
-                      aria-label="Next Slide"
-                      role="button"
-                    >
-                      <svg width="7" height="12" fill="none">
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div> */}
-              </div>
-
-              {/* Right column - 70% width (7/10 columns) */}
-              <div className="md:col-span-7 slider-container">
-                <Swiper
-                  ref={swiperRef4}
-                  onSwiper={(swiper) => (swiperRef4.current = swiper)}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  onSlideChange={(swiper) => setActiveIndex4(swiper.realIndex)}
-                  modules={[Autoplay, Navigation]}
-                  className="w-full"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                      spaceBetween: 16,
-                    },
-                    640: {
-                      slidesPerView: 1,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                      spaceBetween: 24,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 30,
-                    },
-                  }}
-                >
-                  {clientstarstay.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <div className="bg-white p-6 rounded-lg shadow-md h-[350px] pt-10">
-                        <div className="flex items-center justify-center mb-4 w-[200px] h-[200px] mx-auto">
-                          <img
-                            src={item.logo}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-bold text-lg mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </section>
-
-      <section className="">
-        
       </section>
 
       {/* footer */}

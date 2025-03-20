@@ -22,17 +22,28 @@ import { motion } from "framer-motion"
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
 import {  AnimatePresence } from 'framer-motion';
-import { businessTypes } from './Restaurant';
+// import { businessTypes } from './Restaurant';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import MultiStore from "../../assets/multistore.jpg"
+import hypermarket from '../../assets/hypermarket.png'
+import Supermarket from '../../assets/supermarket.png'
+import botique from '../../assets/botique.png'
+import hardware from '../../assets/hardware1.png'
+import footware from '../../assets/footware.png'
+import textiles from '../../assets/textiles.png'
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 const Inventory = () => {
   const [productVideos, setProductVideos] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
+   const [openChat, setOpenChat] = useState(false)
 
   const openFullScreen = (image) => {
     setSelectedImage(image);
@@ -42,13 +53,52 @@ const Inventory = () => {
     setSelectedImage(null);
   };
   const features = [
-    { image: ecommerce, title: 'E-Commerce', description: 'Seamless online shopping solutions for your business growth.' },
-    { image: vanSales, title: 'Van Sales Applications', description: 'Empower your sales team with mobile van sales applications.' },
-    { image: deliveryTracking, title: 'Delivery Tracking Solutions', description: 'Real-time tracking for efficient delivery management.' },
-    { image: employeeTracking, title: 'Employee Tracking System', description: 'Monitor and manage your workforce with ease.' },
-    { image: hybrid, title: 'Hybrid Data Management System', description: 'Integrated data management for smooth business operations.' },
-    { image: gpay, title: 'Digital Payment Integration', description: 'Secure and seamless digital transactions for your business.' },
-    { image: WhatsApps, title: 'WhatsApp/SMS Integration', description: 'Instant communication with customers through WhatsApp and SMS.' },
+    {
+      image: ecommerce,
+      title: "E Commerce",
+      description:
+        "Seamless online shopping solutions for your business growth.",
+    },
+    {
+      image: vanSales,
+      title: "Van Sales Applications",
+      description:
+        "Empower your sales team with mobile van sales applications.",
+    },
+    {
+      image: deliveryTracking,
+      title: "Delivery Tracking Solutions",
+      description: "Real time tracking for efficient delivery management.",
+    },
+    {
+      image: employeeTracking,
+      title: "Employee Tracking System",
+      description: "Monitor and manage your workforce with ease.",
+    },
+    {
+      image: hybrid,
+      title: "Hybrid Data Management System",
+      description: "Integrated data management for smooth business operations.",
+    },
+    {
+      image: gpay,
+      title: "Digital Payment Integration",
+      description:
+        "Secure and seamless digital transactions for your business.",
+    },
+    {
+      image: WhatsApps,
+      title: "WhatsApp SMS Integration",
+      description:
+        "Instant communication with customers through WhatsApp and SMS.",
+    },
+    {
+      image: MultiStore,
+      title: "Multi Store Management",
+      description:
+        "Seamlessly manage multiple store locations from a single platform. Track inventory, sales, and performance across all branches in real time for better efficiency and control.",
+    },
+
     // Removed duplicated features to avoid repetition
   ];
 
@@ -94,6 +144,15 @@ const Inventory = () => {
     }
   };
 
+  const businessTypes = [
+    { icon: hypermarket, text: "Hypermarket" },
+    { icon: Supermarket, text: "Supermarket" },
+    { icon: textiles, text: "Textiles" },
+    { icon: footware, text: "Footware" },
+    { icon: botique, text: "Botique" },
+    { icon: hardware, text: "Hypermarket" },
+  ];
+  
   return (
     <div className="overflow-hidden">
       <div className="flex flex-col justify-center items-center w-full relative">
@@ -104,6 +163,24 @@ const Inventory = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
         <section
           id="inventorymanagement"
           className="w-full relative pb-20 px-2 pt-32 overflow-hidden"
@@ -469,17 +546,21 @@ const Inventory = () => {
               Business Applications
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {businessTypes.map((type, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex flex-col items-center justify-center p-4 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300"
-                >
-                  <div className="text-4xl mb-3 text-[#f99f2c]">
-                    {type.icon}
+                  className="flex flex-col items-center justify-center p-4  backdrop-blur-sm rounded-xl   hover:border-blue-500/50 transition-all duration-300"
+              >
+                <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">
+                    <img
+                      src={type.icon}
+                      alt=""
+                      className="w-full h-full object-contain p-3"
+                    />
                   </div>
                   <p className="text-white text-center text-sm">{type.text}</p>
                 </motion.div>
@@ -489,7 +570,7 @@ const Inventory = () => {
         </section>
 
         {/* TASK Features */}
-        <section className="w-full py-20 relative text-white">
+        <section className="w-full py-10 relative text-white">
           <div className="max-w-6xl mx-auto px-6">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -502,14 +583,14 @@ const Inventory = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
-                "Real-time inventory tracking across multiple locations",
+                "Real time inventory tracking across multiple locations",
                 "Barcode scanning for quick and accurate stock management",
                 "Automated purchase order generation based on stock levels",
                 "Detailed reporting on stock movements and valuations",
-                "Integration with e-commerce platforms and POS systems",
+                "Integration with e commerce platforms and POS systems",
                 "Batch tracking and serial number management",
                 "Mobile access for inventory checks on the go",
-                "Role-based access controls for enhanced security",
+                "Role based access controls for enhanced security",
                 "Stock forecasting based on historical data and trends",
                 "Customizable alerts for low stock and expiring items",
               ].map((feature, index) => (
@@ -557,16 +638,14 @@ const Inventory = () => {
                     className="h-16 object-contain"
                   />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white textGradient4">
-                  iCare for Retail Management
-                </h3>
-                <p className="text-white textGradient6 text-center mb-6">
+               
+                <p className="text-white textGradient6 text-start mb-6">
                   Our comprehensive retail management solution designed
                   specifically for your inventory needs. iCare offers seamless
                   POS integration, customer relationship management, and
                   detailed stock control.
                 </p>
-                <ul className="text-white textGradient6 mb-6 space-y-2">
+                {/* <ul className="text-white textGradient6 mb-6 space-y-2">
                   <li className="flex items-center gap-2">
                     <TiTick className="text-green-400" size={20} />
                     <span>
@@ -585,10 +664,10 @@ const Inventory = () => {
                     <TiTick className="text-green-400" size={20} />
                     <span>Real-time stock availability across outlets</span>
                   </li>
-                </ul>
-                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-full font-semibold transition duration-300">
+                </ul> */}
+                {/* <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-full font-semibold transition duration-300">
                   Learn More
-                </button>
+                </button> */}
               </motion.div>
 
               {/* BCare */}
@@ -605,16 +684,14 @@ const Inventory = () => {
                     className="h-16 object-contain"
                   />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white textGradient4">
-                  BCare for Wholesale Management
-                </h3>
-                <p className="text-white textGradient6 text-center mb-6">
-                  BCare is our enterprise-level solution for wholesale
-                  businesses managing large inventories across multiple
-                  locations. Streamline your supply chain and optimize warehouse
-                  operations.
+               
+                <p className="text-white textGradient6 text-start mb-6">
+                  B Care is an intermediate version of Our Financial Account
+                  System. Which is designed for a medium level business
+                  Automations. B Care is a well appreciated product from our
+                  valued customer in Business Industry.
                 </p>
-                <ul className="text-white textGradient6 mb-6 space-y-2">
+                {/* <ul className="text-white textGradient6 mb-6 space-y-2">
                   <li className="flex items-center gap-2">
                     <TiTick className="text-green-400" size={20} />
                     <span>Multi-warehouse inventory management</span>
@@ -631,14 +708,16 @@ const Inventory = () => {
                     <TiTick className="text-green-400" size={20} />
                     <span>Advanced inventory forecasting and analytics</span>
                   </li>
-                </ul>
-                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-full font-semibold transition duration-300">
+                </ul> */}
+                {/* <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-full font-semibold transition duration-300">
                   Learn More
-                </button>
+                </button> */}
               </motion.div>
             </div>
           </div>
         </section>
+
+        {/* contact */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
           whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -646,15 +725,15 @@ const Inventory = () => {
           viewport={{ once: true }}
           className="text-center py-8 pt-10 sm:pt-20"
         >
-          <h2 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">
+          <h2 className="text-xl sm:text-3xl font-bold textGradient4 mb-3 sm:mb-4 text-white">
             Ready to Transform?
           </h2>
-          <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
+          <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto textGradient6 px-4 text-sm sm:text-base">
             Experience how TASK can streamline your operations, reduce errors,
             and boost customer satisfaction.
           </p>
           <a href="/contact">
-            <button className="bg-[#F99F2C] hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
+            <button className="bg-[#F99F2C] hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base textGradient5 border">
               Contact Now
             </button>
           </a>

@@ -14,7 +14,13 @@ import eway from '../../assets/ewaytask.png'
 import dinepro from '../../assets/dinepro.png'
 import magicpda from '../../assets/magicpda.png'
 import dinekot from '../../assets/dinekot.png'
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
+
 const ERPSoftware = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   useEffect(() => {
     // Scroll to the top of the page on mount
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -73,19 +79,7 @@ const ERPSoftware = () => {
         "Customer Behavior Analytics"
       ]
     },
-    "Club Logic": {
-      title: "Club Logic Fitness Management",
-      Image:club,
-
-      description: "A software designed for fitness clubs and gyms, enhancing operations like membership management, attendance, scheduling, billing, and fee collection, thereby saving time and enhancing customer satisfaction.",
-      features: [
-        "Membership Management System",
-        "Class & Equipment Scheduling",
-        "Attendance Tracking Tools",
-        "Automated Billing & Payments",
-        "Fitness Progress Monitoring"
-      ]
-    },
+   
     "Magnet": {
       title: "Magnet School Management",
       Image:magnet,
@@ -99,19 +93,7 @@ const ERPSoftware = () => {
         "Academic Performance Analytics"
       ]
     },
-    "Auric": {
-      title: "Auric Jewellery Management",
-      Image:auric,
-
-      description: "A software solution for jewellery retailers, wholesalers, and manufacturers, assisting in inventory management, customer tracking, sales, and accounting. It offers features like barcoding, gemstone tracking, and product customization.",
-      features: [
-        "Jewellery Inventory System",
-        "Gemstone Tracking & Certification",
-        "Customer Relationship Management",
-        "Design & Customization Tools",
-        "Sales & Accounting Integration"
-      ]
-    },
+    
     "STARSTAY": {
       title: "STARSTAY Hotel Management",
       Image:star,
@@ -154,7 +136,7 @@ const ERPSoftware = () => {
 
   return (
     <div>
-      <div className="relative w-full">
+      <div className="relative w-full pt-20">
         <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
           <img
             src={darkGradient}
@@ -162,6 +144,24 @@ const ERPSoftware = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
         <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10 md:py-10">
           <div className="text-gray-200 p-4 md:p-8">
             {/* Header Section */}
@@ -265,7 +265,7 @@ const ERPSoftware = () => {
                   </p>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-semibold textGradient6 mb-6">
+                <h3 className="text-2xl md:text-3xl text-[#fff] font-semibold textGradient6 mb-6">
                   Key Features
                 </h3>
 
@@ -280,7 +280,7 @@ const ERPSoftware = () => {
                           {index + 1}
                         </span>
                       </div>
-                      <h4 className="text-lg font-medium text-white mb-2">
+                      <h4 className="text-lg font-medium textGradient6 text-white mb-2">
                         {feature}
                       </h4>
                     </div>
@@ -534,17 +534,17 @@ const ERPSoftware = () => {
 
         {/* Call to Action */}
         <section className="w-full max-w-[1400px] mx-auto py-10 px-4 md:px-8 mb-10">
-          <div className="bg-gradient-to-r  rounded-3xl p-8 md:p-12">
+          <div className="bg-gradient-to-r  rounded-3xl leading-normal p-8 md:p-12">
             <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 textGradient4">
+              <div className="text-3xl leading-normal md:text-4xl font-bold text-white mb-4 textGradient4">
                 Ready to Transform Your Business?
-              </h2>
-              <p className="text-xl text-gray-200 mb-8">
+              </div>
+              <p className="text-xl text-gray-200 textGradient6 mb-8">
                 Schedule a consultation with our ERP specialists today
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="/contact">
-                <button className="bg-[#F99F2C] text-white hover:bg-[#e89427] font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                <button className="bg-[#F99F2C] textGradient5 border text-white hover:bg-[#e89427] font-bold py-3 px-8 rounded-lg transition-all duration-300">
                  Contact Now
                 </button>
                 </a>

@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import darkGradient from "../assets/darkGradient.jpg";
+import darkGradient from "../assets/darkgradient.jpg";
+import CircularText from "./CircularText";
+import {motion} from "framer-motion"
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "./ChatBot";
 
 const Contact = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   const [active, setActive] = useState(false);
   const [result, setResult] = useState("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -73,117 +79,207 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-32 pb-20 relative w-full">
+    <div className="pt-32 relative w-full">
       <div className=" absolute top-0 right-0 bottom-0 left-0 -z-10">
         <img src={darkGradient} alt="" className="w-full h-full object-cover"/>
       </div>
-      <section className="mb-10 md:mb-20 max-w-[1400px] mx-auto w-full px-4 md:px-0">
-        <div className="w-full">
-          <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center w-full mb-8 md:mb-16">
-            <div className="w-full md:w-[60%] flex flex-col justify-start gap-3 md:gap-5 mb-8 md:mb-0">
-              <div className="text-[#fff] text-3xl md:text-[50px] textGradient4 leading-tight">
-                Get in Touch and Lets{" "}
-                <span className="block">Make It Happen</span>
+      <a href="https://wa.me/+917593820007">
+              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                <RiWhatsappLine/>
               </div>
-              <div className="text-[#fff] textGradient6 text-base md:text-lg">
+            </a>
+            
+            {/* chatbot */}
+            <div className="bottom-10 fixed right-10 z-[999]">
+              {openChat ? (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              ) : (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              )}
+            </div>
+      <section className="mb-10 md:mb-20 max-w-[1400px] mx-auto w-full px-4 md:px-0">
+      <div className="w-full max-w-[1400px] mx-auto">
+          {/* Heading Section */}
+          <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">
+            <div className="md:w-[60%] flex flex-col gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight"
+              >
+                Get in Touch and Lets
+                <span className="block">Make It Happen</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-[#fff] textGradient6 text-base md:text-lg"
+              >
                 Get in touch with us! Whether you have questions, need support,
                 or want to learn more about our services, we're here to assist
-                you. Simply fill out the form below, and we'll respond promptly
-              </div>
+                you. Simply fill out the form below, and we'll respond promptly.
+              </motion.div>
             </div>
-            <div className="hidden md:block md:w-[50%]"></div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -180 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="md:w-[50%]"
+            >
+              <CircularText
+                text="IMC*BUSINESS*SOLUTIONS"
+                onHover="speedUp"
+                spinDuration={20}
+                className="custom-class"
+              />
+            </motion.div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:justify-start md:items-end w-full gap-8 md:gap-10">
+          {/* Contact Form Section */}
+          <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full">
+            {/* Contact Details Section */}
             <div className="w-full md:w-[50%]">
-              <div className="flex flex-col justify-start gap-4 md:gap-5 textGradient6 mb-6 md:mb-10 text-lg md:text-xl">
-                <div className="text-[#fff]">info@imcbsglobal.com</div>
-                <div className="text-[#fff]">+91 75938 20007</div>
-                <div className="text-[#fff]">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="text-[#fff]"
+                >
+                  info@imcbsglobal.com
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  className="text-[#fff]"
+                >
+                  +91 75938 20007
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
+                  className="text-[#fff]"
+                >
                   Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
                   <span className="block">
                     Kalpetta, Wayanad, Kerala – 673121
                   </span>
-                </div>
-              </div>
-              <div className="flex">
-                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl w-full md:w-auto">
-                <button 
-                  onClick={() => (window.location.href = "tel:+917593820007")}
-                  className="text-[#fff] w-full h-full bg-[#ffffff07] text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700">
+                </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex"
+              >
+                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => (window.location.href = "tel:+917593820007")}
+                    className="text-[#fff] w-full h-full bg-[#00000020] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700"
+                  >
                     Contact Us
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="w-full md:w-[50%] flex flex-col gap-4 md:gap-5">
-              <div className="text-[#ffff] textGradient6 text-lg">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="w-full md:w-[50%] flex flex-col gap-5"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="text-[#fff] textGradient6 text-xl md:text-2xl"
+              >
                 Here to bring your concept to life, manage your ongoing project,
-                or expand your existing development team
-              </div>
-              <form onSubmit={onSubmit}>
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-3 textGradient6">
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    placeholder="First Name*"
-                    required
-                    className="py-2 px-4 md:px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    placeholder="Last Name*"
-                    required
-                    className="py-2 px-4 md:px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email*"
-                    required
-                    className="py-2 px-4 md:px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Phone*"
-                    required
-                    className="py-2 px-4 md:px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
+                or expand your existing development team.
+              </motion.div>
+              <motion.form
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                onSubmit={onSubmit}
+              >
+                <div className="w-full grid grid-cols-2 gap-5 mb-3 textGradient6">
+                  {/* Input fields with individual animations */}
+                  {["firstName", "lastName", "email", "phone"].map(
+                    (field, index) => (
+                      <motion.input
+                        key={field}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                        type={
+                          field === "email"
+                            ? "email"
+                            : field === "phone"
+                            ? "tel"
+                            : "text"
+                        }
+                        name={field}
+                        value={formData[field]}
+                        onChange={handleInputChange}
+                        placeholder={`${
+                          field.charAt(0).toUpperCase() + field.slice(1)
+                        }*`}
+                        required
+                        className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
+                      />
+                    )
+                  )}
                 </div>
-                <div className="w-full mb-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.1 }}
+                  className="w-full mb-3"
+                >
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Enter Your Message"
                     required
-                    className="py-2 px-4 md:px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b min-h-[100px]"
-                  ></textarea>
-                </div>
-                <div className="w-full">
-                <button type="submit" className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6">
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
+                  />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.2 }}
+                  className="w-full"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="submit"
+                    className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6"
+                  >
                     Send Message
-                  </button>
-                </div>
-              </form>
-
-              {isPopupVisible && (
-                <div className="fixed top-5 right-5 bg-white p-4 rounded-lg shadow-lg text-green-600 z-50">
-                  {result}
-                </div>
-              )}
-            </div>
+                  </motion.button>
+                </motion.div>
+              </motion.form>
+            </motion.div>
           </div>
         </div>
       </section>

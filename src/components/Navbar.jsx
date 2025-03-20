@@ -73,7 +73,7 @@ const Navbar = () => {
       { name: "ERP Software", path: "/erpsoftware" },
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
       { name: "Mobile App Development", path: "/mobileApp" },
-      { name: "Business Consultation", path: "/businessBranding" },
+      { name: "Business Consulting", path: "/businessBranding" },
       { name: "Digital Marketing", path: "/digitalmarketing" },
       
       { name: "Hardware Solutions", path: "/hardwaresolutions" },

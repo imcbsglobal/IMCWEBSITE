@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import digi from "../../assets/digi.png"
 import digi1 from "../../assets/dig1.png"
 import Footer from '../Footer'
@@ -20,8 +20,12 @@ import { TbBulb } from "react-icons/tb";
 import { CgSmileMouthOpen } from "react-icons/cg";
 import visual from '../../assets/eye.png'
 import idea from '../../assets/ideas.png'
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 const DigitalMarketingSEO = () => {
+   const [openChat, setOpenChat] = useState(false)
 
   useEffect(() => {
     // Scroll to the top of the page on mount
@@ -46,13 +50,30 @@ const DigitalMarketingSEO = () => {
           className="w-full h-full object-cover"
         />
       </div>
-
+<a href="https://wa.me/+917593820007">
+        <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+          <RiWhatsappLine/>
+        </div>
+      </a>
+      
+      {/* chatbot */}
+      <div className="bottom-10 fixed right-10 z-[999]">
+        {openChat ? (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        ) : (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        )}
+      </div>
       {/* intro */}
       <div className="w-full pt-32 pb-20 relative">
         <section className="max-w-[1400px] mx-auto">
           <div>
             <div className="text-[#fff] text-[30px] md:text-[50px] textGradient4 mb-5 text-center leading-tight">
-              Digital Marketing And SEO{" "}
+              Digital Marketing
               <span className="block">A Glimpse of Success</span>
             </div>
             <div className="textGradient6 text-[#fff] text-center max-w-[700px] mb-10 mx-auto px-2">
@@ -391,7 +412,7 @@ const DigitalMarketingSEO = () => {
                   },
                   {
                     icon: <FaUserCheck />,
-                    title: "User-Centric Digital Experiences",
+                    title: "User Centric Digital Experiences",
                     text: "Designing intuitive UI/UX interfaces and dynamic motion graphics to enhance user engagement and deliver seamless digital interactions.",
                   },
                 ].map((item, index) => (
@@ -551,9 +572,9 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* branding */}
-      <div className="w-full mt-64 md:mt-1">
+      <div className="w-full mt-64 md:mt-0">
         {/* first */}
-        <div className="w-full relative pt-20 pb-20">
+        <div className="w-full relative pt-20 md:pb-10 pb-20">
           <motion.section
             className="w-full max-w-[1400px] mx-auto rounded-3xl backdrop-blur-xl"
             initial={{ opacity: 0, scale: 0.8 }}

@@ -14,6 +14,9 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 export const businessTypes = [
   { icon: <FaUtensils />, text: "Restaurants" },
@@ -23,6 +26,7 @@ export const businessTypes = [
   { icon: <FaTruck />, text: "Food Trucks" },
   { icon: <FaConciergeBell />, text: "Catering Services" },
 ];
+  
 
 const Restaurant = () => {
   const features = [
@@ -90,11 +94,31 @@ const Restaurant = () => {
   const openFullScreen = (image) => {
     setSelectedImage(image);
   };
+
+  const [openChat, setOpenChat] = useState(false)
   return (
     <div className="relative">
       <div className="fixed inset-0 -z-10">
         <img src={darkGradient} alt="" className="w-full h-full object-cover" />
       </div>
+      <a href="https://wa.me/+917593820007">
+              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                <RiWhatsappLine/>
+              </div>
+            </a>
+            
+            {/* chatbot */}
+            <div className="bottom-10 fixed right-10 z-[999]">
+              {openChat ? (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              ) : (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              )}
+            </div>
       {/* <div className="fixed top-0 left-0 w-full h-full bg-[url('./assets/bgimage.jpg')] bg-no-repeat bg-cover bg-center bg-fixed -z-10" />
       <div className="fixed top-0 left-0 w-full h-full bg-gradient-to-t from-[#111827] to-transparent -z-10" /> */}
       <div className="pt-[100px] flex flex-col justify-center items-center w-full px-2">
@@ -119,7 +143,7 @@ const Restaurant = () => {
             >
               <div>
                 <motion.div
-                  className="text-[20px] leading-normal lg:text-[30px] textGradient5 mb-3 md:mb-5"
+                  className="text-[20px] leading-normal lg:text-[30px] textGradient5 mb-3 font-bold md:mb-5"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
@@ -180,14 +204,14 @@ const Restaurant = () => {
 
       {/* Features Grid Section */}
       <motion.div
-        className="max-w-[1400px] mx-auto px-4 pb-20"
+        className="max-w-[1400px] leading-normal mx-auto px-4 pb-20"
         initial={{ opacity: 0, filter: "blur(10px)" }}
         whileInView={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-10 textGradient4"
+          className="text-3xl md:text-4xl font-bold text-center leading-normal mb-10 textGradient4"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -222,16 +246,16 @@ const Restaurant = () => {
               >
                 {feature.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold mb-2 text-white">
+              <h3 className="text-xl font-semibold mb-2 textGradient6 text-white">
                 {feature.title}
               </h3>
-              <p className="text-gray-400 text-sm">{feature.description}</p>
+              <p className="text-gray-400 text-sm textGradient6">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
       </motion.div>
 
-      <section className="w-full py-20 text-white relative">
+      <section className="w-full py-10 text-white relative">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -391,16 +415,16 @@ const Restaurant = () => {
           Business Applications
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {businessTypes.map((type, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex flex-col items-center justify-center p-4 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300"
-            >
-              <div className="text-4xl mb-3 text-[#f99f2c]">{type.icon}</div>
+              className="flex flex-col items-center justify-center p-4  backdrop-blur-sm rounded-xl   hover:border-blue-500/50 transition-all duration-300"
+              >
+                <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">{type.icon}</div>
               <p className="text-white text-center text-sm">{type.text}</p>
             </motion.div>
           ))}
@@ -413,15 +437,15 @@ const Restaurant = () => {
         viewport={{ once: true }}
         className="text-center py-8 pt-10 sm:pt-20"
       >
-        <h2 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">
+        <h2 className="text-xl sm:text-3xl textGradient4 font-bold mb-3 sm:mb-4 text-white">
           Ready to Transform ?
         </h2>
-        <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
+        <p className="text-gray-400 textGradient6 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
           Experience how DINE can streamline your operations, reduce errors, and
           boost customer satisfaction.
         </p>
         <a href="/contact">
-          <button className="bg-[#F99F2C] hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
+          <button className="bg-[#F99F2C] textGradient5 border hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
             Contact Now
           </button>
         </a>

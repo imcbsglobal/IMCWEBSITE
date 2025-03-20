@@ -6,6 +6,9 @@ import bs from "../../assets/bs.jpeg";
 import bs1 from "../../assets/bs1.jpg";
 import darkGradient from "../../assets/darkGradient.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 const BusinessConsultations = () => {
   useEffect(() => {
@@ -186,10 +189,29 @@ const BusinessConsultations = () => {
 
     return () => window.removeEventListener("scroll", scrollActive);
   }, []);
+   const [openChat, setOpenChat] = useState(false)
 
   return (
-    <div>
-      <div className="relative w-full">
+    <div className="">
+      <div className="relative w-full lg:pt-10">
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
         <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
           <img
             src={darkGradient}
@@ -202,13 +224,13 @@ const BusinessConsultations = () => {
             {/* Header Section */}
             <div className="max-w-6xl mx-auto mb-8">
               <h1 className="text-4xl md:text-7xl font-light mb-4 md:mb-8 textGradient4 text-center">
-                BUSINESS CONSULTATIONS
+                BUSINESS CONSULTING
               </h1>
 
               {/* Article Info Grid */}
               <div className="flex items-center justify-center textGradient6">
                 <div className="w-full md:w-[80%]">
-                  <p className="text-sm leading-relaxed text-center px-4 md:px-0">
+                  <p className="text-sm md:text-base leading-relaxed text-center px-4 md:px-0">
                     Expert business consultation services designed to transform
                     your operations and drive sustainable growth. Our strategic
                     approach identifies key opportunities and addresses core
@@ -246,9 +268,9 @@ const BusinessConsultations = () => {
               <div className="relative h-[400px] md:w-[70%] w-full bg-gradient-to-r overflow-hidden p-[1px] rounded-3xl">
                 <div className=" bg-[#fff1] backdrop-blur-sm border w-full h-full col-span-5 rounded-3xl p-6 text-white flex flex-col justify-center gap-4">
                   <h3 className="text-[24px] md:text-[28px] textGradient4 font-bold">
-                    Why Business Consultation Matters
+                    Why Business Consulting Matters
                   </h3>
-                  <ul className="list-disc pl-5 text-sm textGradient6 space-y-1">
+                  <ul className="list-disc pl-5 text-sm md:text-base textGradient6 space-y-1">
                     <li className="p-3">
                       Expert Analysis of Business Challenges
                     </li>
@@ -268,11 +290,11 @@ const BusinessConsultations = () => {
           <div className="w-full mx-auto p-4 md:p-8">
             {/* Main Title */}
             <h1 className="text-[36px] md:text-[50px] font-bold mb-4 md:mb-8 text-white textGradient4 text-center">
-              CONSULTATION SERVICES
+              CONSULTING SERVICES
             </h1>
 
             {/* Description Text */}
-            <p className="text-[18px] md:text-[20px] mb-8 md:mb-12 w-full text-white textGradient6 text-center">
+            <p className="text-sm md:text-lg  mb-8 md:mb-12 w-full text-white textGradient6 text-center">
               Our consultation approach combines analytical expertise with
               practical implementation strategies to deliver measurable business
               results. We offer comprehensive solutions that address your unique
@@ -341,16 +363,16 @@ const BusinessConsultations = () => {
               {/* Left Side - Form */}
               <div className="p-6 md:p-10 w-full md:w-[60%]">
                 <motion.h2
-                  className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-white"
+                  className="text-2xl md:text-4xl font-bold textGradient6 mb-4 md:mb-6 text-white"
                   initial={{ y: -30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8 }}
                 >
-                  Request a Free Consultation
+                  Request a Free Consulting
                 </motion.h2>
 
                 <motion.p
-                  className="text-white text-sm md:text-base mb-6 md:mb-8"
+                  className="text-white text-sm textGradient6 md:text-base mb-6 md:mb-8"
                   initial={{ y: -20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -438,17 +460,17 @@ const BusinessConsultations = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg bg-[#ffffff1a] border border-[#ffffff33] text-white appearance-none"
+                      className="w-full px-4 py-3 rounded-lg bg-[#ffffff1a] border text-[#000] border-[#ffffff33]"
                     >
                       <option value="">Select a Service</option>
-                      <option value="Strategic Planning">
+                      <option value="Strategic Planning" className="text-black">
                         Strategic Planning
                       </option>
-                      <option value="Process Optimization">
+                      <option value="Process Optimization" className="text-black">
                         Process Optimization
                       </option>
-                      <option value="Market Analysis">Market Analysis</option>
-                      <option value="Financial Advisory">
+                      <option value="Market Analysis" className="text-black">Market Analysis</option>
+                      <option value="Financial Advisory" className="text-black">
                         Financial Advisory
                       </option>
                     </select>

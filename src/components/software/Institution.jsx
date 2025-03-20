@@ -33,8 +33,13 @@ import {
   FaCalculator,
 } from "react-icons/fa";
 import Footer from ".././Footer";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 const Institution = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   const [productVideos, setProductVideos] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +50,7 @@ const Institution = () => {
     { icon: <FaBookReader />, text: "Coaching Centers" },
     { icon: <FaBook />, text: "Language Schools" },
     { icon: <FaUserTie />, text: "Professional Training" },
-    { icon: <FaUsers />, text: "Educational NGOs" },
+    { icon: <FaUsers />, text: "Educational" },
   ];
   const cardVariants = {
     hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
@@ -220,6 +225,24 @@ const Institution = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
         <section
           id="institutionmanagement"
           className="w-full relative pb-20 pt-15"
@@ -359,7 +382,7 @@ const Institution = () => {
 
         {/* Product Showcase Section */}
         <section className="w-full py-20 text-white relative">
-          <div className="max-w-[1400px] mx-auto px-6">
+          <div className="max-w-[1400px] mx-auto px-6 mb-10">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -460,15 +483,20 @@ const Institution = () => {
             )}
           </div>
 
-          <div className="max-w-[1400px] mx-auto px-6 pt-20">
+          <div className="max-w-[1400px] leading-tight mx-auto px-6">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-center mb-16"
+              className="text-xl lg:text-2xl textGradient5 leading-tight font-bold text-center"
             >
-              Why Choose Our Institution Management Software?
+              Why Choose Our 
             </motion.h2>
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="block textGradient4 relative text-5xl z-50 mb-10 leading-normal text-center">Institution Management Software?</motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
@@ -551,16 +579,16 @@ const Institution = () => {
               Business Applications
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {businessTypes.map((type, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex flex-col items-center justify-center p-4 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300"
-                >
-                  <div className="text-4xl mb-3 text-[#f99f2c]">
+                  className="flex flex-col items-center justify-center p-4  backdrop-blur-sm rounded-xl   hover:border-blue-500/50 transition-all duration-300"
+                  >
+                    <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">
                     {type.icon}
                   </div>
                   <p className="text-white text-center text-sm">{type.text}</p>
@@ -624,15 +652,15 @@ const Institution = () => {
                   viewport={{ once: true }}
                   className="text-center py-8 pt-10 sm:pt-20"
                 >
-                  <h2 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">
+                  <h2 className="text-xl textGradient4 sm:text-3xl font-bold mb-3 sm:mb-4 text-white">
                     Ready to Transform ?
                   </h2>
-                  <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
+                  <p className="text-gray-400 textGradient6 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
                     Experience how MAGNET can streamline your operations, reduce errors,
                     and boost customer satisfaction.
                   </p>
                   <a href="/contact">
-                  <button className="bg-[#F99F2C] hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
+                  <button className="bg-[#F99F2C] textGradient5 hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
                     Contact Now
                   </button>
                   </a>

@@ -11,8 +11,11 @@ import model2 from "../assets/model2.jpg";
 import imc from "../assets/imclogo1.png";
 import chattingBg from "../assets/chatting-bg.png";
 import { IoMdClose } from "react-icons/io";
-const GEMINI_API_KEY = 'AIzaSyDPEu2jezJsUuMRuOXKpgQk48F5962O_e4';
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent';
+import { motion } from "framer-motion"
+
+const GEMINI_API_KEY = 'AIzaSyC0Bvf5YXVV_gwY064yFxQbGmUh3htnUxk';
+const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta';
+const GEMINI_MODEL = 'gemini-1.5-pro'; // Updated to current model name
 
 const ChatBot = ({ openChatx, setOpenChatx }) => {
   // const [openChat, setOpenChat] = useState(false);
@@ -39,7 +42,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
 
   const processMessageWithGemini = async (userMessage) => {
     try {
-      const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+      const response = await fetch(`${GEMINI_BASE_URL}/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +50,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text:` ${context}\n\nUser: ${userMessage}`
+              text: `${context}\n\nUser: ${userMessage}`
             }]
           }],
           generationConfig: {
@@ -58,23 +61,26 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
           },
         })
       });
-
+  
       if (!response.ok) {
-        throw new Error('Failed to process message');
+        const errorData = await response.json();
+        console.error('API Error details:', errorData);
+        throw new Error(`Failed to process message: ${errorData.error?.message || response.statusText}`);
       }
-
+  
       const data = await response.json();
       const botResponse = data.candidates[0].content.parts[0].text;
-      
+  
       // Update context with the conversation
-      setContext(prev =>` ${prev}\nUser: ${userMessage}\nAssistant: ${botResponse}`);
-      
+      setContext(prev => `${prev}\nUser: ${userMessage}\nAssistant: ${botResponse}`);
+  
       return botResponse;
     } catch (error) {
       console.error('Error processing message with Gemini:', error);
       return "I apologize, but I'm having trouble processing your request right now. Please try again later.";
     }
   };
+  
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -150,7 +156,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
       You are a helpful customer service assistant for IMC Business Solutions. Use the following information to answer customer queries:
       my name is IMC BOT
       **Company Overview:**
-      IMC Business Solutions is a leading software company in India since 2017, offering a comprehensive management platform and a wide range of IT solutions, including business software, Android/iOS development, web development, hardware services, and IT support. Our primary mission is to bring RITS Software’s innovative products to global markets. We also operate Sysmac, a dedicated division providing hardware solutions and services to our clients.
+      IMC Business Solutions is a leading software company in India since 2017, offering a comprehensive management platform and a wide range of IT solutions, including business software, Android/iOS development, web development, hardware services, and IT support. Our primary mission is to bring RITS Software's innovative products to global markets. We also operate Sysmac, a dedicated division providing hardware solutions and services to our clients.
   
       **Experience and Clients:**
       - 5+ years of experience
@@ -222,7 +228,9 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
 
       {/* Chat Box - Responsive sizing and positioning */}
       {openChatx && (
-        <div className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden">
+        <motion.div
+        
+        className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden">
           {/* Background Image */}
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
             <img
@@ -346,7 +354,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Emoji Picker - Adjusted positioning for mobile */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef,useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "../Footer";
 import websiteandweb from "../../assets/websiteandweb.jpg";
@@ -6,8 +6,13 @@ import website1 from "../../assets/website1.jpg";
 import website2 from "../../assets/website2.jpg";
 import website from "../../assets/website.jpg";
 import darkGradient from "../../assets/darkGradient.jpg";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 const WebsiteWebApplication = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   useEffect(() => {
     // Scroll to the top of the page on mount
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -152,6 +157,24 @@ const WebsiteWebApplication = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
         <section className="w-full relative px-4 pb-20 pt-32">
           <div className="flex flex-col max-w-[1400px] mx-auto justify-center items-center gap-5">
             <motion.div
@@ -243,7 +266,7 @@ const WebsiteWebApplication = () => {
                     filter: "blur(0px)",
                   }}
                   transition={{
-                    duration: 1,
+                    duration: 0.5,
                     delay: index * 0.3,
                     ease: "easeOut",
                   }}
@@ -255,8 +278,8 @@ const WebsiteWebApplication = () => {
                       initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       transition={{
-                        duration: 1,
-                        delay: index * 0.5,
+                        duration: 0.5,
+                        delay: index * 0.3,
                         ease: "easeOut",
                       }}
                       className="text-[#fff] text-lg md:text-xl textGradient6 mb-3 font-black text-center pt-10"
@@ -267,8 +290,8 @@ const WebsiteWebApplication = () => {
                       initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       transition={{
-                        duration: 1,
-                        delay: index * 0.7,
+                        duration: 0.5,
+                        delay: index * 0.3,
                         ease: "easeOut",
                       }}
                       className="textGradient6 text-[#fff] text-sm md:text-base"

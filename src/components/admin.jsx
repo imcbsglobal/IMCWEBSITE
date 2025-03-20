@@ -12,7 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import { dbFirestore } from "../firebaseConfig";
-import { Menu } from 'lucide-react';
+import { Menu } from "lucide-react";
 import logo from "../assets/imclogo1.png";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const AdminPanel = () => {
     navigate("/");
     setIsSidebarOpen(false);
   };
-  
+
   // product
   const [selectedSection, setSelectedSection] = useState("dashboard");
   const [products, setProducts] = useState([]);
@@ -32,7 +32,7 @@ const AdminPanel = () => {
   const [productName, setProductName] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
   const [productCategory, setProductCategory] = useState("inventory");
-  
+
   // Product Image
   const [productImages, setProductImages] = useState([]);
   const [editingProductImageId, setEditingProductImageId] = useState(null);
@@ -40,8 +40,15 @@ const AdminPanel = () => {
   const [productImageCategory, setProductImageCategory] = useState("inventory");
   const [productImageUrl, setProductImageUrl] = useState("");
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
-  
-  const categories = ["inventory", "institution", "pharmacy", "hospitality", "healthcare", "restaurant"];
+
+  const categories = [
+    "inventory",
+    "institution",
+    "pharmacy",
+    "hospitality",
+    "healthcare",
+    "restaurant",
+  ];
 
   // Fetch products from Firestore
   const fetchProducts = async () => {
@@ -56,7 +63,9 @@ const AdminPanel = () => {
 
   // Fetch product images from Firestore
   const fetchProductImages = async () => {
-    const querySnapshot = await getDocs(collection(dbFirestore, "productImages"));
+    const querySnapshot = await getDocs(
+      collection(dbFirestore, "productImages")
+    );
     const productImagesList = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -83,10 +92,10 @@ const AdminPanel = () => {
     try {
       if (editingProductId) {
         const productRef = doc(dbFirestore, "products", editingProductId);
-        await updateDoc(productRef, { 
-          name: productName, 
-          videoUrl, 
-          category: productCategory 
+        await updateDoc(productRef, {
+          name: productName,
+          videoUrl,
+          category: productCategory,
         });
         alert("Product updated successfully!");
       } else {
@@ -94,7 +103,7 @@ const AdminPanel = () => {
           name: productName,
           videoUrl,
           category: productCategory,
-          timestamp: serverTimestamp()
+          timestamp: serverTimestamp(),
         });
         alert("Product added successfully!");
       }
@@ -115,11 +124,15 @@ const AdminPanel = () => {
 
     try {
       if (editingProductImageId) {
-        const productImageRef = doc(dbFirestore, "productImages", editingProductImageId);
-        await updateDoc(productImageRef, { 
-          name: productImageName, 
-          imageUrl: productImageUrl, 
-          category: productImageCategory 
+        const productImageRef = doc(
+          dbFirestore,
+          "productImages",
+          editingProductImageId
+        );
+        await updateDoc(productImageRef, {
+          name: productImageName,
+          imageUrl: productImageUrl,
+          category: productImageCategory,
         });
         alert("Product image updated successfully!");
       } else {
@@ -127,7 +140,7 @@ const AdminPanel = () => {
           name: productImageName,
           imageUrl: productImageUrl,
           category: productImageCategory,
-          timestamp: serverTimestamp()
+          timestamp: serverTimestamp(),
         });
         alert("Product image added successfully!");
       }
@@ -202,7 +215,8 @@ const AdminPanel = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.size > 500000) { // 500KB limit
+      if (file.size > 500000) {
+        // 500KB limit
         alert("Image size should be less than 500KB");
         return;
       }
@@ -280,14 +294,14 @@ const AdminPanel = () => {
       alert("Error: " + error.message);
     }
   };
-  
+
   // Edit demonstration
   const handleEditDemonstration = (demo) => {
     setDemoTitle(demo.title);
     setDemoVideoUrl(demo.videoUrl);
     setEditingDemoId(demo.id);
   };
-  
+
   // Clear demonstration form
   const clearDemoForm = () => {
     setDemoTitle("");
@@ -304,7 +318,6 @@ const AdminPanel = () => {
   const [base64Image, setBase64Image] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [editingTestimonialId, setEditingTestimonialId] = useState(null);
-  
 
   useEffect(() => {
     if (selectedSection === "testimonialList") {
@@ -313,7 +326,9 @@ const AdminPanel = () => {
   }, [selectedSection]);
 
   const fetchTestimonials = async () => {
-    const querySnapshot = await getDocs(collection(dbFirestore, "testimonials"));
+    const querySnapshot = await getDocs(
+      collection(dbFirestore, "testimonials")
+    );
     setTestimonials(
       querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
     );
@@ -323,7 +338,8 @@ const AdminPanel = () => {
   const handleTestimonialImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.size > 500000) { // 500KB limit
+      if (file.size > 500000) {
+        // 500KB limit
         alert("Image size should be less than 500KB");
         return;
       }
@@ -366,7 +382,11 @@ const AdminPanel = () => {
       };
 
       if (editingTestimonialId) {
-        const testimonialRef = doc(dbFirestore, "testimonials", editingTestimonialId);
+        const testimonialRef = doc(
+          dbFirestore,
+          "testimonials",
+          editingTestimonialId
+        );
         await setDoc(testimonialRef, testimonialData);
         alert("Testimonial updated successfully");
         clearTestimonialForm();
@@ -434,12 +454,15 @@ const AdminPanel = () => {
   // Video testimonials
   const [videoTestimonialName, setVideoTestimonialName] = useState("");
   const [videoTestimonialUrl, setVideoTestimonialUrl] = useState("");
-  const [editingVideoTestimonialId, setEditingVideoTestimonialId] = useState(null);
+  const [editingVideoTestimonialId, setEditingVideoTestimonialId] =
+    useState(null);
   const [videoTestimonials, setVideoTestimonials] = useState([]);
 
   const fetchVideoTestimonials = async () => {
     try {
-      const querySnapshot = await getDocs(collection(dbFirestore, "videoTestimonials"));
+      const querySnapshot = await getDocs(
+        collection(dbFirestore, "videoTestimonials")
+      );
       const testimonials = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -450,7 +473,7 @@ const AdminPanel = () => {
     }
     setIsSidebarOpen(false);
   };
-  
+
   useEffect(() => {
     if (selectedSection === "videoTestimonials") {
       fetchVideoTestimonials();
@@ -468,7 +491,7 @@ const AdminPanel = () => {
         name: videoTestimonialName,
         videoUrl: videoTestimonialUrl,
         date: serverTimestamp(),
-};
+      };
 
       if (editingVideoTestimonialId) {
         await updateDoc(
@@ -516,9 +539,112 @@ const AdminPanel = () => {
     }
     setIsSidebarOpen(false);
   };
- 
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // CAREER
+ // Career Section
+const [isCareerOpen, setIsCareerOpen] = useState(false);
+const [careers, setCareers] = useState([]);
+const [careerTitle, setCareerTitle] = useState("");
+const [careerDescription, setCareerDescription] = useState("");
+const [careerSkills, setCareerSkills] = useState("");
+const [careerExperience, setCareerExperience] = useState("");
+const [editingCareerId, setEditingCareerId] = useState(null);
+
+useEffect(() => {
+  if (selectedSection === "careerList") {
+    fetchCareers();
+  }
+}, [selectedSection]);
+
+const fetchCareers = async () => {
+  const querySnapshot = await getDocs(collection(dbFirestore, "careers"));
+  setCareers(
+    querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+  );
+  setIsSidebarOpen(false);
+};
+
+const handleSaveCareer = async () => {
+  try {
+    if (!careerTitle || !careerDescription || !careerSkills || !careerExperience) {
+      alert("Please fill in all the fields");
+      return;
+    }
+
+    const careerData = {
+      title: careerTitle,
+      description: careerDescription,
+      skills: careerSkills.split(",").map((skill) => skill.trim()), // Splitting skills by commas
+      experience: careerExperience,
+      uploadedDate: editingCareerId ? new Date().toISOString() : new Date().toISOString(), // Always set the date
+    };
+
+    if (editingCareerId) {
+      const careerRef = doc(dbFirestore, "careers", editingCareerId);
+      await setDoc(careerRef, careerData);
+      alert("Career post updated successfully");
+      clearCareerForm();
+    } else {
+      await addDoc(collection(dbFirestore, "careers"), careerData);
+      alert("Career post added successfully");
+    }
+
+    fetchCareers();
+    clearCareerForm();
+  } catch (error) {
+    console.error("Error adding career post:", error);
+    alert("Error adding career post. Please try again.");
+  }
+  setIsSidebarOpen(false);
+};
+
+const clearCareerForm = () => {
+  setCareerTitle("");
+  setCareerDescription("");
+  setCareerSkills("");
+  setCareerExperience("");
+  setEditingCareerId(null);
+  setIsSidebarOpen(false);
+};
+
+const handleEditCareer = (career) => {
+  if (!career) {
+    alert("Invalid career data");
+    return;
+  }
+
+  setCareerTitle(career.title || "");
+  setCareerDescription(career.description || "");
+  setCareerSkills(career.skills ? career.skills.join(", ") : "");
+  setCareerExperience(career.experience || "");
+  setEditingCareerId(career.id || null);
+  setIsSidebarOpen(false);
+};
+
+const handleDeleteCareer = async (id) => {
+  try {
+    await deleteDoc(doc(dbFirestore, "careers", id));
+    alert("Career post deleted successfully!");
+    fetchCareers();
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+  setIsSidebarOpen(false);
+};
+
+
   
+
+  const careerImageInputRef = useRef(null);
+  // const imageInputRef = useRef(null);
+  
+  useEffect(() => {
+    if (selectedSection === "manageCareer") {
+      fetchCareers();
+    }
+  }, [selectedSection]);
   return (
     <div>
       <div className="h-[900px] w-full flex ">
@@ -542,11 +668,11 @@ const AdminPanel = () => {
           <div className="hidden md:flex w-full h-[60px] items-center justify-center mt-10">
             <img src={logo} alt="logo" className="w-[100px] h-[100px]" />
           </div>
-          
+
           <h2 className="text-2xl font-bold mb-6 text-center mt-4 md:mt-10">
             Admin Panel
           </h2>
-          
+
           <ul className="space-y-4 overflow-hidden">
             <li>
               <button
@@ -628,6 +754,17 @@ const AdminPanel = () => {
             </li>
             <li>
               <button
+                onClick={() => {
+                  setSelectedSection("manageCareer");
+                  setIsSidebarOpen(false);
+                }}
+                className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
+              >
+                Manage Career
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={handleLogout}
                 className="w-full p-3 text-white text-lg rounded hover:bg-red-500"
               >
@@ -644,7 +781,7 @@ const AdminPanel = () => {
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
-        
+
         {/* Right Panel */}
         <div className="flex-1 md:p-10 bg-black text-white md:ml-[25%] mt-[65px]">
           {selectedSection === "dashboard" && (
@@ -681,7 +818,7 @@ const AdminPanel = () => {
                   onChange={(e) => setVideoUrl(e.target.value)}
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 />
-                
+
                 <select
                   value={productCategory}
                   onChange={(e) => setProductCategory(e.target.value)}
@@ -693,7 +830,7 @@ const AdminPanel = () => {
                     </option>
                   ))}
                 </select>
-                
+
                 <button
                   type="submit"
                   className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
@@ -730,7 +867,10 @@ const AdminPanel = () => {
                       <tr key={product.id} className="bg-gray-700">
                         <td className="p-2 border">{product.name}</td>
                         <td className="p-2 border">
-                          {product.category ? product.category.charAt(0).toUpperCase() + product.category.slice(1) : "Inventory"}
+                          {product.category
+                            ? product.category.charAt(0).toUpperCase() +
+                              product.category.slice(1)
+                            : "Inventory"}
                         </td>
                         <td className="p-2 border">
                           {product.videoUrl ? (
@@ -789,7 +929,7 @@ const AdminPanel = () => {
                   onChange={(e) => setProductImageName(e.target.value)}
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 />
-                
+
                 <select
                   value={productImageCategory}
                   onChange={(e) => setProductImageCategory(e.target.value)}
@@ -801,7 +941,7 @@ const AdminPanel = () => {
                     </option>
                   ))}
                 </select>
-                
+
                 <div className="w-full md:w-[500px]">
                   <input
                     type="file"
@@ -810,7 +950,9 @@ const AdminPanel = () => {
                     ref={imageInputRef}
                     className="text-white"
                   />
-                  <p className="text-gray-400 text-sm mt-1">Max file size: 500KB</p>
+                  <p className="text-gray-400 text-sm mt-1">
+                    Max file size: 500KB
+                  </p>
                   {imagePreviewUrl && (
                     <div className="mt-2">
                       <p>Image Preview:</p>
@@ -822,7 +964,7 @@ const AdminPanel = () => {
                     </div>
                   )}
                 </div>
-                
+
                 <button
                   type="submit"
                   className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded"
@@ -859,367 +1001,497 @@ const AdminPanel = () => {
                       <tr key={productImage.id} className="bg-gray-700">
                         <td className="p-2 border">{productImage.name}</td>
                         <td className="p-2 border">
-                          {productImage.category ? productImage.category.charAt(0).toUpperCase() + productImage.category.slice(1) : "Inventory"}
+                          {productImage.category
+                            ? productImage.category.charAt(0).toUpperCase() +
+                              productImage.category.slice(1)
+                            : "Inventory"}
                         </td>
-<td className="p-2 border">
-  {productImage.imageUrl ? (
-    <img
-      src={productImage.imageUrl}
-      alt={productImage.name}
-      className="w-full max-w-[200px]"
-    />
-  ) : (
-    "No image available"
-  )}
-</td>
-<td className="p-2 border">
-  <button
-    onClick={() => handleEditProductImage(productImage)}
-    className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-  >
-    Edit
-  </button>
-  <button
-    onClick={() => handleDeleteProductImage(productImage.id)}
-    className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-  >
-    Delete
-  </button>
-</td>
-</tr>
-))}
-</tbody>
-</table>
-</div>
-</>
-)}
+                        <td className="p-2 border">
+                          {productImage.imageUrl ? (
+                            <img
+                              src={productImage.imageUrl}
+                              alt={productImage.name}
+                              className="w-full max-w-[200px]"
+                            />
+                          ) : (
+                            "No image available"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditProductImage(productImage)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleDeleteProductImage(productImage.id)
+                            }
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
 
-{/* Manage Product Demonstration Section */}
-{selectedSection === "manageProductDemonstration" && (
-<>
-  <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
-    Manage Product Demonstrations
-  </h2>
+          {/* Manage Product Demonstration Section */}
+          {selectedSection === "manageProductDemonstration" && (
+            <>
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Product Demonstrations
+              </h2>
 
-  <form
-    onSubmit={(e) => {
-      e.preventDefault();
-      handleSaveProductDemo();
-    }}
-    className="space-y-4 flex flex-col items-center w-full px-4"
-  >
-    <input
-      type="text"
-      placeholder="Title"
-      value={productDemoTitle}
-      onChange={(e) => setProductDemoTitle(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black"
-    />
-    <textarea
-      placeholder="Description"
-      value={productDemoDescription}
-      onChange={(e) => setProductDemoDescription(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black h-32"
-    />
-    <input
-      type="text"
-      placeholder="YouTube Video URL"
-      value={productDemoVideoUrl}
-      onChange={(e) => setProductDemoVideoUrl(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black"
-    />
-    
-    <button
-      type="submit"
-      className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
-    >
-      {editingProductDemoId ? "Update" : "Submit"}
-    </button>
-    {editingProductDemoId && (
-      <button
-        type="button"
-        className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-        onClick={clearProductDemoForm}
-      >
-        Cancel Edit
-      </button>
-    )}
-  </form>
-
-  <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
-    Product Demonstrations List
-  </h3>
-
-  <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-    <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
-      <thead>
-        <tr className="bg-gray-800">
-          <th className="p-2 border">Title</th>
-          <th className="p-2 border">Description</th>
-          <th className="p-2 border">Video</th>
-          <th className="p-2 border">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {productDemos.map((demo) => (
-          <tr key={demo.id} className="bg-gray-700">
-            <td className="p-2 border">{demo.title}</td>
-            <td className="p-2 border">{demo.description}</td>
-            <td className="p-2 border">
-              {demo.videoUrl ? (
-                <iframe
-                  className="w-full max-w-[200px] h-[100px]"
-                  src={demo.videoUrl}
-                  title="YouTube Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveProductDemo();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Title"
+                  value={productDemoTitle}
+                  onChange={(e) => setProductDemoTitle(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
                 />
-              ) : (
-                "No video URL"
-              )}
-            </td>
-            <td className="p-2 border">
-              <button
-                onClick={() => handleEditProductDemo(demo)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDeleteProductDemo(demo.id)}
-                className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</>
-)}
+                <textarea
+                  placeholder="Description"
+                  value={productDemoDescription}
+                  onChange={(e) => setProductDemoDescription(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black h-32"
+                />
+                <input
+                  type="text"
+                  placeholder="YouTube Video URL"
+                  value={productDemoVideoUrl}
+                  onChange={(e) => setProductDemoVideoUrl(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
 
-{/* Testimonial List Section */}
-{selectedSection === "testimonialList" && (
-<>
-  <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
-    Manage Testimonials
-  </h2>
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                >
+                  {editingProductDemoId ? "Update" : "Submit"}
+                </button>
+                {editingProductDemoId && (
+                  <button
+                    type="button"
+                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    onClick={clearProductDemoForm}
+                  >
+                    Cancel Edit
+                  </button>
+                )}
+              </form>
 
-  <form
-    onSubmit={(e) => {
-      e.preventDefault();
-      handleSaveTestimonial();
-    }}
-    className="space-y-4 flex flex-col items-center w-full px-4"
-  >
-    <input
-      type="text"
-      placeholder="Name"
-      value={testimonialName}
-      onChange={(e) => setTestimonialName(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black"
-    />
-    <textarea
-      placeholder="Testimonial Text"
-      value={testimonialText}
-      onChange={(e) => setTestimonialText(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black h-32"
-    />
-    <div className="w-full md:w-[500px]">
-      <input
-        type="file"
-        onChange={handleTestimonialImageChange}
-        accept="image/*"
-        ref={testimonialImageInputRef}
-        className="text-white"
-      />
-      <p className="text-gray-400 text-sm mt-1">Max file size: 500KB</p>
-      {testimonialImagePreviewUrl && (
-        <div className="mt-2">
-          <p>Image Preview:</p>
-          <img
-            src={testimonialImagePreviewUrl}
-            alt="Testimonial Preview"
-            className="max-h-40 rounded mt-2"
-          />
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Product Demonstrations List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Title</th>
+                      <th className="p-2 border">Description</th>
+                      <th className="p-2 border">Video</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {productDemos.map((demo) => (
+                      <tr key={demo.id} className="bg-gray-700">
+                        <td className="p-2 border">{demo.title}</td>
+                        <td className="p-2 border">{demo.description}</td>
+                        <td className="p-2 border">
+                          {demo.videoUrl ? (
+                            <iframe
+                              className="w-full max-w-[200px] h-[100px]"
+                              src={demo.videoUrl}
+                              title="YouTube Video"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : (
+                            "No video URL"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditProductDemo(demo)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDeleteProductDemo(demo.id)}
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
+          {/* Testimonial List Section */}
+          {selectedSection === "testimonialList" && (
+            <>
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Testimonials
+              </h2>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveTestimonial();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={testimonialName}
+                  onChange={(e) => setTestimonialName(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <textarea
+                  placeholder="Testimonial Text"
+                  value={testimonialText}
+                  onChange={(e) => setTestimonialText(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black h-32"
+                />
+                <div className="w-full md:w-[500px]">
+                  <input
+                    type="file"
+                    onChange={handleTestimonialImageChange}
+                    accept="image/*"
+                    ref={testimonialImageInputRef}
+                    className="text-white"
+                  />
+                  <p className="text-gray-400 text-sm mt-1">
+                    Max file size: 500KB
+                  </p>
+                  {testimonialImagePreviewUrl && (
+                    <div className="mt-2">
+                      <p>Image Preview:</p>
+                      <img
+                        src={testimonialImagePreviewUrl}
+                        alt="Testimonial Preview"
+                        className="max-h-40 rounded mt-2"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                >
+                  {editingTestimonialId ? "Update" : "Submit"}
+                </button>
+                {editingTestimonialId && (
+                  <button
+                    type="button"
+                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    onClick={clearTestimonialForm}
+                  >
+                    Cancel Edit
+                  </button>
+                )}
+              </form>
+
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Testimonials List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Name</th>
+                      <th className="p-2 border">Testimonial</th>
+                      <th className="p-2 border">Image</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {testimonials.map((testimonial) => (
+                      <tr key={testimonial.id} className="bg-gray-700">
+                        <td className="p-2 border">{testimonial.name}</td>
+                        <td className="p-2 border">{testimonial.text}</td>
+                        <td className="p-2 border">
+                          {testimonial.imageUrl ? (
+                            <img
+                              src={testimonial.imageUrl}
+                              alt={testimonial.name}
+                              className="w-full max-w-[100px]"
+                            />
+                          ) : (
+                            "No image available"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditTestimonial(testimonial)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleDeleteTestimonial(testimonial.id)
+                            }
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
+          {/* Video Testimonials Section */}
+          {selectedSection === "videoTestimonials" && (
+            <>
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Video Testimonials
+              </h2>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveVideoTestimonial();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={videoTestimonialName}
+                  onChange={(e) => setVideoTestimonialName(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <input
+                  type="text"
+                  placeholder="YouTube Video URL"
+                  value={videoTestimonialUrl}
+                  onChange={(e) => setVideoTestimonialUrl(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                >
+                  {editingVideoTestimonialId ? "Update" : "Submit"}
+                </button>
+                {editingVideoTestimonialId && (
+                  <button
+                    type="button"
+                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    onClick={clearVideoTestimonialForm}
+                  >
+                    Cancel Edit
+                  </button>
+                )}
+              </form>
+
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Video Testimonials List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Name</th>
+                      <th className="p-2 border">Video</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {videoTestimonials.map((testimonial) => (
+                      <tr key={testimonial.id} className="bg-gray-700">
+                        <td className="p-2 border">{testimonial.name}</td>
+                        <td className="p-2 border">
+                          {testimonial.videoUrl ? (
+                            <iframe
+                              className="w-full max-w-[200px] h-[100px]"
+                              src={testimonial.videoUrl}
+                              title="YouTube Video"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : (
+                            "No video URL"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() =>
+                              handleEditVideoTestimonial(testimonial)
+                            }
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleDeleteVideoTestimonial(testimonial.id)
+                            }
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
+          {selectedSection === "manageCareer" && (
+            <>
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Careers
+              </h2>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveCareer();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Post Title"
+                  value={careerTitle}
+                  onChange={(e) => setCareerTitle(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <textarea
+                  placeholder="Description"
+                  value={careerDescription}
+                  onChange={(e) => setCareerDescription(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <input
+                  type="text"
+                  placeholder="Skills (comma separated)"
+                  value={careerSkills}
+                  onChange={(e) => setCareerSkills(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <input
+                  type="text"
+                  placeholder="Experience"
+                  value={careerExperience}
+                  onChange={(e) => setCareerExperience(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                {/* <input
+                  type="text"
+                  placeholder="Uploaded Date"
+                  value={careerUploadedDate}
+                  onChange={(e) => setCareerUploadedDate(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                /> */}
+
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                >
+                  {editingCareerId ? "Update" : "Submit"}
+                </button>
+
+                {editingCareerId && (
+                  <button
+                    type="button"
+                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    onClick={clearCareerForm}
+                  >
+                    Cancel Edit
+                  </button>
+                )}
+              </form>
+
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Career Post List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                  <thead>
+                    <tr className="bg-gray-800">
+                      <th className="p-2 border">Post Title</th>
+                      <th className="p-2 border">Description</th>
+                      <th className="p-2 border">Skills</th>
+                      <th className="p-2 border">Experience</th>
+                      <th className="p-2 border">Uploaded Date</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {careers.map((career) => (
+                      <tr key={career.id} className="bg-gray-700">
+                        <td className="p-2 border">{career.title}</td>
+                        <td className="p-2 border">{career.description}</td>
+                        <td className="p-2 border">
+                          {career.skills.join(", ")}
+                        </td>
+                        <td className="p-2 border">{career.experience}</td>
+                        <td className="p-2 border">
+                          {new Date(career.uploadedDate).toLocaleDateString()}{" "}
+                          {/* Auto-generated date */}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditCareer(career)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDeleteCareer(career.id)}
+                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
         </div>
-      )}
+      </div>
     </div>
-    
-    <button
-      type="submit"
-      className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
-    >
-      {editingTestimonialId ? "Update" : "Submit"}
-    </button>
-    {editingTestimonialId && (
-      <button
-        type="button"
-        className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-        onClick={clearTestimonialForm}
-      >
-        Cancel Edit
-      </button>
-    )}
-  </form>
-
-  <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
-    Testimonials List
-  </h3>
-
-  <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-    <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
-      <thead>
-        <tr className="bg-gray-800">
-          <th className="p-2 border">Name</th>
-          <th className="p-2 border">Testimonial</th>
-          <th className="p-2 border">Image</th>
-          <th className="p-2 border">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {testimonials.map((testimonial) => (
-          <tr key={testimonial.id} className="bg-gray-700">
-            <td className="p-2 border">{testimonial.name}</td>
-            <td className="p-2 border">{testimonial.text}</td>
-            <td className="p-2 border">
-              {testimonial.imageUrl ? (
-                <img
-                  src={testimonial.imageUrl}
-                  alt={testimonial.name}
-                  className="w-full max-w-[100px]"
-                />
-              ) : (
-                "No image available"
-              )}
-            </td>
-            <td className="p-2 border">
-              <button
-                onClick={() => handleEditTestimonial(testimonial)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDeleteTestimonial(testimonial.id)}
-                className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</>
-)}
-
-{/* Video Testimonials Section */}
-{selectedSection === "videoTestimonials" && (
-<>
-  <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
-    Manage Video Testimonials
-  </h2>
-
-  <form
-    onSubmit={(e) => {
-      e.preventDefault();
-      handleSaveVideoTestimonial();
-    }}
-    className="space-y-4 flex flex-col items-center w-full px-4"
-  >
-    <input
-      type="text"
-      placeholder="Name"
-      value={videoTestimonialName}
-      onChange={(e) => setVideoTestimonialName(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black"
-    />
-    <input
-      type="text"
-      placeholder="YouTube Video URL"
-      value={videoTestimonialUrl}
-      onChange={(e) => setVideoTestimonialUrl(e.target.value)}
-      className="w-full md:w-[500px] p-3 border rounded text-black"
-    />
-    
-    <button
-      type="submit"
-      className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
-    >
-      {editingVideoTestimonialId ? "Update" : "Submit"}
-    </button>
-    {editingVideoTestimonialId && (
-      <button
-        type="button"
-        className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-        onClick={clearVideoTestimonialForm}
-      >
-        Cancel Edit
-      </button>
-    )}
-  </form>
-
-  <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
-    Video Testimonials List
-  </h3>
-
-  <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-    <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
-      <thead>
-        <tr className="bg-gray-800">
-          <th className="p-2 border">Name</th>
-          <th className="p-2 border">Video</th>
-          <th className="p-2 border">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {videoTestimonials.map((testimonial) => (
-          <tr key={testimonial.id} className="bg-gray-700">
-            <td className="p-2 border">{testimonial.name}</td>
-            <td className="p-2 border">
-              {testimonial.videoUrl ? (
-                <iframe
-                  className="w-full max-w-[200px] h-[100px]"
-                  src={testimonial.videoUrl}
-                  title="YouTube Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                "No video URL"
-              )}
-            </td>
-            <td className="p-2 border">
-              <button
-                onClick={() => handleEditVideoTestimonial(testimonial)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDeleteVideoTestimonial(testimonial.id)}
-                className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</>
-)}
-</div>
-</div>
-</div>
-);
+  );
 };
 
 export default AdminPanel;

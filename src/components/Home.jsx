@@ -75,6 +75,10 @@ import flutter from '../assets/flutter.png'
 import python from '../assets/python.png'
 import hostinger from '../assets/hostinger.png'
 import pgadmin from '../assets/pgadmin.png'
+import { RiWhatsappLine } from "react-icons/ri";
+
+import appeon from '../assets/APPEON.jpg'
+ 
 const Home = () => {pgadmin
   const canvasRef = useRef(null);
   const [result, setResult] = React.useState("");
@@ -184,7 +188,7 @@ const Home = () => {pgadmin
       "no": "05",
       "name": "Digital Marketing",
       "img": digitalmarketing,
-      "title": "Boost Your Brand's Online Presence",
+      "title": "Boost Your Brands Online Presence",
       "section": "Digital Marketing",
       "para": "Harness the power of data-driven strategies, SEO, and social media to increase brand visibility, drive engagement, and accelerate business growth in the digital landscape.",
       "link": "/digitalmarketing"
@@ -193,7 +197,7 @@ const Home = () => {pgadmin
       "no": "05",
       "name": "Hardware Solutions",
       "img": hardware,
-      "title": "Reliable IT Infrastructure & Support",
+      "title": "Reliable IT Infrastructure and Support",
       "section": "Hardware Solutions",
       "para": "Providing high-quality hardware solutions, from servers to networking equipment, ensuring seamless performance, security, and scalability for your business needs.",
       "link": "/hardwaresolutions"
@@ -452,6 +456,7 @@ useEffect(() => {
     { name: "PgAdmin", img: pgadmin },
     { name: "Firebase", img: firebase },
     { name: "SAP", img: sap },
+    {name:"APPEON", img:appeon},
   ];
   // Service
 
@@ -530,6 +535,13 @@ useEffect(() => {
     <div data-scroll-container className="relative overflow-hidden ">
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40"></div>
 
+      {/* Whatsapp */}
+      <a href="https://wa.me/+917593820007">
+        <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+          <RiWhatsappLine/>
+        </div>
+      </a>
+      
       {/* chatbot */}
       <div className="bottom-10 fixed right-10 z-[999]">
         {openChat ? (
@@ -658,14 +670,12 @@ useEffect(() => {
               custom={8}
               variants={textRevealVariants}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium molestiae nostrum repudiandae optio, repellat, laborum
-              quaerat quam quidem illo, corporis suscipit dicta earum asperiores
-              magni obcaecati commodi porro voluptates tenetur. Obcaecati
-              voluptas, enim voluptatem voluptatibus earum repellendus, sapiente
-              fugit maxime maiores inventore vel, alias aliquam ea? Quod
-              similique commodi quis eius minima cum ex eos vero praesentium
-              itaque. Molestiae, sed.
+              Empowering Businesses with Cutting-Edge IT Solutions! From Retail
+              & Wholesale to Healthcare, Education, and Hospitality – IMC
+              Business Solutions delivers powerful, scalable, and innovative
+              software solutions. Elevate efficiency, streamline operations, and
+              transform your business with our expert-driven technology. Your
+              success, our innovation!
             </motion.div>
 
             <div className="flex gap-3 items-center relative z-50">
@@ -816,8 +826,8 @@ useEffect(() => {
           </div>
         </div>
 
-       {/* Stats section */}
-       <div className="px-3 md:px-0" ref={statsRef}>
+        {/* Stats section */}
+        <div className="px-3 md:px-0" ref={statsRef}>
           <motion.section
             className="w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r p-[1px]"
             initial="hidden"
@@ -1119,7 +1129,7 @@ useEffect(() => {
         </motion.div>
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold leading-normal textGradient4">
-          Our Trusted Tech Allies
+            Our Trusted Tech Allies
           </h2>
           <p className="text-lg text-gray-400 mt-3">
             Our solutions are powered by the latest tools and technologies.

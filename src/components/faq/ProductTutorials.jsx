@@ -3,6 +3,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
 import Footer from "../Footer";
 import darkGradient from "../../assets/darkGradient.jpg";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
 
 const ProductTutorials = () => {
   const [demonstrations, setDemonstrations] = useState([]);
@@ -29,19 +31,38 @@ const ProductTutorials = () => {
 
     fetchDemonstrations();
   }, []);
+   const [openChat, setOpenChat] = useState(false)
 
   return (
     <div className="min-h-screen relative">
       <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 -z-10">
         <img src={darkGradient} alt="" className="w-full h-full object-cover" />
       </div>
+      <a href="https://wa.me/+917593820007">
+              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                <RiWhatsappLine/>
+              </div>
+            </a>
+            
+            {/* chatbot */}
+            <div className="bottom-10 fixed right-10 z-[999]">
+              {openChat ? (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              ) : (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              )}
+            </div>
       <section className="pb-16 pt-32 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 textGradient4">
               PRODUCT DEMONSTRATION
             </h1>
-            <p className="text-base sm:text-lg text-white max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-white max-w-3xl mx-auto textGradient6">
               Explore our product demonstrations to learn more about our
               products features and capabilities. Watch detailed tutorials and
               guides to make the most of your purchase.

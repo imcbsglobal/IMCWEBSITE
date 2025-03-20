@@ -1,26 +1,50 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import Footer from '../Footer'
 import { CgArrowLongRight } from "react-icons/cg";
 import { MdContactSupport } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import whatsapp from '../../assets/whatsapp.jpeg'
-import darkGradient from "../../assets/darkGradient.jpg";
+import darkGradient from "../../assets/darkgradient.jpg";
+import { FcServices } from "react-icons/fc";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 const WhatsappSupports = () => {
   useEffect(() => {
       // Scroll to the top of the page on mount
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
+       const [openChat, setOpenChat] = useState(false)
+    
   return (
-    <div className="flex flex-col justify-center items-center w-full relative  pt-32">
+    <div className="flex flex-col justify-center items-center w-full relative pt-32">
       <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
         <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
       </div>
-      <section className="max-w-[1400px] w-full mb-10">
+      <a href="https://wa.me/+917593820007">
+              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                <RiWhatsappLine/>
+              </div>
+            </a>
+            
+            {/* chatbot */}
+            <div className="bottom-10 fixed right-10 z-[999]">
+              {openChat ? (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              ) : (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              )}
+            </div>
+      <section className="max-w-[1400px] w-full mb-10 px-2 md:px-0">
         <div>
           <div className="text-[#fff] text-3xl sm:text-[50px] textGradient4 mb-5 text-center leading-tight">
             IMC Technology Solutions{" "}
-            <span className="block text-base sm:text-[20px]">
+            <span className="block text-base sm:text-[20px] mt-5 textGradient5 font-bold">
               Your Trusted Partner in IT Solutions and Support
             </span>
           </div>
@@ -59,13 +83,13 @@ const WhatsappSupports = () => {
                 <div className="w-full h-[300px] md:h-[250px] sm:h-[300px] rounded-3xl bg-[#fff] py-10 px-4">
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
                     <div className="h-full flex flex-col justify-around w-full sm:w-[50%]">
-                      <div className="flex items-center gap-2 textGradient5 font-bold">
+                      <div className="flex items-center gap-2 textGradient7 font-bold">
                         <span className="text-2xl sm:text-3xl">
                           <MdContactSupport />
                         </span>{" "}
                         Technical Support
                       </div>
-                      <div className="text-[28px] sm:text-[36px] font-bold textGradient5">
+                      <div className="text-[28px] sm:text-[36px] font-bold textGradient7">
                         Expert IT Solutions
                       </div>
                     </div>
@@ -86,8 +110,8 @@ const WhatsappSupports = () => {
                   <div className="px-8 py-2 rounded-3xl bg-[#000] text-[#fff] textGradient6 text-nowrap drop-shadow-md">
                     Our Services
                   </div>
-                  <div className="textGradient4 text-[36px] sm:text-[50px] drop-shadow-sm">
-                    01
+                  <div className="textGradient7 text-[36px] sm:text-[50px] drop-shadow-sm">
+                    <FcServices />
                   </div>
                 </div>
                 <div className="h-full flex flex-col justify-between">

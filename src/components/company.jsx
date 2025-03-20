@@ -14,9 +14,11 @@ import "locomotive-scroll/dist/locomotive-scroll.css";
 import darkGradient from "../assets/darkGradient.jpg"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useInView } from "framer-motion";
-
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "./ChatBot";
 
 const company = () => {
+     const [openChat, setOpenChat] = useState(false)
   
   const location = useLocation();
   const locoRef = useRef(null);
@@ -309,6 +311,24 @@ const company = () => {
               className="w-full h-full object-cover"
             />
           </div>
+          <a href="https://wa.me/+917593820007">
+                  <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                    <RiWhatsappLine/>
+                  </div>
+                </a>
+                
+                {/* chatbot */}
+                <div className="bottom-10 fixed right-10 z-[999]">
+                  {openChat ? (
+                    <div className="fixed bottom-10 z-[999] right-10">
+                      <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                    </div>
+                  ) : (
+                    <div className="fixed bottom-10 z-[999] right-10">
+                      <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                    </div>
+                  )}
+                </div>
         {/* about */}
         <div className="flex flex-col justify-center items-center w-full">
           <section
@@ -321,7 +341,7 @@ const company = () => {
             </div> */}
             <div className="w-full px-2 max-w-[1400px] mx-auto">
               <motion.div
-                className="text-[#fff] text-[16px] md:text-[30px] mb-5 textGradient4 text-center leading-tight overflow-hidden"
+                className="text-[#fff] text-[16px] md:text-[30px] mb-5 textGradient5 font-bold text-center leading-tight overflow-hidden"
                 style={{
                   opacity: titleOpacity,
                   y: titleY,
@@ -330,7 +350,7 @@ const company = () => {
               >
                 WHO WE ARE
                 <motion.span
-                  className="block text-[36px] md:text-[50px]"
+                  className="block text-[36px] md:text-[50px] textGradient4"
                   style={{
                     opacity: useTransform(smoothProgress, [0.1, 0.3], [0, 1]),
                     y: useTransform(smoothProgress, [0.1, 0.3], [30, 0]),
@@ -426,7 +446,7 @@ const company = () => {
               >
                 Behind the Vision
                 <motion.span
-                  className="block text-[20px] md:text-[30px] textGradient4 px-2"
+                  className="block text-[20px] md:text-[30px] textGradient5 font-bold px-2"
                   style={{
                     opacity: subheadingOpacity,
                     y: subheadingY,
@@ -570,7 +590,7 @@ const company = () => {
             >
               <div className="text-[30px] sm:text-[40px] md:text-[50px] textGradient4 text-[#fff] text-center leading-tight mb-5">
                 VISION AND MISSION
-                <span className="block text-[18px] sm:text-[25px] md:text-[30px]">
+                <span className="block text-[18px] sm:text-[25px] textGradient5 font-bold md:text-[30px]">
                   Innovation with Impact
                 </span>
               </div>
@@ -705,7 +725,7 @@ const company = () => {
                   </motion.h2>
                   <motion.p
                     ref={descriptionRef}
-                    className="text-white text-sm md:text-base"
+                    className="text-white text-sm md:text-base textGradient6"
                     initial={{ opacity: 0, y: 20 }}
                     animate={
                       isDescriptionInView
@@ -725,7 +745,7 @@ const company = () => {
                       key={index}
                       className={`${
                         card.bgColor
-                      } rounded-lg p-6 flex flex-col justify-center gap-4 ${
+                      } rounded-lg p-6 flex flex-col justify-center gap-4 textGradient6 ${
                         card.hasBorder ? "border border-gray-200" : ""
                       }`}
                       custom={index}
@@ -747,7 +767,7 @@ const company = () => {
                         {card.title}
                       </motion.h3>
                       <motion.p
-                        className="text-white"
+                        className="text-white textGradient6"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
@@ -797,7 +817,7 @@ const company = () => {
           initial="hidden"
           whileInView="visible"
           whileHover="hover"
-          className="text-sm md:text-base max-w-[1000px] mx-auto">
+          className="text-sm md:text-base max-w-[1000px] mx-auto textGradient6">
             Unlock growth through partnerships, technological innovation, and
             market-driven solutions. Whether you're a startup or a growing
             enterprise, we are your partner for business transformation.
@@ -809,7 +829,7 @@ const company = () => {
           {opportunities.map((opportunity, index) => (
             <motion.div
               key={index}
-              className="bg-[#035a57] p-5 rounded-3xl text-[#fff] border flex flex-col justify-center items-start gap-4"
+              className="bg-[#035a57] p-5 textGradient6 rounded-3xl text-[#fff] border flex flex-col justify-center items-start gap-4"
               variants={cardVariants2}
               initial="hidden"
               whileInView="visible"

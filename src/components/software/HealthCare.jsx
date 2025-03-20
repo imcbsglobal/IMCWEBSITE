@@ -1,29 +1,81 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaUserMd, FaNotesMedical, FaFlask, FaFileInvoiceDollar, FaPills, FaShieldAlt, FaUsersCog, FaBalanceScale, FaHospital, FaClinicMedical, FaTeeth, FaEye, FaAmbulance } from 'react-icons/fa';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaUserMd,
+  FaNotesMedical,
+  FaFlask,
+  FaFileInvoiceDollar,
+  FaPills,
+  FaShieldAlt,
+  FaUsersCog,
+  FaBalanceScale,
+  FaHospital,
+  FaClinicMedical,
+  FaTeeth,
+  FaEye,
+  FaAmbulance,
+} from "react-icons/fa";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
-import HealthCareImg from '../../assets/healthcareimg.jpg';
-import shade from '../../assets/SHADEorg.png';
-import Footer from '../Footer';
-import darkGradient from '../../assets/darkGradient.jpg';
+import HealthCareImg from "../../assets/healthcareimg.jpg";
+import shade from "../../assets/SHADEorg.png";
+import Footer from "../Footer";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
+
 const features = [
-  { icon: <FaUserMd />, title: 'Patient Registration & Appointment Management', desc: 'Hassle-free booking, scheduling, and queue management.' },
-  { icon: <FaNotesMedical />, title: 'Electronic Medical Records (EMR)', desc: 'Secure and centralized patient records for better diagnosis and treatment.' },
-  { icon: <FaFlask />, title: 'Laboratory & Diagnostic Management', desc: 'Integrated lab module for efficient test processing and reporting.' },
-  { icon: <FaFileInvoiceDollar />, title: 'Scan & Procedures Billing', desc: 'Automated billing, claims processing, and compliance with regulations.' },
-  { icon: <FaPills />, title: 'Pharmacy & Inventory Control', desc: 'Real-time stock tracking, expiry alerts, and prescription management.' },
-  { icon: <FaUsersCog />, title: 'Doctor & Staff Management', desc: 'Easy scheduling, shift tracking, and performance monitoring.' },
-  { icon: <FaShieldAlt />, title: 'Data Security & Compliance', desc: 'Advanced security measures ensuring data privacy and regulatory compliance.' },
-  { icon: <FaBalanceScale />, title: 'Financial Transparency', desc: 'Clear and detailed financial insights for better decision-making.' },
+  {
+    icon: <FaUserMd />,
+    title: "Patient Registration & Appointment Management",
+    desc: "Hassle-free booking, scheduling, and queue management.",
+  },
+  {
+    icon: <FaNotesMedical />,
+    title: "Electronic Medical Records (EMR)",
+    desc: "Secure and centralized patient records for better diagnosis and treatment.",
+  },
+  {
+    icon: <FaFlask />,
+    title: "Laboratory & Diagnostic Management",
+    desc: "Integrated lab module for efficient test processing and reporting.",
+  },
+  {
+    icon: <FaFileInvoiceDollar />,
+    title: "Scan & Procedures Billing",
+    desc: "Automated billing, claims processing, and compliance with regulations.",
+  },
+  {
+    icon: <FaPills />,
+    title: "Pharmacy & Inventory Control",
+    desc: "Real-time stock tracking, expiry alerts, and prescription management.",
+  },
+  {
+    icon: <FaUsersCog />,
+    title: "Doctor & Staff Management",
+    desc: "Easy scheduling, shift tracking, and performance monitoring.",
+  },
+  {
+    icon: <FaShieldAlt />,
+    title: "Data Security & Compliance",
+    desc: "Advanced security measures ensuring data privacy and regulatory compliance.",
+  },
+  {
+    icon: <FaBalanceScale />,
+    title: "Financial Transparency",
+    desc: "Clear and detailed financial insights for better decision-making.",
+  },
 ];
 
 const HealthCare = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   const [productVideos, setProductVideos] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,46 +89,46 @@ const HealthCare = () => {
     { icon: <FaAmbulance />, text: "Emergency Services" },
   ];
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
     fetchProductVideosAndImages();
   }, []);
 
-   const fetchProductVideosAndImages = async () => {
-      try {
-        setLoading(true);
-        
-        // Fixed case sensitivity - "inventory" instead of "Inventory"
-        const videoQuery = query(
-          collection(dbFirestore, "products"),
-          where("category", "==", "healthcare")
-        );
-        const videoSnapshot = await getDocs(videoQuery);
-        const videoData = videoSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        console.log("Video data:", videoData); // Debug log
-        setProductVideos(videoData);
-        
-        // Fixed case sensitivity - "inventory" instead of "Inventory"
-        const imageQuery = query(
-          collection(dbFirestore, "productImages"),
-          where("category", "==", "healthcare")
-        );
-        const imageSnapshot = await getDocs(imageQuery);
-        const imageData = imageSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        console.log("Image data:", imageData); // Debug log
-        setProductImages(imageData);
-        
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-        setLoading(false);
-      }
-    };
+  const fetchProductVideosAndImages = async () => {
+    try {
+      setLoading(true);
+
+      // Fixed case sensitivity - "inventory" instead of "Inventory"
+      const videoQuery = query(
+        collection(dbFirestore, "products"),
+        where("category", "==", "healthcare")
+      );
+      const videoSnapshot = await getDocs(videoQuery);
+      const videoData = videoSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log("Video data:", videoData); // Debug log
+      setProductVideos(videoData);
+
+      // Fixed case sensitivity - "inventory" instead of "Inventory"
+      const imageQuery = query(
+        collection(dbFirestore, "productImages"),
+        where("category", "==", "healthcare")
+      );
+      const imageSnapshot = await getDocs(imageQuery);
+      const imageData = imageSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log("Image data:", imageData); // Debug log
+      setProductImages(imageData);
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+      setLoading(false);
+    }
+  };
 
   const openFullScreen = (image) => {
     setSelectedImage(image);
@@ -91,6 +143,24 @@ const HealthCare = () => {
       <div className="absolute top-0 bottom-0 left-0 right-0 -z-10 h-full w-full">
         <img src={darkGradient} alt="" className="w-full h-full object-cover" />
       </div>
+      <a href="https://wa.me/+917593820007">
+              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                <RiWhatsappLine/>
+              </div>
+            </a>
+            
+            {/* chatbot */}
+            <div className="bottom-10 fixed right-10 z-[999]">
+              {openChat ? (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              ) : (
+                <div className="fixed bottom-10 z-[999] right-10">
+                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                </div>
+              )}
+            </div>
       <section className="py-20 relative w-full pt-32 px-2">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center text-center lg:text-left gap-8">
           <motion.img
@@ -267,16 +337,16 @@ const HealthCare = () => {
             Business Applications
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {businessTypes.map((type, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex flex-col items-center justify-center p-4 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300"
+                className="flex flex-col items-center justify-center p-4  backdrop-blur-sm rounded-xl   hover:border-blue-500/50 transition-all duration-300"
               >
-                <div className="text-4xl mb-3 text-[#f99f2c]">{type.icon}</div>
+                <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">{type.icon}</div>
                 <p className="text-white text-center text-sm">{type.text}</p>
               </motion.div>
             ))}
@@ -331,28 +401,28 @@ const HealthCare = () => {
           </motion.div>
         )}
       </AnimatePresence>
-       <motion.div
-                initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="text-center py-8 pt-10 sm:pt-20"
-              >
-                <h2 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4 ">
-                  Ready to Transform ?
-                </h2>
-                <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
-                  Experience how SHADE  can streamline your operations, reduce errors,
-                  and boost customer satisfaction.
-                </p>
-                <a href="/contact">
-                <button className="bg-[#F99F2C] hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
-                  Contact Now
-                </button>
-                </a>
-              </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-center py-8 pt-10 sm:pt-20"
+      >
+        <h2 className="text-xl sm:text-3xl font-bold mb-3 textGradient4 sm:mb-4 ">
+          Ready to Transform ?
+        </h2>
+        <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl textGradient6 mx-auto px-4 text-sm sm:text-base">
+          Experience how SHADE can streamline your operations, reduce errors,
+          and boost customer satisfaction.
+        </p>
+        <a href="/contact">
+          <button className="bg-[#F99F2C] hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg textGradient5 shadow-[#F99F2C]/20 text-sm sm:text-base">
+            Contact Now
+          </button>
+        </a>
+      </motion.div>
 
-      <section className="bg-[#fff] py-10 w-full">
+      <section className="bg-[#fff] py-10 text-[#000] w-full">
         <Footer />
       </section>
     </div>
@@ -360,6 +430,3 @@ const HealthCare = () => {
 };
 
 export default HealthCare;
-
-
-

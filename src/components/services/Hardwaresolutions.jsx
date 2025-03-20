@@ -17,8 +17,13 @@ import innovation from '../../assets/innovation.png';
 import warranty from '../../assets/warranty.png';
 import darkGradient from "../../assets/darkGradient.jpg";
 import { motion } from "framer-motion";
+import { RiWhatsappLine } from "react-icons/ri";
+import ChatBot from "../../components/ChatBot";
+
 
 const Hardwaresolutions = () => {
+     const [openChat, setOpenChat] = useState(false)
+  
   const [activeTab, setActiveTab] = useState("pos");
 
   useEffect(() => {
@@ -27,7 +32,7 @@ const Hardwaresolutions = () => {
 
   const solutions = {
     pos: {
-      title: "POS Systems & Equipment",
+      title: "POS Systems and Equipment",
       description: "State-of-the-art point-of-sale systems that streamline your business operations and enhance customer experience.",
       image: posSystem,
       features: [
@@ -63,11 +68,11 @@ const Hardwaresolutions = () => {
       ]
     },
     support: {
-      title: "Maintenance & Support",
+      title: "Maintenance and Support",
       description: "Comprehensive support services to keep your hardware running smoothly and efficiently.",
       image: technician,
       features: [
-        "24/7 technical support and troubleshooting",
+        "Technical support and troubleshooting",
         "Preventive maintenance programs",
         "On-site repair services",
         "Hardware upgrades and replacements",
@@ -90,6 +95,24 @@ const Hardwaresolutions = () => {
             transition={{ duration: 1.2, ease: "easeInOut" }}
           />
         </div>
+        <a href="https://wa.me/+917593820007">
+                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+                  <RiWhatsappLine/>
+                </div>
+              </a>
+              
+              {/* chatbot */}
+              <div className="bottom-10 fixed right-10 z-[999]">
+                {openChat ? (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                ) : (
+                  <div className="fixed bottom-10 z-[999] right-10">
+                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+                  </div>
+                )}
+              </div>
 
         <section className="w-full max-w-[1400px] mx-auto rounded-3xl">
           <motion.div
@@ -343,25 +366,25 @@ const Hardwaresolutions = () => {
                 <h3 className="text-2xl font-semibold textGradient4 text-[#fff] mb-6">
                   Our Commitment to Excellence
                 </h3>
-                <ul className="space-y-6">
+                <ul className="space-y-6 leading-normal">
                   {[
                     {
                       icon: support,
-                      title: "24/7 Technical Support",
+                      title: "Reliable Technical Support",
                       description:
-                        "Round-the-clock expert assistance whenever you need it",
+                        "Reliable expert assistance whenever you need it",
                     },
                     {
                       icon: quality,
                       title: "Premium Quality Hardware",
                       description:
-                        "Industry-leading equipment & parts from trusted brands",
+                        "Industry leading equipment & parts from trusted brands",
                     },
                     {
                       icon: innovation,
                       title: "Innovation Driven Solutions",
                       description:
-                        "Cutting-edge technology to keep you ahead of the competition",
+                        "Cutting edge technology to keep you ahead of the competition",
                     },
                     {
                       icon: warranty,
@@ -394,7 +417,7 @@ const Hardwaresolutions = () => {
                           <span className="text-white font-semibold">
                             {item.title}
                           </span>
-                          <p className="text-white opacity-80 text-sm">
+                          <p className="text-white textGradient6 text-sm">
                             {item.description}
                           </p>
                         </div>
@@ -413,7 +436,7 @@ const Hardwaresolutions = () => {
               className="flex items-center w-full bg-gradient-to-r overflow-hidden p-[1px] rounded-3xl"
             >
               <div className="bg-[#ffffff0f] w-full h-full p-8 rounded-3xl shadow-md">
-                <h3 className="text-2xl font-semibold text-white mb-6">
+                <h3 className="text-2xl textGradient4 font-semibold text-white mb-6">
                   Our Success Metrics
                 </h3>
                 <div className="grid grid-cols-2 gap-6 mb-8">
@@ -534,7 +557,7 @@ const Hardwaresolutions = () => {
             {[
               {
                 icon: <MdBusinessCenter />,
-                title: "Retail & Hospitality",
+                title: "Retail and Hospitality",
                 description:
                   "POS systems, inventory management, and customer displays for seamless shopping experiences.",
               },
@@ -546,7 +569,7 @@ const Hardwaresolutions = () => {
               },
               {
                 icon: <BsShieldCheck />,
-                title: "Finance & Banking",
+                title: "Finance and Banking",
                 description:
                   "Secure transaction systems, ATM hardware, and fraud prevention solutions.",
               },
@@ -564,7 +587,7 @@ const Hardwaresolutions = () => {
               },
               {
                 icon: <MdSecurity />,
-                title: "Government & Public Sector",
+                title: "Government and Public Sector",
                 description:
                   "Secure communication systems, identity verification, and public safety hardware.",
               },
