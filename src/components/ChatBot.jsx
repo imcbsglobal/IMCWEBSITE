@@ -11,7 +11,7 @@ import model2 from "../assets/model2.jpg";
 import imc from "../assets/imclogo1.png";
 import chattingBg from "../assets/chatting-bg.png";
 import { IoMdClose } from "react-icons/io";
-const GEMINI_API_KEY = 'AIzaSyBYIi_RQ2wLbHxi8yha4M_c7QQHTtYRe-g';
+const GEMINI_API_KEY = 'AIzaSyDPEu2jezJsUuMRuOXKpgQk48F5962O_e4';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent';
 
 const ChatBot = ({ openChatx, setOpenChatx }) => {

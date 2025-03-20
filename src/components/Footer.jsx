@@ -21,45 +21,16 @@ const Footer = () => {
 
       {/* Footer Links Section */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 w-full mb-10">
-        {/* Softwares Section */}
+        {/* Address */}
         <div>
           <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            SOFTWARES
+            ADDRESS
           </div>
           <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            <li><Link to="/software#restaurant">Restaurants</Link></li>
-            <li><Link to="/software#inventorymanagement">Inventory Management</Link></li>
-            <li><Link to="/software#healthcaremanagement">Health Care Management</Link></li>
-            <li><Link to="/software#hospitality">Hospitality</Link></li>
-            <li><Link to="/software#institutionmanagement">Institution Management</Link></li>
-          </ul>
-        </div>
-        {/* Services Section */}
-        <div>
-          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            SERVICES
-          </div>
-          <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            <li><Link to="/websiteandWebApplications">Website & Web Application</Link></li>
-            <li><Link to="/mobileApp">Mobile App Development</Link></li>
-            <li><Link to="/digitalmarketingandSEO">Digital Marketing / SEO</Link></li>
-            <li><Link to="/branding">Branding</Link></li>
-            <li><Link to="/graphicsandCreatives">Graphics & Creatives</Link></li>
-            <li><Link to="/businessBranding">Business Branding</Link></li>
-          </ul>
-        </div>
-        {/* Business Section */}
-        <div>
-          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            BUSINESS
-          </div>
-          <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            <li><Link to="/business#retailswholesale">Retails & Wholesale</Link></li>
-            <li><Link to="/business#pharmacies">Pharmacies</Link></li>
-            <li><Link to="/business#school">School / Colleges</Link></li>
-            <li><Link to="/business#hospitalClinics">Hospital & Clinics</Link></li>
-            <li><Link to="/business#restaurantBusiness">Restaurants</Link></li>
-            <li><Link to="/business#hotelBusiness">Hotels</Link></li>
+            Palakkunnummal Building ,
+            <span className="block">Near Govt Ayurvedic Hospital</span>{" "}
+            <span className="block">Emily - Kalpetta , </span>{" "}
+            <span className="block">Wayanad - Kerala - 673121</span>
           </ul>
         </div>
         {/* Company Section */}
@@ -68,12 +39,96 @@ const Footer = () => {
             COMPANY
           </div>
           <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            <li><Link to="/company#aboutid">About IMC</Link></li>
-            <li><Link to="/company#team">Team</Link></li>
-            <li><Link to="/company#goalsmission">Goals & Missions</Link></li>
-            <li><Link to="/customers">Customers</Link></li>
-            <li><Link to="/company#supports">Supports</Link></li>
-            <li><Link to="/company#bussinessopportunities">Business Opportunities</Link></li>
+            <li>
+              <Link to="/company#aboutid">About IMC</Link>
+            </li>
+            <li>
+              <Link to="/company#team">Team</Link>
+            </li>
+            <li>
+              <Link to="/company#goalsmission">Goals & Missions</Link>
+            </li>
+            <li>
+              <Link to="/customers">Customers</Link>
+            </li>
+            <li>
+              <Link to="/company#supports">Supports</Link>
+            </li>
+            <li>
+              <Link to="/company#bussinessopportunities">
+                Business Opportunities
+              </Link>
+            </li>
+            <li>
+              <Link to="/career">Career</Link>
+            </li>
+          </ul>
+        </div>
+        {/* Softwares Section */}
+        <div>
+          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
+            SOFTWARES
+          </div>
+          <ul className="text-[#000] textGradient6 text-sm md:text-base">
+            <li>
+              <Link to="/inventory">
+                Inventory Management
+              </Link>
+            </li>
+            <li>
+              <Link to="/healthcare">
+                Health Care Management
+              </Link>
+            </li>
+            <li>
+              <Link to="/institution">
+                Institution Management
+              </Link>
+            </li>
+            <li>
+              <Link to="/pharmacy">
+                Pharmacy
+              </Link>
+            </li>
+            <li>
+              <Link to="/restaurant">Restaurants</Link>
+            </li>
+            
+            
+            <li>
+              <Link to="/hospitality">Hospitality</Link>
+            </li>
+            
+          </ul>
+        </div>
+        {/* Solutions Section */}
+        <div>
+          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
+            SOLUTIONS
+          </div>
+          <ul className="text-[#000] textGradient6 text-sm md:text-base">
+          <li>
+              <Link to="/erpsoftware">
+                ERP Software
+              </Link>
+            </li>
+            <li>
+              <Link to="/websiteandWebApplications">
+                Website & Web Application
+              </Link>
+            </li>
+            <li>
+              <Link to="/mobileApp">Mobile App Development</Link>
+            </li>
+            <li>
+              <Link to="/businessBranding">Business Consultation</Link>
+            </li>
+            <li>
+              <Link to="/digitalmarketing">Digital Marketing</Link>
+            </li>
+            <li>
+              <Link to="/hardwaresolutions">Hardware Soutions</Link>
+            </li>
           </ul>
         </div>
       </div>

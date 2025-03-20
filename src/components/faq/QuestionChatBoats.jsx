@@ -1,30 +1,34 @@
-import React ,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaRocketchat } from "react-icons/fa";
-import ChatBot from '../ChatBot';
-import Footer from '../Footer';
+import ChatBot from "../ChatBot";
+import Footer from "../Footer";
 import darkGradient from "../../assets/darkGradient.jpg";
 
 const QuestionChatBoats = () => {
-   const [active, setActive] = useState(false);
-   const [openChat, setOpenChat] = useState(false)
-  
-    useEffect(() => {
-      // Scroll to top when this component loads
-      window.scrollTo({ top: 0, behavior: "smooth" });
-  
-      const scrollActive = () => {
-        setActive(window.scrollY > 20);
-      };
-      window.addEventListener("scroll", scrollActive);
-  
-      return () => window.removeEventListener("scroll", scrollActive);
-    }, []);
+  const [active, setActive] = useState(false);
+  const [openChat, setOpenChat] = useState(false);
+
+  useEffect(() => {
+    // Scroll to top when this component loads
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const scrollActive = () => {
+      setActive(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", scrollActive);
+
+    return () => window.removeEventListener("scroll", scrollActive);
+  }, []);
   return (
     <>
       <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1">
-        <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
-          <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+        <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+          <img
+            src={darkGradient}
+            alt=""
+            className="w-full h-full object-cover"
+          />
         </div>
         {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
@@ -60,7 +64,7 @@ const QuestionChatBoats = () => {
 
             {/* Description */}
             <div className="text-center text-[#fff] max-w-[1000px] mx-auto mb-6 text-sm md:text-base">
-              Need answers fast? Our AI-powered question-based chatbot is here
+              Need answers fast? Our AI-powered question based chatbot is here
               to help. Whether it's customers, employees, or students seeking
               information, the chatbot delivers accurate and instant answers
               24/7. From product inquiries and FAQs to complex problem-solving,
@@ -82,7 +86,7 @@ const QuestionChatBoats = () => {
 
             {/* Call to Action Buttons */}
             <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-5">
-            <button 
+              {/* <button 
               onClick={() => setOpenChat(!openChat)} 
               className="px-8 py-3 rounded-full bg-[#fff] font-semibold flex items-center gap-2 text-sm md:text-base"
             >
@@ -90,7 +94,7 @@ const QuestionChatBoats = () => {
               <span>
                 <FaArrowRightLong />
               </span>
-            </button>
+            </button> */}
               <button
                 onClick={() => setOpenChat(true)}
                 className="px-8 py-3 rounded-full bg-[#fff] font-semibold flex items-center gap-2 text-sm md:text-base"
@@ -109,6 +113,6 @@ const QuestionChatBoats = () => {
       </section>
     </>
   );
-}
+};
 
-export default QuestionChatBoats
+export default QuestionChatBoats;

@@ -37,7 +37,7 @@ const DigitalMarketingSEO = () => {
   ];
   
   return (
-    <div className="flex flex-col justify-center items-center relative">
+    <div className="flex flex-col justify-center items-center relative overflow-hidden">
       {/* Main background image - fixed position covering the entire viewport */}
       <div className="fixed top-0 left-0 w-full h-full z-[-100]">
         <img
@@ -441,7 +441,7 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* second section */}
-      <div className="w-full relative py-5">
+      <div className="w-full relative py-5 ">
         <section className="w-full max-w-[1400px] mx-auto rounded-3xl h-[300px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 px-6">
             <motion.div
@@ -551,7 +551,7 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* branding */}
-      <div className="w-full">
+      <div className="w-full mt-64 md:mt-1">
         {/* first */}
         <div className="w-full relative pt-20 pb-20">
           <motion.section

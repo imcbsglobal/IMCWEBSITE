@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../../firebaseConfig";
-import Footer from '../Footer';
+import Footer from "../Footer";
 import darkGradient from "../../assets/darkGradient.jpg";
 
 const ProductVideo = () => {
@@ -25,9 +25,9 @@ const ProductVideo = () => {
   }, []);
 
   return (
-    <div className='relative w-full'>
-      <div className='w-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
-        <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
+    <div className="relative w-full">
+      <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+        <img src={darkGradient} alt="" className="w-full h-full object-cover" />
       </div>
       {/* Heading Section */}
       <section className="w-full flex justify-center px-4 pb-16 pt-32">
@@ -73,7 +73,7 @@ const ProductVideo = () => {
           ))}
         </div>
       </section>
-      
+
       <section className="bg-[#fff] py-10 mt-10">
         <Footer />
       </section>

@@ -162,7 +162,7 @@ const ERPSoftware = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10">
+        <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10 md:py-10">
           <div className="text-gray-200 p-4 md:p-8">
             {/* Header Section */}
             <div className="max-w-6xl mx-auto mb-8">
@@ -250,7 +250,7 @@ const ERPSoftware = () => {
         {/* Selected Software Details Section */}
         <section
           ref={softwareSectionRef}
-          className="w-full max-w-[1400px] mx-auto py-10"
+          className="w-full max-w-[1400px] mx-auto py-5 md:py-10"
         >
           {selectedSoftware && (
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-3xl mx-4 md:mx-8">
@@ -298,7 +298,7 @@ const ERPSoftware = () => {
         </section>
 
         {/* Mobile Apps Section */}
-        <section className="w-full max-w-[1400px] mx-auto py-10 px-4 md:px-8">
+        <section className="w-full max-w-[1400px] mx-auto py-5 md:py-10 px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center textGradient4 mb-10">
             Our Mobile Applications
           </h2>
@@ -536,19 +536,19 @@ const ERPSoftware = () => {
         <section className="w-full max-w-[1400px] mx-auto py-10 px-4 md:px-8 mb-10">
           <div className="bg-gradient-to-r  rounded-3xl p-8 md:p-12">
             <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 textGradient4">
                 Ready to Transform Your Business?
               </h2>
               <p className="text-xl text-gray-200 mb-8">
                 Schedule a consultation with our ERP specialists today
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="/contact">
                 <button className="bg-[#F99F2C] text-white hover:bg-[#e89427] font-bold py-3 px-8 rounded-lg transition-all duration-300">
-                  Book a Demo
+                 Contact Now
                 </button>
-                <button className="bg-transparent border-2 border-[#F99F2C] text-white hover:bg-[#F99F2C]/10 font-bold py-3 px-8 rounded-lg transition-all duration-300">
-                  Contact Sales
-                </button>
+                </a>
+                
               </div>
             </div>
           </div>

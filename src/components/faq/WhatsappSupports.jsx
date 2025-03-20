@@ -12,7 +12,7 @@ const WhatsappSupports = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
   return (
-    <div className="flex flex-col justify-center items-center w-full relative pb-16 pt-32">
+    <div className="flex flex-col justify-center items-center w-full relative  pt-32">
       <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
         <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
       </div>

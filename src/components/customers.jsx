@@ -399,7 +399,7 @@ const clients = [
     };
     window.addEventListener("scroll", scrollActive);
     return () => window.removeEventListener('scroll', scrollActive);
-}, []);
+}, []);
  
   const [activeIndex, setActiveIndex] = useState(0); // Default middle card index
   
@@ -439,25 +439,23 @@ const clients = [
 
   
   return (
-    <div  data-scroll-container className="overflow-hidden">
-      {/* intro */}
-      <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden">
-        <section
-          id="customers"
-          className="max-w-[1400px] mx-auto mb-10 w-full px-4"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
+    <div  data-scroll-container className="overflow-hidden relative">
+      <div       
+           className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
           >
             <img
               src={darkGradient}
               alt=""
               className="h-full w-full object-cover"
             />
-          </motion.div>
+          </div>
+      {/* intro */}
+      <div className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden">
+        <section
+          id="customers"
+          className="max-w-[1400px] mx-auto mb-10 w-full px-4"
+        >
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
             {/* Left Section */}
             <div className="w-full">
@@ -517,33 +515,22 @@ const clients = [
       </div>
 
       {/* client task */}
-      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10"
-        >
-          <img
-            src={darkGradient}
-            alt=""
-            className="h-full w-full object-cover"
-          />
-        </motion.div>
+      <section className=" py-16 border-b border-[#111B21]">
+        
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-3 text-center mb-10">
+              <div className="md:col-span-3 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center bg-white px-2">
                     <img src={task} alt="" className="w-full max-w-[500px]" />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
+                  <h2 className="text-3xl font-bold mb-2 textGradient4">
                     Our Trusted Clients
                   </h2>
                   <div className="mt-2">
-                    <p className="text-[#1C1E21]">
+                    <p className="text-[#fff]">
                       We're proud to partner with these amazing businesses
                       across Kerala and beyond.
                     </p>
@@ -563,7 +550,7 @@ const clients = [
                           fillRule="evenodd"
                           clipRule="evenodd"
                           d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
+                          fill="white"
                         />
                       </svg>
                     </button>
@@ -578,7 +565,7 @@ const clients = [
                           fillRule="evenodd"
                           clipRule="evenodd"
                           d="M.22922.22922c.30563-.30563.80115-.30563 1.10678 0l5.21739 5.21739c.30562.30563.30562.80115 0 1.10678L1.336 11.7708c-.30563.3056-.80115.3056-1.10678 0-.30563-.3056-.30563-.8012 0-1.1068L4.89322 6l-4.664-4.664c-.30563-.30563-.30563-.80115 0-1.10678Z"
-                          fill="currentColor"
+                          fill="white"
                         />
                       </svg>
                     </button>
@@ -587,7 +574,7 @@ const clients = [
               </div>
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-7 slider-container">
+              <div className="md:col-span-7 slider-container">
                 <Swiper
                   ref={swiperRef1}
                   onSwiper={(swiper) => (swiperRef1.current = swiper)}
@@ -645,21 +632,21 @@ const clients = [
       </section>
 
       {/* client shade */}
-      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
+      <section className="py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-3 text-center mb-10">
+              <div className="md:col-span-3 text-center mb-10 ">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center bg-white px-2">
                     <img src={shade} alt="" className="w-full max-w-[300px]" />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
+                  <h2 className="text-3xl font-bold mb-2 textGradient4">
                     Our Trusted Clients
                   </h2>
                   <div className="mt-2">
-                    <p className="text-[#1C1E21]">
+                    <p className="text-[#fff]">
                       We're proud to partner with these amazing businesses
                       across Kerala and beyond.
                     </p>
@@ -679,7 +666,7 @@ const clients = [
                           fillRule="evenodd"
                           clipRule="evenodd"
                           d="M6.53078 11.7708c-.30563.3056-.80115.3056-1.10678 0L.20661 6.55339c-.30562-.30563-.30562-.80115 0-1.10678L5.424.22922c.30563-.30563.80115-.30563 1.10678 0 .30563.30563.30563.80115 0 1.10678L1.86678 6l4.664 4.664c.30563.3056.30563.8012 0 1.1068Z"
-                          fill="currentColor"
+                          fill="white"
                         />
                       </svg>
                     </button>
@@ -687,7 +674,7 @@ const clients = [
                       onClick={nextSlide}
                       className="p-2 border rounded-full flex items-center justify-center"
                       aria-label="Next Slide"
-                      role="button"
+                      role="white"
                     >
                       <svg width="7" height="12" fill="none">
                         <path
@@ -703,7 +690,7 @@ const clients = [
               </div>
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-7 slider-container">
+              <div className="md:col-span-7 slider-container">
                 <Swiper
                   ref={swiperRef}
                   onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -761,21 +748,21 @@ const clients = [
       </section>
 
       {/* client magnet */}
-      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
+      <section className=" py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-3 text-center mb-10">
+              <div className="md:col-span-3 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center bg-white px-2">
                     <img src={magnet} alt="" className="w-full max-w-[200px]" />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
+                  <h2 className="text-3xl font-bold mb-2 textGradient4">
                     Our Trusted Clients
                   </h2>
                   <div className="mt-2">
-                    <p className="text-[#1C1E21]">
+                    <p className="text-[#fff]">
                       We're proud to partner with these amazing businesses
                       across Kerala and beyond.
                     </p>
@@ -819,7 +806,7 @@ const clients = [
               </div>
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-7 slider-container">
+              <div className="md:col-span-7 slider-container">
                 <Swiper
                   ref={swiperRef2}
                   onSwiper={(swiper) => (swiperRef2.current = swiper)}
@@ -877,21 +864,21 @@ const clients = [
       </section>
 
       {/* client Dine */}
-      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
+      <section className=" py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-3 text-center mb-10">
+              <div className="md:col-span-3 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center bg-white px-2">
                     <img src={dine} alt="" className="w-full max-w-[300px]" />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
+                  <h2 className="text-3xl font-bold mb-2 textGradient4">
                     Our Trusted Clients
                   </h2>
                   <div className="mt-2">
-                    <p className="text-[#1C1E21]">
+                    <p className="text-[#fff]">
                       We're proud to partner with these amazing businesses
                       across Kerala and beyond.
                     </p>
@@ -935,7 +922,7 @@ const clients = [
               </div>
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-7 slider-container">
+              <div className="md:col-span-7 slider-container">
                 <Swiper
                   ref={swiperRef3}
                   onSwiper={(swiper) => (swiperRef3.current = swiper)}
@@ -993,21 +980,21 @@ const clients = [
       </section>
 
       {/* client V task */}
-      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
+      <section className=" py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-3 text-center mb-10">
+              <div className="md:col-span-3 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center bg-white px-2">
                     <img src={vtask} alt="" className="w-full max-w-[250px]" />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
+                  <h2 className="text-3xl font-bold mb-2 textGradient4">
                     Our Trusted Clients
                   </h2>
                   <div className="mt-2">
-                    <p className="text-[#1C1E21]">
+                    <p className="text-[#fff]">
                       We're proud to partner with these amazing businesses
                       across Kerala and beyond.
                     </p>
@@ -1051,7 +1038,7 @@ const clients = [
               </div>
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-7 slider-container">
+              <div className="md:col-span-7 slider-container">
                 <Swiper
                   ref={swiperRef4}
                   onSwiper={(swiper) => (swiperRef4.current = swiper)}
@@ -1190,25 +1177,25 @@ const clients = [
       </section> */}
 
       {/* client  star stay */}
-      <section className="bg-[#F4F4F4] py-16 border-b border-[#111B21]">
+      <section className=" py-16 border-b border-[#111B21]">
         <div className="container mx-auto px-4">
           <div className="animation-wrapper">
-            <div className="grid grid-cols-10">
+            <div className="grid gap-2 grid-cols-1 md:grid-cols-10">
               {/* Left column - 30% width (3/10 columns) */}
-              <div className="col-span-3 text-center mb-10">
+              <div className="md:col-span-3 text-center mb-10">
                 <div className="mt-10 flex flex-col items-center justify-center text-center">
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center bg-white px-2 ">
                     <img
                       src={starstay}
                       alt=""
                       className="w-full max-w-[200px]"
                     />
                   </div>
-                  <h2 className="text-3xl font-bold mb-2 text-[#111B21]">
+                  <h2 className="text-3xl font-bold mb-2 textGradient4">
                     Our Trusted Clients
                   </h2>
                   <div className="mt-2">
-                    <p className="text-[#1C1E21]">
+                    <p className="text-[#fff]">
                       We're proud to partner with these amazing businesses
                       across Kerala and beyond.
                     </p>
@@ -1252,7 +1239,7 @@ const clients = [
               </div>
 
               {/* Right column - 70% width (7/10 columns) */}
-              <div className="col-span-7 slider-container">
+              <div className="md:col-span-7 slider-container">
                 <Swiper
                   ref={swiperRef4}
                   onSwiper={(swiper) => (swiperRef4.current = swiper)}
@@ -1321,4 +1308,4 @@ const clients = [
   );
 }
 
-export default customers 
+export default customers

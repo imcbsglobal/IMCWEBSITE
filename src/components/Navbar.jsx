@@ -6,6 +6,10 @@ import { MdCall, MdMenu, MdClose,MdLogin } from "react-icons/md";
 import MobileNavbar from "./MobileNavbar";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropup } from "react-icons/io";
+import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlinePhone } from "react-icons/md";
+
+
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -162,7 +166,7 @@ const Navbar = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex justify-center items-center">
+          <div className="hidden md:flex justify-center items-center">
             <ul
               className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${
                 isScrolled ? "text-[#000]" : "text-[#fff]"
@@ -181,16 +185,15 @@ const Navbar = () => {
                   {activeMenu === "company" && renderDropdown("company")}
                 </li>
               </Link>
-              
-                <li
-                  className="cursor-pointer relative"
-                  onMouseEnter={() => handleMouseEnter("softwares")}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Softwares
-                  {activeMenu === "softwares" && renderDropdown("softwares")}
-                </li>
-              
+
+              <li
+                className="cursor-pointer relative"
+                onMouseEnter={() => handleMouseEnter("softwares")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Softwares
+                {activeMenu === "softwares" && renderDropdown("softwares")}
+              </li>
 
               <li
                 className="cursor-pointer relative"
@@ -277,17 +280,26 @@ const Navbar = () => {
               </button> */}
             </div>
           </div>
-
         </nav>
       </header>
       <div
-        className={` fixed top-0 left-0 w-[75%] max-w-[320px] bg-white text-black z-[990] h-full shadow-lg transition-transform ${
+        className={` fixed  top-0 left-0 w-[75%] max-w-[320px] rounded-r-3xl bg-white text-black z-[990] h-full shadow-lg transition-transform ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
+        <div className=" absolute bottom-3 p-5 border rounded-3xl w-[95%] bg-[#00000024] mx-auto left-1.5">
+          <div className="flex items-center gap-2">
+            <MdOutlinePhone />
+            +91 7593820007
+          </div>
+          <div className="flex items-center gap-2">
+            <MdOutlineEmail />
+            info@imcbsglobal.com
+          </div>
+        </div>
         <div className="relative p-5 ">
           {/* Close Button Positioned Top Left */}
-          <button onClick={toggleMobileMenu} className="absolute top-2 right-2">
+          <button onClick={toggleMobileMenu} className="absolute top-5 right-5">
             <MdClose size={30} className="text-black" />
           </button>
         </div>
@@ -295,11 +307,11 @@ const Navbar = () => {
         {/* Navigation Links */}
         <ul className="flex flex-col p-5 gap-4">
           {" "}
-          <div className="flex justify-end w-full right-0">
+          <div className="flex justify-center w-full right-0">
             <img
               src={logo}
               alt="Logo"
-              className="h-[130px] w-auto object-contain mb-4"
+              className="h-[80px] w-auto object-contain mb-4"
             />
           </div>
           <Link to="/" onClick={toggleMobileMenu}>
@@ -342,7 +354,6 @@ const Navbar = () => {
           <Link to="/login" onClick={toggleMobileMenu}>
             <li className="hover:text-orange-500">Login</li>
           </Link>
-          
         </ul>
       </div>
 
