@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import darkGradient from "../assets/darkgradient.jpg";
+import darkGradient from "../assets/darkGradient.jpg";
 import CircularText from "./CircularText";
 import {motion} from "framer-motion"
 import { RiWhatsappLine } from "react-icons/ri";
