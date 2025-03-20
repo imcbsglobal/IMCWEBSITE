@@ -4,7 +4,7 @@ import { CgArrowLongRight } from "react-icons/cg";
 import { MdContactSupport } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import whatsapp from '../../assets/whatsapp.jpeg'
-import darkGradient from "../../assets/darkgradient.jpg";
+import darkGradient from "../../assets/darkGradient.jpg";
 import { FcServices } from "react-icons/fc";
 import { RiWhatsappLine } from "react-icons/ri";
 import ChatBot from "../../components/ChatBot";
