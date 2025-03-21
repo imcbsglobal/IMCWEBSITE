@@ -229,7 +229,9 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
       {/* Chat Box - Responsive sizing and positioning */}
       {openChatx && (
         <motion.div
-        
+        initial={{height : 0, opacity:0}}
+        animate={{height : "600px", opacity : 1,transition:{duration:0.7, ease: "backInOut"}}}
+        exit={{height:0,opacity:0.8,transition:{duration:0.8,ease:"backInOut"}}}
         className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden">
           {/* Background Image */}
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">

@@ -14,9 +14,9 @@ import { dbFirestore } from "../firebaseConfig";
 import { RiWhatsappLine } from "react-icons/ri";
 import ChatBot from "./ChatBot";
 import { motion } from "framer-motion";
-motion
+
 const Career = () => {
-     const [openChat, setOpenChat] = useState(false)
+  const [openChat, setOpenChat] = useState(false);
   
   const [openCareerApply, setOpenCareerApply] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
@@ -88,7 +88,6 @@ const Career = () => {
           <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
             <RiWhatsappLine />
           </div>
-                
         </a>
 
         {/* chatbot */}
@@ -248,7 +247,7 @@ const Career = () => {
             </motion.div>
           </div>
         </section>
-        ;
+        
         <section className="w-full flex justify-center px-4">
           <div className="max-w-[1400px] w-full">
             {/* Section Title Animation */}
@@ -294,7 +293,7 @@ const Career = () => {
                 }}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                {careers.map((career, index) => (
+                {careers.map((career) => (
                   <motion.div
                     key={career.id}
                     variants={{
@@ -369,7 +368,7 @@ const Career = () => {
         <Footer />
       </section>
       {openCareerApply && (
-        <div className="fixed z-[9999]">
+        <div className="fixed z-[9999] inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <CareerApply
             openCarrerApply={openCareerApply}
             setOpenCareerApply={setOpenCareerApply}
