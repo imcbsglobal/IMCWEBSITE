@@ -45,7 +45,7 @@ import sevenbridge from "../assets/sevenbridge.png";
 import panthallookaran from "../assets/panthallookaran.png";
 import marineworld from "../assets/marineworld.png";
 import fresh7 from "../assets/7fresh.png";
-import talal from "../assets/talal.png";
+import talal from "../assets/talal.jpg";
 import hypercity from "../assets/hypercity.jpg";
 import freshday from "../assets/freshday.png";
 import bhavans from "../assets/bhavansorg.png";
@@ -73,6 +73,7 @@ import { motion, useAnimation } from "framer-motion";
 import darkGradient from "../assets/darkGradient.jpg";
 import { RiWhatsappLine } from "react-icons/ri";
 import ChatBot from "./ChatBot";
+import meera from '../assets/meera.jpg'
 
 const customers = () => {
   const mainRef = useRef();
@@ -305,6 +306,7 @@ const customers = () => {
       location: "Manjery - Malappuram",
     },
     { id: 44, name: "KB Traders", logo: kb, location: "Wayanad" },
+    { id: 45, name: "MEERA", logo: meera, location: "Sulthan Bathery" },
   ];
 
   const [openChat, setOpenChat] = useState(false);
