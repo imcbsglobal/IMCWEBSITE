@@ -254,7 +254,7 @@ const Career = () => {
                       window.location.href = `mailto:info@imcbsglobal.com?subject=Job Application for ${positionTitle}&body=Hello, I would like to apply for the ${positionTitle} position.`;
                     }}
 
-                    className="w-full py-2 bg-gradient-to-r from-[#4776E6] to-[#8E54E9] text-white rounded-lg hover:opacity-90 transition-all"
+                    className="w-full py-2 text-sm md:text-base bg-gradient-to-r from-[#4776E6] to-[#8E54E9] text-white rounded-lg hover:opacity-90 transition-all"
                   >
                     Send Your CV to : info@imcbsglobal.com
                   </button>
