@@ -231,9 +231,9 @@ const Navbar = () => {
           <div className="md:flex gap-5 hidden">
             <Link to="/login">
               <button
-                className={`rounded-3xl px-6 py-2 font-bold hover:bg-gray-800 ${
+                className={`rounded-3xl px-6 py-2 font-bold hover:bg-gray-200 ${
                   isScrolled
-                    ? "bg-[#000] text-[#fff] border border-[#fff]"
+                    ? "bg-[#000] text-[#fff] border border-[#fff] hover:bg-gray-500"
                     : "bg-[#fff] text-[#000]"
                 } hidden sm:flex`} // Hide on mobile
               >
@@ -259,9 +259,9 @@ const Navbar = () => {
             >
               <button
                 onClick={() => (window.location.href = "tel:+917593820007")}
-                className={`rounded-[calc(1.5rem-1px)] px-6 py-2 font-bold hover:bg-gray-200 flex items-center gap-2 ${
+                className={`rounded-[calc(1.5rem-1px)] px-6 py-2 font-bold hover:bg-[#ff850c63] flex items-center gap-2 ${
                   isScrolled
-                    ? "border-[#000] border"
+                    ? "border-[#000] border hover:bg-[#ff850c3c]"
                     : "border border-[#fff] text-[#fff] bg-[#000]"
                 } hidden sm:flex`} // Hide on mobile
               >

@@ -226,23 +226,24 @@ const Institution = () => {
           />
         </div>
         <a href="https://wa.me/+917593820007">
-                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-                  <RiWhatsappLine/>
-                </div>
-              </a>
-              
-              {/* chatbot */}
-              <div className="bottom-10 fixed right-10 z-[999]">
-                {openChat ? (
-                  <div className="fixed bottom-10 z-[999] right-10">
-                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                  </div>
-                ) : (
-                  <div className="fixed bottom-10 z-[999] right-10">
-                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                  </div>
-                )}
-              </div>
+          <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+            <RiWhatsappLine />
+          </div>
+                
+        </a>
+
+        {/* chatbot */}
+        <div className="bottom-10 fixed right-10 z-[999]">
+          {openChat ? (
+            <div className="fixed bottom-10 z-[999] right-10">
+              <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+            </div>
+          ) : (
+            <div className="fixed bottom-10 z-[999] right-10">
+              <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+            </div>
+          )}
+        </div>
         <section
           id="institutionmanagement"
           className="w-full relative pb-20 pt-15"
@@ -490,13 +491,16 @@ const Institution = () => {
               transition={{ duration: 0.6 }}
               className="text-xl lg:text-2xl textGradient5 leading-tight font-bold text-center"
             >
-              Why Choose Our 
+              Why Choose Our
             </motion.h2>
             <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="block textGradient4 relative text-5xl z-50 mb-10 leading-normal text-center">Institution Management Software?</motion.div>
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="block textGradient4 relative text-5xl z-50 mb-10 leading-normal text-center"
+            >
+              Institution Management Software?
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
@@ -587,8 +591,8 @@ const Institution = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex flex-col items-center justify-center p-4  backdrop-blur-sm rounded-xl   hover:border-blue-500/50 transition-all duration-300"
-                  >
-                    <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">
+                >
+                  <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">
                     {type.icon}
                   </div>
                   <p className="text-white text-center text-sm">{type.text}</p>
@@ -645,26 +649,56 @@ const Institution = () => {
             </motion.div>
           )}
         </AnimatePresence>
-         <motion.div
-                  initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                  whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="text-center py-8 pt-10 sm:pt-20"
-                >
-                  <h2 className="text-xl textGradient4 sm:text-3xl font-bold mb-3 sm:mb-4 text-white">
-                    Ready to Transform ?
-                  </h2>
-                  <p className="text-gray-400 textGradient6 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base">
-                    Experience how MAGNET can streamline your operations, reduce errors,
-                    and boost customer satisfaction.
-                  </p>
-                  <a href="/contact">
-                  <button className="bg-[#F99F2C] textGradient5 hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
-                    Contact Now
-                  </button>
-                  </a>
-                </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-center py-8 pt-10 sm:pt-20"
+        >
+          {/* Animated Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-xl textGradient4 sm:text-3xl font-bold mb-3 sm:mb-4 text-white"
+          >
+            Ready to Transform?
+          </motion.h2>
+
+          {/* Animated Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-gray-400 textGradient6 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-sm sm:text-base"
+          >
+            Experience how MAGNET can streamline your operations, reduce errors,
+            and boost customer satisfaction.
+          </motion.p>
+
+          {/* Animated Button */}
+          <motion.a
+            href="/contact"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 4px 15px rgba(249, 159, 44, 0.5)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#F99F2C] textGradient5 hover:bg-[#e8922b] text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base"
+            >
+              Contact Now
+            </motion.button>
+          </motion.a>
+        </motion.div>
       </div>
 
       <section className="bg-[#fff] py-10 w-full">

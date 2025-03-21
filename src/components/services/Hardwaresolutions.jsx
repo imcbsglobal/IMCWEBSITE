@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
-import hardwareImg from '../../assets/graphic.jpeg';
+import hardwareImg from '../../assets/hardware.jpeg';
 import serverRoom from '../../assets/server-room.jpeg';
 import posSystem from '../../assets/pos-system.jpeg';
 import securityCamera from '../../assets/security-camera.jpeg';

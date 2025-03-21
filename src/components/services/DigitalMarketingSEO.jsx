@@ -320,7 +320,7 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* benefits of seo and digital marketing */}
-      <section className="relative max-w-[1600px] w-full mx-auto px-4 mt-[-40px] md:mt-[0px]">
+      <section className="relative max-w-[1400px] w-full mx-auto px-4 mt-[-40px] md:mt-[0px]">
         <div className="flex items-center justify-center">
           <motion.div
             className="w-full shadow-xl rounded-2xl p-6 md:p-8 bg-opacity-50"

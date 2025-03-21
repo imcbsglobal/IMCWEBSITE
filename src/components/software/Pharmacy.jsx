@@ -118,23 +118,24 @@ const PharmacyManagementPage = () => {
         <img src={darkGradient} alt="" className="w-full h-full object-cover" />
       </div>
       <a href="https://wa.me/+917593820007">
-              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-                <RiWhatsappLine/>
-              </div>
-            </a>
-            
-            {/* chatbot */}
-            <div className="bottom-10 fixed right-10 z-[999] text-[#000]">
-              {openChat ? (
-                <div className="fixed bottom-10 z-[999] right-10">
-                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                </div>
-              ) : (
-                <div className="fixed bottom-10 z-[999] right-10">
-                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                </div>
-              )}
-            </div>
+        <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+          <RiWhatsappLine />
+        </div>
+              
+      </a>
+
+      {/* chatbot */}
+      <div className="bottom-10 fixed right-10 z-[999] text-[#000]">
+        {openChat ? (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        ) : (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        )}
+      </div>
 
       {/* Hero Section */}
       <div className="relative overflow-hidden h-screen">
@@ -304,7 +305,7 @@ const PharmacyManagementPage = () => {
               <div className="relative">
                 <div className="absolute -inset-1 bg-[#F99F2C]/30 rounded-lg blur textGradient6 opacity-30"></div>
                 <div className="relative overflow-hidden rounded-lg border border-gray-800 h-full w-full">
-                  <div className="w-full h-[250px] sm:h-[300px] md:h-[350px]">
+                  <div className="w-full h-[250px] sm:h-[300px] md:h-[450px]">
                     <img
                       src={pharmacy3}
                       alt="Pharmacist using VTASK software"
@@ -431,7 +432,7 @@ const PharmacyManagementPage = () => {
           </div>
         </div>
         <section className="w-full py-10 sm:py-20 text-white relative">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -582,23 +583,29 @@ const PharmacyManagementPage = () => {
         </AnimatePresence>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center py-8 pt-10 sm:pt-20"
         >
           <h2 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4 textGradient4">
             Ready to Transform Your Pharmacy?
           </h2>
+
           <p className="text-gray-400 mb-6 sm:mb-8 max-w-2xl textGradient6 mx-auto px-4 text-sm sm:text-base">
             Experience how VTASK can streamline your operations, reduce errors,
             and boost customer satisfaction.
           </p>
+
           <a href="/contact">
-            <button className="bg-[#F99F2C] hover:bg-[#e8922b] textGradient5 text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#F99F2C] hover:bg-[#e8922b] textGradient5 text-black font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 shadow-lg shadow-[#F99F2C]/20 text-sm sm:text-base"
+            >
               Contact Now
-            </button>
+            </motion.button>
           </a>
         </motion.div>
       </section>

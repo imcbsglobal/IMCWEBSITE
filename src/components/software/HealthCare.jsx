@@ -144,39 +144,44 @@ const HealthCare = () => {
         <img src={darkGradient} alt="" className="w-full h-full object-cover" />
       </div>
       <a href="https://wa.me/+917593820007">
-              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-                <RiWhatsappLine/>
-              </div>
-            </a>
-            
-            {/* chatbot */}
-            <div className="bottom-10 fixed right-10 z-[999]">
-              {openChat ? (
-                <div className="fixed bottom-10 z-[999] right-10">
-                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                </div>
-              ) : (
-                <div className="fixed bottom-10 z-[999] right-10">
-                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                </div>
-              )}
-            </div>
+        <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+          <RiWhatsappLine />
+        </div>
+              
+      </a>
+
+      {/* chatbot */}
+      <div className="bottom-10 fixed right-10 z-[999]">
+        {openChat ? (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        ) : (
+          <div className="fixed bottom-10 z-[999] right-10">
+            <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+          </div>
+        )}
+      </div>
       <section className="py-20 relative w-full pt-32 px-2">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center text-center lg:text-left gap-8">
+          {/* Animated Image */}
           <motion.img
             src={HealthCareImg}
             alt="Healthcare"
             className="w-full lg:w-1/2 rounded-3xl shadow-lg"
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
           />
 
+          {/* Animated Text Section */}
           <motion.div
             className="lg:w-1/2"
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
             <h1 className="text-4xl md:text-6xl text-start font-bold textGradient4">
               HEALTHCARE MANAGEMENT
@@ -196,37 +201,59 @@ const HealthCare = () => {
                 operations, reducing paperwork and enhancing productivity.
               </span>
             </p>
-            <div className="flex justify-start items-start w-[250px] bg-white mt-5">
+
+            {/* Logo Animation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex justify-start items-start w-[250px] bg-white mt-5"
+            >
               <img
                 src={shade}
                 alt="shade"
                 className="h-[80px] object-contain px-2"
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-[1400px] mx-auto mb-5">
+        {/* Features Grid Animation */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-[1400px] mx-auto mb-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+        >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               className="flex flex-col items-center p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition border border-white"
-              initial={{ opacity: 0, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              variants={{
+                hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+              }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <div className="text-4xl text-[#F99F2C]">{feature.icon}</div>
               <h3 className="mt-4 text-lg font-semibold">{feature.title}</h3>
               <p className="mt-2 text-sm text-gray-300">{feature.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Product Showcase Section */}
       <section className="w-full pb-20 text-white relative">
-        <div className="max-w-[1400px] mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6 ">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -346,7 +373,9 @@ const HealthCare = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="flex flex-col items-center justify-center p-4  backdrop-blur-sm rounded-xl   hover:border-blue-500/50 transition-all duration-300"
               >
-                <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">{type.icon}</div>
+                <div className="text-4xl mb-3 text-[#000] bg-white w-20 h-20 rounded-full flex items-center justify-center ">
+                  {type.icon}
+                </div>
                 <p className="text-white text-center text-sm">{type.text}</p>
               </motion.div>
             ))}

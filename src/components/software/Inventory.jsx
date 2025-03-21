@@ -389,7 +389,7 @@ const Inventory = () => {
 
         {/* Product Videos and Images Section */}
         <section className="w-full py-20 text-white relative">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-[1400px] mx-auto px-6">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
