@@ -287,7 +287,7 @@ const Navbar = () => {
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className=" absolute bottom-3 p-5 border rounded-3xl w-[95%] bg-[#00000024] mx-auto left-1.5">
+        {/* <div className=" absolute bottom-3 p-5 border rounded-3xl w-[95%] bg-[#00000024] mx-auto left-1.5">
           <div className="flex items-center gap-2">
             <MdOutlinePhone />
             +91 7593820007
@@ -296,7 +296,7 @@ const Navbar = () => {
             <MdOutlineEmail />
             info@imcbsglobal.com
           </div>
-        </div>
+        </div> */}
         <div className="relative p-5 ">
           {/* Close Button Positioned Top Left */}
           <button onClick={toggleMobileMenu} className="absolute top-5 right-5">
