@@ -13,21 +13,29 @@ import { collection, getDocs } from "firebase/firestore";
 import { dbFirestore } from "../firebaseConfig";
 import { RiWhatsappLine } from "react-icons/ri";
 import ChatBot from "./ChatBot";
-
+import img1 from '../assets/img1.jpeg'
+import img2 from '../assets/img2.jpg'
+import img3 from '../assets/img3.jpeg'
+import img4 from '../assets/img4.jpeg'
+import img5 from '../assets/img5.jpg'
+import img6 from '../assets/img6.jpeg'
+import img7 from '../assets/img7.jpg'
+import img8 from '../assets/img8.jpg'
+import career from '../assets/career.jpg'
 const Career = () => {
      const [openChat, setOpenChat] = useState(false)
   
   const [openCareerApply, setOpenCareerApply] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
   const careerImages = [
-    "https://imageio.forbes.com/specials-images/imageserve/562442005/0x0.jpg?format=jpg&amp;width=1200",
-    "https://www.mantec.eu/wp-content/uploads/2020/04/Colleagues-meetingroom-scaled.jpg",
-    "https://imageio.forbes.com/specials-images/dam/imageserve/998453038/0x0.jpg?format=jpg&amp;height=600&amp;width=1200&amp;fit=bounds",
-    "https://www.levyrecognition.com/web/image/2885/background_Recognition-Ideas-for-Every-Stage.jpg",
-    "https://helvar.com/wp-content/uploads/2021/01/AdobeStock_176866761-scaled.jpeg",
-    "https://avatars.mds.yandex.net/i?id=426290f4e80b59f884886d2a305ff85a_l-5380059-images-thumbs&ref=rim&n=13&w=2718&h=1535",
-    "https://www.billtrust.com/-/media/images/primary-content/section-image/fpo-1920x1080/shutterstock_1039227532-green.jpg?as=0&w=1920&hash=95A61C75C4D96F0D4E71C00572B206E3",
-    "https://files.constantcontact.com/86072391601/a5267a37-08f8-4bdb-bae7-801ddf753a7f.jpg",
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
   ];
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -157,7 +165,7 @@ const Career = () => {
           <div className="md:flex gap-10 justify-center items-center">
             <div className="md:w-[50%] h-[400px] overflow-hidden rounded-3xl mb-6 md:mb-0">
               <img
-                src="https://i.ytimg.com/vi/QRTBqiu9UAU/maxresdefault.jpg"
+                src={career}
                 alt="Office Environment"
                 className="w-full h-full object-cover"
               />
