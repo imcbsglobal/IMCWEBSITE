@@ -56,7 +56,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
           generationConfig: {
             temperature: 0.7,
             topP: 0.8,
-            topK: 40,
+            topK: 50,
             maxOutputTokens: 1024,
           },
         })
@@ -229,10 +229,19 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
       {/* Chat Box - Responsive sizing and positioning */}
       {openChatx && (
         <motion.div
-        initial={{height : 0, opacity:0}}
-        animate={{height : "600px", opacity : 1,transition:{duration:0.7, ease: "backInOut"}}}
-        exit={{height:0,opacity:0.8,transition:{duration:0.8,ease:"backInOut"}}}
-        className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden">
+          initial={{ height: 0, opacity: 0 }}
+          animate={{
+            height: "600px",
+            opacity: 1,
+            transition: { duration: 0.7, ease: "backInOut" },
+          }}
+          exit={{
+            height: 0,
+            opacity: 0.8,
+            transition: { duration: 0.8, ease: "backInOut" },
+          }}
+          className="fixed bottom-10  right-3 md:bottom-24 md:right-10 z-[999] w-[350px]  md:w-[400px] h-[600px] md:h-[600px] rounded-3xl  md:rounded-3xl bg-[#fff] overflow-hidden"
+        >
           {/* Background Image */}
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
             <img
@@ -279,7 +288,7 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
           {/* Chat Messages - Adjusted spacing and sizing */}
           <div
             ref={chatContainerRef}
-            className="h-[350px] md:h-[350px] overflow-y-auto ScrollBar px-4 mt-12 md:mt-16 space-y-4"
+            className="h-[350px] md:h-[350px] overflow-y-auto ScrollBar px-4 mt-12 md:mt-16 space-y-8 "
           >
             {chatHistory.map((chat, index) => (
               <div
@@ -322,28 +331,16 @@ const ChatBot = ({ openChatx, setOpenChatx }) => {
             )}
           </div>
 
-          {/* Input Area - Made more touch-friendly */}
-          <div className="absolute bottom-0 flex justify-center items-center px-2 py-4 w-full ">
+          <div className="absolute bottom-0 flex justify-center items-center px-2 py-4 w-full pt-8">
             <input
               type="text"
               placeholder="message...."
               value={message}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}
-              className="px-4 ChatBoxInput py-3 w-full border-none outline-none rounded-3xl ChatBox text-[#fff] font-semibold"
+              className="px-4 ChatBoxInput py-3 w-full border-none outline-none rounded-3xl ChatBox text-[#fff] font-semibold pr-24"
             />
-            {/* <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileUpload}
-              accept="image/*"
-              className="hidden"
-            /> */}
             <div className="absolute right-5 flex items-center gap-4 text-2xl text-[#251306] drop-shadow-sm">
-              {/* <MdAttachFile
-                className=" md:block cursor-pointer"
-                onClick={triggerFileInput}
-              /> */}
               <MdEmojiEmotions
                 onClick={toggleEmojiPicker}
                 className="cursor-pointer"
