@@ -8,6 +8,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropup } from "react-icons/io";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlinePhone } from "react-icons/md";
+import { useLocation } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -15,6 +16,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
+  const location = useLocation();
+  const isHome = location.pathname === "/" || location.pathname === "/career";
 
   const scrollToElement = () => {
     const element = document.getElementById("aboutid");
@@ -151,25 +154,38 @@ const Navbar = () => {
           </div>
           {/* Logo Section */}
           <div className="w-auto h-[50px]">
-            {isScrolled ? (
-              <img src={logo} className="w-full h-full object-contain" alt="" />
+            {isHome ? (
+              isScrolled ? (
+                <img
+                  src={logo}
+                  className="w-full h-full object-contain"
+                  alt="Logo"
+                />
+              ) : (
+                <img
+                  src={Logo}
+                  className="w-full h-full object-contain"
+                  alt="Logo Home"
+                />
+              )
             ) : (
-              <img src={Logo} className="w-full h-full object-contain" alt="" />
+              <img
+                src={logo}
+                className="w-full h-full object-contain"
+                alt="Logo Default"
+              />
             )}
-            {/* <img
-            src={logo}
-            alt="Logo"
-            className={`w-full h-full object-contain transition-all duration-300 ${
-              isScrolled ? "h-12" : "h-12 grayscale"
-            }`}
-          /> */}
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex justify-center items-center">
             <ul
               className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${
-                isScrolled ? "text-[#000]" : "text-[#fff]"
+                isHome
+                  ? isScrolled
+                    ? "text-[#000]"
+                    : "text-[#fff]"
+                  : "text-black"
               }`}
             >
               <Link to="/">
@@ -203,16 +219,7 @@ const Navbar = () => {
                 Solutions
                 {activeMenu === "services" && renderDropdown("services")}
               </li>
-              {/* <Link to="/business">
-                <li
-                  className="cursor-pointer relative"
-                  onMouseEnter={() => handleMouseEnter("business")}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Business
-                  {activeMenu === "business" && renderDropdown("business")}
-                </li>
-              </Link> */}
+
               <li
                 className="cursor-pointer relative"
                 onMouseEnter={() => handleMouseEnter("faq")}
@@ -221,12 +228,12 @@ const Navbar = () => {
                 FAQ
                 {activeMenu === "faq" && renderDropdown("faq")}
               </li>
+
               <Link to="/contact">
                 <li className="cursor-pointer hover:text-[#ff7332]">Contact</li>
               </Link>
             </ul>
           </div>
-
           {/* Login Button */}
           <div className="md:flex gap-5 hidden">
             <Link to="/login">
@@ -282,6 +289,7 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
+
       <div
         className={` fixed  top-0 left-0 w-[75%] max-w-[320px] rounded-r-3xl bg-white text-black z-[990] h-full shadow-lg transition-transform ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"

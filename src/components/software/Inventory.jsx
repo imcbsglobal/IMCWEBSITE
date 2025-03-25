@@ -738,6 +738,7 @@ const Inventory = () => {
             </button>
           </a>
         </motion.div>
+        
       </div>
       <section className="py-10 bg-[#fff] w-full">
         <Footer />

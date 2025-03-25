@@ -59,14 +59,15 @@ const Testimonials = () => {
       <div className="relative overflow-hidden ml-[10px] my-8">
         <div className="flex flex-col justify-center items-center mb-5">
           {/* Custom Navigation Buttons */}
-          <div className="w-full hidden md:flex justify-between items-center px-4 mb-2">
+          <div className="w-full flex justify-between items-center px-4 mb-2">
+
             <button
-              className="prev-testimonial p-2 rounded-full bg-black text-white hover:bg-gray-700 transition-all z-10"
+              className="prev-testimonial p-2 rounded-full  text-black hover:text-gray-700 transition-all z-10"
             >
               <ChevronLeft size={30} />
             </button>
             <button
-              className="next-testimonial p-2 rounded-full bg-black text-white hover:bg-gray-700 transition-all z-10"
+              className="next-testimonial p-2 rounded-full  text-black hover:text-gray-700 transition-all z-10"
             >
               <ChevronRight size={30} />
             </button>
@@ -127,7 +128,7 @@ const Testimonials = () => {
                     <div className="textGradient italic md:text-[22px] text-center md:text-base md:text-justify pt-2 px-2">
                       {testimonial.description || "Amazing experience!"}
                     </div>
-                    <div className="textGradient6 text-white md:text-2xl md:p-4 px-2 text-center md:text-start">
+                    <div className="textGradient6 text-[#000] md:text-2xl md:p-4 px-2 text-center md:text-start">
                       {testimonial.name || "Name"}
                     </div>
                   </div>
@@ -140,7 +141,7 @@ const Testimonials = () => {
       </div>
 
       {/* Video Testimonials Section */}
-      <div className="px-2 md:px-0 mt-28">
+      {/* <div className="px-2 md:px-0 mt-28">
         <div className="flex items-center justify-center mb-8">
           <h1 className="text-white text-[40px] textGradient4 text-center">
             Voices of Trust: Client Video Testimonials
@@ -171,7 +172,7 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       
       {/* Add custom CSS for futuristic effects */}
     </div>

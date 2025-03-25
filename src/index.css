@@ -20,6 +20,7 @@
     font-family: 'UniversoBold';
     src: url('fonts/Universo/Demo_Fonts/Fontspring-DEMO-universo-regular.otf');
 }
+
 C:\Users\Redmi\OneDrive\Desktop\IMCWEBSITE\imcwebsite\src\fonts\Universo\Demo_Fonts\Fontspring-DEMO-universo-regular.otf
 *{
     margin: 0;
@@ -34,26 +35,26 @@ body{
 }
 
 .textGradient{
-  background: linear-gradient(120deg, rgba(115,113,125,1) 0%, rgb(170, 166, 175) 38%, rgba(241,231,245,1) 100%);
+  /* background: linear-gradient(120deg, rgba(115,113,125,1) 0%, rgb(170, 166, 175) 38%, rgba(241,231,245,1) 100%); */
   font-family: 'ARP';
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 .textGradient2{
-    background: linear-gradient(120deg, rgba(255,215,67,1) 0%, rgba(255,192,0,1) 21%, rgba(255,255,255,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(120deg, rgba(255,215,67,1) 0%, rgba(255,192,0,1) 21%, rgba(255,255,255,1) 100%); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
 }
 .textGradient3{
-    background: linear-gradient(120deg, rgba(242,99,44,1) 0%, rgba(249,160,44,1) 52%, rgba(242,99,44,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(120deg, rgba(242,99,44,1) 0%, rgba(249,160,44,1) 52%, rgba(242,99,44,1) 100%); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
 }
 .textGradient5{
     font-family: 'UniversoBold';
-    background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(237,237,244,1) 50%, rgba(151,152,152,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(237,237,244,1) 50%, rgba(151,152,152,1) 100%); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
   }
   .textGradient7{
     font-family: 'UniversoBold';
@@ -65,9 +66,9 @@ body{
 .textGradient4{
   font-family: 'Universo';
   /* background: linear-gradient(90deg, rgba(232,225,225,1) 0%, rgba(237,237,244,1) 50%, rgba(204,205,205,1) 100%); */
-  background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(237,237,244,1) 50%, rgba(151,152,152,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(237,237,244,1) 50%, rgba(151,152,152,1) 100%); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 .textGradient6{
     font-family: 'ARP';
@@ -196,4 +197,12 @@ body{
   select {
     color: white !important;
     background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  @font-face {
+    font-family: 'Libre Baskerville';
+    src: url('/src/fonts/libre-baskerville/LibreBaskerville-Regular.ttf') format('truetype'),
+         url('/src/fonts/libre-baskerville/LibreBaskerville-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
   }

@@ -76,9 +76,13 @@ import python from '../assets/python.png'
 import hostinger from '../assets/hostinger.png'
 import pgadmin from '../assets/pgadmin.png'
 import { RiWhatsappLine } from "react-icons/ri";
+import banners from '../assets/banner2.jpg'
+import appeon from '../assets/APPEON.png'
+import CountUp from './CountUp'
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import appeon from '../assets/APPEON.jpg'
- 
+import { MdOutlineArrowBack, MdOutlineArrowForward } from "react-icons/md";
+// import { Autoplay } from 'swiper/modules';
 const Home = () => {pgadmin
   const canvasRef = useRef(null);
   const [result, setResult] = React.useState("");
@@ -94,7 +98,7 @@ const Home = () => {pgadmin
   //     { name: "Institution Management",  path:"/software#institutionmanagement" },
   //   ]
   // };
-
+  const swiperRef = useRef(null);
   const locoRef = useRef(null);
   useEffect(() => {
     if (!locoRef.current) return;
@@ -530,6 +534,16 @@ useEffect(() => {
   const SectionRef = React.useRef(null);
   const isInView = useInView(SectionRef, { once: false, amount: 0.2 });
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? softwareList.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === softwareList.length - 1 ? 0 : prev + 1));
+  };
+  const [startIndex, setStartIndex] = useState(0);
 
   return (
     <div data-scroll-container className="relative overflow-hidden ">
@@ -538,10 +552,11 @@ useEffect(() => {
       {/* Whatsapp */}
       <a href="https://wa.me/+917593820007">
         <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-          <RiWhatsappLine/>
+          <RiWhatsappLine />
         </div>
-      </a>
-      
+              
+      </a>
+
       {/* chatbot */}
       <div className="bottom-10 fixed right-10 z-[999]">
         {openChat ? (
@@ -559,195 +574,67 @@ useEffect(() => {
       {/* Banner */}
       <section className="relative h-screen flex flex-col justify-start items-center">
         <div className="w-full h-full object-cover absolute top-0 left-0 bottom-0 right-0">
-          <img src={GradientBg} className="w-full h-full object-cover" />
+          <img
+            src={banners}
+            className="w-full h-full object-cover"
+            alt="Banner Image"
+          />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#352317] via-[#3523176f] to-transparent opacity-100"></div>
         </div>
-        {/* Video Background */}
-        <div className="absolute z-40 h-screen w-full">
-          <Gradient className="w-full h-screen" />
-        </div>
-        <div className="w-full  pt-10 md:pt-0 absolute px-2 md:px-10 h-full flex flex-col justify-center">
-          <div className="flex flex-col gap-4 mb-2 md:mb-5 textGradient5">
-            <div className="text-[#fff] md:flex text-4xl md:text-[40px] lg:text-7xl items-center gap-4 font-bold">
-              <div className="flex items-center gap-4 overflow-hidden">
-                <motion.span
-                  initial="hidden"
-                  animate="visible"
-                  custom={0}
-                  variants={textRevealVariants}
-                >
-                  Empower
-                </motion.span>
-                <motion.span
-                  className="md:w-[120px] md:h-[50px] w-[150px] lg:h-[90px] lg:w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden"
-                  initial="hidden"
-                  animate="visible"
-                  custom={1}
-                  variants={textRevealVariants}
-                >
-                  <img
-                    src={bannert1}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.span>
-              </div>
-              <motion.span
-                className="block lg:flex"
-                initial="hidden"
-                animate="visible"
-                custom={2}
-                variants={textRevealVariants}
-              >
-                innovation
-              </motion.span>
-            </div>
 
-            <div className="md:flex text-[#fff] md:text-[40px] text-4xl lg:text-7xl gap-4 font-bold">
-              <div className="flex items-center gap-4">
-                <motion.span
-                  className="md:w-[120px] md:h-[50px] w-[150px] lg:h-[90px] lg:w-[150px] h-[60px] rounded-full bg-[#fff] overflow-hidden"
-                  initial="hidden"
-                  animate="visible"
-                  custom={3}
-                  variants={textRevealVariants}
-                >
-                  <img
-                    src={bannert2}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.span>
-                <motion.span
-                  initial="hidden"
-                  animate="visible"
-                  custom={4}
-                  variants={textRevealVariants}
-                >
-                  to
-                </motion.span>
-              </div>
-              <div className="flex items-center gap-4">
-                <motion.span
-                  initial="hidden"
-                  animate="visible"
-                  custom={5}
-                  variants={textRevealVariants}
-                >
-                  redefine
-                </motion.span>
-                <motion.span
-                  className="w-[120px] h-[60px] md:w-[120px] md:h-[60px] lg:h-[90px] lg:w-[150px] rounded-full bg-[#fff] overflow-hidden"
-                  initial="hidden"
-                  animate="visible"
-                  custom={6}
-                  variants={textRevealVariants}
-                >
-                  <img
-                    src={bannert3}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.span>
-              </div>
-            </div>
-
-            <motion.div
-              className="flex text-[#fff] md:text-[40px] mt-[-10px] md:mt-0 text-4xl lg:text-7xl font-bold"
-              initial="hidden"
-              animate="visible"
-              custom={7}
-              variants={textRevealVariants}
+        <div className="w-full h-full absolute flex flex-col items-center md:items-start justify-center text-center md:text-start px-4 md:pl-36">
+          <motion.h1
+            className="text-[#fff] text-4xl md:text-6xl lg:text-8xl font-bold mb-4 textGradient6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            IMC
+          </motion.h1>
+          <motion.p
+            className="text-[#fff] text-sm md:text-lg max-w-2xl pb-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            Elevate your business with cutting-edge IT solutions. From Retail to
+            Healthcare, Education, and Hospitality – IMC Business Solutions is
+            here to transform your success.
+          </motion.p>
+          <div className=" flex gap-4">
+            <motion.button
+              className="px-6 py-3 text-sm md:text-lg font-semibold text-white border border-orange-400 rounded-3xl shadow-lg hover:opacity-80 transition"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
             >
-              tomorrow
-            </motion.div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:flex justify-between w-full">
-            <motion.div
-              className="text-[#fff] text-[12px] md:text-base max-w-[900px] w-full mb-3 md:mb-10 lg:mb-0 text-start lg:text-start"
-              initial="hidden"
-              animate="visible"
-              custom={8}
-              variants={textRevealVariants}
-            >
-              Empowering Businesses with Cutting-Edge IT Solutions! From Retail
-              & Wholesale to Healthcare, Education, and Hospitality – IMC
-              Business Solutions delivers powerful, scalable, and innovative
-              software solutions. Elevate efficiency, streamline operations, and
-              transform your business with our expert-driven technology. Your
-              success, our innovation!
-            </motion.div>
-
-            <div className="flex gap-3 items-center relative z-50">
-              <a href="https://imcportfolio.in/">
-                <motion.div
-                  className="relative flex items-center"
-                  initial="hidden"
-                  animate="visible"
-                  custom={9}
-                  variants={textRevealVariants}
-                >
-                  <GradientText
-                    colors={[
-                      "#F7F7F7",
-                      "#D9DFC6",
-                      "#FFB22C",
-                      "#4079ff",
-                      "#2D336B",
-                    ]}
-                    animationSpeed={3}
-                    showBorder={true}
-                    className="custom-class px-5 md:px-10 py-2 text-sm md:text-xl"
-                  >
-                    Portfolio
-                  </GradientText>
-                  <span className="text-[#fff] hidden md:flex absolute right-2 md:right-4">
-                    <FaGlobe />
-                  </span>
-                </motion.div>
-              </a>
-
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                custom={10}
-                variants={textRevealVariants}
+              Discover More
+            </motion.button>
+            <a href="/contact">
+              <motion.button
+                className="px-6 py-3 text-sm md:text-lg font-semibold text-white border border-orange-400 rounded-3xl shadow-lg hover:opacity-80 transition"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
               >
-                <GradientText
-                  colors={[
-                    "#40ffaa",
-                    "#4079ff",
-                    "#40ffaa",
-                    "#4079ff",
-                    "#40ffaa",
-                  ]}
-                  animationSpeed={3}
-                  showBorder={true}
-                  className="custom-class px-5 text-sm md:px-10 py-2 md:text-xl"
-                >
-                  Enquire !
-                </GradientText>
-              </motion.div>
-            </div>
+                Contact Now
+              </motion.button>
+            </a>
           </div>
-        </div>
-
-        <div className="relative z-10 max-w-[1400px] mx-auto h-full px-4 md:px-6 flex items-center justify-center">
-          <div className=""></div>
         </div>
       </section>
 
       {/* About */}
       <section className="w-full relative z-10 py-10">
-        <div className="absolute top-0 bottom-0 right-0 left-0 -z-10 w-full">
-          <motion.img
+        <div className=" bg-[#f3e5c9] absolute top-0 bottom-0 right-0 left-0 -z-10 w-full">
+          {/* <motion.img
             // initial={{ opacity: 0 }}
             // animate={{ opacity: 1 }}
             // transition={{ duration: 1.5 }}
             src={GradientBg}
             alt=""
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
         <div className="max-w-[1440px] mx-auto mb-10">
           <div className="md:flex md:justify-center md:items-center md:gap-10 w-full px-4">
@@ -762,14 +649,14 @@ useEffect(() => {
               <div>
                 <div className="flex flex-col gap-2 mb-5">
                   <motion.div
-                    className="text-[38px] md:text-[50px] leading-[50px] textGradient4 text-[#fff] font-semibold"
+                    className="text-[38px] md:text-[50px] leading-[50px] textGradient4 text-[#32251F] font-semibold"
                     variants={fadeInUp}
                     transition={{ delay: 0.2 }}
                   >
                     Know more about us
                   </motion.div>
                   <motion.div
-                    className="textGradient5 text-[16px] md:text-[30px] font-bold text-[#fff]"
+                    className="textGradient5 text-[16px] md:text-[30px] font-bold text-[#2e1e14]"
                     variants={fadeInUp}
                     transition={{ delay: 0.3 }}
                   >
@@ -777,7 +664,7 @@ useEffect(() => {
                   </motion.div>
                 </div>
                 <motion.div
-                  className="textGradient6 text-[#fff] leading-relaxed md:text-justify"
+                  className="textGradient6 text-[#000] leading-relaxed md:text-justify"
                   variants={fadeInUp}
                   transition={{ delay: 0.4 }}
                 >
@@ -825,296 +712,138 @@ useEffect(() => {
             </motion.div>
           </div>
         </div>
-
-        {/* Stats section */}
-        <div className="px-3 md:px-0" ref={statsRef}>
-          <motion.section
-            className="w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r p-[1px]"
-            initial="hidden"
-            animate={statsInView ? "visible" : "hidden"}
-            variants={fadeInUp}
-          >
-            <motion.div
-              className="backdrop-blur-3xl bg-[#0000001a] rounded-3xl w-full px-10 py-10 md:px-0"
-              initial={{ opacity: 0 }}
-              animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="grid grid-cols-2 md:flex w-full justify-between h-full gap-6 px-3">
-                <motion.div
-                  className="flex flex-col items-center md:flex-row gap-2"
-                  custom={0}
-                  animate={controls1}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="md:text-[65px] text-[50px] textGradient font-black leading-none"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  >
-                    15+
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    Years of <span className="block">Experience</span>
-                  </motion.div>
-                </motion.div>
-
-                <motion.div
-                  className="flex flex-col items-center md:flex-row gap-2"
-                  custom={1}
-                  animate={controls2}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="md:text-[65px] text-[50px] textGradient font-black leading-none"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                  >
-                    20+
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    Skilled <span className="block">Professionals</span>
-                  </motion.div>
-                </motion.div>
-
-                <motion.div
-                  className="flex flex-col items-center md:flex-row gap-2"
-                  custom={2}
-                  animate={controls3}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="text-[45px] md:text-[65px] textGradient font-black leading-none"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    100%
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    Customer <span className="block">Satisfaction</span>
-                  </motion.div>
-                </motion.div>
-
-                <motion.div
-                  className="flex flex-col items-center md:flex-row gap-2"
-                  custom={3}
-                  animate={controls4}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="text-[45px] md:text-[65px] textGradient font-black leading-none"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.9 }}
-                  >
-                    1500+
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-center md:text-left"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 1 }}
-                  >
-                    Clients
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.section>
-        </div>
       </section>
 
-      {/* Count */}
-
-      {/* Softwares */}
-      <section className="px-3 md:px-0 relative py-20">
+      {/* Solutions */}
+      <section className="bg-[#fcf3e1] relative  flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
         <motion.div
-          className="absolute top-0 bottom-0 right-0 left-0 w-full h-full -z-10"
-          // initial={{ opacity: 0 }}
-          // whileInView={{ opacity: 1 }}
-          // exit={{ opacity: 0, filter: "blur(10px)" }}
-          // transition={{ duration: 0.8 }}
-          // viewport={{ once: false, amount: 0.3 }}
+          className="text-center mb-6 px-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          <img
-            src={darkGradient}
-            alt=""
-            className="w-full h-full object-cover"
-          />
+          <h2 className="text-3xl md:text-4xl font-bold text-[#32251F] textGradient4">
+            Comprehensive IT Solutions for Your Business
+          </h2>
+          <p className="text-base md:text-lg text-[#000] mt-2 textGradient6 max-w-3xl mx-auto">
+            Explore our suite of innovative solutions designed to streamline
+            your business operations and enhance efficiency.
+          </p>
         </motion.div>
-        <div>
-          {/* Title Portion */}
-          <div className="md:flex md:justify-between md:items-center md:gap-10 mb-10 max-w-[1400px] mx-auto">
-            <motion.div
-              className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight md:w-[60%]"
-              initial={{ opacity: 0, y: 50, rotateX: 10 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              exit={{ opacity: 0, y: -20, filter: "blur(5px)" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: false, amount: 0.3 }}
+
+        <motion.div
+          className="relative w-full max-w-[1400px] mx-auto px-4"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          {/* Custom previous button - hidden on mobile */}
+          <button className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              Solutions
-              <span className="block text-[26px] md:text-[40px]">
-                What We Build for You
-              </span>
-            </motion.div>
-            <motion.div
-              className="text-[#fff] md:w-[40%] textGradient6"
-              initial={{ opacity: 0, x: 30, rotateY: 5 }}
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-              exit={{ opacity: 0, x: -20, filter: "blur(5px)" }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: false, amount: 0.3 }}
-            >
-              Explore our suite of innovative solutions designed to streamline
-              your business operations and enhance efficiency. From tailored
-              enterprise applications to dynamic web platforms, we deliver
-              technology that aligns with your unique goals.
-            </motion.div>
-          </div>
-          {/* Software List */}
-          <div>
-            {softwareList.map((item, index) => (
-              <motion.div
-                key={index}
-                className="border-b-2 border-[#ffffff] pb-5 pt-5"
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: false, amount: 0.2 }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-10 max-w-[1400px] mx-auto">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              prevEl: ".custom-swiper-button-prev",
+              nextEl: ".custom-swiper-button-next",
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            ref={swiperRef}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="h-[400px] md:h-[500px]"
+          >
+            {softwareList.map((software, index) => (
+              <SwiperSlide key={index} className="relative w-full h-full p-3">
+                <motion.div
+                  className="relative h-full rounded-lg overflow-hidden"
+                  whileHover={{
+                    scale: 1.03,
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  <img
+                    src={software.img}
+                    alt={software.name}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                   <motion.div
-                    className="flex flex-col gap-2 text-[#fff] p-16"
-                    initial={{ opacity: 0, x: -40, rotateY: -10 }}
-                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                    exit={{ opacity: 0, x: 20, filter: "blur(5px)" }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.2 + index * 0.1,
-                      ease: "easeOut",
-                    }}
-                    viewport={{ once: false, amount: 0.4 }}
+                    className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-4 md:p-6 text-white text-center h-[150px] md:h-[200px] w-full"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
                   >
-                    {/* <div className=" italic">{item.no}</div> */}
-                    <div className="text-3xl textGradient4">{item.name}</div>
+                    <h2 className="text-xl md:text-2xl font-bold">
+                      {software.name}
+                    </h2>
+                    <p className="text-sm md:text-md mt-2">{software.para}</p>
                   </motion.div>
-                  <motion.div
-                    className="w-full h-[250px] rounded-3xl bg-[#ffffff5d] backdrop-blur-md border border-[#fff] overflow-hidden"
-                    initial={{
-                      opacity: 0,
-                      scale: 0.9,
-                      rotateX: 5,
-                      rotateY: 5,
-                      z: -100,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      scale: 1,
-                      rotateX: 0,
-                      rotateY: 0,
-                      z: 0,
-                    }}
-                    whileHover={{
-                      scale: 1.02,
-                      rotateY: 2,
-                      z: 20,
-                      transition: { duration: 0.3 },
-                    }}
-                    exit={{ opacity: 0, scale: 0.9, filter: "blur(8px)" }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.3 + index * 0.1,
-                      ease: "easeOut",
-                    }}
-                    viewport={{ once: false, amount: 0.4 }}
-                  >
-                    <img
-                      src={item.img}
-                      alt="Descriptive image text"
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                  <motion.div
-                    className="pt-16"
-                    initial={{ opacity: 0, x: 40, rotateY: 10 }}
-                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                    exit={{ opacity: 0, x: -20, filter: "blur(5px)" }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.4 + index * 0.1,
-                      ease: "easeOut",
-                    }}
-                    viewport={{ once: false, amount: 0.4 }}
-                  >
-                    <div className="textGradient5 mb-3 font-bold text-[#fff]">
-                      {item.title}
-                    </div>
-                    <div className="flex gap-5 textGradient6">
-                      <div className="text-[#fff]">{item.section}</div>
-                      <div className="text-[#ffff]">{item.para}</div>
-                    </div>
-                    <motion.div
-                      className="mt-5 flex justify-start items-center gap-2 text-[#fff]"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      whileHover={{ x: 5 }}
-                      exit={{ opacity: 0, y: -10, filter: "blur(3px)" }}
-                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                    >
-                      <Link
-                        to={item.link}
-                        className="flex items-center gap-2 hover:underline"
-                      >
-                        Learn More <MdOutlineArrowOutward />
-                      </Link>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </SwiperSlide>
             ))}
-          </div>
-        </div>
+          </Swiper>
+
+          {/* Custom next button - hidden on mobile */}
+          <button className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </motion.div>
+
+        {/* Pagination dots with animation */}
+        <motion.div
+          className="mt-6 md:mt-8 flex justify-center gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+        >
+          {softwareList.map((_, index) => (
+            <motion.button
+              key={index}
+              className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-[#32251F] focus:bg-[#32251F]"
+              onClick={() => swiperRef.current.swiper.slideTo(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            />
+          ))}
+        </motion.div>
       </section>
 
       {/* technology */}
-      <section className="w-full px-5 md:px-0 relative py-20  text-white">
+      <section className="w-full px-5 md:px-0 relative py-20 text-white bg-[#352317]">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1131,7 +860,7 @@ useEffect(() => {
           <h2 className="text-4xl md:text-5xl font-bold leading-normal textGradient4">
             Our Trusted Tech Allies
           </h2>
-          <p className="text-lg text-gray-400 mt-3">
+          <p className="text-lg text-[#fff] mt-3">
             Our solutions are powered by the latest tools and technologies.
           </p>
         </div>
@@ -1144,56 +873,304 @@ useEffect(() => {
           transition={{ duration: 0.8 }}
         >
           <Swiper
-            modules={[Autoplay]}
+            modules={[Autoplay, Navigation]} // Added Navigation module
             spaceBetween={30}
             slidesPerView={2}
             autoplay={{ delay: 2000, disableOnInteraction: false }}
+            navigation={{ nextEl: ".next-partner", prevEl: ".prev-partner" }} // Added navigation
             breakpoints={{
               640: { slidesPerView: 3 },
               1024: { slidesPerView: 5 },
             }}
-            className="w-full"
+            className="w-full relative"
           >
             {techPartners.map((partner, index) => (
               <SwiperSlide key={index}>
                 <motion.div
-                  className="relative flex flex-col items-center  p-5 rounded-lg hover:scale-105 transition-transform"
+                  className="relative flex flex-col items-center p-5 rounded-lg hover:scale-105 transition-transform bg-[#fcf3e1] backdrop-blur-sm"
                   whileHover={{ scale: 1.1 }}
                 >
                   <img
                     src={partner.img}
                     alt={partner.name}
-                    className="w-[200px] h-[150px] object-contain "
+                    className="w-[200px] h-[150px] object-contain"
                   />
-                  {/* <p className="mt-3 text-lg font-semibold text-white drop-shadow-md">
-                    {partner.name}
-                  </p> */}
                 </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Navigation Buttons - Visible on Mobile */}
+          <div className="flex justify-between w-full px-5 mt-4 ">
+            <button className="prev-partner p-2 rounded-full text-white hover:text-orange-300  transition-all">
+              <ChevronLeft size={30} />
+            </button>
+            <button className="next-partner p-2 rounded-full text-white hover:text-orange-300 transition-all">
+              <ChevronRight size={30} />
+            </button>
+          </div>
         </motion.div>
       </section>
 
       {/* Testimonials */}
-      <section className="relative py-20">
-        <div className="absolute top-0 bottom-0 left-0 right-0 w-full -z-10">
+      <section className="relative py-20 bg-[#fcf3e1]">
+        {/* <div className="absolute top-0 bottom-0 left-0 right-0 w-full -z-10">
           <img
             src="https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30471.jpg?uid=R125770999&ga=GA1.1.845910522.1736145162&semt=ais_hybrid"
             alt=""
             className="w-full h-full object-cover"
           />
-        </div>
+        </div> */}
         <div className="max-w-[1400px] mx-auto">
-          <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#fff] text-center">
+          <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#32251F] text-center">
             Words from Our Valued Clients
           </div>
           <Testimonials />
         </div>
       </section>
 
-      <section className="w-full px-5 py-20 relative">
-        <motion.div
+      {/* Stats section */}
+      <section className="bg-[#f3e5c9] w-full">
+        <div
+          className="px-3 md:px-2 text-[#32251F] max-w-[1400px] mx-auto"
+          ref={statsRef}
+        >
+          <motion.section
+            className="w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r p-[1px]"
+            initial="hidden"
+            animate={statsInView ? "visible" : "hidden"}
+            variants={fadeInUp}
+          >
+            <motion.div
+              className="backdrop-blur-3xl rounded-3xl w-full px-10 py-10 md:px-0"
+              initial={{ opacity: 0 }}
+              animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 w-full justify-between h-full gap-8 px-3">
+                {/* Stats Item 1 */}
+                <motion.div
+                  className="flex flex-col items-start md:flex-row gap-2 py-5"
+                  custom={0}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <CountUp
+                      from={0}
+                      to={15}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    +
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Years of <span className="block">Experience</span>
+                  </motion.div>
+                </motion.div>
+
+                {/* Stats Item 2 */}
+                {/* <motion.div
+                  className="flex flex-col items-start md:flex-row gap-2 py-5"
+                  custom={1}
+                  animate={controls2}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                   <CountUp
+                      from={0}
+                      to={20}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    +
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    Skilled <span className="block">Professionals</span>
+                  </motion.div>
+                </motion.div> */}
+
+                {/* Stats Item 3 */}
+                {/* <motion.div
+                  className="flex flex-col items-start md:flex-row gap-2 py-5"
+                  custom={2}
+                  animate={controls3}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[45px] md:text-[65px] textGradient font-black leading-none pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    <CountUp
+                      from={0}
+                      to={100}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />%
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                  >
+                    Customer <span className="block">Satisfaction</span>
+                  </motion.div>
+                </motion.div> */}
+
+                {/* Stats Item 4 */}
+                <motion.div
+                  className="flex flex-col items-start md:flex-row gap-2 py-5"
+                  custom={3}
+                  animate={controls4}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[45px] md:text-[65px] textGradient font-black leading-none pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                  >
+                    <CountUp
+                      from={0}
+                      to={50}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    +
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                  >
+                    Products
+                  </motion.div>
+                </motion.div>
+
+                {/* Stats Item 5 */}
+                <motion.div
+                  className="flex flex-col items-start md:flex-row gap-2 py-5"
+                  custom={4}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <CountUp
+                      from={0}
+                      to={18}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    k
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Users <span className="block">Globally</span>
+                  </motion.div>
+                </motion.div>
+
+                {/* Stats Item 6 */}
+                <motion.div
+                  className="flex flex-col items-start md:flex-row gap-2 py-5"
+                  custom={5}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4 md:pl-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <CountUp
+                      from={0}
+                      to={7}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    +
+                  </motion.div>
+                  <motion.div
+                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d] md:pl-24"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Countries <span className="block">Served</span>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.section>
+        </div>
+      </section>
+
+      {/* contact */}
+      <section className="w-full px-5 py-20 relative bg-[#352317]">
+        {/* <motion.div
           // initial={{ opacity: 0 }}
           // whileInView={{ opacity: 1 }}
           // transition={{ duration: 0.8 }}
@@ -1204,7 +1181,7 @@ useEffect(() => {
             alt=""
             className="h-full w-full object-cover"
           />
-        </motion.div>
+        </motion.div> */}
         <div className="w-full max-w-[1400px] mx-auto">
           {/* Heading Section */}
           <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">

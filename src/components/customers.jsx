@@ -356,10 +356,10 @@ const customers = () => {
   }, []);
 
   return (
-    <div data-scroll-container className="overflow-hidden relative">
-      <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
+    <div data-scroll-container className="overflow-hidden relative bg-[#f3e5c9]">
+      {/* <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
         <img src={darkGradient} alt="" className="h-full w-full object-cover" />
-      </div>
+      </div> */}
       <a href="https://wa.me/+917593820007">
         <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
           <RiWhatsappLine />
@@ -385,7 +385,7 @@ const customers = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden"
+        className="md:pt-[150px] pt-[100px] flex flex-col justify-center items-center w-full overflow-hidden "
       >
         <section
           id="customers"
@@ -400,10 +400,10 @@ const customers = () => {
               viewport={{ once: true }}
               className="w-full md:w-1/2 text-left"
             >
-              <h2 className="textGradient4 text-white text-3xl md:text-5xl font-bold mb-5">
+              <h2 className="font-libre  text-[#32251F] text-3xl md:text-5xl font-bold mb-5">
                 CUSTOMERS
               </h2>
-              <p className="textGradient6 text-white text-base md:text-lg mb-5">
+              <p className=" text-[#000] text-base md:text-lg mb-5">
                 Customers play a crucial role in defining a business's dignity
                 and credibility. For us, they are our greatest strength. Our
                 primary focus is to maintain strong and positive relationships
@@ -431,7 +431,7 @@ const customers = () => {
           </div>
         </section>
       </motion.div>
-      <section className="py-16 border-b border-[#111B21] relative px-20">
+      <section className="py-16  relative px-20 bg-[#352317]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

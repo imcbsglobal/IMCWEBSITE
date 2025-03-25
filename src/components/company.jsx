@@ -304,13 +304,13 @@ const company = () => {
   return (
     <>
       <div data-scroll-container className="relative overflow-hidden">
-      <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
+      {/* <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
             <img
               src={darkGradient}
               alt="Background Gradient"
               className="w-full h-full object-cover"
             />
-          </div>
+          </div> */}
           <a href="https://wa.me/+917593820007">
                   <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
                     <RiWhatsappLine/>
@@ -341,7 +341,8 @@ const company = () => {
             </div> */}
             <div className="w-full px-2 max-w-[1400px] mx-auto">
               <motion.div
-                className="text-[#fff] text-[16px] md:text-[30px] mb-5 textGradient5 font-bold text-center leading-tight overflow-hidden"
+                className="text-[#fff] text-[16px] md:text-[30px] mb-5 textGradient5
+                 font-bold text-center leading-tight overflow-hidden"
                 style={{
                   opacity: titleOpacity,
                   y: titleY,
