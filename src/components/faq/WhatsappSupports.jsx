@@ -18,10 +18,10 @@ const WhatsappSupports = () => {
        const [openChat, setOpenChat] = useState(false)
     
   return (
-    <div className="flex flex-col justify-center items-center w-full relative pt-32">
-      <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
+    <div className="flex flex-col justify-center items-center w-full relative pt-32 bg-[#fff]">
+      {/* <div className='w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10'>
         <img src={darkGradient} alt="" className='w-full h-full object-cover'/>
-      </div>
+      </div> */}
       <a href="https://wa.me/+917593820007">
               <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
                 <RiWhatsappLine/>
@@ -42,13 +42,13 @@ const WhatsappSupports = () => {
             </div>
       <section className="max-w-[1400px] w-full mb-10 px-2 md:px-0">
         <div>
-          <div className="text-[#fff] text-3xl sm:text-[50px] textGradient4 mb-5 text-center leading-tight">
+          <div className="text-[#352317] text-3xl sm:text-[50px]  mb-5 text-center leading-tight">
             IMC Technology Solutions{" "}
-            <span className="block text-base sm:text-[20px] mt-5 textGradient5 font-bold">
+            <span className="block text-base sm:text-[20px] mt-5  font-bold">
               Your Trusted Partner in IT Solutions and Support
             </span>
           </div>
-          <div className="max-w-[1000px] mx-auto text-center text-[#fff] textGradient6 text-base sm:text-lg">
+          <div className="max-w-[1000px] mx-auto text-center text-[#000]  text-base sm:text-lg">
             Providing comprehensive IT solutions including software development,
             hardware support, and instant WhatsApp assistance. From restaurant management
             to healthcare systems, we deliver innovative solutions tailored to your
@@ -65,7 +65,7 @@ const WhatsappSupports = () => {
         <div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
             <div className="w-full flex flex-col justify-center items-center relative">
-              <div className="absolute leading-tight top-[-50px] md:top-10 right-2 text-[#fff] textGradient6">
+              <div className="absolute leading-tight top-[-50px] md:top-10 right-2 text-[#352317] ">
                 24/7 Support{" "}
                 <span className="block text-2xl sm:text-3xl">
                   Instant WhatsApp Assistance
@@ -80,20 +80,20 @@ const WhatsappSupports = () => {
                     alt="Support illustration"
                   />
                 </div>
-                <div className="w-full h-[300px] md:h-[250px] sm:h-[300px] rounded-3xl bg-[#fff] py-10 px-4">
+                <div className="w-full h-[300px] md:h-[250px] sm:h-[300px] rounded-3xl bg-[#83b58088] py-10 px-4">
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
                     <div className="h-full flex flex-col justify-around w-full sm:w-[50%]">
-                      <div className="flex items-center gap-2 textGradient7 font-bold">
-                        <span className="text-2xl sm:text-3xl">
+                      <div className="flex items-center gap-2  font-bold">
+                        <span className="  text-[#000] text-2xl sm:text-3xl">
                           <MdContactSupport />
                         </span>{" "}
                         Technical Support
                       </div>
-                      <div className="text-[28px] sm:text-[36px] font-bold textGradient7">
+                      <div className="text-[28px] sm:text-[36px] font-bold ">
                         Expert IT Solutions
                       </div>
                     </div>
-                    <div className="w-full sm:w-[50%] textGradient6 text-base sm:text-lg">
+                    <div className="w-full sm:w-[50%]  text-base sm:text-lg">
                       Our dedicated team provides comprehensive support for all your
                       IT needs, from software troubleshooting to hardware
                       maintenance. Get instant assistance through WhatsApp for
@@ -105,12 +105,12 @@ const WhatsappSupports = () => {
             </div>
 
             <div className="w-full flex flex-col justify-center items-center gap-5">
-              <div className="w-full h-[350px] md:h-[300px] sm:h-[350px] bg-[#fff] rounded-3xl flex justify-center items-start gap-5 md:gap-10 py-10 px-2 md:px-4">
+              <div className="w-full h-[350px] md:h-[300px] sm:h-[350px] bg-[#83b58088] rounded-3xl flex justify-center items-start gap-5 md:gap-10 py-10 px-2 md:px-4">
                 <div className="flex flex-col justify-between h-full items-center">
-                  <div className="px-8 py-2 rounded-3xl bg-[#000] text-[#fff] textGradient6 text-nowrap drop-shadow-md">
+                  <div className="px-8 py-2 rounded-3xl bg-[#000] text-[#fff]  text-nowrap drop-shadow-md">
                     Our Services
                   </div>
-                  <div className="textGradient7 text-[36px] sm:text-[50px] drop-shadow-sm">
+                  <div className=" text-[36px] sm:text-[50px] drop-shadow-sm">
                     <FcServices />
                   </div>
                 </div>
@@ -153,13 +153,13 @@ const WhatsappSupports = () => {
                 </div>
               </div>
               <div className="flex w-full flex-col gap-5">
-                <div className="w-full py-5 px-4 rounded-xl bg-[#fff] textGradient6 flex items-center gap-2">
+                <div className="w-full py-5 px-4 rounded-xl bg-[#83b58088]  flex items-center gap-2">
                   <span>
                     <GoDotFill />
                   </span>{" "}
                   Comprehensive software solutions for restaurants, healthcare, and educational institutions
                 </div>
-                <div className="w-full py-5 px-4 rounded-xl bg-[#fff] textGradient6 flex items-center gap-2">
+                <div className="w-full py-5 px-4 rounded-xl bg-[#83b58088]  flex items-center gap-2">
                   <span>
                     <GoDotFill />
                   </span>{" "}

@@ -431,6 +431,7 @@ const customers = () => {
           </div>
         </section>
       </motion.div>
+      
       <section className="py-16  relative px-20 bg-[#352317]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

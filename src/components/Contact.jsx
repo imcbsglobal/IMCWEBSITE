@@ -79,10 +79,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-32 relative w-full">
-      <div className=" absolute top-0 right-0 bottom-0 left-0 -z-10">
+    <div className="pt-32 relative w-full bg-[#fff]">
+      {/* <div className=" absolute top-0 right-0 bottom-0 left-0 -z-10">
         <img src={darkGradient} alt="" className="w-full h-full object-cover"/>
-      </div>
+      </div> */}
       <a href="https://wa.me/+917593820007">
               <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
                 <RiWhatsappLine/>
@@ -110,7 +110,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight"
+                className="text-[#352317] text-[36px] md:text-[50px]  leading-tight"
               >
                 Get in Touch and Lets
                 <span className="block">Make It Happen</span>
@@ -119,7 +119,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-[#fff] textGradient6 text-base md:text-lg"
+                className="text-[#000]  text-base md:text-lg"
               >
                 Get in touch with us! Whether you have questions, need support,
                 or want to learn more about our services, we're here to assist
@@ -149,13 +149,13 @@ const Contact = () => {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl"
+                className="flex flex-col gap-5  mb-10 text-lg md:text-xl"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
-                  className="text-[#fff]"
+                  className="text-[#000]"
                 >
                   info@imcbsglobal.com
                 </motion.div>
@@ -163,7 +163,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.6 }}
-                  className="text-[#fff]"
+                  className="text-[#000]"
                 >
                   +91 75938 20007
                 </motion.div>
@@ -171,7 +171,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
-                  className="text-[#fff]"
+                  className="text-[#000]"
                 >
                   Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
                   <span className="block">
@@ -190,7 +190,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => (window.location.href = "tel:+917593820007")}
-                    className="text-[#fff] w-full h-full bg-[#00000020] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700"
+                    className="text-[#000] w-full h-full bg-[#F7902C] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border  hover:bg-gray-700"
                   >
                     Contact Us
                   </motion.button>
@@ -209,7 +209,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 }}
-                className="text-[#fff] textGradient6 text-xl md:text-2xl"
+                className="text-[#000]  text-xl md:text-2xl"
               >
                 Here to bring your concept to life, manage your ongoing project,
                 or expand your existing development team.
@@ -220,7 +220,7 @@ const Contact = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 onSubmit={onSubmit}
               >
-                <div className="w-full grid grid-cols-2 gap-5 mb-3 textGradient6">
+                <div className="w-full grid grid-cols-2 gap-5 mb-3 ">
                   {/* Input fields with individual animations */}
                   {["firstName", "lastName", "email", "phone"].map(
                     (field, index) => (
@@ -243,7 +243,7 @@ const Contact = () => {
                           field.charAt(0).toUpperCase() + field.slice(1)
                         }*`}
                         required
-                        className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
+                        className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#000] border-b border-[#000]"
                       />
                     )
                   )}
@@ -260,7 +260,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     placeholder="Enter Your Message"
                     required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
+                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#000] border-b border-[#000]"
                   />
                 </motion.div>
                 <motion.div
@@ -273,7 +273,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6"
+                    className="w-full text-[#000] px-8 py-3 bg-[#F7902C] rounded-3xl "
                   >
                     Send Message
                   </motion.button>

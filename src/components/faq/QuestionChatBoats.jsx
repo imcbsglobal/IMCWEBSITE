@@ -26,14 +26,14 @@ const QuestionChatBoats = () => {
   
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1">
-        <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+      <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1 bg-[#fff]">
+        {/* <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10">
           <img
             src={darkGradient}
             alt=""
             className="w-full h-full object-cover"
           />
-        </div>
+        </div> */}
         <a href="https://wa.me/+917593820007">
                 <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
                   <RiWhatsappLine/>
@@ -49,22 +49,22 @@ const QuestionChatBoats = () => {
           </div>
         )}
 
-        <section className="w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center h-screen mb-20 mt-[-20px] md:mt-[10px] px-4">
+        <section className="w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center mb-20 mt-[24px] md:mt-[10px] px-4">
           <div>
             {/* Highlight Banner */}
             <div className="w-full flex justify-center items-center mb-5">
-              <div className="px-4 py-2 flex justify-center items-center rounded-full backdrop-blur-3xl gap-3 bg-[#ffffff3c] border">
-                <div className="px-8 py-1 text-sm textGradient7 font-semibold rounded-3xl bg-[#ff6106] text-[#fff]">
+              <div className="px-4 py-2 flex justify-center items-center rounded-full backdrop-blur-3xl gap-3 bg-[#5b413055] border">
+                <div className="px-8 py-1 text-sm  font-semibold rounded-3xl bg-[#ff6106] text-[#352317]">
                   New
                 </div>
-                <div className="textGradient6 text-[#fff] text-xs md:text-base">
+                <div className=" text-[#352317] text-xs md:text-base">
                   AI can now answer chats for you
                 </div>
               </div>
             </div>
 
             {/* Main Heading */}
-            <div className="text-[24px] md:text-[30px] text-[#fff] textGradient4 leading-tight text-center mb-5">
+            <div className="text-[24px] md:text-[30px] text-[#352317]  leading-tight text-center mb-5">
               Ask. Learn. Engage.
               <span className="block text-sm md:text-base">
                 Empowering your business with intelligent chatbots
@@ -72,7 +72,7 @@ const QuestionChatBoats = () => {
             </div>
 
             {/* Description */}
-            <div className="text-center text-[#fff] max-w-[1000px] mx-auto mb-6 text-sm md:text-base">
+            <div className="text-center text-[#000] max-w-[1000px] mx-auto mb-6 text-sm md:text-base">
               Need answers fast? Our AI-powered question based chatbot is here
               to help. Whether it's customers, employees, or students seeking
               information, the chatbot delivers accurate and instant answers
@@ -81,7 +81,7 @@ const QuestionChatBoats = () => {
             </div>
 
             {/* Benefits List */}
-            <ul className=" text-[#fff] max-w-[900px] mx-auto list-disc list-inside mb-6 text-sm md:text-base text-center">
+            <ul className=" text-[#000] max-w-[900px] mx-auto list-disc list-inside mb-6 text-sm md:text-base text-center">
               <li>24/7 Availability: Never miss a query</li>
               <li>
                 Accurate Answers: AI-trained to provide relevant, reliable
@@ -106,7 +106,7 @@ const QuestionChatBoats = () => {
             </button> */}
               <button
                 onClick={() => setOpenChat(true)}
-                className="px-8 py-3 rounded-full bg-[#fff] font-semibold flex items-center gap-2 textGradient6 text-sm md:text-base"
+                className="px-8 py-3 rounded-full bg-[#F3E5C9] font-semibold flex items-center gap-2  text-sm md:text-base"
               >
                 Chat Now{" "}
                 <span className="text-[#000000]">

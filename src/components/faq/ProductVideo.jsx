@@ -29,10 +29,10 @@ const ProductVideo = () => {
    const [openChat, setOpenChat] = useState(false)
 
   return (
-    <div className="relative w-full">
-      <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+    <div className="relative w-full bg-[#fff]">
+      {/* <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
         <img src={darkGradient} alt="" className="w-full h-full object-cover" />
-      </div>
+      </div> */}
       <a href="https://wa.me/+917593820007">
               <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
                 <RiWhatsappLine/>
@@ -54,13 +54,13 @@ const ProductVideo = () => {
       {/* Heading Section */}
       <section className="w-full flex justify-center px-4 pb-16 pt-32">
         <div>
-          <div className="text-[#fff] text-[40px] sm:text-[50px] textGradient4 mb-5 text-center leading-tight">
+          <div className="text-[#352317] text-[40px] sm:text-[50px]  mb-5 text-center leading-tight">
             Learn, Implement, Excel{" "}
             <span className="block text-[16px] sm:text-[20px]">
               Step by Step Tutorials to Unlock Your Products Full Potential
             </span>
           </div>
-          <div className="max-w-[1000px] mx-auto text-center text-[#fff] textGradient6 text-sm sm:text-base">
+          <div className="max-w-[1000px] mx-auto text-center text-[#000]  text-sm sm:text-base">
             Empower yourself or your team with in-depth product tutorials
             designed to simplify learning and enhance efficiency. Our guided
             lessons make it easy to understand complex features, implement
@@ -75,7 +75,7 @@ const ProductVideo = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className="p-4 text-white rounded-2xl shadow-lg border border-white px-4"
+              className="p-4 text-white rounded-2xl shadow-lg border border-white px-4 bg-black"
             >
               {/* Video Frame */}
               {item.videoUrl && (

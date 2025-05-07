@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/imclogo.png";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Logo from "../assets/imclogo1.png";
-import { MdCall, MdMenu, MdClose,MdLogin } from "react-icons/md";
+import logoorg from '../assets/imclogo.png';
+import { MdCall, MdMenu, MdClose, MdLogin } from "react-icons/md";
 import MobileNavbar from "./MobileNavbar";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropup } from "react-icons/io";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlinePhone } from "react-icons/md";
 import { useLocation } from "react-router-dom";
-
+import wlogo from '../assets/logowhite.png';
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   const location = useLocation();
-  const isHome = location.pathname === "/" || location.pathname === "/career";
-
+  const isSupportsPage = location.pathname === "/supports" || location.pathname === "/career" ;
+  const isAboutImc = location.pathname === "/aboutimc";
+  
   const scrollToElement = () => {
     const element = document.getElementById("aboutid");
     if (element) {
@@ -27,6 +30,19 @@ const Navbar = () => {
       window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
     }
   };
+
+  // Handle window resize for mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
   // Handle scrolling effect
   useEffect(() => {
     const handleScroll = () => {
@@ -56,66 +72,51 @@ const Navbar = () => {
 
   const dropdownMenus = {
     company: [
-      { name: "About IMC",  path: "/company#aboutid"  },
-      { name: "Team", path:"/company#team" },
-      { name: "Goals & Missions", path:"/company#goalsmission" },
-      { name: "Customers", path:"/customers" },
-      { name: "Supports", path:"/company#supports" },
-      { name: "Business Opportunities", path:"/company#bussinessopportunities" },
-      {name: "Career", path:"/career"},
+      { name: "About IMC",  path: "/aboutimc"  },
+      { name: "Supports", path:"/supports" },
+      { name: "Become a partner", path:"/becomepartner" },
     ],
     softwares: [
-      { name: "Inventory Management", path:"/inventory" },
-      { name: "Health Care Management", path:"/healthcare" },
-      { name: "Institution Management",  path:"/institution" },
-      { name: "Pharmacy", path: "/pharmacy"},
-      { name: "Restaurants", path:"/restaurant" },
-      { name: "Hospitality", path:"/hospitality" },
+      { name: "TASK", path:"/inventory" },
+      { name: "SHADE", path:"/healthcare" },
+      { name: "MAGNET",  path:"/institution" },
+      { name: "VTASK", path: "/pharmacy"},
+      { name: "DINE", path:"/restaurant" },
+      { name: "STARSTAY", path:"/hospitality" },
+      { name: "AURIC", path:"/auric" },
     ],
     services: [
-      { name: "ERP Software", path: "/erpsoftware" },
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
       { name: "Mobile App Development", path: "/mobileApp" },
       { name: "Business Consulting", path: "/businessBranding" },
       { name: "Digital Marketing", path: "/digitalmarketing" },
-      
       { name: "Hardware Solutions", path: "/hardwaresolutions" },
-     
     ],
-    // business: [
-    //   { name: "Retails & Wholesale", path :"/business#retailswholesale"  },
-    //   { name: "Pharmacies", path :"/business#pharmacies" },
-    //   { name: "School / Colleges", path :"/business#school" },
-    //   { name: "Hospital & Clinics", path :"/business#hospitalClinics" },
-    //   { name: "Restaurants", path :"/business#restaurantBusiness" },
-    //   { name: "Hotels", path :"/business#hotelBusiness" },
-    // ],
     faq: [
       { name: "Question Chat Boats", path: "/questionChatBoats" },
       { name: "Product Tutorials", path: "/productTutorials" },
       { name: "Product Video Demonstrations", path: "/productVideo" },
       { name: "Whatsapp Supports", path: "/whatsappSupports" },
+      {name: "Career", path:"/career"},
     ],
   };
-  const sectionid=[
-
-  ]
 
   const renderDropdown = (menuKey) => (
     <div
-      className="absolute py-5 px-5 bg-[#17171772] backdrop-blur-sm  drop-shadow-lg"
+      className="absolute py-5 px-5 bg-[#17171772] backdrop-blur-sm drop-shadow-lg"
       onMouseEnter={() => handleMouseEnter(menuKey)}
       onMouseLeave={handleMouseLeave}
     >
-      <ul className="z-20 relative text-nowrap text-[#fff] ">
+      <ul className="z-20 relative text-nowrap text-[#fff]">
         {dropdownMenus[menuKey].map((item, index) => (
           <Link key={index} to={item.path}>
-            <li className="hover:text-[#f60] p-2 hover:border-b hover:border-[#f60]"  onClick={() => scrollToSection(item.sectionId)}>{item.name}</li>
+            <li className="hover:text-[#f60] p-2 hover:border-b hover:border-[#f60]">{item.name}</li>
           </Link>
         ))}
       </ul>
     </div>
   );
+  
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -123,11 +124,41 @@ const Navbar = () => {
     }
   };
 
-    const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const toggleDropdown = (menuKey) => {
+    setActiveDropdown(activeDropdown === menuKey ? null : menuKey);
+  };
+
+  // Function to determine which logo to display
+  const getLogoToDisplay = () => {
+    if (isMobile) {
+      // For mobile view
+      if (!isAboutImc) {
+        return logoorg; // Show the requested logo for mobile when not on aboutimc page
+      } else if (isSupportsPage) {
+        return isScrolled ? logo : wlogo;
+      } else {
+        return isScrolled ? logoorg : logoorg;
+      }
+    } else {
+      // For desktop view
+      if (isSupportsPage) {
+        return isScrolled ? logo : wlogo;
+      } else {
+        return logo;
+      }
+    }
+  };
   
-    const toggleDropdown = (menuKey) => {
-      setActiveDropdown(activeDropdown === menuKey ? null : menuKey);
-    };
+  // Determine text color for menu items
+  const getMenuTextColor = () => {
+    if (isSupportsPage && !isScrolled) {
+      return "text-[#fff]";
+    } else {
+      return "text-black";
+    }
+  };
   
   return (
     <>
@@ -139,68 +170,45 @@ const Navbar = () => {
         }`}
       >
         <nav className="flex justify-between items-center w-full max-w-[1280px] mx-auto px-4 lg:px-8">
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={toggleMobileMenu}>
               {isMobileMenuOpen ? (
                 <MdClose className="text-3xl text-black" />
               ) : (
                 <MdMenu
-                  className={`text-3xl ${
-                    isScrolled ? "text-black" : "text-white"
-                  }`}
+                  className={`text-3xl ${isSupportsPage && !isScrolled ? "text-white" : "text-black"}`}
                 />
               )}
             </button>
           </div>
+
           {/* Logo Section */}
           <div className="w-auto h-[50px]">
-            {isHome ? (
-              isScrolled ? (
-                <img
-                  src={logo}
-                  className="w-full h-full object-contain"
-                  alt="Logo"
-                />
-              ) : (
-                <img
-                  src={Logo}
-                  className="w-full h-full object-contain"
-                  alt="Logo Home"
-                />
-              )
-            ) : (
-              <img
-                src={logo}
-                className="w-full h-full object-contain"
-                alt="Logo Default"
-              />
-            )}
+            <img
+              src={getLogoToDisplay()}
+              className="w-full h-full object-contain"
+              alt="Logo"
+            />
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex justify-center items-center">
             <ul
-              className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${
-                isHome
-                  ? isScrolled
-                    ? "text-[#000]"
-                    : "text-[#fff]"
-                  : "text-black"
-              }`}
+              className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${getMenuTextColor()}`}
             >
               <Link to="/">
                 <li className="cursor-pointer hover:text-[#ff7f1e]">Home</li>
               </Link>
-              <Link to="/company">
-                <li
-                  className="cursor-pointer relative"
-                  onMouseEnter={() => handleMouseEnter("company")}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Company
-                  {activeMenu === "company" && renderDropdown("company")}
-                </li>
-              </Link>
+
+              <li
+                className="cursor-pointer relative"
+                onMouseEnter={() => handleMouseEnter("company")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Company
+                {activeMenu === "company" && renderDropdown("company")}
+              </li>
 
               <li
                 className="cursor-pointer relative"
@@ -234,6 +242,7 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
+
           {/* Login Button */}
           <div className="md:flex gap-5 hidden">
             <Link to="/login">
@@ -242,19 +251,10 @@ const Navbar = () => {
                   isScrolled
                     ? "bg-[#000] text-[#fff] border border-[#fff] hover:bg-gray-500"
                     : "bg-[#fff] text-[#000]"
-                } hidden sm:flex`} // Hide on mobile
+                } hidden sm:flex`}
               >
                 Login
               </button>
-              {/* <button
-                className={sm:hidden flex items-center justify-center} // Show on mobile
-              >
-                <MdLogin
-                  className={`text-3xl ${
-                    isScrolled ? "text-[#000]" : "text-[#fff]"
-                  }`}
-                />
-              </button> */}
             </Link>
 
             <div
@@ -270,43 +270,24 @@ const Navbar = () => {
                   isScrolled
                     ? "border-[#000] border hover:bg-[#ff850c3c]"
                     : "border border-[#fff] text-[#fff] bg-[#000]"
-                } hidden sm:flex`} // Hide on mobile
+                } hidden sm:flex`}
               >
                 <span>Let's Talk</span>
                 <MdCall className="text-xl" />
               </button>
-
-              {/* <button
-                className="sm:hidden flex items-center justify-center" 
-              >
-                <MdCall
-                  className={`text-3xl ${
-                    isScrolled ? "text-[#000] " : "text-[#fff] p-1"
-                  }`}
-                />
-              </button> */}
             </div>
           </div>
         </nav>
       </header>
 
+      {/* Mobile Menu Sidebar */}
       <div
-        className={` fixed  top-0 left-0 w-[75%] max-w-[320px] rounded-r-3xl bg-white text-black z-[990] h-full shadow-lg transition-transform ${
+        className={`fixed top-0 left-0 w-[75%] max-w-[320px] rounded-r-3xl bg-white text-black z-[990] h-full shadow-lg transition-transform ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* <div className=" absolute bottom-3 p-5 border rounded-3xl w-[95%] bg-[#00000024] mx-auto left-1.5">
-          <div className="flex items-center gap-2">
-            <MdOutlinePhone />
-            +91 7593820007
-          </div>
-          <div className="flex items-center gap-2">
-            <MdOutlineEmail />
-            info@imcbsglobal.com
-          </div>
-        </div> */}
-        <div className="relative p-5 ">
-          {/* Close Button Positioned Top Left */}
+        <div className="relative p-5">
+          {/* Close Button Positioned Top Right */}
           <button onClick={toggleMobileMenu} className="absolute top-5 right-5">
             <MdClose size={30} className="text-black" />
           </button>
@@ -314,7 +295,6 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <ul className="flex flex-col p-5 gap-4">
-          {" "}
           <div className="flex justify-center w-full right-0">
             <img
               src={logo}
@@ -364,10 +344,6 @@ const Navbar = () => {
           </Link>
         </ul>
       </div>
-
-      {/* <div>
-      <MobileNavbar/>
-    </div> */}
     </>
   );
 };

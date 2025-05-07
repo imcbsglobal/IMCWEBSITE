@@ -7,20 +7,7 @@ import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import ChatBot from "./ChatBot";
 import inv from "../assets/invorg.jpeg";
-import abouthome2 from "../assets/knowmoreabout.jpeg";
-import hosopitality from "../assets/hospitality.jpg";
-import service1 from "../assets/service1.jpg";
-import service2 from "../assets/service2.jpg";
-import service3 from "../assets/service3.jpg";
-import service4 from "../assets/service4.jpg";
-import service5 from "../assets/service5.jpg";
-import service6 from "../assets/service6.jpg";
-import service7 from "../assets/service7.jpg";
-import service8 from "../assets/service8.jpg";
-import service9 from "../assets/service9.jpg";
-import service10 from "../assets/service10.jpg";
-import service11 from "../assets/service12.jpg";
-import service12 from "../assets/service11.jpg";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
@@ -30,74 +17,100 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Gradient from "./Gradient";
 import GradientText from "./GradientText";
-import { motion, useAnimation } from "framer-motion"
-import GradientBg from "../assets/gradientBg.jpg"
-import darkGradient from "../assets/darkGradient.jpg"
-import bannert1 from "../assets/bannert1.jpeg"
-import bannert2 from "../assets/bannert2.jpeg"
-import bannert3 from "../assets/bannert3.jpeg"
+import {
+  motion,
+  useAnimation,
+  useTransform,
+  useSpring,
+  useScroll,
+} from "framer-motion";
+import GradientBg from "../assets/gradientBg.jpg";
+import darkGradient from "../assets/darkGradient.jpg";
+
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import healthcare from "../assets/healthcare.jpg";
-import restaurant from "../assets/restaurants.jpg";
-import institution from "../assets/institution.jpg";
-import hardwareicon from "../assets/hardware.png";
-import expertteam from "../assets/expertteam.jpg";
-import mobileexpertise from "../assets/mobileexpertise.png";
-import userfriendly from "../assets/userfriendly.jpg";
-import security from "../assets/security.png";
-import uiux from "../assets/uiux.jpg"
-import retailandwholesale from "../assets/retailandwholesale.jpg"
-import pharmacies from "../assets/pharmacies.jpg"
-import schoolcollege from "../assets/schoolcollege.jpg"
-import hospitalandclinics from "../assets/hospitalandclinics.jpg"
-import restaurants from "../assets/restaurant.jpg"
-import bannerVideo from "../assets/bannervideo.mp4";
-import ASCIIText from './ASCIIText';
+
 import { Link } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa6";
 import CircularText from "./CircularText";
 import { useInView } from "react-intersection-observer";
-import webdev from '../assets/webdev.jpeg'
-import mobileapp from '../assets/mobile.jpeg'
-import consultancy from '../assets/consultancy.jpeg'
-import digitalmarketing from '../assets/digital.jpeg'
-import hardware from '../assets/hardware.jpeg'
-import photoshop from '../assets/photoshop.png'
-import sap from '../assets/SAP.png'
-import firebase from '../assets/firebase.png'
-import react from '../assets/react.png'
-import github from '../assets/github.png'
-import aws from '../assets/aws.png'
-import adobexd from '../assets/adobexd.png'
-import illustrator from '../assets/illustrator.png'
-import figma from '../assets/Figma.png'
-import flutter from '../assets/flutter.png'
-import python from '../assets/python.png'
-import hostinger from '../assets/hostinger.png'
-import pgadmin from '../assets/pgadmin.png'
+import webdev from "../assets/webdev.jpeg";
+import mobileapp from "../assets/app.png";
+import consultancy from "../assets/consultancy.jpeg";
+import digitalmarketing from "../assets/digital.jpeg";
+import hardware from "../assets/hardware.jpeg";
+import photoshop from "../assets/photoshop.png";
+import sap from "../assets/SAP.png";
+import firebase from "../assets/firebase.png";
+import react from "../assets/react.png";
+import github from "../assets/github.png";
+import aws from "../assets/aws.png";
+import adobexd from "../assets/adobexd.png";
+import illustrator from "../assets/illustrator.png";
+import figma from "../assets/Figma.png";
+import flutter from "../assets/flutter.png";
+import python from "../assets/python.png";
+import hostinger from "../assets/hostinger.png";
+import pgadmin from "../assets/pgadmin.png";
 import { RiWhatsappLine } from "react-icons/ri";
-import banners from '../assets/banner2.jpg'
-import appeon from '../assets/APPEON.png'
-import CountUp from './CountUp'
+import banners from "../assets/banner2.jpg";
+import appeon from "../assets/APPEON.png";
+import CountUp from "./CountUp";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 import { MdOutlineArrowBack, MdOutlineArrowForward } from "react-icons/md";
+import homebanner from "../assets/bp2.jpg";
+import aboutmain from "../assets/b.jpeg";
+import { IoCloseSharp } from "react-icons/io5";
+
 // import { Autoplay } from 'swiper/modules';
-const Home = () => {pgadmin
+const Home = () => {
+  pgadmin;
   const canvasRef = useRef(null);
   const [result, setResult] = React.useState("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   // const dropdownMenus = {
-    
+
   //   softwares: [
   //     { name: "Restaurants", path:"/software#restaurant" },
   //     { name: "Inventory Management", path:"/software#inventorymanagement" },
   //     { name: "Health Care Management", path:"/software#healthcaremanagement" },
-      
+
   //     { name: "Hospitality", path:"/software#hospitality" },
   //     { name: "Institution Management",  path:"/software#institutionmanagement" },
   //   ]
   // };
+
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
+
+  // Text animations (bottom to top reveal)
+  const titleOpacity = useTransform(smoothProgress, [0, 0.25], [0, 1]);
+  const titleY = useTransform(smoothProgress, [0, 0.25], [50, 0]);
+  const titleBlur = useTransform(smoothProgress, [0.6, 0.8], [0, 8]);
+
+  const paragraphOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1]);
+  const paragraphY = useTransform(smoothProgress, [0.2, 0.4], [50, 0]);
+  const paragraphBlur = useTransform(smoothProgress, [0.7, 0.9], [0, 5]);
+
+  // Banner image animations
+  const imageScale = useTransform(smoothProgress, [0.4, 0.6], [0.8, 1]);
+  const imageOpacity = useTransform(smoothProgress, [0.4, 0.6], [0, 1]);
+  const imageRotateX = useTransform(smoothProgress, [0.4, 0.6], [10, 0]);
+  const imageRotateY = useTransform(smoothProgress, [0.4, 0.6], [5, 0]);
+  const imagePerspective = useTransform(
+    smoothProgress,
+    [0.4, 0.6],
+    [800, 1200]
+  );
+
   const swiperRef = useRef(null);
   const locoRef = useRef(null);
   useEffect(() => {
@@ -113,14 +126,15 @@ const Home = () => {pgadmin
       if (locoScroll) locoScroll.destroy();
     };
   }, []);
+
   // const mainRef = useRef();
   const [formData, setFormData] = useState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
   useEffect(() => {
     // Ensure the container and its children are fully rendered
@@ -141,125 +155,76 @@ const Home = () => {pgadmin
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const softwareList = [
     {
-      "no": "01",
-      "name": "ERP SOFTWARE",
-      "img": inv,
-      "title": "Streamline Your Business Operations",
-      "section": "ERP SOFTWARE",
-      "para": "Enhance productivity with a powerful ERP system that integrates finance, HR, sales, and inventory. Automate processes, reduce costs, and gain real-time insights for smarter decision-making.",
-      "link": "/erpsoftware"
+      no: "01",
+      name: "ERP Software",
+      img: inv,
+      title: "Streamline Your Business Operations",
+      section: "ERP SOFTWARE",
+      para: "Enhance productivity with a powerful ERP system that integrates finance, HR, sales, and inventory. Automate processes, reduce costs, and gain real-time insights for smarter decision-making.",
+      link: "/erpsoftware",
     },
-    
-    {
-      "no": "02",
-      "name": "Website Development",
-      "img": webdev,
-      "title": "Building Engaging Digital Experiences",
-      "section": "Website Development",
-      "para": "Crafting responsive, high-performance websites that enhance user engagement, strengthen brand presence, and drive business growth.",
-      "link": "/websiteandWebApplications"
-    },
-    
-    {
-      "no": "03",
-      "name": "Mobile App Development",
-      "img": mobileapp,
-      "title": "Innovative And Scalable Mobile Solutions",
-      "section": "App Development",
-      "para": "Creating high-performance mobile applications that enhance user engagement, improve accessibility, and drive business growth in a digital-first world.",
-      "link": "/mobileApp" 
-       },
-    
-    {
-      "no": "04",
-      "name": "Business Consultancy",
-      "img": consultancy,
-      "title": "Strategic Solutions for Business Growth",
-      "section": "Business Consultancy",
-      "para": "Empowering businesses with expert guidance, data-driven insights, and tailored strategies to enhance efficiency, maximize profitability, and drive sustainable growth.",
-      "link": "/businessBranding"
-    }
-    ,
-    {
-      "no": "05",
-      "name": "Digital Marketing",
-      "img": digitalmarketing,
-      "title": "Boost Your Brands Online Presence",
-      "section": "Digital Marketing",
-      "para": "Harness the power of data-driven strategies, SEO, and social media to increase brand visibility, drive engagement, and accelerate business growth in the digital landscape.",
-      "link": "/digitalmarketing"
-    },
-    {
-      "no": "05",
-      "name": "Hardware Solutions",
-      "img": hardware,
-      "title": "Reliable IT Infrastructure and Support",
-      "section": "Hardware Solutions",
-      "para": "Providing high-quality hardware solutions, from servers to networking equipment, ensuring seamless performance, security, and scalability for your business needs.",
-      "link": "/hardwaresolutions"
-    }
-    
 
-  ];
+    {
+      no: "02",
+      name: "Website Development",
+      img: webdev,
+      title: "Building Engaging Digital Experiences",
+      section: "Website Development",
+      para: "Crafting responsive, high-performance websites that enhance user engagement, strengthen brand presence, and drive business growth.",
+      link: "/websiteandWebApplications",
+    },
 
-  const services = [
     {
-      title: "WEBSITE AND WEB APPLICATION DEVELOPMENT",
-      description:
-        "We specialize in creating modern, responsive websites and powerful web applications tailored to your business needs. Our solutions blend seamless user experiences with cutting-edge technologies to help you engage customers, streamline operations, and drive growth. From design to deployment, we bring your ideas to life online.",
-      img1: service1,
-      img2: service2,
+      no: "03",
+      name: "Mobile App Development",
+      img: mobileapp,
+      title: "Innovative And Scalable Mobile Solutions",
+      section: "App Development",
+      para: "Creating high-performance mobile applications that enhance user engagement, improve accessibility, and drive business growth in a digital-first world.",
+      link: "/mobileApp",
+    },
+
+    {
+      no: "04",
+      name: "Business Consultancy",
+      img: consultancy,
+      title: "Strategic Solutions for Business Growth",
+      section: "Business Consultancy",
+      para: "Empowering businesses with expert guidance, data-driven insights, and tailored strategies to enhance efficiency, maximize profitability, and drive sustainable growth.",
+      link: "/businessBranding",
     },
     {
-      title: "MOBILE APP DEVELOPMENT",
-      description:
-        "We craft innovative and user-friendly mobile applications designed to meet your business goals. Our team specializes in building secure, scalable, and high-performance apps for iOS and Android platforms, ensuring a seamless experience for your users. From concept to launch, we deliver apps that drive engagement and success.",
-      img1: service3,
-      img2: service4,
+      no: "05",
+      name: "Digital Marketing",
+      img: digitalmarketing,
+      title: "Boost Your Brands Online Presence",
+      section: "Digital Marketing",
+      para: "Harness the power of data-driven strategies, SEO, and social media to increase brand visibility, drive engagement, and accelerate business growth in the digital landscape.",
+      link: "/digitalmarketing",
     },
     {
-      title: "DIGITAL MARKETING/SEO",
-      description:
-        "Boost your online presence and connect with your audience through strategic digital marketing and SEO services. We help drive organic traffic, enhance search engine rankings, and create targeted campaigns that deliver measurable results. From content creation to social media and paid ads, we fuel your brand’s digital growth.",
-      img1: service5,
-      img2: service6,
-    },
-    {
-      title: "BRANDING ",
-      description:
-        "We help businesses build a strong and memorable identity. From logo design and brand strategy to visual elements and messaging, we craft cohesive branding solutions that resonate with your audience and reflect your values. Stand out, connect deeply, and leave a lasting impression.",
-      img1: service7,
-      img2: service8,
-    },
-    {
-      title: "GRAPHICS AND CREATIVES",
-      description:
-        "We bring ideas to life with visually stunning designs and creative content. From eye-catching social media graphics to impactful marketing materials, our designs are crafted to captivate your audience and elevate your brand’s message. Let’s make your visuals unforgettable",
-      img1: service9,
-      img2: service10,
-    },
-    {
-      title: "BUSINESS BRANDINGS",
-      description:
-        "We specialize in building a unique and powerful brand identity for businesses of all sizes. Our comprehensive branding services include logo design, brand positioning, messaging, and visual aesthetics that align with your vision. We help you create a brand that stands out, fosters trust, and connects with your target audience.",
-      img1: service11,
-      img2: service12,
+      no: "05",
+      name: "Hardware Solutions",
+      img: hardware,
+      title: "Reliable IT Infrastructure and Support",
+      section: "Hardware Solutions",
+      para: "Providing high-quality hardware solutions, from servers to networking equipment, ensuring seamless performance, security, and scalability for your business needs.",
+      link: "/hardwaresolutions",
     },
   ];
-
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
-    
+
     const formDataToSend = new FormData();
     formDataToSend.append("access_key", "3e557a00-0b21-45e5-b274-496427ac9210");
     Object.entries(formData).forEach(([key, value]) => {
@@ -269,7 +234,7 @@ const Home = () => {pgadmin
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formDataToSend
+        body: formDataToSend,
       });
 
       const data = await response.json();
@@ -281,7 +246,7 @@ const Home = () => {pgadmin
           lastName: "",
           email: "",
           phone: "",
-          message: ""
+          message: "",
         });
         setIsPopupVisible(true);
         setTimeout(() => setIsPopupVisible(false), 3000); // Hide popup after 3 seconds
@@ -294,7 +259,7 @@ const Home = () => {pgadmin
       setResult("Error submitting form");
     }
   };
- 
+
   const mainRef = useRef();
 
   useEffect(() => {
@@ -314,27 +279,26 @@ const Home = () => {pgadmin
     };
   }, []);
 
-useEffect(() => {
-  // Ensure the container and its children are fully rendered
-  if (!mainRef.current) return;
+  useEffect(() => {
+    // Ensure the container and its children are fully rendered
+    if (!mainRef.current) return;
 
-  // Initialize Locomotive Scroll
-  const locoScroll = new LocomotiveScroll({
-    el: mainRef.current, // Reference to the scroll container
-    smooth: true,
-    lerp: 0.1,
-  });
+    // Initialize Locomotive Scroll
+    const locoScroll = new LocomotiveScroll({
+      el: mainRef.current, // Reference to the scroll container
+      smooth: true,
+      lerp: 0.1,
+    });
 
-  // Cleanup Locomotive Scroll instance on unmount
-  return () => {
-    if (locoScroll) locoScroll.destroy();
-  };
-}, []);
+    // Cleanup Locomotive Scroll instance on unmount
+    return () => {
+      if (locoScroll) locoScroll.destroy();
+    };
+  }, []);
 
+  const [openChat, setOpenChat] = useState(false);
 
-   const [openChat, setOpenChat] = useState(false)
-
-   const textRevealVariants = {
+  const textRevealVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
       opacity: 1,
@@ -343,74 +307,72 @@ useEffect(() => {
         delay: i * 0.2,
         duration: 0.8,
         // Using a standard easing name instead of cubic-bezier
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
-
-  const abouthome = abouthome2;
 
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
-  
+
   const fadeInRight = {
     hidden: { opacity: 0, x: -60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { 
+      transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
-  
+
   const fadeInLeft = {
     hidden: { opacity: 0, x: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { 
+      transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
-  
+
   const scale3d = {
     hidden: { opacity: 0, scale: 0.8, rotateY: 15 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
+    visible: {
+      opacity: 1,
+      scale: 1,
       rotateY: 0,
-      transition: { 
+      transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
-  
+
   const statCounter = {
     hidden: { opacity: 0, scale: 0.5 },
-    visible: (custom) => ({ 
-      opacity: 1, 
+    visible: (custom) => ({
+      opacity: 1,
       scale: 1,
-      transition: { 
+      transition: {
         delay: custom * 0.1,
         duration: 0.5,
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
 
   // Main content section animation
@@ -418,25 +380,25 @@ useEffect(() => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   // Image animation
   const [imageRef, imageInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
   // Stats section animation
   const [statsRef, statsInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
   // Stats numbers animation controls
   const controls1 = useAnimation();
   const controls2 = useAnimation();
   const controls3 = useAnimation();
   const controls4 = useAnimation();
-  
+
   useEffect(() => {
     if (statsInView) {
       controls1.start("visible");
@@ -447,20 +409,21 @@ useEffect(() => {
   }, [statsInView, controls1, controls2, controls3, controls4]);
 
   const techPartners = [
+    { name: "APPEON", img: appeon },
+    { name: "Python", img: python },
+    { name: "React", img: react },
+    { name: "Flutter", img: flutter },
+    { name: "SAP", img: sap },
+    { name: "AWS", img: aws },
+    { name: "GitHub", img: github },
+    { name: "Hostinger", img: hostinger },
+    { name: "PgAdmin", img: pgadmin },
+    { name: "Firebase", img: firebase },
     { name: "Photoshop", img: photoshop },
     { name: "Illustrator", img: illustrator },
     { name: "Adobe XD", img: adobexd },
-    { name: "Figma", img: figma },
-    { name: "React", img: react },
-    { name: "Python", img: python },
-    { name: "Flutter", img: flutter },
-    { name: "Hostinger", img: hostinger },
-    { name: "AWS", img: aws },
-    { name: "GitHub", img: github },
-    { name: "PgAdmin", img: pgadmin },
-    { name: "Firebase", img: firebase },
-    { name: "SAP", img: sap },
-    {name:"APPEON", img:appeon},
+    { name: "Figma", img: figma },    
+    
   ];
   // Service
 
@@ -477,13 +440,13 @@ useEffect(() => {
     exit: {
       opacity: 0,
       filter: "blur(10px)",
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   const itemVariants = {
-    hidden: { 
-      y: 50, 
+    hidden: {
+      y: 50,
       opacity: 0,
       scale: 0.95,
     },
@@ -491,24 +454,24 @@ useEffect(() => {
       y: 0,
       opacity: 1,
       scale: 1,
-      transition: { 
-        type: "spring", 
-        stiffness: 100, 
+      transition: {
+        type: "spring",
+        stiffness: 100,
         damping: 15,
-        duration: 0.6
-      }
+        duration: 0.6,
+      },
     },
     exit: {
       y: -20,
       opacity: 0,
       filter: "blur(5px)",
-      transition: { duration: 0.4 }
-    }
+      transition: { duration: 0.4 },
+    },
   };
 
   const imageVariants = {
-    hidden: { 
-      scale: 0.9, 
+    hidden: {
+      scale: 0.9,
       opacity: 0,
       rotateX: 5,
     },
@@ -516,19 +479,19 @@ useEffect(() => {
       scale: 1,
       opacity: 1,
       rotateX: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 80, 
+      transition: {
+        type: "spring",
+        stiffness: 80,
         damping: 20,
-        duration: 0.8
-      }
+        duration: 0.8,
+      },
     },
     exit: {
       scale: 0.95,
       opacity: 0,
       filter: "blur(8px)",
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   const SectionRef = React.useRef(null);
@@ -537,14 +500,74 @@ useEffect(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? softwareList.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? softwareList.length - 1 : prev - 1
+    );
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === softwareList.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === softwareList.length - 1 ? 0 : prev + 1
+    );
   };
   const [startIndex, setStartIndex] = useState(0);
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/businessBranding#consultation-form"); // Redirect to page and section
+  };
+
+
+   const [isPopupVisible1, setIsPopupVisible1] = useState(false);
+    const [formData1, setFormData1] = useState({
+      firstName: "",
+      secondName: "",
+      phone: "",
+      email: "",
+      subject: "",
+      content: "",
+    });
+    const [result1, setResult1] = useState("");
+  
+    const handleInputChange1 = (e) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    };
+  
+    const onSubmit1 = async (event) => {
+      event.preventDefault();
+      setResult("Sending...");
+  
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", "3e557a00-0b21-45e5-b274-496427ac9210");
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
+  
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formDataToSend,
+        });
+  
+        const data = await response.json();
+  
+        if (data.success) {
+          setResult("Form Submitted Successfully");
+          setFormData({ firstName: "", secondName: "", phone: "", email: "", subject: "", content: "" });
+          setTimeout(() => setIsPopupVisible(false), 3000);
+        } else {
+          setResult(data.message);
+        }
+      } catch (error) {
+        console.error("Error submitting form", error);
+        setResult("Error submitting form");
+      }
+    };
+  
   return (
     <div data-scroll-container className="relative overflow-hidden ">
       <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40"></div>
@@ -569,163 +592,268 @@ useEffect(() => {
           </div>
         )}
       </div>
+
       <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 "></div>
 
       {/* Banner */}
-      <section className="relative h-screen flex flex-col justify-start items-center">
-        <div className="w-full h-full object-cover absolute top-0 left-0 bottom-0 right-0">
-          <img
-            src={banners}
-            className="w-full h-full object-cover"
-            alt="Banner Image"
-          />
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#352317] via-[#3523176f] to-transparent opacity-100"></div>
-        </div>
-
-        <div className="w-full h-full absolute flex flex-col items-center md:items-start justify-center text-center md:text-start px-4 md:pl-36">
-          <motion.h1
-            className="text-[#fff] text-4xl md:text-6xl lg:text-8xl font-bold mb-4 textGradient6"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            IMC
-          </motion.h1>
-          <motion.p
-            className="text-[#fff] text-sm md:text-lg max-w-2xl pb-5"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            Elevate your business with cutting-edge IT solutions. From Retail to
-            Healthcare, Education, and Hospitality – IMC Business Solutions is
-            here to transform your success.
-          </motion.p>
-          <div className=" flex gap-4">
-            <motion.button
-              className="px-6 py-3 text-sm md:text-lg font-semibold text-white border border-orange-400 rounded-3xl shadow-lg hover:opacity-80 transition"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
+      <div className="flex flex-col justify-center items-center w-full bg-[#fff]">
+        <section
+          id="aboutid"
+          className="w-full relative pb-10 pt-[100px] md:pt-[100px]"
+          ref={sectionRef}
+        >
+          {/* <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full -z-10">
+              <img src={darkGradient} alt="Background Gradient" />
+            </div> */}
+          <div className="w-full px-2 max-w-[1400px] mx-auto">
+            <motion.div
+              className="text-[#32251F]  text-[36px] md:text-[55px] mb-5 
+                 font-bold text-center leading-tight overflow-hidden "
+              style={{
+                opacity: titleOpacity,
+                y: titleY,
+                filter: useTransform(titleBlur, (blur) => `blur(${blur}px)`),
+              }}
             >
-              Discover More
-            </motion.button>
-            <a href="/contact">
+              <motion.span
+                className="block  text-[20px] md:text-[40px]"
+                style={{
+                  opacity: useTransform(smoothProgress, [0.1, 0.3], [0, 1]),
+                  y: useTransform(smoothProgress, [0.1, 0.3], [30, 0]),
+                }}
+              >
+                A Successful And Innovative IT Company
+              </motion.span>
+            </motion.div>
+
+            <motion.div
+              className="text-[#000] max-w-[700px] mb-1 mx-auto px-2  text-center overflow-hidden"
+              style={{
+                opacity: paragraphOpacity,
+                y: paragraphY,
+                filter: useTransform(
+                  paragraphBlur,
+                  (blur) => `blur(${blur}px)`
+                ),
+              }}
+            >
+              Leading IT solutions provider in Kerala since 2010. Empowering
+              businesses with innovative software and technology solutions.
+            </motion.div>
+            <motion.div
+              className="text-[#32251F]  text-[36px] md:text-[50px] mb-5 
+                 font-bold text-center leading-tight overflow-hidden"
+              style={{
+                opacity: titleOpacity,
+                y: titleY,
+                filter: useTransform(titleBlur, (blur) => `blur(${blur}px)`),
+              }}
+            ></motion.div>
+            <motion.div
+              className="h-[600px] w-full bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] overflow-hidden p-[1px] bg-[#3c3333] rounded-3xl"
+              // style={{
+              //   opacity: imageOpacity,
+              //   scale: imageScale,
+              //   perspective: imagePerspective,
+              // }}
+              // ref={imageRef}
+            >
+              <motion.div
+                className="rounded-3xl w-full h-full bg-[#000] overflow-hidden"
+                // style={{
+                //   rotateX: imageRotateX,
+                //   rotateY: imageRotateY,
+                //   transformStyle: "preserve-3d",
+                // }}
+              >
+                <motion.img
+                  src={aboutmain}
+                  alt="About IMC"
+                  className="w-full h-full object-cover"
+                  style={{
+                    scale: useTransform(
+                      smoothProgress,
+                      [0.4, 0.7, 1],
+                      [1, 1.05, 1.1]
+                    ),
+                  }}
+                  whileInView={{
+                    transition: {
+                      duration: 1.5,
+                      ease: "easeOut",
+                    },
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+            <div className="  flex items-center justify-center pt-2">
               <motion.button
-                className="px-6 py-3 text-sm md:text-lg font-semibold text-white border border-orange-400 rounded-3xl shadow-lg hover:opacity-80 transition"
+                className="px-6 py-3 text-sm sm:text-lg font-semibold text-[#000] border border-[#32251F] rounded-3xl  hover:bg-[#32251F] hover:text-white transition"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
+                onClick={() => setIsPopupVisible1(true)}
               >
-                Contact Now
+                Get Started
               </motion.button>
-            </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      {/* About */}
-      <section className="w-full relative z-10 py-10">
-        <div className=" bg-[#f3e5c9] absolute top-0 bottom-0 right-0 left-0 -z-10 w-full">
-          {/* <motion.img
-            // initial={{ opacity: 0 }}
-            // animate={{ opacity: 1 }}
-            // transition={{ duration: 1.5 }}
-            src={GradientBg}
-            alt=""
-            className="w-full h-full object-cover"
-          /> */}
-        </div>
-        <div className="max-w-[1440px] mx-auto mb-10">
-          <div className="md:flex md:justify-center md:items-center md:gap-10 w-full px-4">
-            {/* left side content */}
+      {/* Stats section */}
+      <section className="bg-[#71503a] w-full py-10 md:py-0">
+        <div
+          className="px-4 sm:px-6 md:px-8 text-white max-w-[1400px] mx-auto"
+          ref={statsRef}
+        >
+          <motion.section
+            className="w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r p-[1px]"
+            initial="hidden"
+            animate={statsInView ? "visible" : "hidden"}
+            variants={fadeInUp}
+          >
             <motion.div
-              className="md:w-[60%] py-5 flex flex-col gap-2"
-              ref={contentRef}
-              initial="hidden"
-              animate={contentInView ? "visible" : "hidden"}
-              variants={fadeInRight}
+              className="rounded-3xl w-full px-4 sm:px-6 md:px-10 py-8 md:py-10"
+              initial={{ opacity: 0 }}
+              animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div>
-                <div className="flex flex-col gap-2 mb-5">
-                  <motion.div
-                    className="text-[38px] md:text-[50px] leading-[50px] textGradient4 text-[#32251F] font-semibold"
-                    variants={fadeInUp}
-                    transition={{ delay: 0.2 }}
-                  >
-                    Know more about us
-                  </motion.div>
-                  <motion.div
-                    className="textGradient5 text-[16px] md:text-[30px] font-bold text-[#2e1e14]"
-                    variants={fadeInUp}
-                    transition={{ delay: 0.3 }}
-                  >
-                    Our Journey to Digital Excellence
-                  </motion.div>
-                </div>
+              <div className="mb-8 md:mb-10 text-[28px] sm:text-[36px] md:text-[50px] text-center font-bold">
+                Our Achievements at a Glance
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {/* Stats Item 1 */}
                 <motion.div
-                  className="textGradient6 text-[#000] leading-relaxed md:text-justify"
-                  variants={fadeInUp}
-                  transition={{ delay: 0.4 }}
+                  className="flex flex-col sm:flex-row items-start gap-2 py-4"
+                  custom={0}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
                 >
-                  IMC Business Solutions is a leading software company in India
-                  since 2017, offering a comprehensive management platform and a
-                  wide range of IT solutions, including business software,
-                  Android/iOS development, web development, hardware services,
-                  and IT support.
-                  <motion.span variants={fadeInUp} transition={{ delay: 0.5 }}>
-                    Our primary mission is to bring RITS Software's innovative
-                    products to global markets. As a professionally competent IT
-                    firm, RITS Software blends expert software development with
-                    a customer-focused management approach.{" "}
-                  </motion.span>
-                  <motion.span variants={fadeInUp} transition={{ delay: 0.6 }}>
-                    {" "}
-                    We also operate Sysmac, a dedicated division providing
-                    hardware solutions and services to our clients.
-                  </motion.span>
-                  <motion.span variants={fadeInUp} transition={{ delay: 0.7 }}>
-                    IMC delivers tailored software and technology solutions for
-                    businesses in India and beyond. With over 1,200 happy
-                    clients and 10+ branches across South India, we continue to
-                    empower businesses with cutting-edge technology solutions.
-                  </motion.span>
+                  <motion.div
+                    className="text-[50px] sm:text-[50px] md:text-[65px] font-bold leading-none pr-0 sm:pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <CountUp from={0} to={15} duration={1} />+
+                  </motion.div>
+                  <motion.div
+                    className="text-[18px] sm:text-[20px] md:text-[26px] leading-tight"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Years of <span className="block">Experience</span>
+                  </motion.div>
+                </motion.div>
+
+                {/* Stats Item 2 */}
+                <motion.div
+                  className="flex flex-col sm:flex-row items-start gap-2 py-4"
+                  custom={3}
+                  animate={controls4}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[50px] sm:text-[50px] md:text-[65px] font-bold leading-none pr-0 sm:pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                  >
+                    <CountUp from={0} to={50} duration={1} />+
+                  </motion.div>
+                  <motion.div
+                    className="text-[18px] sm:text-[20px] md:text-[26px] leading-tight"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                  >
+                    Products
+                  </motion.div>
+                </motion.div>
+
+                {/* Stats Item 3 */}
+                <motion.div
+                  className="flex flex-col sm:flex-row items-start gap-2 py-4"
+                  custom={4}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[50px] sm:text-[50px] md:text-[65px] font-bold leading-none pr-0 sm:pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <CountUp from={0} to={25} duration={1} />k
+                  </motion.div>
+                  <motion.div
+                    className="text-[18px] sm:text-[20px] md:text-[26px] leading-tight"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Users <span className="block">Globally</span>
+                  </motion.div>
+                </motion.div>
+
+                {/* Stats Item 4 */}
+                <motion.div
+                  className="flex flex-col sm:flex-row items-start gap-2 py-4"
+                  custom={5}
+                  animate={controls1}
+                  initial="hidden"
+                  variants={statCounter}
+                >
+                  <motion.div
+                    className="text-[50px] sm:text-[50px] md:text-[65px] font-bold leading-none pr-0 sm:pr-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <CountUp from={0} to={7} duration={1} />+
+                  </motion.div>
+                  <motion.div
+                    className="text-[18px] sm:text-[20px] md:text-[26px] leading-tight"
+                    initial={{ opacity: 0 }}
+                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Countries <span className="block">Served</span>
+                  </motion.div>
                 </motion.div>
               </div>
             </motion.div>
-
-            {/* right side image */}
-            <motion.div
-              className="md:w-[40%] bg-[#000] h-[500px] rounded-md overflow-hidden"
-              ref={imageRef}
-              initial="hidden"
-              animate={imageInView ? "visible" : "hidden"}
-              variants={scale3d}
-              style={{ perspective: "1000px" }}
-            >
-              <motion.img
-                src={abouthome}
-                alt=""
-                className="h-full w-full object-cover"
-                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-              />
-            </motion.div>
-          </div>
+          </motion.section>
         </div>
       </section>
 
       {/* Solutions */}
-      <section className="bg-[#fcf3e1] relative  flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
+      <section className="bg-[#fff] relative  flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
         <motion.div
           className="text-center mb-6 px-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#32251F] textGradient4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#32251F] mb-2">
             Comprehensive IT Solutions for Your Business
           </h2>
-          <p className="text-base md:text-lg text-[#000] mt-2 textGradient6 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
+          <p className="text-base md:text-lg text-[#000] mt-2  max-w-3xl mx-auto ">
             Explore our suite of innovative solutions designed to streamline
             your business operations and enhance efficiency.
           </p>
@@ -794,10 +922,10 @@ useEffect(() => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
                   >
-                    <h2 className="text-xl md:text-2xl font-bold">
+                    <h2 className="text-xl md:text-2xl font-bold ">
                       {software.name}
                     </h2>
-                    <p className="text-sm md:text-md mt-2">{software.para}</p>
+                    <p className="text-sm md:text-md mt-2 ">{software.para}</p>
                   </motion.div>
                 </motion.div>
               </SwiperSlide>
@@ -857,10 +985,11 @@ useEffect(() => {
           />
         </motion.div>
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold leading-normal textGradient4">
+          <h2 className="text-4xl md:text-5xl font-bold leading-normal mb-2 ">
             Our Trusted Tech Allies
           </h2>
-          <p className="text-lg text-[#fff] mt-3">
+          <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
+          <p className="text-lg text-[#fff] mt-3 ">
             Our solutions are powered by the latest tools and technologies.
           </p>
         </div>
@@ -887,7 +1016,7 @@ useEffect(() => {
             {techPartners.map((partner, index) => (
               <SwiperSlide key={index}>
                 <motion.div
-                  className="relative flex flex-col items-center p-5 rounded-lg hover:scale-105 transition-transform bg-[#fcf3e1] backdrop-blur-sm"
+                  className="relative flex flex-col items-center p-5 rounded-lg hover:scale-105 transition-transform bg-[#fff] backdrop-blur-sm"
                   whileHover={{ scale: 1.1 }}
                 >
                   <img
@@ -913,7 +1042,7 @@ useEffect(() => {
       </section>
 
       {/* Testimonials */}
-      <section className="relative py-20 bg-[#fcf3e1]">
+      <section className="relative py-20 bg-[#fff]">
         {/* <div className="absolute top-0 bottom-0 left-0 right-0 w-full -z-10">
           <img
             src="https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30471.jpg?uid=R125770999&ga=GA1.1.845910522.1736145162&semt=ais_hybrid"
@@ -922,254 +1051,16 @@ useEffect(() => {
           />
         </div> */}
         <div className="max-w-[1400px] mx-auto">
-          <div className="mb-10 textGradient4 text-[36px] md:text-[50px] text-[#32251F] text-center">
+          <div className="mb-10  text-[36px] md:text-[50px] text-[#32251F] text-center ">
             Words from Our Valued Clients
           </div>
+          <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
           <Testimonials />
         </div>
       </section>
 
-      {/* Stats section */}
-      <section className="bg-[#f3e5c9] w-full">
-        <div
-          className="px-3 md:px-2 text-[#32251F] max-w-[1400px] mx-auto"
-          ref={statsRef}
-        >
-          <motion.section
-            className="w-full max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-r p-[1px]"
-            initial="hidden"
-            animate={statsInView ? "visible" : "hidden"}
-            variants={fadeInUp}
-          >
-            <motion.div
-              className="backdrop-blur-3xl rounded-3xl w-full px-10 py-10 md:px-0"
-              initial={{ opacity: 0 }}
-              animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 w-full justify-between h-full gap-8 px-3">
-                {/* Stats Item 1 */}
-                <motion.div
-                  className="flex flex-col items-start md:flex-row gap-2 py-5"
-                  custom={0}
-                  animate={controls1}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  >
-                    <CountUp
-                      from={0}
-                      to={15}
-                      separator=","
-                      direction="up"
-                      duration={1}
-                      className="count-up-text"
-                    />
-                    +
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    Years of <span className="block">Experience</span>
-                  </motion.div>
-                </motion.div>
-
-                {/* Stats Item 2 */}
-                {/* <motion.div
-                  className="flex flex-col items-start md:flex-row gap-2 py-5"
-                  custom={1}
-                  animate={controls2}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                  >
-                   <CountUp
-                      from={0}
-                      to={20}
-                      separator=","
-                      direction="up"
-                      duration={1}
-                      className="count-up-text"
-                    />
-                    +
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    Skilled <span className="block">Professionals</span>
-                  </motion.div>
-                </motion.div> */}
-
-                {/* Stats Item 3 */}
-                {/* <motion.div
-                  className="flex flex-col items-start md:flex-row gap-2 py-5"
-                  custom={2}
-                  animate={controls3}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="text-[45px] md:text-[65px] textGradient font-black leading-none pr-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    <CountUp
-                      from={0}
-                      to={100}
-                      separator=","
-                      direction="up"
-                      duration={1}
-                      className="count-up-text"
-                    />%
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    Customer <span className="block">Satisfaction</span>
-                  </motion.div>
-                </motion.div> */}
-
-                {/* Stats Item 4 */}
-                <motion.div
-                  className="flex flex-col items-start md:flex-row gap-2 py-5"
-                  custom={3}
-                  animate={controls4}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="text-[45px] md:text-[65px] textGradient font-black leading-none pr-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.9 }}
-                  >
-                    <CountUp
-                      from={0}
-                      to={50}
-                      separator=","
-                      direction="up"
-                      duration={1}
-                      className="count-up-text"
-                    />
-                    +
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 1 }}
-                  >
-                    Products
-                  </motion.div>
-                </motion.div>
-
-                {/* Stats Item 5 */}
-                <motion.div
-                  className="flex flex-col items-start md:flex-row gap-2 py-5"
-                  custom={4}
-                  animate={controls1}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  >
-                    <CountUp
-                      from={0}
-                      to={18}
-                      separator=","
-                      direction="up"
-                      duration={1}
-                      className="count-up-text"
-                    />
-                    k
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d]"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    Users <span className="block">Globally</span>
-                  </motion.div>
-                </motion.div>
-
-                {/* Stats Item 6 */}
-                <motion.div
-                  className="flex flex-col items-start md:flex-row gap-2 py-5"
-                  custom={5}
-                  animate={controls1}
-                  initial="hidden"
-                  variants={statCounter}
-                >
-                  <motion.div
-                    className="md:text-[65px] text-[50px] textGradient font-black leading-none pr-4 md:pl-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  >
-                    <CountUp
-                      from={0}
-                      to={7}
-                      separator=","
-                      direction="up"
-                      duration={1}
-                      className="count-up-text"
-                    />
-                    +
-                  </motion.div>
-                  <motion.div
-                    className="leading-tight text-[20px] md:text-[30px] textGradient text-left border-b-2 p-2 border-[#3523171d] md:pl-24"
-                    initial={{ opacity: 0 }}
-                    animate={statsInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    Countries <span className="block">Served</span>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.section>
-        </div>
-      </section>
-
       {/* contact */}
-      <section className="w-full px-5 py-20 relative bg-[#352317]">
+      <section className="w-full px-5 relative bg-[#fff] pt-10">
         {/* <motion.div
           // initial={{ opacity: 0 }}
           // whileInView={{ opacity: 1 }}
@@ -1182,15 +1073,15 @@ useEffect(() => {
             className="h-full w-full object-cover"
           />
         </motion.div> */}
-        <div className="w-full max-w-[1400px] mx-auto">
+        <div className="w-full max-w-[1400px] mx-auto border-b border-[#00000069]">
           {/* Heading Section */}
-          <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">
+          <div className="flex flex-col md:flex-row justify-between items-start w-full mb-10 gap-5 md:gap-10">
             <div className="md:w-[60%] flex flex-col gap-4">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-[#fff] text-[36px] md:text-[50px] textGradient4 leading-tight"
+                className="text-[#000] text-[36px] font-bold md:text-[50px]  leading-tight "
               >
                 Get in Touch and Lets
                 <span className="block">Make It Happen</span>
@@ -1199,7 +1090,7 @@ useEffect(() => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-[#fff] textGradient6 text-base md:text-lg"
+                className="text-[#000]  text-base md:text-lg"
               >
                 Get in touch with us! Whether you have questions, need support,
                 or want to learn more about our services, we're here to assist
@@ -1222,147 +1113,140 @@ useEffect(() => {
           </div>
 
           {/* Contact Form Section */}
-          <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full">
+          <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full ">
             {/* Contact Details Section */}
             <div className="w-full md:w-[50%]">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col gap-5 textGradient6 mb-10 text-lg md:text-xl"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
-                  className="text-[#fff]"
-                >
-                  info@imcbsglobal.com
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 }}
-                  className="text-[#fff]"
-                >
-                  +91 75938 20007
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.7 }}
-                  className="text-[#fff]"
-                >
-                  Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
-                  <span className="block">
-                    Kalpetta, Wayanad, Kerala – 673121
-                  </span>
-                </motion.div>
-              </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
                 className="flex"
               >
-                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl">
+                {/* <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => (window.location.href = "tel:+917593820007")}
-                    className="text-[#fff] w-full h-full bg-[#00000020] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border textGradient6 hover:bg-gray-700"
+                    className="text-[#fff] w-full h-full bg-[#352317c3] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border  hover:bg-gray-700"
                   >
                     Contact Us
                   </motion.button>
-                </div>
+                </div> */}
               </motion.div>
             </div>
 
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-full md:w-[50%] flex flex-col gap-5"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                className="text-[#fff] textGradient6 text-xl md:text-2xl"
-              >
-                Here to bring your concept to life, manage your ongoing project,
-                or expand your existing development team.
-              </motion.div>
-              <motion.form
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                onSubmit={onSubmit}
-              >
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 mb-3 textGradient6">
-                  {/* Input fields with individual animations */}
-                  {["firstName", "lastName", "email", "phone"].map(
-                    (field, index) => (
-                      <motion.input
-                        key={field}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                        type={
-                          field === "email"
-                            ? "email"
-                            : field === "phone"
-                            ? "tel"
-                            : "text"
-                        }
-                        name={field}
-                        value={formData[field]}
-                        onChange={handleInputChange}
-                        placeholder={`${
-                          field.charAt(0).toUpperCase() + field.slice(1)
-                        }*`}
-                        required
-                        className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                      />
-                    )
-                  )}
-                </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 1.1 }}
-                  className="w-full mb-3"
-                >
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Enter Your Message"
-                    required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#fff] border-b"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 1.2 }}
-                  className="w-full"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full text-[#000] px-8 py-3 bg-[#fff] rounded-3xl textGradient6"
-                  >
-                    Send Message
-                  </motion.button>
-                </motion.div>
-              </motion.form>
-            </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Popup Form */}
+      {isPopupVisible1 && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[999]">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="bg-[#32251fc8] p-6 rounded-lg w-[700px] h-auto shadow-lg"
+          >
+            <button
+              onClick={() => setIsPopupVisible1(false)}
+              className="flex justify-end items-center w-full top-2 z-50 right-2 text-white"
+            >
+              <IoCloseSharp />
+            </button>
+            <h2 className="text-3xl font-semibold mb-4 text-center text-white">
+              Get Started
+            </h2>
+            <form onSubmit={onSubmit1} className="space-y-3">
+              <label className="text-white block">
+                First Name:
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="Enter First Name"
+                  value={formData.firstName}
+                  onChange={handleInputChange1}
+                  required
+                  className="w-full p-2 border rounded mt-1"
+                />
+              </label>
+
+              <label className="text-white block">
+                Second Name:
+                <input
+                  type="text"
+                  name="secondName"
+                  placeholder="Enter Second Name"
+                  value={formData.secondName}
+                  onChange={handleInputChange1}
+                  required
+                  className="w-full p-2 border rounded mt-1"
+                />
+              </label>
+
+              <label className="text-white block">
+                Phone Number:
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange1}
+                  required
+                  className="w-full p-2 border rounded mt-1"
+                />
+              </label>
+
+              <label className="text-white block">
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email"
+                  value={formData.email}
+                  onChange={handleInputChange1}
+                  required
+                  className="w-full p-2 border rounded mt-1"
+                />
+              </label>
+
+              <label className="text-white block">
+                Subject:
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Enter Subject"
+                  value={formData.subject}
+                  onChange={handleInputChange1}
+                  required
+                  className="w-full p-2 border rounded mt-1"
+                />
+              </label>
+
+              <label className="text-white block">
+                Message:
+                <textarea
+                  name="content"
+                  placeholder="Enter your Message"
+                  value={formData.content}
+                  onChange={handleInputChange1}
+                  required
+                  className="w-full h-[100px] p-2 border rounded mt-1"
+                ></textarea>
+              </label>
+
+              <button
+                type="submit"
+                className="w-full bg-[#f1d69e] text-black py-2 rounded hover:bg-[#000] hover:text-white mt-2"
+              >
+                Submit
+              </button>
+            </form>
+            <p className="text-sm text-gray-600 mt-2">{result}</p>
+          </motion.div>
+        </div>
+      )}
 
       {/* Footer */}
       <section className="bg-[#fff] py-10">

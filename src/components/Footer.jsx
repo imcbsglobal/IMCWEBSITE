@@ -3,136 +3,148 @@ import { FaInstagram, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { CiFacebook, CiLinkedin } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-
+import { ImLocation } from "react-icons/im";
 const Footer = () => {
+  const mapUrl =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.0735491927476!2d76.07862677487005!3d11.618106688586558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84f992636da1e2d%3A0xe5e2fd2dafe1f7f3!2sIMC%20BUSINESS%20SOLUTIONS!5e0!3m2!1sen!2sin!4v1739947667097!5m2!1sen!2sin";
+
   return (
-    <div className="flex flex-col justify-center items-center max-w-[1400px] mx-auto px-5 py-10">
+    <div className="flex flex-col justify-center items-center max-w-[1400px] mx-auto px-5 ">
       {/* Logo and Intro Section */}
-      <div className="md:flex md:justify-between w-full mb-10">
-        <div className="w-auto h-[80px] mb-5 md:mb-0">
-          <img src={logo} className="w-full h-full object-contain" alt="Logo" />
+      <div className="md:flex md:items-center md:justify-center md:gap-40 w-full mb-10">
+        {/* Logo and Address Section - 30% width */}
+        <div className="md:w-[30%]">
+          <div className="w-auto h-[80px] mb-5 md:mb-12">
+            <img
+              src={logo}
+              className="w-full h-full object-contain"
+              alt="Logo"
+            />
+          </div>
+          {/* Address */}
+          <div className="pl-0 md:pl-16 pb-3">
+            <div className="text-[#000] text-xl  font-bold mb-2">
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-black hover:text-orange-300"
+              >
+                <ImLocation size={24} />
+              </a>
+            </div>
+            <div className="text-[#000]  text-sm md:text-base  text-left leading-normal">
+              Palakkunnummal Building,
+              <span className="block p-1">Near Govt Ayurvedic Hospital</span>
+              <span className="block p-1">Emily - Kalpetta,</span>
+              <span className="block p-1 ">Wayanad - Kerala - 673121</span>
+            </div>
+            <div>
+              <p>
+                Email:{" "}
+                <a
+                  href="mailto:info@imcbsglobal.com"
+                  className="text-black hover:underline"
+                >
+                  info@imcbsglobal.com
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="md:w-[60%] lg:w-[500px] text-start textGradient6 text-sm md:text-base">
-          © 2025 IMC Business Solutions. Leading IT solutions provider in Kerala
-          since 2017. Empowering businesses with innovative software and
-          technology solutions.
+
+        {/* Footer Links Section - 70% width */}
+        <div className="md:w-[70%]">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 w-full mb-10">
+            {/* Company Section */}
+            <div>
+              <div className="text-[#000] text-xl  font-bold mb-2">COMPANY</div>
+              <ul className="text-[#000]  text-sm md:text-base ">
+                <li className="py-1">
+                  <Link to="/aboutimc">About IMC</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/supports">Supports</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/becomepartner">Business Partners</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/career">Career</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Softwares Section */}
+            <div>
+              <div className="text-[#000] text-xl  font-bold mb-2">
+                SOFTWARES
+              </div>
+              <ul className="text-[#000]  text-sm md:text-base">
+                <li className="py-1">
+                  <Link to="/inventory">Inventory </Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/healthcare">Health Care </Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/institution">Institution </Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/pharmacy">Pharmacy</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/restaurant">Restaurants</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/hospitality">Hospitality</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Solutions Section */}
+            <div>
+              <div className="text-[#000] text-xl  font-bold mb-2">
+                SOLUTIONS
+              </div>
+              <ul className="text-[#000]  text-sm md:text-base">
+                {/* <li className="py-1">
+                  <Link to="/erpsoftware">ERP Software</Link>
+                </li> */}
+                <li className="py-1">
+                  <Link to="/websiteandWebApplications">
+                    Website & Web Application
+                  </Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/mobileApp">Mobile App Development</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/businessBranding">Business Consulting</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/digitalmarketing">Digital Marketing</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/hardwaresolutions">Hardware Solutions</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Footer Links Section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 w-full mb-10">
-        {/* Address */}
-        <div>
-          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            ADDRESS
-          </div>
-          <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            Palakkunnummal Building ,
-            <span className="block">Near Govt Ayurvedic Hospital</span>{" "}
-            <span className="block">Emily - Kalpetta , </span>{" "}
-            <span className="block">Wayanad - Kerala - 673121</span>
-          </ul>
-        </div>
-        {/* Company Section */}
-        <div>
-          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            COMPANY
-          </div>
-          <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            <li>
-              <Link to="/company#aboutid">About IMC</Link>
-            </li>
-            <li>
-              <Link to="/company#team">Team</Link>
-            </li>
-            <li>
-              <Link to="/company#goalsmission">Goals & Missions</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-            <li>
-              <Link to="/company#supports">Supports</Link>
-            </li>
-            <li>
-              <Link to="/company#bussinessopportunities">
-                Business Opportunities
-              </Link>
-            </li>
-            <li>
-              <Link to="/career">Career</Link>
-            </li>
-          </ul>
-        </div>
-        {/* Softwares Section */}
-        <div>
-          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            SOFTWARES
-          </div>
-          <ul className="text-[#000] textGradient6 text-sm md:text-base">
-            <li>
-              <Link to="/inventory">
-                Inventory Management
-              </Link>
-            </li>
-            <li>
-              <Link to="/healthcare">
-                Health Care Management
-              </Link>
-            </li>
-            <li>
-              <Link to="/institution">
-                Institution Management
-              </Link>
-            </li>
-            <li>
-              <Link to="/pharmacy">
-                Pharmacy
-              </Link>
-            </li>
-            <li>
-              <Link to="/restaurant">Restaurants</Link>
-            </li>
-            
-            
-            <li>
-              <Link to="/hospitality">Hospitality</Link>
-            </li>
-            
-          </ul>
-        </div>
-        {/* Solutions Section */}
-        <div>
-          <div className="text-[#000] text-xl textGradient6 font-bold mb-2">
-            SOLUTIONS
-          </div>
-          <ul className="text-[#000] textGradient6 text-sm md:text-base">
-          <li>
-              <Link to="/erpsoftware">
-                ERP Software
-              </Link>
-            </li>
-            <li>
-              <Link to="/websiteandWebApplications">
-                Website & Web Application
-              </Link>
-            </li>
-            <li>
-              <Link to="/mobileApp">Mobile App Development</Link>
-            </li>
-            <li>
-              <Link to="/businessBranding">Business Consulting</Link>
-            </li>
-            <li>
-              <Link to="/digitalmarketing">Digital Marketing</Link>
-            </li>
-            <li>
-              <Link to="/hardwaresolutions">Hardware Soutions</Link>
-            </li>
-          </ul>
-        </div>
+      {/* Policy Links Section */}
+      <div className="w-full flex justify-end gap-10 mb-5 text-sm">
+        <Link to="/terms-and-conditions" className="hover:underline">
+          Terms & Conditions
+        </Link>
+        <Link to="/privacy-policy" className="hover:underline">
+          Privacy Policy
+        </Link>
+        <Link to="/refund-policy" className="hover:underline">
+          Refund Policy
+        </Link>
       </div>
-
       {/* Copy Right Section */}
       <div className="border-t w-full pt-5 flex flex-col md:flex-row justify-between items-center gap-5">
         <div className="text-sm text-center md:text-left">

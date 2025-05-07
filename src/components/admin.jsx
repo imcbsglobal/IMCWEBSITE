@@ -15,7 +15,7 @@ import { dbFirestore } from "../firebaseConfig";
 import { Menu } from "lucide-react";
 import logo from "../assets/imclogo1.png";
 import { useNavigate } from "react-router-dom";
-
+import logoorg from '../assets/imclogo.png';
 const AdminPanel = () => {
   const navigate = useNavigate();
 
@@ -42,12 +42,13 @@ const AdminPanel = () => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
   const categories = [
-    "inventory",
-    "institution",
-    "pharmacy",
-    "hospitality",
-    "healthcare",
-    "restaurant",
+    "TASK",
+    "MAGNET",
+    "V TASK",
+    "STARSTAY",
+    "SHADE",
+    "DINE",
+    "AURIC",
   ];
 
   // Fetch products from Firestore
@@ -635,8 +636,8 @@ const handleDeleteCareer = async (id) => {
 };
 
 
-  
-
+const [testimonialText, setTestimonialText] = useState("");
+const [demoDescription, setDemoDescription] = useState("");
   const careerImageInputRef = useRef(null);
   // const imageInputRef = useRef(null);
   
@@ -646,13 +647,13 @@ const handleDeleteCareer = async (id) => {
     }
   }, [selectedSection]);
   return (
-    <div>
-      <div className="h-[900px] w-full flex ">
+    <div className=" h-full">
+      <div className="h-full w-full flex ">
         {/* Left Panel */}
-        <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900 z-30 h-16 flex items-center justify-between px-4 border-b border-gray-700">
+        <div className="md:hidden fixed top-0 left-0 right-0 z-30 h-16 flex items-center justify-between px-4 border-b border-gray-700">
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="text-white p-2"
+            className="text-black p-2"
           >
             <Menu size={24} />
           </button>
@@ -661,12 +662,12 @@ const handleDeleteCareer = async (id) => {
 
         {/* Mobile Sidebar */}
         <div
-          className={`fixed top-16 left-0 h-[calc(100vh-4rem)] bg-black text-white p-6 border-r border-gray-700 overflow-auto transition-all duration-300 ease-in-out z-20
+          className={`fixed top-16 left-0 h-[calc(100vh-4rem)] text-black p-6 border-r border-gray-700 overflow-auto transition-all duration-300 ease-in-out z-20
           ${isSidebarOpen ? "translate-x-0 w-64" : "-translate-x-full w-0"} 
           md:translate-x-0 md:w-1/4 md:top-0 md:h-screen`}
         >
           <div className="hidden md:flex w-full h-[60px] items-center justify-center mt-10">
-            <img src={logo} alt="logo" className="w-[100px] h-[100px]" />
+            <img src={logoorg} alt="logo" className="w-[100px] h-[100px]" />
           </div>
 
           <h2 className="text-2xl font-bold mb-6 text-center mt-4 md:mt-10">
@@ -680,7 +681,7 @@ const handleDeleteCareer = async (id) => {
                   setSelectedSection("manageProductVideo");
                   setIsSidebarOpen(false);
                 }}
-                className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
+                className="block w-full p-3 text-left text-lg text-black rounded hover:bg-white"
               >
                 Manage Product Video
               </button>
@@ -691,7 +692,7 @@ const handleDeleteCareer = async (id) => {
                   setSelectedSection("manageProductImage");
                   setIsSidebarOpen(false);
                 }}
-                className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
+                className="block w-full p-3 text-left text-lg text-black rounded hover:bg-white"
               >
                 Manage Product Image
               </button>
@@ -702,7 +703,7 @@ const handleDeleteCareer = async (id) => {
                   setSelectedSection("manageProductDemonstration");
                   setIsSidebarOpen(false);
                 }}
-                className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
+                className="block w-full p-3 text-left text-lg text-black rounded hover:bg-white"
               >
                 Manage Product Demonstration
               </button>
@@ -710,7 +711,7 @@ const handleDeleteCareer = async (id) => {
             <li>
               <button
                 onClick={() => setIsTestimonialsOpen(!isTestimonialsOpen)}
-                className="w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700 flex justify-between items-center"
+                className="w-full p-3 text-left text-lg text-black rounded hover:bg-white flex justify-between items-center"
               >
                 <span>Testimonials</span>
                 <svg
@@ -736,7 +737,7 @@ const handleDeleteCareer = async (id) => {
                       setSelectedSection("testimonialList");
                       setIsSidebarOpen(false);
                     }}
-                    className="block w-full p-2 text-left text-lg text-white hover:bg-gray-700 rounded"
+                    className="block w-full p-2 text-left text-lg text-black hover:bg-white rounded"
                   >
                     Testimonial List
                   </button>
@@ -745,7 +746,7 @@ const handleDeleteCareer = async (id) => {
                       setSelectedSection("videoTestimonials");
                       setIsSidebarOpen(false);
                     }}
-                    className="block w-full p-2 text-left text-lg text-white hover:bg-gray-700 rounded"
+                    className="block w-full p-2 text-left text-lg text-black hover:bg-white rounded"
                   >
                     Video Testimonial List
                   </button>
@@ -758,7 +759,7 @@ const handleDeleteCareer = async (id) => {
                   setSelectedSection("manageCareer");
                   setIsSidebarOpen(false);
                 }}
-                className="block w-full p-3 text-left text-lg text-white rounded hover:bg-gray-700"
+                className="block w-full p-3 text-left text-lg text-black rounded hover:bg-white"
               >
                 Manage Career
               </button>
@@ -766,7 +767,7 @@ const handleDeleteCareer = async (id) => {
             <li>
               <button
                 onClick={handleLogout}
-                className="w-full p-3 text-white text-lg rounded hover:bg-red-500"
+                className="w-full p-3 text-black text-lg rounded hover:bg-red-500"
               >
                 Logout
               </button>
@@ -777,13 +778,13 @@ const handleDeleteCareer = async (id) => {
         {/* Overlay for Mobile */}
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 bg-black opacity-50 z-10 md:hidden"
+            className="fixed inset-0 opacity-50 z-10 md:hidden"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
 
         {/* Right Panel */}
-        <div className="flex-1 md:p-10 bg-black text-white md:ml-[25%] mt-[65px]">
+        <div className="flex-1 md:p-10  text-black md:ml-[25%] ">
           {selectedSection === "dashboard" && (
             <h1 className="text-lg sm:text-xl md:text-3xl font-bold text-center mt-6 px-4 ">
               Welcome to the Admin Panel
@@ -825,7 +826,7 @@ const handleDeleteCareer = async (id) => {
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 >
                   {categories.map((category) => (
-                    <option key={category} value={category}>
+                    <option key={category} value={category} className="text-black">
                       {category.charAt(0).toUpperCase() + category.slice(1)}
                     </option>
                   ))}
@@ -833,14 +834,14 @@ const handleDeleteCareer = async (id) => {
 
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                  className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
                 >
                   {editingProductId ? "Update" : "Submit"}
                 </button>
                 {editingProductId && (
                   <button
                     type="button"
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
                     onClick={clearForm}
                   >
                     Cancel Edit
@@ -853,9 +854,9 @@ const handleDeleteCareer = async (id) => {
               </h3>
 
               <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
                   <thead>
-                    <tr className="bg-gray-800">
+                    <tr className="bg-white">
                       <th className="p-2 border">Product Name</th>
                       <th className="p-2 border">Category</th>
                       <th className="p-2 border">Video</th>
@@ -864,7 +865,7 @@ const handleDeleteCareer = async (id) => {
                   </thead>
                   <tbody>
                     {products.map((product) => (
-                      <tr key={product.id} className="bg-gray-700">
+                      <tr key={product.id} className="bg-white">
                         <td className="p-2 border">{product.name}</td>
                         <td className="p-2 border">
                           {product.category
@@ -889,13 +890,13 @@ const handleDeleteCareer = async (id) => {
                         <td className="p-2 border">
                           <button
                             onClick={() => handleEditProduct(product)}
-                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
                           >
                             Edit
                           </button>
                           <button
                             onClick={() => handleDeleteProduct(product.id)}
-                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                            className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
                           >
                             Delete
                           </button>
@@ -936,7 +937,7 @@ const handleDeleteCareer = async (id) => {
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 >
                   {categories.map((category) => (
-                    <option key={category} value={category}>
+                    <option key={category} value={category} className="text-black">
                       {category.charAt(0).toUpperCase() + category.slice(1)}
                     </option>
                   ))}
@@ -948,7 +949,7 @@ const handleDeleteCareer = async (id) => {
                     onChange={handleImageChange}
                     accept="image/*"
                     ref={imageInputRef}
-                    className="text-white"
+                    className="text-black"
                   />
                   <p className="text-gray-400 text-sm mt-1">
                     Max file size: 500KB
@@ -967,14 +968,14 @@ const handleDeleteCareer = async (id) => {
 
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded"
+                  className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded"
                 >
                   {editingProductImageId ? "Update" : "Submit"}
                 </button>
                 {editingProductImageId && (
                   <button
                     type="button"
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
                     onClick={clearProductImageForm}
                   >
                     Cancel Edit
@@ -987,9 +988,9 @@ const handleDeleteCareer = async (id) => {
               </h3>
 
               <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
                   <thead>
-                    <tr className="bg-gray-800">
+                    <tr className="bg-white">
                       <th className="p-2 border">Product Name</th>
                       <th className="p-2 border">Category</th>
                       <th className="p-2 border">Image</th>
@@ -998,7 +999,7 @@ const handleDeleteCareer = async (id) => {
                   </thead>
                   <tbody>
                     {productImages.map((productImage) => (
-                      <tr key={productImage.id} className="bg-gray-700">
+                      <tr key={productImage.id} className="bg-white">
                         <td className="p-2 border">{productImage.name}</td>
                         <td className="p-2 border">
                           {productImage.category
@@ -1020,7 +1021,7 @@ const handleDeleteCareer = async (id) => {
                         <td className="p-2 border">
                           <button
                             onClick={() => handleEditProductImage(productImage)}
-                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
                           >
                             Edit
                           </button>
@@ -1028,7 +1029,7 @@ const handleDeleteCareer = async (id) => {
                             onClick={() =>
                               handleDeleteProductImage(productImage.id)
                             }
-                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                            className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
                           >
                             Delete
                           </button>
@@ -1051,42 +1052,36 @@ const handleDeleteCareer = async (id) => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handleSaveProductDemo();
+                  handleSaveDemonstration();
                 }}
                 className="space-y-4 flex flex-col items-center w-full px-4"
               >
                 <input
                   type="text"
                   placeholder="Title"
-                  value={productDemoTitle}
-                  onChange={(e) => setProductDemoTitle(e.target.value)}
+                  value={demoTitle}
+                  onChange={(e) => setDemoTitle(e.target.value)}
                   className="w-full md:w-[500px] p-3 border rounded text-black"
-                />
-                <textarea
-                  placeholder="Description"
-                  value={productDemoDescription}
-                  onChange={(e) => setProductDemoDescription(e.target.value)}
-                  className="w-full md:w-[500px] p-3 border rounded text-black h-32"
                 />
                 <input
                   type="text"
                   placeholder="YouTube Video URL"
-                  value={productDemoVideoUrl}
-                  onChange={(e) => setProductDemoVideoUrl(e.target.value)}
+                  value={demoVideoUrl}
+                  onChange={(e) => setDemoVideoUrl(e.target.value)}
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 />
 
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                  className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
                 >
-                  {editingProductDemoId ? "Update" : "Submit"}
+                  {editingDemoId ? "Update" : "Submit"}
                 </button>
-                {editingProductDemoId && (
+                {editingDemoId && (
                   <button
                     type="button"
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-                    onClick={clearProductDemoForm}
+                    className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
+                    onClick={clearDemoForm}
                   >
                     Cancel Edit
                   </button>
@@ -1098,20 +1093,18 @@ const handleDeleteCareer = async (id) => {
               </h3>
 
               <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
                   <thead>
-                    <tr className="bg-gray-800">
+                    <tr className="bg-white">
                       <th className="p-2 border">Title</th>
-                      <th className="p-2 border">Description</th>
                       <th className="p-2 border">Video</th>
                       <th className="p-2 border">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {productDemos.map((demo) => (
-                      <tr key={demo.id} className="bg-gray-700">
+                    {demonstrations.map((demo) => (
+                      <tr key={demo.id} className="bg-white">
                         <td className="p-2 border">{demo.title}</td>
-                        <td className="p-2 border">{demo.description}</td>
                         <td className="p-2 border">
                           {demo.videoUrl ? (
                             <iframe
@@ -1128,14 +1121,14 @@ const handleDeleteCareer = async (id) => {
                         </td>
                         <td className="p-2 border">
                           <button
-                            onClick={() => handleEditProductDemo(demo)}
-                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                            onClick={() => handleEditDemonstration(demo)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
                           >
                             Edit
                           </button>
                           <button
-                            onClick={() => handleDeleteProductDemo(demo.id)}
-                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                            onClick={() => handleDeleteDemonstration(demo.id)}
+                            className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
                           >
                             Delete
                           </button>
@@ -1147,127 +1140,124 @@ const handleDeleteCareer = async (id) => {
               </div>
             </>
           )}
-
           {/* Testimonial List Section */}
           {selectedSection === "testimonialList" && (
-            <>
-              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
-                Manage Testimonials
-              </h2>
+  <>
+    <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+      Manage Testimonials
+    </h2>
 
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSaveTestimonial();
-                }}
-                className="space-y-4 flex flex-col items-center w-full px-4"
-              >
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={testimonialName}
-                  onChange={(e) => setTestimonialName(e.target.value)}
-                  className="w-full md:w-[500px] p-3 border rounded text-black"
-                />
-                <textarea
-                  placeholder="Testimonial Text"
-                  value={testimonialText}
-                  onChange={(e) => setTestimonialText(e.target.value)}
-                  className="w-full md:w-[500px] p-3 border rounded text-black h-32"
-                />
-                <div className="w-full md:w-[500px]">
-                  <input
-                    type="file"
-                    onChange={handleTestimonialImageChange}
-                    accept="image/*"
-                    ref={testimonialImageInputRef}
-                    className="text-white"
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSaveTestimonial();
+      }}
+      className="space-y-4 flex flex-col items-center w-full px-4"
+    >
+      <input
+        type="text"
+        placeholder="Name"
+        value={testimonialName}
+        onChange={(e) => setTestimonialName(e.target.value)}
+        className="w-full md:w-[500px] p-3 border rounded text-black"
+      />
+      <textarea
+        placeholder="Testimonial Text"
+        value={testimonialText}
+        onChange={(e) => setTestimonialText(e.target.value)}
+        className="w-full md:w-[500px] p-3 border rounded text-black h-32"
+      />
+      <div className="w-full md:w-[500px]">
+        <input
+          type="file"
+          onChange={handleTestimonialImageChange}
+          accept="image/*"
+          ref={testimonialImageInputRef}
+          className="text-black"
+        />
+        <p className="text-gray-400 text-sm mt-1">
+          Max file size: 500KB
+        </p>
+        {imagePreview && (
+          <div className="mt-2">
+            <p>Image Preview:</p>
+            <img
+              src={imagePreview}
+              alt="Testimonial Preview"
+              className="max-h-40 rounded mt-2"
+            />
+          </div>
+        )}
+      </div>
+
+      <button
+        type="submit"
+        className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
+      >
+        {editingTestimonialId ? "Update" : "Submit"}
+      </button>
+      {editingTestimonialId && (
+        <button
+          type="button"
+          className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
+          onClick={clearTestimonialForm}
+        >
+          Cancel Edit
+        </button>
+      )}
+    </form>
+
+    <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+      Testimonials List
+    </h3>
+
+    <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+      <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
+        <thead>
+          <tr className="bg-white">
+            <th className="p-2 border">Name</th>
+            <th className="p-2 border">Testimonial</th>
+            <th className="p-2 border">Image</th>
+            <th className="p-2 border">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {testimonials.map((testimonial) => (
+            <tr key={testimonial.id} className="bg-white">
+              <td className="p-2 border">{testimonial.name}</td>
+              <td className="p-2 border">{testimonial.description}</td>
+              <td className="p-2 border">
+                {testimonial.image ? (
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-full max-w-[100px]"
                   />
-                  <p className="text-gray-400 text-sm mt-1">
-                    Max file size: 500KB
-                  </p>
-                  {testimonialImagePreviewUrl && (
-                    <div className="mt-2">
-                      <p>Image Preview:</p>
-                      <img
-                        src={testimonialImagePreviewUrl}
-                        alt="Testimonial Preview"
-                        className="max-h-40 rounded mt-2"
-                      />
-                    </div>
-                  )}
-                </div>
-
-                <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
-                >
-                  {editingTestimonialId ? "Update" : "Submit"}
-                </button>
-                {editingTestimonialId && (
-                  <button
-                    type="button"
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
-                    onClick={clearTestimonialForm}
-                  >
-                    Cancel Edit
-                  </button>
+                ) : (
+                  "No image available"
                 )}
-              </form>
-
-              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
-                Testimonials List
-              </h3>
-
-              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
-                  <thead>
-                    <tr className="bg-gray-800">
-                      <th className="p-2 border">Name</th>
-                      <th className="p-2 border">Testimonial</th>
-                      <th className="p-2 border">Image</th>
-                      <th className="p-2 border">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {testimonials.map((testimonial) => (
-                      <tr key={testimonial.id} className="bg-gray-700">
-                        <td className="p-2 border">{testimonial.name}</td>
-                        <td className="p-2 border">{testimonial.text}</td>
-                        <td className="p-2 border">
-                          {testimonial.imageUrl ? (
-                            <img
-                              src={testimonial.imageUrl}
-                              alt={testimonial.name}
-                              className="w-full max-w-[100px]"
-                            />
-                          ) : (
-                            "No image available"
-                          )}
-                        </td>
-                        <td className="p-2 border">
-                          <button
-                            onClick={() => handleEditTestimonial(testimonial)}
-                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
-                          >
-                            Edit
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleDeleteTestimonial(testimonial.id)
-                            }
-                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </>
-          )}
+              </td>
+              <td className="p-2 border">
+                <button
+                  onClick={() => handleEditTestimonial(testimonial)}
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeleteTestimonial(testimonial.id)}
+                  className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </>
+)}
 
           {/* Video Testimonials Section */}
           {selectedSection === "videoTestimonials" && (
@@ -1300,14 +1290,14 @@ const handleDeleteCareer = async (id) => {
 
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                  className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
                 >
                   {editingVideoTestimonialId ? "Update" : "Submit"}
                 </button>
                 {editingVideoTestimonialId && (
                   <button
                     type="button"
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
                     onClick={clearVideoTestimonialForm}
                   >
                     Cancel Edit
@@ -1320,9 +1310,9 @@ const handleDeleteCareer = async (id) => {
               </h3>
 
               <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
                   <thead>
-                    <tr className="bg-gray-800">
+                    <tr className="bg-white">
                       <th className="p-2 border">Name</th>
                       <th className="p-2 border">Video</th>
                       <th className="p-2 border">Actions</th>
@@ -1330,7 +1320,7 @@ const handleDeleteCareer = async (id) => {
                   </thead>
                   <tbody>
                     {videoTestimonials.map((testimonial) => (
-                      <tr key={testimonial.id} className="bg-gray-700">
+                      <tr key={testimonial.id} className="bg-white">
                         <td className="p-2 border">{testimonial.name}</td>
                         <td className="p-2 border">
                           {testimonial.videoUrl ? (
@@ -1351,7 +1341,7 @@ const handleDeleteCareer = async (id) => {
                             onClick={() =>
                               handleEditVideoTestimonial(testimonial)
                             }
-                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
                           >
                             Edit
                           </button>
@@ -1359,7 +1349,7 @@ const handleDeleteCareer = async (id) => {
                             onClick={() =>
                               handleDeleteVideoTestimonial(testimonial.id)
                             }
-                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                            className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
                           >
                             Delete
                           </button>
@@ -1422,7 +1412,7 @@ const handleDeleteCareer = async (id) => {
 
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded w-[100px]"
+                  className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
                 >
                   {editingCareerId ? "Update" : "Submit"}
                 </button>
@@ -1430,7 +1420,7 @@ const handleDeleteCareer = async (id) => {
                 {editingCareerId && (
                   <button
                     type="button"
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-6 rounded"
+                    className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
                     onClick={clearCareerForm}
                   >
                     Cancel Edit
@@ -1443,9 +1433,9 @@ const handleDeleteCareer = async (id) => {
               </h3>
 
               <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-white border-collapse">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
                   <thead>
-                    <tr className="bg-gray-800">
+                    <tr className="bg-white">
                       <th className="p-2 border">Post Title</th>
                       <th className="p-2 border">Description</th>
                       <th className="p-2 border">Skills</th>
@@ -1456,7 +1446,7 @@ const handleDeleteCareer = async (id) => {
                   </thead>
                   <tbody>
                     {careers.map((career) => (
-                      <tr key={career.id} className="bg-gray-700">
+                      <tr key={career.id} className="bg-white">
                         <td className="p-2 border">{career.title}</td>
                         <td className="p-2 border">{career.description}</td>
                         <td className="p-2 border">
@@ -1470,13 +1460,13 @@ const handleDeleteCareer = async (id) => {
                         <td className="p-2 border">
                           <button
                             onClick={() => handleEditCareer(career)}
-                            className="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded"
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
                           >
                             Edit
                           </button>
                           <button
                             onClick={() => handleDeleteCareer(career.id)}
-                            className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded ml-2"
+                            className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
                           >
                             Delete
                           </button>

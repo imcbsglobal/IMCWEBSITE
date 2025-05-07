@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
-import hardwareImg from '../../assets/hardware.jpeg';
-import serverRoom from '../../assets/server-room.jpeg';
-import posSystem from '../../assets/pos-system.jpeg';
-import securityCamera from '../../assets/security-camera.jpeg';
-import technician from '../../assets/technician.jpeg';
-import clientTestimonial from '../../assets/client-testimonial.jpeg';
+import hardwareImg from "../../assets/hardware.jpeg";
+import serverRoom from "../../assets/server-room.jpeg";
+import posSystem from "../../assets/pos-system.jpeg";
+import securityCamera from "../../assets/security-camera.jpeg";
+import technician from "../../assets/technician.jpeg";
+import clientTestimonial from "../../assets/client-testimonial.jpeg";
 import { FaServer, FaCloudDownloadAlt, FaNetworkWired } from "react-icons/fa";
 import { MdSecurity, MdDevices, MdBusinessCenter } from "react-icons/md";
 import { BsTools, BsHeadset, BsShieldCheck } from "react-icons/bs";
 import { IoMdSpeedometer } from "react-icons/io";
 import { TbCertificate } from "react-icons/tb";
-import support from '../../assets/eye.png';
-import quality from '../../assets/ideas.png';
-import innovation from '../../assets/innovation.png';
-import warranty from '../../assets/warranty.png';
+import support from "../../assets/eye.png";
+import quality from "../../assets/ideas.png";
+import innovation from "../../assets/innovation.png";
+import warranty from "../../assets/warranty.png";
 import darkGradient from "../../assets/darkGradient.jpg";
 import { motion } from "framer-motion";
 import { RiWhatsappLine } from "react-icons/ri";
 import ChatBot from "../../components/ChatBot";
 
-
 const Hardwaresolutions = () => {
-     const [openChat, setOpenChat] = useState(false)
-  
+  const [openChat, setOpenChat] = useState(false);
+
   const [activeTab, setActiveTab] = useState("pos");
 
   useEffect(() => {
@@ -33,59 +32,63 @@ const Hardwaresolutions = () => {
   const solutions = {
     pos: {
       title: "POS Systems and Equipment",
-      description: "State-of-the-art point-of-sale systems that streamline your business operations and enhance customer experience.",
+      description:
+        "State-of-the-art point-of-sale systems that streamline your business operations and enhance customer experience.",
       image: posSystem,
       features: [
         "Touchscreen terminals with intuitive interfaces",
         "Integrated payment processing solutions",
         "Inventory management capabilities",
         "Customer loyalty program integration",
-        "Real-time sales analytics and reporting"
-      ]
+        "Real-time sales analytics and reporting",
+      ],
     },
     security: {
       title: "Security Hardware",
-      description: "Comprehensive security solutions to protect your business assets and ensure peace of mind.",
+      description:
+        "Comprehensive security solutions to protect your business assets and ensure peace of mind.",
       image: securityCamera,
       features: [
         "High-definition CCTV surveillance systems",
         "Access control with biometric authentication",
         "Intrusion detection and alarm systems",
         "Video analytics with AI-powered monitoring",
-        "Remote monitoring and management capabilities"
-      ]
+        "Remote monitoring and management capabilities",
+      ],
     },
     network: {
       title: "Network Infrastructure",
-      description: "Robust networking solutions that form the backbone of your digital operations.",
+      description:
+        "Robust networking solutions that form the backbone of your digital operations.",
       image: serverRoom,
       features: [
         "High-performance routers and switches",
         "Wireless access points for seamless connectivity",
         "Network security appliances and firewalls",
         "Structured cabling and fiber optic solutions",
-        "Network monitoring and management tools"
-      ]
+        "Network monitoring and management tools",
+      ],
     },
     support: {
       title: "Maintenance and Support",
-      description: "Comprehensive support services to keep your hardware running smoothly and efficiently.",
+      description:
+        "Comprehensive support services to keep your hardware running smoothly and efficiently.",
       image: technician,
       features: [
         "Technical support and troubleshooting",
         "Preventive maintenance programs",
         "On-site repair services",
         "Hardware upgrades and replacements",
-        "System health monitoring and diagnostics"
-      ]
-    }
+        "System health monitoring and diagnostics",
+      ],
+    },
   };
 
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <div className="py-20 w-full relative pt-32 pb-20">
-        <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+      <div className=" w-full relative  ">
+        {/* <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
           <motion.img
             src={darkGradient}
             alt=""
@@ -94,29 +97,30 @@ const Hardwaresolutions = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
           />
-        </div>
+        </div> */}
         <a href="https://wa.me/+917593820007">
-                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-                  <RiWhatsappLine/>
-                </div>
-              </a>
-              
-              {/* chatbot */}
-              <div className="bottom-10 fixed right-10 z-[999]">
-                {openChat ? (
-                  <div className="fixed bottom-10 z-[999] right-10">
-                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                  </div>
-                ) : (
-                  <div className="fixed bottom-10 z-[999] right-10">
-                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                  </div>
-                )}
-              </div>
+          <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+            <RiWhatsappLine />
+          </div>
+                
+        </a>
 
-        <section className="w-full max-w-[1400px] mx-auto rounded-3xl">
+        {/* chatbot */}
+        <div className="bottom-10 fixed right-10 z-[999]">
+          {openChat ? (
+            <div className="fixed bottom-10 z-[999] right-10">
+              <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+            </div>
+          ) : (
+            <div className="fixed bottom-10 z-[999] right-10">
+              <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+            </div>
+          )}
+        </div>
+
+        <section className="w-full   bg-[#fff]">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-6 max-w-[1200px] mx-auto py-20 pt-32 pb-20"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -127,10 +131,10 @@ const Hardwaresolutions = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <h2 className="text-[32px] md:text-[50px] font-semibold textGradient4">
+              <h2 className="text-[32px] md:text-[50px] font-semibold text-[#352317]">
                 Hardware <span className="block">Solutions</span>
               </h2>
-              <p className="text-white text-lg opacity-90">
+              <p className="text-[#000] text-lg opacity-90">
                 Cutting-edge hardware solutions designed to optimize your
                 business operations, enhance security, and drive productivity to
                 new heights.
@@ -161,18 +165,18 @@ const Hardwaresolutions = () => {
                 ].map((item, index) => (
                   <motion.li
                     key={index}
-                    className="w-full bg-gradient-to-r p-[1px] rounded-3xl overflow-hidden"
+                    className="w-full bg-gradient-to-r p-[1px] rounded-3xl overflow-hidden bg-["
                     initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
                   >
-                    <div className="w-full h-full bg-[#ffffff13] backdrop-blur-sm p-4 flex items-start gap-4 rounded-3xl">
-                      <div className="text-white text-3xl">{item.icon}</div>
+                    <div className="w-full h-full bg-[#FCF3E1] backdrop-blur-sm p-4 flex items-start gap-4 rounded-3xl">
+                      <div className="text-[#352317] text-3xl">{item.icon}</div>
                       <div>
-                        <h3 className="font-bold textGradient4 text-[20px]">
+                        <h3 className="font-bold text-black text-[20px]">
                           {item.title}
                         </h3>
-                        <p className="text-sm text-[#fff] textGradient6">
+                        <p className="text-sm text-[#000] ">
                           {item.text}
                         </p>
                       </div>
@@ -204,18 +208,8 @@ const Hardwaresolutions = () => {
       </div>
 
       {/* Solutions Detail Section */}
-      <div className="w-full relative py-20 ">
-        <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
-          <motion.img
-            src={darkGradient}
-            alt=""
-            className="w-full h-full object-cover"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-        </div>
-        <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6">
+      <div className="w-full relative  bg-[#FCF3E1]">
+        <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -223,10 +217,10 @@ const Hardwaresolutions = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-[32px] md:text-[40px] font-semibold textGradient4 mb-4">
+            <h2 className="text-[32px] md:text-[40px] font-semibold text-[#352317] mb-4">
               Comprehensive Hardware Solutions
             </h2>
-            <p className="text-white text-lg max-w-2xl mx-auto opacity-90">
+            <p className="text-black text-lg max-w-2xl mx-auto opacity-90">
               Explore our range of industry-leading hardware solutions designed
               to meet your specific business needs and challenges.
             </p>
@@ -248,10 +242,8 @@ const Hardwaresolutions = () => {
                 onClick={() => setActiveTab(key)}
               >
                 <div className="bg-black px-6 py-3 rounded-full">
-                {solutions[key].title}
-
+                  {solutions[key].title}
                 </div>
-                
               </motion.button>
             ))}
           </div>
@@ -280,10 +272,10 @@ const Hardwaresolutions = () => {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h3 className="text-2xl font-semibold textGradient4 mb-4">
+              <h3 className="text-2xl font-semibold  mb-4">
                 {solutions[activeTab].title}
               </h3>
-              <p className="text-white opacity-90 mb-6">
+              <p className="text-black opacity-90 mb-6">
                 {solutions[activeTab].description}
               </p>
 
@@ -300,43 +292,30 @@ const Hardwaresolutions = () => {
                     <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#8d8d8d] to-[#ffdd9e] flex items-center justify-center">
                       <span className="text-black text-xs">✓</span>
                     </div>
-                    <span className="text-white">{feature}</span>
+                    <span className="text-black">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
               <a href="/contact">
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="mt-8  p-[1px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] rounded-full text-white font-medium w-fit"
-              >
-                <div className="bg-black px-6 py-3 rounded-full">
-                Contact now
-                </div>
-                
-              </motion.button>
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="mt-8  p-[1px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] rounded-full text-white font-medium w-fit"
+                >
+                  <div className="bg-black px-6 py-3 rounded-full">
+                    Contact now
+                  </div>
+                </motion.button>
               </a>
             </motion.div>
-            
           </div>
         </div>
       </div>
 
       {/* Why Choose Us Section */}
       <div className="w-full relative py-20">
-        <div className="w-full absolute top-0 right-0 bottom-0 left-0 -z-10">
-          <motion.img
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            src={darkGradient}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
-
         <section className="w-full max-w-[1400px] mx-auto rounded-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -345,10 +324,10 @@ const Hardwaresolutions = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[32px] md:text-[40px] font-semibold textGradient4 mb-4">
+            <h2 className="text-[32px] md:text-[40px] font-semibold  mb-4">
               Why Choose Our Hardware Solutions
             </h2>
-            <p className="text-white text-lg max-w-2xl mx-auto opacity-90">
+            <p className="text-black text-lg max-w-2xl mx-auto opacity-90">
               Our commitment to excellence and customer satisfaction sets us
               apart in delivering premium hardware solutions.
             </p>
@@ -362,8 +341,8 @@ const Hardwaresolutions = () => {
               viewport={{ once: true }}
               className="flex items-center w-full bg-gradient-to-r overflow-hidden p-[1px] rounded-3xl"
             >
-              <div className="bg-[#ffffff0f] backdrop-blur-sm p-8 rounded-3xl shadow-md w-full h-full">
-                <h3 className="text-2xl font-semibold textGradient4 text-[#fff] mb-6">
+              <div className="bg-[#ffffff0f] border border-black backdrop-blur-sm p-8 rounded-3xl shadow-md w-full h-full">
+                <h3 className="text-2xl font-semibold  text-[#000] mb-6">
                   Our Commitment to Excellence
                 </h3>
                 <ul className="space-y-6 leading-normal">
@@ -405,7 +384,7 @@ const Hardwaresolutions = () => {
                       viewport={{ once: true }}
                       className="flex justify-between items-center"
                     >
-                      <div className="flex items-center gap-4 textGradient4">
+                      <div className="flex items-center gap-4 ">
                         <div className="w-16 h-16 rounded-xl">
                           <img
                             src={item.icon}
@@ -414,10 +393,10 @@ const Hardwaresolutions = () => {
                           />
                         </div>
                         <div>
-                          <span className="text-white font-semibold">
+                          <span className="text-black font-semibold">
                             {item.title}
                           </span>
-                          <p className="text-white textGradient6 text-sm">
+                          <p className="text-black  text-sm">
                             {item.description}
                           </p>
                         </div>
@@ -435,8 +414,8 @@ const Hardwaresolutions = () => {
               viewport={{ once: true }}
               className="flex items-center w-full bg-gradient-to-r overflow-hidden p-[1px] rounded-3xl"
             >
-              <div className="bg-[#ffffff0f] w-full h-full p-8 rounded-3xl shadow-md">
-                <h3 className="text-2xl textGradient4 font-semibold text-white mb-6">
+              <div className="bg-[#ffffff0f] border border-black w-full h-full p-8 rounded-3xl shadow-md">
+                <h3 className="text-2xl  font-semibold text-black mb-6">
                   Our Success Metrics
                 </h3>
                 <div className="grid grid-cols-2 gap-6 mb-8">
@@ -445,25 +424,25 @@ const Hardwaresolutions = () => {
                       label: "Successful Installations",
                       value: "500+",
                       extra: "Systems Deployed",
-                      icon: <MdDevices className="text-white text-4xl" />,
+                      icon: <MdDevices className="text-black text-4xl" />,
                     },
                     {
                       label: "Client Satisfaction",
                       value: "98%",
                       extra: "Industry Leading",
-                      icon: <BsHeadset className="text-white text-4xl" />,
+                      icon: <BsHeadset className="text-black text-4xl" />,
                     },
                     {
                       label: "Certified Technicians",
                       value: "20+",
                       extra: "Industry Experts",
-                      icon: <TbCertificate className="text-white text-4xl" />,
+                      icon: <TbCertificate className="text-black text-4xl" />,
                     },
                     {
                       label: "Response Time",
                       value: "<1hr",
                       extra: "Average Response",
-                      icon: <IoMdSpeedometer className="text-white text-4xl" />,
+                      icon: <IoMdSpeedometer className="text-black text-4xl" />,
                     },
                   ].map((item, index) => (
                     <motion.div
@@ -479,14 +458,14 @@ const Hardwaresolutions = () => {
                       className="bg-[#ffffff08] p-4 rounded-xl flex flex-col items-center"
                     >
                       {item.icon}
-                      <h4 className="text-2xl font-bold text-white mt-2">
+                      <h4 className="text-2xl font-bold text-black mt-2">
                         {item.value}
                       </h4>
-                      <p className="text-sm text-white opacity-80 text-center">
+                      <p className="text-sm text-black opacity-80 text-center">
                         {item.label}
                       </p>
                       {item.extra && (
-                        <p className="text-[#ffffff] text-xs opacity-70 text-center">
+                        <p className="text-[#000] text-xs opacity-70 text-center">
                           {item.extra}
                         </p>
                       )}
@@ -525,17 +504,7 @@ const Hardwaresolutions = () => {
       </div>
 
       {/* Industries We Serve */}
-      <div className="w-full relative py-20 ">
-        <div className="absolute inset-0 -z-10 w-full h-full">
-          <motion.img
-            src={darkGradient}
-            alt=""
-            className="w-full h-full object-cover"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-        </div>
+      <div className="w-full relative py-20 bg-[#FCF3E1]">
         <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -544,10 +513,10 @@ const Hardwaresolutions = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[32px] md:text-[40px] font-semibold textGradient4 mb-4">
+            <h2 className="text-[32px] md:text-[40px] font-semibold  mb-4">
               Industries We Serve
             </h2>
-            <p className="text-white text-lg max-w-2xl mx-auto opacity-90">
+            <p className="text-black text-lg max-w-2xl mx-auto opacity-90">
               Our hardware solutions are tailored to meet the unique challenges
               of various industries.
             </p>
@@ -601,13 +570,13 @@ const Hardwaresolutions = () => {
                 className="bg-gradient-to-r p-[1px] rounded-3xl overflow-hidden"
               >
                 <div className="bg-[#ffffff0f] backdrop-blur-sm p-6 rounded-3xl h-full">
-                  <div className="text-white text-3xl mb-4">
+                  <div className="text-black text-3xl mb-4">
                     {industry.icon}
                   </div>
-                  <h3 className="text-xl font-semibold textGradient4 mb-2">
+                  <h3 className="text-xl font-semibold  mb-2">
                     {industry.title}
                   </h3>
-                  <p className="text-white opacity-80 text-sm">
+                  <p className="text-black opacity-80 text-sm">
                     {industry.description}
                   </p>
                 </div>
@@ -618,18 +587,7 @@ const Hardwaresolutions = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="w-full relative py-20">
-        <div className="w-full absolute top-0 right-0 bottom-0 left-0 -z-10">
-          <motion.img
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            src={darkGradient}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
-
+      {/* <div className="w-full relative py-20 bg-[#352317]">
         <section className="w-full max-w-[1400px] mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -639,7 +597,7 @@ const Hardwaresolutions = () => {
             className="bg-gradient-to-r p-[1px] rounded-3xl overflow-hidden"
           >
             <div className="bg-[#ffffff13] backdrop-blur-sm p-10 rounded-3xl text-center">
-              <h2 className="text-[32px] md:text-[40px] font-semibold textGradient4 mb-4">
+              <h2 className="text-[32px] md:text-[40px] font-semibold  mb-4">
                 Ready to Transform Your Hardware Infrastructure?
               </h2>
               <p className="text-white text-lg max-w-2xl mx-auto opacity-90 mb-8">
@@ -647,18 +605,18 @@ const Hardwaresolutions = () => {
                 hardware needs and discover how our solutions can drive your
                 business forward.
               </p>
-              {/* <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 <button className="px-8 py-3 bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] rounded-full text-black font-medium">
                   Request a Consultation
                 </button>
                 <button className="px-8 py-3 bg-[#ffffff13] rounded-full text-white font-medium border border-white/20">
                   View Case Studies
                 </button>
-              </div> */}
+              </div>
             </div>
           </motion.div>
         </section>
-      </div>
+      </div> */}
 
       {/* Footer */}
       <section className="py-10 bg-[#fff] w-full">

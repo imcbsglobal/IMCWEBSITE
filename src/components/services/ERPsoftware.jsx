@@ -136,14 +136,14 @@ const ERPSoftware = () => {
 
   return (
     <div>
-      <div className="relative w-full pt-20">
-        <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
+      <div className="relative w-full pt-20 bg-[#F3E5C9] ">
+        {/* <div className="w-full absolute top-0 bottom-0 left-0 right-0 -z-10">
           <img
             src={darkGradient}
             alt=""
             className="w-full h-full object-cover"
           />
-        </div>
+        </div> */}
         <a href="https://wa.me/+917593820007">
                 <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
                   <RiWhatsappLine/>
@@ -163,18 +163,18 @@ const ERPSoftware = () => {
                 )}
               </div>
         <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10 md:py-10">
-          <div className="text-gray-200 p-4 md:p-8">
+          <div className="text-black p-4 md:p-8">
             {/* Header Section */}
             <div className="max-w-6xl mx-auto mb-8">
-              <h1 className="text-4xl md:text-7xl font-light mb-4 md:mb-8 textGradient4 text-center">
+              <h1 className="text-4xl md:text-7xl font-light mb-4 md:mb-8  text-center">
                 ERP SOFTWARE SOLUTIONS
               </h1>
 
               {/* Article Info Grid */}
-              <div className="flex items-center justify-center textGradient6">
+              <div className="flex items-center justify-center ">
                 <div className="w-full md:w-[80%]">
-                  <p className="text-sm leading-relaxed text-center px-4 md:px-0">
-                    <span className="text-xl md:text-2xl font-semibold block mb-4">
+                  <p className="text-sm leading-relaxed text-center px-4 md:px-0 ">
+                    <span className="text-xl md:text-2xl font-semibold block mb-4 ">
                       Elevate Your Business with Our Software
                     </span>
                     At Absy IT Solutions, our transformative software solutions
@@ -210,7 +210,7 @@ const ERPSoftware = () => {
                 >
                   <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] h-full">
                     <div className="bg-gradient-to-b bg-[#ffffff1c]h-full p-6 rounded-xl">
-                      <h3 className="text-2xl font-bold mb-3 textGradient5 bg-[#ffffff]">
+                      <h3 className="text-2xl font-bold mb-3  bg-[#ffffff]">
                         <div className="bg-white rounded-lg p-4 mb-4">
                           {" "}
                           {/* Added logo background container */}
@@ -221,7 +221,7 @@ const ERPSoftware = () => {
                           />
                         </div>
                       </h3>
-                      <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                      <p className="text-black text-sm mb-4 line-clamp-3">
                         {softwareDetails[key].description}
                       </p>
                       <div className="text-orange-400 flex items-center justify-end">
@@ -256,16 +256,16 @@ const ERPSoftware = () => {
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-3xl mx-4 md:mx-8">
               <div className="bg-[#ffffff1c] rounded-3xl p-6 md:p-10">
                 <div className="mb-8">
-                  <h2 className="text-3xl md:text-5xl font-bold textGradient4 mb-4">
+                  <h2 className="text-3xl md:text-5xl font-bold  mb-4">
                     {selectedSoftware.title}
                   </h2>
                   <div className="w-32 h-1 bg-gradient-to-r from-[#F99F2C] to-[#f18a04] mb-6"></div>
-                  <p className="text-lg md:text-xl text-gray-300">
+                  <p className="text-lg md:text-xl text-black">
                     {selectedSoftware.description}
                   </p>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl text-[#fff] font-semibold textGradient6 mb-6">
+                <h3 className="text-2xl md:text-3xl text-[#000] font-semibold  mb-6">
                   Key Features
                 </h3>
 
@@ -276,11 +276,11 @@ const ERPSoftware = () => {
                       className="bg-gradient-to-r bg-[#ffffff1c] rounded-xl p-6 transform transition-all duration-300 hover:scale-105"
                     >
                       <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#F99F2C] to-[#f18a04] flex items-center justify-center mb-4">
-                        <span className="text-xl font-bold text-white">
+                        <span className="text-xl font-bold text-black">
                           {index + 1}
                         </span>
                       </div>
-                      <h4 className="text-lg font-medium textGradient6 text-white mb-2">
+                      <h4 className="text-lg font-medium  text-black mb-2">
                         {feature}
                       </h4>
                     </div>
@@ -299,10 +299,10 @@ const ERPSoftware = () => {
 
         {/* Mobile Apps Section */}
         <section className="w-full max-w-[1400px] mx-auto py-5 md:py-10 px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center textGradient4 mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center  mb-10">
             Our Mobile Applications
           </h2>
-          <p className="text-gray-300 text-center mb-12 max-w-4xl mx-auto">
+          <p className="text-black  text-center mb-12 max-w-4xl mx-auto">
             At Absy IT Solutions, our groundbreaking mobile application development services are designed to propel your business forward. We create innovative, custom mobile apps that boost efficiency, support growth, and seamlessly integrate into your operations for unparalleled performance.
           </p>
 
@@ -312,10 +312,10 @@ const ERPSoftware = () => {
               <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
                 {/* <h3 className="text-2xl font-bold text-white mb-4">TASK PRO</h3> */}
                 <div className='h-16 w-16 '><img src={taskpro} alt="" className='h-full w-full object-contain' /></div>
-                <p className="text-gray-300 mb-6">
+                <p className="text-black mb-6">
                   A user-friendly mobile application designed for monitoring business in real-time. Various types of business reports are available for comprehensive business insights.
                 </p>
-                <div className="space-y-2 text-gray-300">
+                <div className="space-y-2 text-black">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -338,10 +338,10 @@ const ERPSoftware = () => {
                 {/* <h3 className="text-2xl font-bold text-white mb-4">EWAY TASK</h3> */}
                 <div className='h-16 w-16 '><img src={eway} alt="" className='h-full w-full object-contain' /></div>
                 
-                <p className="text-gray-300 mb-6">
+                <p className="text-black mb-6">
                   An ultimate solution designed for distribution-based business concepts, providing facilities for direct sales, order taking, sales return, and collections with user-wise and area-wise entry capabilities.
                 </p>
-                <div className="space-y-2 text-gray-300">
+                <div className="space-y-2 text-black">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -364,10 +364,10 @@ const ERPSoftware = () => {
                 {/* <h3 className="text-2xl font-bold text-white mb-4">Dine Pro</h3> */}
                 <div className='h-16 w-16 '><img src={dinepro} alt="" className='h-full w-full object-contain' /></div>
 
-                <p className="text-gray-300 mb-6">
+                <p className="text-black mb-6">
                   A comprehensive dine reporting application that streamlines restaurant operations management with detailed reports on sales, inventory, and customer behavior analysis.
                 </p>
-                <div className="space-y-2 text-gray-300">
+                <div className="space-y-2 text-black">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -391,10 +391,10 @@ const ERPSoftware = () => {
                  */}
                 <div className='h-16 w-16 '><img src={magicpda} alt="" className='h-full w-full object-contain' /></div>
 
-                <p className="text-gray-300 mb-6">
+                <p className="text-black mb-6">
                   A powerful Android application for managing hypermarket and supermarket activities, featuring stock management, product details with live stock, GRN Entries, Floor Billing, and advanced shelf tag printing.
                 </p>
-                <div className="space-y-2 text-gray-300">
+                <div className="space-y-2 text-black">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -417,10 +417,10 @@ const ERPSoftware = () => {
                 {/* <h3 className="text-2xl font-bold text-white mb-4">DINE KOT</h3> */}
                 <div className='h-16 w-16 '><img src={dinekot} alt="" className='h-full w-full object-contain' /></div>
 
-                <p className="text-gray-300 mb-6">
+                <p className="text-black mb-6">
                   An application designed for managing flexible restaurant operations, featuring KOT entry and billing facilities with easy management of multiple kitchen-wise printing.
                 </p>
-                <div className="space-y-2 text-gray-300">
+                <div className="space-y-2 text-black">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -440,18 +440,18 @@ const ERPSoftware = () => {
         </section>
 
         {/* Benefits Section */}
-        <section className="w-full max-w-[1400px] mx-auto py-10 px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center textGradient4 mb-10">
+        <section className="w-full  mx-auto py-10 px-4 md:px-8 bg-[#352317]">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">
             Why Choose Our ERP Solutions?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
-              <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
+              <div className="bg-[#F3E5C9] h-full rounded-xl p-6">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#F99F2C] to-[#f18a04] rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-black"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -464,10 +464,10 @@ const ERPSoftware = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-center text-white mb-3">
+                <h3 className="text-xl font-bold text-center text-black mb-3">
                   Enhanced Efficiency
                 </h3>
-                <p className="text-gray-400 text-center">
+                <p className="text-black text-center">
                   Streamline operations and reduce manual tasks with our
                   automated solutions
                 </p>
@@ -475,11 +475,11 @@ const ERPSoftware = () => {
             </div>
 
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
-              <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
+              <div className="bg-[#F3E5C9] h-full rounded-xl p-6">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#F99F2C] to-[#f18a04] rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-black"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -492,10 +492,10 @@ const ERPSoftware = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-center text-white mb-3">
+                <h3 className="text-xl font-bold text-center text-black mb-3">
                   Data-Driven Insights
                 </h3>
-                <p className="text-gray-400 text-center">
+                <p className="text-black text-center">
                   Make informed decisions with comprehensive analytics and
                   reporting tools
                 </p>
@@ -503,7 +503,7 @@ const ERPSoftware = () => {
             </div>
 
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
-              <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
+              <div className="bg-[#F3E5C9] h-full rounded-xl p-6">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#F99F2C] to-[#f18a04] rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -520,10 +520,10 @@ const ERPSoftware = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-center text-white mb-3">
+                <h3 className="text-xl font-bold text-center text-black mb-3">
                   Customized Solutions
                 </h3>
-                <p className="text-gray-400 text-center">
+                <p className="text-black text-center">
                   Tailored software that adapts to your specific industry
                   requirements
                 </p>
@@ -533,18 +533,18 @@ const ERPSoftware = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="w-full max-w-[1400px] mx-auto py-10 px-4 md:px-8 mb-10">
+        {/* <section className="w-full max-w-[1400px] mx-auto py-10 px-4 md:px-8 mb-10">
           <div className="bg-gradient-to-r  rounded-3xl leading-normal p-8 md:p-12">
             <div className="text-center">
-              <div className="text-3xl leading-normal md:text-4xl font-bold text-white mb-4 textGradient4">
+              <div className="text-3xl leading-normal md:text-4xl font-bold text-black mb-4 ">
                 Ready to Transform Your Business?
               </div>
-              <p className="text-xl text-gray-200 textGradient6 mb-8">
+              <p className="text-xl text-black  mb-8">
                 Schedule a consultation with our ERP specialists today
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="/contact">
-                <button className="bg-[#F99F2C] textGradient5 border text-white hover:bg-[#e89427] font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                <button className="bg-[#F99F2C]  border text-black hover:bg-[#e89427] font-bold py-3 px-8 rounded-lg transition-all duration-300">
                  Contact Now
                 </button>
                 </a>
@@ -552,7 +552,7 @@ const ERPSoftware = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
 
       <section className="w-full bg-[#fff] py-10">

@@ -31,7 +31,7 @@ C:\Users\Redmi\OneDrive\Desktop\IMCWEBSITE\imcwebsite\src\fonts\Universo\Demo_Fo
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body{
-    background: #030303;
+    background: #ffffff;
 }
 
 .textGradient{
@@ -206,3 +206,22 @@ body{
     font-weight: normal;
     font-style: normal;
   }
+
+  .swiper-button-prev,
+.swiper-button-next {
+  color: black !important;
+  width: 28px;
+  height: 28px;
+  top: 45%;
+}
+
+.swiper-button-prev {
+  left: -35px;
+}
+
+.swiper-button-next {
+  right: -35px;
+}
+.scrollbarHidden::-webkit-scrollbar{
+  display: none;
+}

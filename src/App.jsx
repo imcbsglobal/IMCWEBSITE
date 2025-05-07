@@ -15,7 +15,7 @@ import ProductTutorials from "./components/faq/ProductTutorials";
 import ProductVideo from "./components/faq/ProductVideo";
 import QuestionChatBoats from "./components/faq/QuestionChatBoats";
 import WhatsappSupports from "./components/faq/WhatsappSupports";
-import Company from "./components/company";
+
 
 import Login from './components/login';
 import Admin from './components/admin';
@@ -27,7 +27,11 @@ import Institution from './components/software/Institution';
 import Inventory from './components/software/Inventory';
 import Restaurant from './components/software/Restaurant'
 import Pharmacy from './components/software/Pharmacy';
-
+import Aboutimc from './components/company/aboutimc';
+import Supports from './components/company/supports';
+import Becomepartner from './components/company/becomepartners'
+import Task from './components/software/task';
+import Auric from './components/software/Auric'
 function App() {
   return (
     <Router>
@@ -61,7 +65,7 @@ const AppWithRouting = () => {
         <Route path="/questionChatBoats" element={<QuestionChatBoats />} />
         <Route path="/whatsappSupports" element={<WhatsappSupports />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/company" element={<Company />} />
+        {/* <Route path="/company" element={<Company />} /> */}
         {/* <Route path="/software" element={<Software />} /> */}
         {/* <Route path="/business" element={<Business />} /> */}
         <Route path="/login" element={<Login />} />
@@ -75,6 +79,11 @@ const AppWithRouting = () => {
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/pharmacy" element={<Pharmacy />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/aboutimc" element={< Aboutimc/>} />
+        <Route path="/supports" element={< Supports/>} />
+        <Route path="/becomepartner" element={< Becomepartner/>} />
+        <Route path="/task/:productId" element={<Task />} />
+        <Route path="/auric" element={<Auric/>}/>
       </Routes>
     </>
   );

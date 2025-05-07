@@ -113,7 +113,7 @@ const Career = () => {
           <img src={blackShade} alt="" className="w-full h-full object-cover" />
         </div>
         <div className="relative h-full w-full flex flex-col justify-center items-center">
-          <div className="text-4xl md:text-6xl text-[#fff] textGradient5 pt-28 leading-normal font-bold text-center px-4">
+          <div className="text-4xl md:text-6xl text-[#fff]  pt-28 leading-normal font-bold text-center px-4">
             Innovators Wanted, Join{" "}
             <span className="block">The Wises Revolution</span>
           </div>
@@ -156,9 +156,9 @@ const Career = () => {
       </section>
 
       <div className="relative pb-20">
-      <div className="absolute top-0 right-0 left-0 bottom-0 h-full w-full -z-10">
+      {/* <div className="absolute top-0 right-0 left-0 bottom-0 h-full w-full -z-10">
           <img src={darkGradient} alt="Background" className="w-full h-full object-cover"/>
-        </div>
+        </div> */}
       <section className="relative py-10">
         
         <div className="max-w-[1400px] mx-auto px-4">
@@ -171,29 +171,29 @@ const Career = () => {
               />
             </div>
             <div className="md:w-[50%]">
-              <div className="text-[#fff] textGradient5 text-4xl leading-normal font-bold mb-3">
+              <div className="text-[#000]  text-4xl leading-normal font-bold mb-3">
                 Why Join IMC?
               </div>
-              <div className="text-[#fff] textGradient6 mb-5">
+              <div className="text-[#000]  mb-5">
                 At IMC Business Solutions, we offer a supportive and innovative
                 workplace where your skills and ideas matter. Whether you're
                 experienced or just starting, we help you grow and succeed.
               </div>
               <div>
-                <ul className="flex flex-col gap-3 textGradient6">
-                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#fff]">
+                <ul className="flex flex-col gap-3 ">
+                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#000]">
                     <strong>Career Growth:</strong> Training, mentorship, and
                     opportunities to advance.
                   </li>
-                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#fff]">
+                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#000]">
                     <strong>Work-Life Balance:</strong> A flexible and
                     supportive environment.
                   </li>
-                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#fff]">
+                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#000]">
                     <strong>Exciting Projects:</strong> Work on cutting-edge IT
                     solutions.
                   </li>
-                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#fff]">
+                  <li className="bg-[#ffffff22] px-4 py-3 rounded-lg text-[#000]">
                     <strong>Great Team:</strong> Collaborate with talented
                     professionals.
                   </li>
@@ -206,16 +206,16 @@ const Career = () => {
 
       <section className="w-full flex justify-center px-4 ">
         <div className="max-w-[1400px] w-full">
-          <h2 className="text-3xl font-bold text-[#fff] mb-8 text-center textGradient4">
+          <h2 className="text-3xl font-bold text-[#000] mb-8 text-center ">
             Open Positions
           </h2>
 
           {loading ? (
-            <div className="text-center text-[#fff] p-10">
+            <div className="text-center text-[#000] p-10">
               <p>Loading available positions...</p>
             </div>
           ) : error ? (
-            <div className="text-center text-[#fff] p-10">
+            <div className="text-center text-[#000] p-10">
               <p>{error}</p>
             </div>
           ) : careers.length > 0 ? (
@@ -223,19 +223,19 @@ const Career = () => {
               {careers.map((career) => (
                 <div
                   key={career.id}
-                  className="p-6 bg-[#ffffff11] text-white rounded-2xl shadow-lg border border-[#ffffff33] hover:border-[#ffffff66] transition-all"
+                  className="p-6 bg-[#ffffff11] text-[#000] rounded-2xl shadow-lg border border-[#000] hover:border-[#ffffff66] transition-all"
                 >
-                  <h2 className="text-xl font-semibold mb-2 text-[#fff] textGradient6">
+                  <h2 className="text-xl font-semibold mb-2 text-[#000] ">
                     {career.title}
                   </h2>
-                  <p className="text-[#cbcaca] mb-2">
+                  <p className="text-[#000] mb-2">
                     Experience: {career.experience} 
                   </p>
                   
                   {/* Show skills if available */}
                   {career.skills && Array.isArray(career.skills) && (
                     <div className="mb-3">
-                      <p className="text-[#cbcaca] mb-1">Required Skills:</p>
+                      <p className="text-[#000] mb-1">Required Skills:</p>
                       <div className="flex flex-wrap gap-2">
                         {career.skills.map((skill, index) => (
                           <span 
