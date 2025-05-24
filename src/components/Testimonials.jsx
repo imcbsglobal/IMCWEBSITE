@@ -60,15 +60,10 @@ const Testimonials = () => {
         <div className="flex flex-col justify-center items-center mb-5">
           {/* Custom Navigation Buttons */}
           <div className="w-full flex justify-between items-center px-4 mb-2">
-
-            <button
-              className="prev-testimonial p-2 rounded-full  text-black hover:text-gray-700 transition-all z-10"
-            >
+            <button className="prev-testimonial p-2 rounded-full  text-black hover:text-gray-700 transition-all z-10">
               <ChevronLeft size={30} />
             </button>
-            <button
-              className="next-testimonial p-2 rounded-full  text-black hover:text-gray-700 transition-all z-10"
-            >
+            <button className="next-testimonial p-2 rounded-full  text-black hover:text-gray-700 transition-all z-10">
               <ChevronRight size={30} />
             </button>
           </div>
@@ -86,8 +81,8 @@ const Testimonials = () => {
               }}
               loop={true}
               navigation={{
-                prevEl: '.prev-testimonial',
-                nextEl: '.next-testimonial',
+                prevEl: ".prev-testimonial",
+                nextEl: ".next-testimonial",
               }}
               breakpoints={{
                 // when window width is < 768px
@@ -101,39 +96,47 @@ const Testimonials = () => {
                   slidesPerView: 2,
                   slidesPerGroup: 2,
                   spaceBetween: 30,
-                }
+                },
               }}
               className="testimonial-swiper"
             >
               {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={testimonial.id} className="py-4">
-                <motion.div
-                  className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6 rounded-3xl"
-                  initial={{ opacity: 0.5, scale: 0.9, filter: "blur(5px)" }}
-                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0.5, scale: 0.9, filter: "blur(5px)" }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                >
-                  <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
-                    <img
-                      src={
-                        testimonial.image ||
-                        "https://img.freepik.com/free-photo/portrait-handsome-fashion-stylish-hipster-model-dressed-warm-red-sweater-posing-studio_158538-11524.jpg"
-                      }
-                      alt="Testimonial"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-around gap-4 w-[300px]">
-                    <div className="textGradient italic md:text-[22px] text-center md:text-base md:text-justify pt-2 px-2">
-                      {testimonial.description || "Amazing experience!"}
+                  <motion.div
+                    className="grid grid-cols-1 place-items-center md:flex justify-center items-center p-4 w-full gap-1 md:gap-6 rounded-3xl"
+                    initial={{ opacity: 0.5, scale: 0.9, filter: "blur(5px)" }}
+                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    exit={{ opacity: 0.5, scale: 0.9, filter: "blur(5px)" }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                  >
+                    <div className="w-[200px] h-[300px] flex justify-center items-center rounded-tl-[40%] bg-white overflow-hidden">
+                      <img
+                        src={
+                          testimonial.image ||
+                          "https://img.freepik.com/free-photo/portrait-handsome-fashion-stylish-hipster-model-dressed-warm-red-sweater-posing-studio_158538-11524.jpg"
+                        }
+                        alt="Testimonial"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                    <div className="textGradient6 text-[#000] md:text-2xl md:p-4 px-2 text-center md:text-start">
-                      {testimonial.name || "Name"}
+                    <div className="flex flex-col justify-around gap-4 w-[300px]">
+                      <div className="textGradient italic md:text-[22px] text-center md:text-base md:text-justify pt-2 px-2">
+                        {testimonial.description || "Amazing experience!"}
+                      </div>
+                      <div className="text-center md:text-start px-2 md:p-4">
+                        <div className="textGradient6 text-[#000] md:text-2xl">
+                          {testimonial.name || "Name"}
+                        </div>
+                        <div className="text-gray-600 text-sm md:text-base italic">
+                          {testimonial.post || "Job Role"}
+                        </div>
+                        <div className="text-gray-600 text-sm md:text-base italic">
+                          {testimonial.company || "Company Name"}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
+                  </motion.div>
+                </SwiperSlide>
               ))}
             </Swiper>
           </div>
@@ -173,7 +176,7 @@ const Testimonials = () => {
           ))}
         </div>
       </div> */}
-      
+
       {/* Add custom CSS for futuristic effects */}
     </div>
   );

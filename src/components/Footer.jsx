@@ -82,22 +82,25 @@ const Footer = () => {
               </div>
               <ul className="text-[#000]  text-sm md:text-base">
                 <li className="py-1">
-                  <Link to="/inventory">Inventory </Link>
+                  <Link to="/inventory">TASK </Link>
                 </li>
                 <li className="py-1">
-                  <Link to="/healthcare">Health Care </Link>
+                  <Link to="/healthcare">SHADE </Link>
                 </li>
                 <li className="py-1">
-                  <Link to="/institution">Institution </Link>
+                  <Link to="/institution">MAGNET </Link>
                 </li>
                 <li className="py-1">
-                  <Link to="/pharmacy">Pharmacy</Link>
+                  <Link to="/pharmacy">VTASK</Link>
                 </li>
                 <li className="py-1">
-                  <Link to="/restaurant">Restaurants</Link>
+                  <Link to="/restaurant">DINE</Link>
                 </li>
                 <li className="py-1">
-                  <Link to="/hospitality">Hospitality</Link>
+                  <Link to="/hospitality">SHADE</Link>
+                </li>
+                <li className="py-1">
+                  <Link to="/auric">AURIC</Link>
                 </li>
               </ul>
             </div>

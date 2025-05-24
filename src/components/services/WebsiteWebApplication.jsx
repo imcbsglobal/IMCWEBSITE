@@ -232,6 +232,13 @@ const WebsiteWebApplication = () => {
                   className="w-full h-full object-cover rounded-3xl"
                 />
               </div>
+              <div className="absolute inset-0 bg-black bg-opacity-60 z-10 rounded-3xl"></div>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+                        <h3 className="text-white text-xl md:text-6xl font-bold text-center px-4">
+                          COMPLETE WEB SOLUTIONS
+                        </h3>
+                        <p className="text-white max-w-[900px] mx-auto text-center mt-2">We create modern, responsive websites tailored to your business needs. From design to deployment, our web development services help you build a strong online presence</p>
+                      </div>
             </motion.div>
 
             {/* Swiper Slider - First Swiper */}
@@ -294,7 +301,7 @@ const WebsiteWebApplication = () => {
                 className="text-[#000] text-[30px] md:text-[50px]  leading-tight text-center"
               >
                 Best Web Design and Development
-                <span className="block">Company Wayanad, Kerala</span>
+                <span className="block">Company INDIA</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}

@@ -319,6 +319,8 @@ const AdminPanel = () => {
   const [base64Image, setBase64Image] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [editingTestimonialId, setEditingTestimonialId] = useState(null);
+  const [testimonialPost, setTestimonialPost] = useState(""); // job role
+const [testimonialCompany, setTestimonialCompany] = useState("");
 
   useEffect(() => {
     if (selectedSection === "testimonialList") {
@@ -363,76 +365,94 @@ const AdminPanel = () => {
     setIsSidebarOpen(false);
   };
 
-  const handleSaveTestimonial = async () => {
-    try {
-      if (!testimonialName || !testimonialDescription) {
-        alert("Please fill in the name and testimonial text");
-        return;
-      }
-
-      if (!base64Image) {
-        alert("Please select an image");
-        return;
-      }
-
-      const testimonialData = {
-        name: testimonialName,
-        description: testimonialDescription,
-        image: base64Image,
-        date: new Date().toISOString(),
-      };
-
-      if (editingTestimonialId) {
-        const testimonialRef = doc(
-          dbFirestore,
-          "testimonials",
-          editingTestimonialId
-        );
-        await setDoc(testimonialRef, testimonialData);
-        alert("Testimonial updated successfully");
-        clearTestimonialForm();
-      } else {
-        await addDoc(collection(dbFirestore, "testimonials"), testimonialData);
-        alert("Testimonial added successfully");
-      }
-
-      fetchTestimonials();
-      clearTestimonialForm();
-    } catch (error) {
-      console.error("Error adding testimonial:", error);
-      alert("Error adding testimonial. Please try again.");
-    }
-    setIsSidebarOpen(false);
-  };
-
-  const clearTestimonialForm = () => {
-    setTestimonialName("");
-    setTestimonialDescription("");
-    setImagePreview("");
-    setBase64Image("");
-    setEditingTestimonialId(null);
-    if (testimonialImageInputRef.current) {
-      testimonialImageInputRef.current.value = "";
-    }
-    setIsSidebarOpen(false);
-  };
-
-  const handleEditTestimonial = (testimonial) => {
-    if (!testimonial) {
-      alert("Invalid testimonial data");
+const handleSaveTestimonial = async () => {
+  try {
+    if (!testimonialName || !testimonialDescription || !testimonialPost || !testimonialCompany) {
+      alert("Please fill in the name, post, and testimonial text");
       return;
     }
 
-    setTestimonialName(testimonial.name || "");
-    setTestimonialDescription(testimonial.description || "");
-    setImagePreview(testimonial.image || "");
-    setBase64Image(testimonial.image || "");
-    setEditingTestimonialId(testimonial.id || null);
-    if (testimonialImageInputRef.current) {
-      testimonialImageInputRef.current.value = ""; // Reset file input for editing
+
+    if (!base64Image) {
+      alert("Please select an image");
+      return;
     }
-    setIsSidebarOpen(false);
-  };
+
+   const testimonialData = {
+     name: testimonialName,
+     post: testimonialPost,
+     company : testimonialCompany,
+     description: testimonialDescription, // was: testimonialText
+     image: base64Image,
+     date: new Date().toISOString(),
+   };
+
+
+    if (editingTestimonialId) {
+      const testimonialRef = doc(
+        dbFirestore,
+        "testimonials",
+        editingTestimonialId
+      );
+      await setDoc(testimonialRef, testimonialData);
+      alert("Testimonial updated successfully");
+      clearTestimonialForm();
+    } else {
+      await addDoc(collection(dbFirestore, "testimonials"), testimonialData);
+      alert("Testimonial added successfully");
+    }
+
+    fetchTestimonials();
+    clearTestimonialForm();
+  } catch (error) {
+    console.error("Error adding testimonial:", error);
+    alert("Error adding testimonial. Please try again.");
+  }
+
+  setIsSidebarOpen(false);
+};
+
+
+
+  const clearTestimonialForm = () => {
+  setTestimonialName("");
+  setTestimonialPost(""); // ✅ clear post
+  setTestimonialCompany("");
+  setTestimonialDescription("");
+  setImagePreview("");
+  setBase64Image("");
+  setEditingTestimonialId(null);
+
+  if (testimonialImageInputRef.current) {
+    testimonialImageInputRef.current.value = "";
+  }
+
+  setIsSidebarOpen(false);
+};
+
+
+const handleEditTestimonial = (testimonial) => {
+  if (!testimonial) {
+    alert("Invalid testimonial data");
+    return;
+  }
+  console.log(testimonial)
+
+  setTestimonialName(testimonial.name || "");
+  setTestimonialPost(testimonial.post || ""); // ✅ set post
+  setTestimonialCompany(testimonial.company || ""); 
+  setTestimonialDescription(testimonial.description || "");
+  setImagePreview(testimonial.image || "");
+  setBase64Image(testimonial.image || "");
+  setEditingTestimonialId(testimonial.id || null);
+
+  if (testimonialImageInputRef.current) {
+    testimonialImageInputRef.current.value = "";
+  }
+
+  setIsSidebarOpen(false);
+};
+
 
   const handleDeleteTestimonial = async (id) => {
     try {
@@ -826,7 +846,11 @@ const [demoDescription, setDemoDescription] = useState("");
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 >
                   {categories.map((category) => (
-                    <option key={category} value={category} className="text-black">
+                    <option
+                      key={category}
+                      value={category}
+                      className="text-black"
+                    >
                       {category.charAt(0).toUpperCase() + category.slice(1)}
                     </option>
                   ))}
@@ -937,7 +961,11 @@ const [demoDescription, setDemoDescription] = useState("");
                   className="w-full md:w-[500px] p-3 border rounded text-black"
                 >
                   {categories.map((category) => (
-                    <option key={category} value={category} className="text-black">
+                    <option
+                      key={category}
+                      value={category}
+                      className="text-black"
+                    >
                       {category.charAt(0).toUpperCase() + category.slice(1)}
                     </option>
                   ))}
@@ -1140,124 +1168,147 @@ const [demoDescription, setDemoDescription] = useState("");
               </div>
             </>
           )}
+
           {/* Testimonial List Section */}
           {selectedSection === "testimonialList" && (
-  <>
-    <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
-      Manage Testimonials
-    </h2>
+            <>
+              <h2 className="text-2xl md:text-[37px] font-bold mb-4 text-center">
+                Manage Testimonials
+              </h2>
 
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSaveTestimonial();
-      }}
-      className="space-y-4 flex flex-col items-center w-full px-4"
-    >
-      <input
-        type="text"
-        placeholder="Name"
-        value={testimonialName}
-        onChange={(e) => setTestimonialName(e.target.value)}
-        className="w-full md:w-[500px] p-3 border rounded text-black"
-      />
-      <textarea
-        placeholder="Testimonial Text"
-        value={testimonialText}
-        onChange={(e) => setTestimonialText(e.target.value)}
-        className="w-full md:w-[500px] p-3 border rounded text-black h-32"
-      />
-      <div className="w-full md:w-[500px]">
-        <input
-          type="file"
-          onChange={handleTestimonialImageChange}
-          accept="image/*"
-          ref={testimonialImageInputRef}
-          className="text-black"
-        />
-        <p className="text-gray-400 text-sm mt-1">
-          Max file size: 500KB
-        </p>
-        {imagePreview && (
-          <div className="mt-2">
-            <p>Image Preview:</p>
-            <img
-              src={imagePreview}
-              alt="Testimonial Preview"
-              className="max-h-40 rounded mt-2"
-            />
-          </div>
-        )}
-      </div>
-
-      <button
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
-      >
-        {editingTestimonialId ? "Update" : "Submit"}
-      </button>
-      {editingTestimonialId && (
-        <button
-          type="button"
-          className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
-          onClick={clearTestimonialForm}
-        >
-          Cancel Edit
-        </button>
-      )}
-    </form>
-
-    <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
-      Testimonials List
-    </h3>
-
-    <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
-      <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
-        <thead>
-          <tr className="bg-white">
-            <th className="p-2 border">Name</th>
-            <th className="p-2 border">Testimonial</th>
-            <th className="p-2 border">Image</th>
-            <th className="p-2 border">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {testimonials.map((testimonial) => (
-            <tr key={testimonial.id} className="bg-white">
-              <td className="p-2 border">{testimonial.name}</td>
-              <td className="p-2 border">{testimonial.description}</td>
-              <td className="p-2 border">
-                {testimonial.image ? (
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full max-w-[100px]"
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSaveTestimonial();
+                }}
+                className="space-y-4 flex flex-col items-center w-full px-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={testimonialName}
+                  onChange={(e) => setTestimonialName(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <input
+                  type="text"
+                  placeholder="Job Role / Post"
+                  value={testimonialPost}
+                  onChange={(e) => setTestimonialPost(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <input
+                  type="text"
+                  placeholder="Company Name"
+                  value={testimonialCompany}
+                  onChange={(e) => setTestimonialCompany(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black"
+                />
+                <textarea
+                  placeholder="Testimonial Text"
+                  value={testimonialDescription}
+                  onChange={(e) => setTestimonialText(e.target.value)}
+                  className="w-full md:w-[500px] p-3 border rounded text-black h-32"
+                />
+                <div className="w-full md:w-[500px]">
+                  <input
+                    type="file"
+                    onChange={handleTestimonialImageChange}
+                    accept="image/*"
+                    ref={testimonialImageInputRef}
+                    className="text-black"
                   />
-                ) : (
-                  "No image available"
+                  <p className="text-gray-400 text-sm mt-1">
+                    Max file size: 500KB
+                  </p>
+                  {imagePreview && (
+                    <div className="mt-2">
+                      <p>Image Preview:</p>
+                      <img
+                        src={imagePreview}
+                        alt="Testimonial Preview"
+                        className="max-h-40 rounded mt-2"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded w-[100px]"
+                >
+                  {editingTestimonialId ? "Update" : "Submit"}
+                </button>
+                {editingTestimonialId && (
+                  <button
+                    type="button"
+                    className="bg-gray-500 hover:bg-gray-600 text-black py-2 px-6 rounded"
+                    onClick={clearTestimonialForm}
+                  >
+                    Cancel Edit
+                  </button>
                 )}
-              </td>
-              <td className="p-2 border">
-                <button
-                  onClick={() => handleEditTestimonial(testimonial)}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDeleteTestimonial(testimonial.id)}
-                  className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </>
-)}
+              </form>
+
+              <h3 className="text-lg md:text-xl font-bold mt-8 text-center">
+                Testimonials List
+              </h3>
+
+              <div className="w-full overflow-x-auto px-4 flex items-center justify-center">
+                <table className="md:min-w-[600px] md:w-[900px] mt-4 text-black border-collapse">
+                  <thead>
+                    <tr className="bg-white">
+                      <th className="p-2 border">Name</th>
+                      <th className="p-2 border">Post</th>
+                      <th className="p-2 border">Company</th>
+                      <th className="p-2 border">Testimonial</th>
+                      <th className="p-2 border">Image</th>
+                      <th className="p-2 border">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {testimonials.map((testimonial) => (
+                      <tr key={testimonial.id} className="bg-white">
+                        <td className="p-2 border">{testimonial.name}</td>
+                        <td className="p-2 border">{testimonial.post}</td>
+                        <td className="p-2 border">{testimonial.company}</td>
+                        <td className="p-2 border">
+                          {testimonial.description}
+                        </td>
+                        <td className="p-2 border">
+                          {testimonial.image ? (
+                            <img
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              className="w-full max-w-[100px]"
+                            />
+                          ) : (
+                            "No image available"
+                          )}
+                        </td>
+                        <td className="p-2 border">
+                          <button
+                            onClick={() => handleEditTestimonial(testimonial)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black py-1 px-3 rounded"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleDeleteTestimonial(testimonial.id)
+                            }
+                            className="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded ml-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
 
           {/* Video Testimonials Section */}
           {selectedSection === "videoTestimonials" && (

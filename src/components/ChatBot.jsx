@@ -13,7 +13,7 @@ import chattingBg from "../assets/chatting-bg.png";
 import { IoMdClose } from "react-icons/io";
 import { motion } from "framer-motion"
 
-const GEMINI_API_KEY = 'AIzaSyC0Bvf5YXVV_gwY064yFxQbGmUh3htnUxk';
+const GEMINI_API_KEY = 'AIzaSyDwms5Ggbtcmn2VA10r30BgP9CU_HcuxdQ';
 const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta';
 const GEMINI_MODEL = 'gemini-1.5-pro'; // Updated to current model name
 

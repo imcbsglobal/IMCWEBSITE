@@ -26,7 +26,7 @@ const QuestionChatBoats = () => {
   
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-1 bg-[#fff]">
+      <div className="w-full flex flex-col justify-center items-center relative h-auto pt-[65px] md:pt-24 bg-[#fff]">
         {/* <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 -z-10">
           <img
             src={darkGradient}

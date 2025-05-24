@@ -281,7 +281,7 @@ const Hospitality = () => {
       {/* Hero Section */}
       <div className="relative min-h-[600px] bg-white overflow-hidden mt-16 md:mt-28">
         {/* Flex Container */}
-        <div className="flex flex-col md:flex-row min-h-[600px] w-full max-w-[1400px] mx-auto">
+        <div className="flex flex-col md:flex-row min-h-[600px] w-full max-w-[1400px] mx-auto md:mt-10">
           {/* Left Content (Text Section) */}
           <motion.div
             className="w-full md:w-1/2 flex flex-col justify-center items-start gap-5 sm:gap-10 px-4 sm:px-6 md:px-10 lg:px-20 py-8 md:py-0"
@@ -466,6 +466,7 @@ const Hospitality = () => {
           </div>
         </div>
       </section>
+      
       {/* poduct showcase */}
       <section className="w-full py-20 text-white relative bg-[#7d1835]">
         <div className="max-w-[1400px] mx-auto px-6">

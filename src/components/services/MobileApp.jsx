@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Footer from "../Footer";
-import mobileapp from "../../assets/mobileapp1.jpeg";
+import mobileapp from "../../assets/mobileapp1.jpg";
 import app1 from "../../assets/app1.jpg";
 import app2 from "../../assets/app2.jpg";
 import app from "../../assets/app.jpg";
@@ -220,7 +220,6 @@ const MobileApp = () => {
             <div>
               <div className="flex flex-col justify-center items-center gap-5">
                 <motion.div
-                  
                   viewport={{ once: false, amount: 0.3 }}
                   className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl"
                 >
@@ -230,6 +229,18 @@ const MobileApp = () => {
                       alt="mobileapp"
                       className="w-full h-full rounded-3xl object-cover"
                     />
+                  </div>
+                  <div className="absolute inset-0 bg-black bg-opacity-60 z-10 rounded-3xl"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+                    <h3 className="text-white text-xl md:text-6xl font-bold text-center px-4">
+                      Crafting Mobile Experiences
+                    </h3>
+                    <p className="text-white max-w-[900px] mx-auto text-center mt-2">
+                      We create easy-to-use mobile apps for Android and iOS.
+                      Whether you need an app for your business or a new idea,
+                      we build fast, reliable, and user-friendly apps to help
+                      you grow.
+                    </p>
                   </div>
                 </motion.div>
 

@@ -276,7 +276,7 @@ const Auric = () => {
           </motion.div>
 
           <motion.div
-            className="bg-white h-[300px] shadow-lg text-gray-800 p-4 md:p-6 lg:p-8 rounded-xl w-full max-w-full backdrop-blur-sm border border-[#C9A55C]"
+            className="bg-white h-[300px] md:h-[400px] shadow-lg text-gray-800 p-4 md:p-6 lg:p-8 rounded-xl w-full max-w-full backdrop-blur-sm border border-[#C9A55C]"
             variants={fadeInVariant}
           >
             <div className="flex items-end gap-3  mb-4">

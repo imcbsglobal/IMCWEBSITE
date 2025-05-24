@@ -95,7 +95,7 @@ const Navbar = () => {
     faq: [
       { name: "Question Chat Boats", path: "/questionChatBoats" },
       { name: "Product Tutorials", path: "/productTutorials" },
-      { name: "Product Video Demonstrations", path: "/productVideo" },
+      { name: "Company Updates", path: "/productVideo" },
       { name: "Whatsapp Supports", path: "/whatsappSupports" },
       {name: "Career", path:"/career"},
     ],

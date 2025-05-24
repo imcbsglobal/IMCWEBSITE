@@ -34,8 +34,8 @@ const Company = () => {
 
   const teamMembers = [
     {
-      title: "Project Manager",
-      name: "Sahana K",
+      title: "Customer Relation Officer",
+      name: "SAHANA K",
       phone: "+91 75938 20006",
       email: "sahanakozhikodan03@gmail.com",
       color: "bg-[#F3EDE7]", // soft background
@@ -43,8 +43,8 @@ const Company = () => {
       hoverAccent: "bg-[#A9734D]", // darker hover shade
     },
     {
-      title: "Marketing Officer",
-      name: "Hasanul Banna",
+      title: "Chief Marketing Officer",
+      name: "HASANUL BANNA",
       phone: "+91 7593820005",
       email: "hsnlbanna@imcbsglobal.com",
       color: "bg-[#F3EDE7]",
@@ -53,7 +53,7 @@ const Company = () => {
     },
     {
       title: "Technical Head",
-      name: "Vijinlal T V",
+      name: "VIJINLAL T V",
       phone: "+91 7591907002",
       email: "vijinlalus@gmail.com",
       color: "bg-[#F3EDE7]",
@@ -61,8 +61,8 @@ const Company = () => {
       hoverAccent: "bg-[#A9734D]",
     },
     {
-      title: "Administrative Operations Lead",
-      name: "Merin Devasia",
+      title: "HR Officer",
+      name: "MERIN DEVASIA",
       phone: "+91 7306197537",
       email: "merinvayalil@gmail.com",
       color: "bg-[#F3EDE7]",
@@ -415,10 +415,10 @@ const Company = () => {
                 {/* Content */}
                 <div className="flex-grow">
                   <h3 className="text-lg font-bold text-gray-800">
-                    {person.title}
+                    {person.name}
                   </h3>
                   <p className="text-lg font-semibold text-gray-900 mt-1">
-                    {person.name}
+                    {person.title}
                   </p>
                 </div>
 

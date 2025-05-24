@@ -1,26 +1,25 @@
-import React from 'react'
-import { useState, useRef, useEffect } from 'react';
-import Footer from '../Footer';
+import React from "react";
+import { useState, useRef, useEffect } from "react";
+import Footer from "../Footer";
 import darkGradient from "../../assets/darkGradient.jpg";
-import taskpro from '../../assets/Task Pro.png'
-import shade from '../../assets/SHADEorg.png'
-import vtask from '../../assets/VTASK.png'
-import dine from '../../assets/DINE_1_copy.png'
-import club from '../../assets/CLUBLOGIC.png'
-import magnet from '../../assets/MAGNET.png'
-import auric from '../../assets/AURIC.png'
-import star from '../../assets/starstay.png'
-import eway from '../../assets/ewaytask.png'
-import dinepro from '../../assets/dinepro.png'
-import magicpda from '../../assets/magicpda.png'
-import dinekot from '../../assets/dinekot.png'
+import taskpro from "../../assets/Task Pro.png";
+import shade from "../../assets/SHADEorg.png";
+import vtask from "../../assets/VTASK.png";
+import dine from "../../assets/DINE_1_copy.png";
+import club from "../../assets/CLUBLOGIC.png";
+import magnet from "../../assets/MAGNET.png";
+import auric from "../../assets/AURIC.png";
+import star from "../../assets/starstay.png";
+import eway from "../../assets/ewaytask.png";
+import dinepro from "../../assets/dinepro.png";
+import magicpda from "../../assets/magicpda.png";
+import dinekot from "../../assets/dinekot.png";
 import { RiWhatsappLine } from "react-icons/ri";
 import ChatBot from "../../components/ChatBot";
 
-
 const ERPSoftware = () => {
-     const [openChat, setOpenChat] = useState(false)
-  
+  const [openChat, setOpenChat] = useState(false);
+
   useEffect(() => {
     // Scroll to the top of the page on mount
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -30,83 +29,89 @@ const ERPSoftware = () => {
   const softwareDetails = {
     "TASK PRO": {
       title: "TASK PRO",
-      Image:taskpro,
-      description: "A Windows-based financial software that aids businesses in managing financial transactions, stock levels, sales, and deliveries. It ensures product availability, generates reports, and provides real-time financial data for informed decision-making, enhancing business operations.",
+      Image: taskpro,
+      description:
+        "A Windows-based financial software that aids businesses in managing financial transactions, stock levels, sales, and deliveries. It ensures product availability, generates reports, and provides real-time financial data for informed decision-making, enhancing business operations.",
       features: [
         "Financial Transaction Management",
         "Inventory Control System",
         "Sales Analytics Dashboard",
         "Delivery Management Tool",
-        "Real-time Financial Reporting"
-      ]
+        "Real-time Financial Reporting",
+      ],
     },
-    "Shade": {
+    Shade: {
       title: "Shade Hospital Management Software",
-      Image:shade,
+      Image: shade,
 
-      description: "A flexible solution for hospitals and clinics, offering tools for patient management, appointment scheduling, billing, revenue management, and reporting, aiming to streamline processes and improve patient care quality.",
+      description:
+        "A flexible solution for hospitals and clinics, offering tools for patient management, appointment scheduling, billing, revenue management, and reporting, aiming to streamline processes and improve patient care quality.",
       features: [
         "Patient Records Management",
         "Appointment Scheduling System",
         "Comprehensive Billing System",
         "Revenue Cycle Management",
-        "Healthcare Analytics & Reporting"
-      ]
+        "Healthcare Analytics & Reporting",
+      ],
     },
-    "VTASK": {
+    VTASK: {
       title: "VTASK Pharmacy Management",
-      Image:vtask,
+      Image: vtask,
 
-      description: "A Pharmacy Management software that automates inventory, revenue, and billing processes, providing a trusted solution for wholesale and retail sectors. It generates reports and analytics, improving efficiency, accuracy, and patient safety.",
+      description:
+        "A Pharmacy Management software that automates inventory, revenue, and billing processes, providing a trusted solution for wholesale and retail sectors. It generates reports and analytics, improving efficiency, accuracy, and patient safety.",
       features: [
         "Prescription Management",
         "Pharmaceutical Inventory Control",
         "Patient Information System",
         "Revenue & Billing Automation",
-        "Regulatory Compliance Tools"
-      ]
+        "Regulatory Compliance Tools",
+      ],
     },
-    "DINE": {
+    DINE: {
       title: "DINE Restaurant Management",
-      Image:dine,
+      Image: dine,
 
-      description: "A restaurant management software that streamlines ordering, billing, and payment processes, integrates with POS systems and Android platforms, and generates reports and analytics for sales, inventory, and customer behavior.",
+      description:
+        "A restaurant management software that streamlines ordering, billing, and payment processes, integrates with POS systems and Android platforms, and generates reports and analytics for sales, inventory, and customer behavior.",
       features: [
         "Table & Order Management",
         "Menu & Recipe Control",
         "POS System Integration",
         "Inventory & Stock Monitoring",
-        "Customer Behavior Analytics"
-      ]
+        "Customer Behavior Analytics",
+      ],
     },
-   
-    "Magnet": {
-      title: "Magnet School Management",
-      Image:magnet,
 
-      description: "A digital platform that streamlines school operations, improving data accuracy and communication. It streamlines student and teacher records, attendance tracking, and other functions, allowing schools to focus on education.",
+    Magnet: {
+      title: "Magnet School Management",
+      Image: magnet,
+
+      description:
+        "A digital platform that streamlines school operations, improving data accuracy and communication. It streamlines student and teacher records, attendance tracking, and other functions, allowing schools to focus on education.",
       features: [
         "Student Information System",
         "Teacher Management Portal",
         "Attendance & Grading System",
         "Parent Communication Tools",
-        "Academic Performance Analytics"
-      ]
+        "Academic Performance Analytics",
+      ],
     },
-    
-    "STARSTAY": {
-      title: "STARSTAY Hotel Management",
-      Image:star,
 
-      description: "A user-friendly hotel management software that streamlines operations like front-desk management, room booking, billing, housekeeping, and reporting, automating manual tasks and integrating with other systems for improved efficiency.",
+    STARSTAY: {
+      title: "STARSTAY Hotel Management",
+      Image: star,
+
+      description:
+        "A user-friendly hotel management software that streamlines operations like front-desk management, room booking, billing, housekeeping, and reporting, automating manual tasks and integrating with other systems for improved efficiency.",
       features: [
         "Front-Desk Operations Management",
         "Room Booking & Availability System",
         "Housekeeping Coordination Tools",
         "Guest Relationship Management",
-        "Revenue & Occupancy Analytics"
-      ]
-    }
+        "Revenue & Occupancy Analytics",
+      ],
+    },
   };
 
   const softwareSectionRef = useRef(null);
@@ -116,12 +121,12 @@ const ERPSoftware = () => {
 
     // Scroll to the software section
     if (softwareSectionRef.current) {
-      softwareSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      softwareSectionRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const [active, setActive] = useState(false);
-    
+
   useEffect(() => {
     // Scroll to top when this component loads
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -145,23 +150,25 @@ const ERPSoftware = () => {
           />
         </div> */}
         <a href="https://wa.me/+917593820007">
-                <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-                  <RiWhatsappLine/>
-                </div>
-              </a>
-              
-              {/* chatbot */}
-              <div className="bottom-10 fixed right-10 z-[999]">
-                {openChat ? (
-                  <div className="fixed bottom-10 z-[999] right-10">
-                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                  </div>
-                ) : (
-                  <div className="fixed bottom-10 z-[999] right-10">
-                    <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                  </div>
-                )}
-              </div>
+          <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
+            <RiWhatsappLine />
+          </div>
+                
+        </a>
+
+        {/* chatbot */}
+        <div className="bottom-10 fixed right-10 z-[999]">
+          {openChat ? (
+            <div className="fixed bottom-10 z-[999] right-10">
+              <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+            </div>
+          ) : (
+            <div className="fixed bottom-10 z-[999] right-10">
+              <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+            </div>
+          )}
+        </div>
+        
         <section className="w-full max-w-[1400px] mb-10 mx-auto pt-20 py-10 md:py-10">
           <div className="text-black p-4 md:p-8">
             {/* Header Section */}
@@ -303,7 +310,11 @@ const ERPSoftware = () => {
             Our Mobile Applications
           </h2>
           <p className="text-black  text-center mb-12 max-w-4xl mx-auto">
-            At Absy IT Solutions, our groundbreaking mobile application development services are designed to propel your business forward. We create innovative, custom mobile apps that boost efficiency, support growth, and seamlessly integrate into your operations for unparalleled performance.
+            At Absy IT Solutions, our groundbreaking mobile application
+            development services are designed to propel your business forward.
+            We create innovative, custom mobile apps that boost efficiency,
+            support growth, and seamlessly integrate into your operations for
+            unparalleled performance.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -311,20 +322,36 @@ const ERPSoftware = () => {
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
               <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
                 {/* <h3 className="text-2xl font-bold text-white mb-4">TASK PRO</h3> */}
-                <div className='h-16 w-16 '><img src={taskpro} alt="" className='h-full w-full object-contain' /></div>
+                <div className="h-16 w-16 ">
+                  <img
+                    src={taskpro}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
                 <p className="text-black mb-6">
-                  A user-friendly mobile application designed for monitoring business in real-time. Various types of business reports are available for comprehensive business insights.
+                  A user-friendly mobile application designed for monitoring
+                  business in real-time. Various types of business reports are
+                  available for comprehensive business insights.
                 </p>
                 <div className="space-y-2 text-black">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Real-time Business Monitoring</span>
                   </div>
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Comprehensive Business Reports</span>
                   </div>
@@ -336,21 +363,38 @@ const ERPSoftware = () => {
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
               <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
                 {/* <h3 className="text-2xl font-bold text-white mb-4">EWAY TASK</h3> */}
-                <div className='h-16 w-16 '><img src={eway} alt="" className='h-full w-full object-contain' /></div>
-                
+                <div className="h-16 w-16 ">
+                  <img
+                    src={eway}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+
                 <p className="text-black mb-6">
-                  An ultimate solution designed for distribution-based business concepts, providing facilities for direct sales, order taking, sales return, and collections with user-wise and area-wise entry capabilities.
+                  An ultimate solution designed for distribution-based business
+                  concepts, providing facilities for direct sales, order taking,
+                  sales return, and collections with user-wise and area-wise
+                  entry capabilities.
                 </p>
                 <div className="space-y-2 text-black">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Direct Sales & Order Management</span>
                   </div>
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Area-wise Entry System</span>
                   </div>
@@ -362,21 +406,37 @@ const ERPSoftware = () => {
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
               <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
                 {/* <h3 className="text-2xl font-bold text-white mb-4">Dine Pro</h3> */}
-                <div className='h-16 w-16 '><img src={dinepro} alt="" className='h-full w-full object-contain' /></div>
+                <div className="h-16 w-16 ">
+                  <img
+                    src={dinepro}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
 
                 <p className="text-black mb-6">
-                  A comprehensive dine reporting application that streamlines restaurant operations management with detailed reports on sales, inventory, and customer behavior analysis.
+                  A comprehensive dine reporting application that streamlines
+                  restaurant operations management with detailed reports on
+                  sales, inventory, and customer behavior analysis.
                 </p>
                 <div className="space-y-2 text-black">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Detailed Sales Analytics</span>
                   </div>
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Customer Behavior Insights</span>
                   </div>
@@ -389,21 +449,38 @@ const ERPSoftware = () => {
               <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
                 {/* <h3 className="text-2xl font-bold text-white mb-4">Magic PDA</h3>
                  */}
-                <div className='h-16 w-16 '><img src={magicpda} alt="" className='h-full w-full object-contain' /></div>
+                <div className="h-16 w-16 ">
+                  <img
+                    src={magicpda}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
 
                 <p className="text-black mb-6">
-                  A powerful Android application for managing hypermarket and supermarket activities, featuring stock management, product details with live stock, GRN Entries, Floor Billing, and advanced shelf tag printing.
+                  A powerful Android application for managing hypermarket and
+                  supermarket activities, featuring stock management, product
+                  details with live stock, GRN Entries, Floor Billing, and
+                  advanced shelf tag printing.
                 </p>
                 <div className="space-y-2 text-black">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Live Stock Management</span>
                   </div>
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Bluetooth Shelf Tag Printing</span>
                   </div>
@@ -415,21 +492,37 @@ const ERPSoftware = () => {
             <div className="bg-gradient-to-r bg-[#ffffff1c] p-[1px] rounded-xl">
               <div className="bg-[#ffffff1c] h-full rounded-xl p-6">
                 {/* <h3 className="text-2xl font-bold text-white mb-4">DINE KOT</h3> */}
-                <div className='h-16 w-16 '><img src={dinekot} alt="" className='h-full w-full object-contain' /></div>
+                <div className="h-16 w-16 ">
+                  <img
+                    src={dinekot}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
 
                 <p className="text-black mb-6">
-                  An application designed for managing flexible restaurant operations, featuring KOT entry and billing facilities with easy management of multiple kitchen-wise printing.
+                  An application designed for managing flexible restaurant
+                  operations, featuring KOT entry and billing facilities with
+                  easy management of multiple kitchen-wise printing.
                 </p>
                 <div className="space-y-2 text-black">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>KOT Entry System</span>
                   </div>
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-[#F99F2C] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    <svg
+                      className="w-5 h-5 text-[#F99F2C] mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                     </svg>
                     <span>Multi-Kitchen Printing</span>
                   </div>
@@ -560,6 +653,6 @@ const ERPSoftware = () => {
       </section>
     </div>
   );
-}
+};
 
-export default ERPSoftware
+export default ERPSoftware;

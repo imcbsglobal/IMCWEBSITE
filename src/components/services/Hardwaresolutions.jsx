@@ -241,9 +241,14 @@ const Hardwaresolutions = () => {
                 }`}
                 onClick={() => setActiveTab(key)}
               >
-                <div className="bg-black px-6 py-3 rounded-full">
-                  {solutions[key].title}
-                </div>
+                <div
+  className={`px-6 py-3 rounded-full transition-colors duration-300 ${
+    activeTab === key ? "bg-gradient-to-r from-[#8d8d8d] to-[#ffdd9e] text-black" : "bg-black text-white"
+  }`}
+>
+  {solutions[key].title}
+</div>
+
               </motion.button>
             ))}
           </div>

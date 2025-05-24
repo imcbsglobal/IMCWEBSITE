@@ -80,7 +80,7 @@ import {
   Scissors, 
   CheckCircle
 } from 'lucide-react';
-
+import d1 from '../../assets/d1.jpg'
 const DigitalMarketingSEO = () => {
   const [openChat, setOpenChat] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
@@ -118,11 +118,11 @@ const DigitalMarketingSEO = () => {
   ];
 
   const techPartners = [
-    { name: "APPEON", img: appeon },
+    // { name: "APPEON", img: appeon },
     // { name: "Python", img: python },
     // { name: "React", img: react },
     // { name: "Flutter", img: flutter },
-    { name: "SAP", img: sap },
+    // { name: "SAP", img: sap },
     // { name: "AWS", img: aws },
     // { name: "GitHub", img: github },
     // { name: "Hostinger", img: hostinger },
@@ -159,11 +159,11 @@ const DigitalMarketingSEO = () => {
   ];
   
   const editingTools = [
-    // { name: "Premiere Pro", letter: "Pr" },
+    { name: "Premiere Pro", letter: "Pr" },
     { name: "After Effects", letter: "Ae" },
     // { name: "DaVinci Resolve", letter: "DR" },
     { name: "Capcut", letter: "CapCut" },
-    { name: "Vn", letter: "VN" },
+    // { name: "Vn", letter: "VN" },
     // { name: "Blender", letter: "B" }
   ];
   
@@ -263,7 +263,7 @@ const DigitalMarketingSEO = () => {
             >
               <img
                 className="h-full w-full object-cover rounded-xl"
-                src={customereg}
+                src={d1}
                 alt="customereg"
               />
             </motion.div>
@@ -369,7 +369,7 @@ const DigitalMarketingSEO = () => {
                   },
                   { icon: <FaTwitter />, name: "Twitter", color: "#1DA1F2" },
                   { icon: <FaLinkedin />, name: "LinkedIn", color: "#0077B5" },
-                  { icon: <FaWhatsapp />, name: "TikTok", color: "#25D366" },
+                  { icon: <FaWhatsapp />, name: "Whatsapp", color: "#25D366" },
                   { icon: <FaYoutube />, name: "YouTube", color: "#FF0000" },
                 ].map((platform, index) => (
                   <motion.div
@@ -1041,7 +1041,7 @@ const DigitalMarketingSEO = () => {
                   <div className="w-full md:w-[48%] h-[200px] bg-gradient-to-l p-[1px] rounded-3xl">
                     <ul className="bg-[#ffffff0c] border border-black h-full w-full rounded-3xl flex flex-col justify-center">
                       {[
-                        "Visual Elements",
+                        "Product Branding",
                         "Brand Voice",
                         "Brand Consistency",
                       ].map((item, index) => (

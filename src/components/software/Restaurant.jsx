@@ -74,6 +74,7 @@ export const businessTypes = [
   { icon: <FaConciergeBell />, text: "Catering Services" },
 ];
 import mandhi from '../../assets/mandhihouse.jpg'
+import webpos from '../../assets/web pos.png'
 const Restaurant = () => {
   const features = [
     {
@@ -292,7 +293,7 @@ const Restaurant = () => {
       title: "Multiple sales window",
       description:
         "Operate from multiple billing terminals simultaneously and sync them with a central system to ensure efficiency in high-volume environments.",
-      image: dineq,
+      image: webpos,
       alt: "Multiple sales window interface",
     },
     {
