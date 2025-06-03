@@ -496,7 +496,7 @@ const HealthCare = () => {
       </section>
 
       {/* Product Showcase Section - Improved mobile layout */}
-      <section className="w-full py-10 md:py-20 text-white relative bg-[#083D4C]">
+      {/* <section className="w-full py-10 md:py-20 text-white relative bg-[#083D4C]">
         <div className="max-w-[1400px] mx-auto px-4 md:px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -513,7 +513,7 @@ const HealthCare = () => {
             </div>
           ) : (
             <>
-              {/* Product Videos Slider - Improved mobile layout */}
+              
               {productVideos.length > 0 && (
                 <div className="mb-10 md:mb-16">
                   <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">
@@ -558,7 +558,7 @@ const HealthCare = () => {
             </>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* Partners Section - Improved mobile layout */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">

@@ -20,7 +20,7 @@ function LoginPage() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      if (email === "admin@gmail.com" && password === "123456") {
+      if (email === "admin@imc.com" && password === "pass@imC") {
         navigate("/admin");
       } else {
         setError("Unauthorized access. Only admins can log in.");

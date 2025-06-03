@@ -439,7 +439,7 @@ const Auric = () => {
       </section>
 
       {/* product showcase */}
-      <section className="w-full py-20 text-white relative bg-[#896b2e]">
+      {/* <section className="w-full py-20 text-white relative bg-[#896b2e]">
         <div className="max-w-[1400px] mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -456,7 +456,7 @@ const Auric = () => {
             </div>
           ) : (
             <>
-              {/* Product Videos Slider */}
+              
               {productVideos.length > 0 && (
                 <div className="mb-16">
                   <h3 className="text-2xl font-bold mb-6">Product Videos</h3>
@@ -498,7 +498,7 @@ const Auric = () => {
             </>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* business partners */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">

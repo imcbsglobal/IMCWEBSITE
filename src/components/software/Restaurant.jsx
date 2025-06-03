@@ -696,7 +696,7 @@ const Restaurant = () => {
       </section>
 
       {/* Product Showcase Section - Darker Background */}
-      <div className="pt-[50px] flex flex-col justify-center items-center w-full px-2 bg-[#1A0D0E]">
+      {/* <div className="pt-[50px] flex flex-col justify-center items-center w-full px-2 bg-[#1A0D0E]">
         <section className="w-full py-10 text-white relative">
           <div className="max-w-[1400px] mx-auto px-6">
             <motion.h2
@@ -714,7 +714,7 @@ const Restaurant = () => {
               </div>
             ) : (
               <>
-                {/* Product Videos Slider */}
+              
                 {productVideos.length > 0 && (
                   <div className="mb-16">
                     <h3 className="text-2xl font-bold mb-6 text-[#fff]">
@@ -759,7 +759,7 @@ const Restaurant = () => {
             )}
           </div>
         </section>
-      </div>
+      </div> */}
 
       {/* office partners 8 */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">

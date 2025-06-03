@@ -706,8 +706,9 @@ const Institution = () => {
             </div>
           </div>
         </section>
+        
         {/* 5 Product Showcase Section */}
-        <section className="w-full pt-10 text-white relative bg-[#242A2F]">
+        {/* <section className="w-full pt-10 text-white relative bg-[#242A2F]">
           <div className="max-w-[1400px] mx-auto px-6 mb-10">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -724,7 +725,7 @@ const Institution = () => {
               </div>
             ) : (
               <>
-                {/* Product Videos Slider */}
+                
                 {productVideos.length > 0 && (
                   <div className="mb-16">
                     <h3 className="text-2xl font-bold mb-6 ">Product Videos</h3>
@@ -766,7 +767,8 @@ const Institution = () => {
               </>
             )}
           </div>
-        </section>
+        </section> */}
+
         {/* 6 office partners  */}
         <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
           <div className="w-full text-center">

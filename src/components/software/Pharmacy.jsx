@@ -893,7 +893,7 @@ const PharmacyManagementPage = () => {
 </section>
 
       {/* products showcase */}
-      <section className="w-full py-10 sm:py-20 text-white relative bg-[#F15E26]">
+      {/* <section className="w-full py-10 sm:py-20 text-white relative bg-[#F15E26]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -910,7 +910,7 @@ const PharmacyManagementPage = () => {
             </div>
           ) : (
             <>
-              {/* Product Videos Slider */}
+             
               {productVideos.length > 0 && (
                 <div className="mb-8 sm:mb-16">
                   <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 ">
@@ -954,7 +954,7 @@ const PharmacyManagementPage = () => {
             </>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* office partners 8 */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
