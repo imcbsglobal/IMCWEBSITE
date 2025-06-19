@@ -882,7 +882,7 @@ const AdminPanel = () => {
         {/* Mobile Overlay */}
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-10 lg:hidden"
+            className="fixed inset-0 bg-transparent bg-opacity-50 z-10 lg:hidden"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
