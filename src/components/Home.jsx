@@ -570,7 +570,7 @@ const Home = () => {
   
   return (
     <div data-scroll-container className="relative overflow-hidden ">
-      <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40"></div>
+      <div className="fixed top-0 left-0 bottom-0 right-0 -z-10 opacity-40 m-0"></div>
 
       {/* Whatsapp */}
       <a href="https://wa.me/+917593820007">
