@@ -59,7 +59,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineArrowBack, MdOutlineArrowForward } from "react-icons/md";
 import homebanner from "../assets/bp2.jpg";
-import aboutmain from "../assets/b.jpeg";
+import aboutmain from "../assets/newhomebanner.jpeg";
 import { IoCloseSharp } from "react-icons/io5";
 
 // import { Autoplay } from 'swiper/modules';
@@ -499,24 +499,25 @@ const Home = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? softwareList.length - 1 : prev - 1
-    );
-  };
+  // const prevSlide = () => {
+  //   setCurrentIndex((prev) =>
+  //     prev === 0 ? softwareList.length - 1 : prev - 1
+  //   );
+  // };
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === softwareList.length - 1 ? 0 : prev + 1
-    );
-  };
+  // const nextSlide = () => {
+  //   setCurrentIndex((prev) =>
+  //     prev === softwareList.length - 1 ? 0 : prev + 1
+  //   );
+  // };
   const [startIndex, setStartIndex] = useState(0);
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/businessBranding#consultation-form"); // Redirect to page and section
   };
-
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
    const [isPopupVisible1, setIsPopupVisible1] = useState(false);
     const [formData1, setFormData1] = useState({
@@ -567,6 +568,49 @@ const Home = () => {
         setResult("Error submitting form");
       }
     };
+   const prevSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? softwareList.length - 1 : prev - 1
+    );
+    setIsAutoPlaying(false);
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === softwareList.length - 1 ? 0 : prev + 1
+    );
+    setIsAutoPlaying(false);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    setIsAutoPlaying(false);
+  };
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === softwareList.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, softwareList.length]);
+
+  // Resume auto-play after 10 seconds of inactivity
+  useEffect(() => {
+    if (isAutoPlaying) return;
+
+    const timeout = setTimeout(() => {
+      setIsAutoPlaying(true);
+    }, 10000);
+
+    return () => clearTimeout(timeout);
+  }, [isAutoPlaying, currentIndex]);
+
   
   return (
     <div data-scroll-container className="relative overflow-hidden ">
@@ -581,7 +625,7 @@ const Home = () => {
       </a>
 
       {/* chatbot */}
-      <div className="bottom-10 fixed right-10 z-[999]">
+      {/* <div className="bottom-10 fixed right-10 z-[999]">
         {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -591,7 +635,7 @@ const Home = () => {
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="fixed opacity-40 -z-10 top-0 left-0 right-0 bottom-0 "></div>
 
@@ -622,7 +666,7 @@ const Home = () => {
                   y: useTransform(smoothProgress, [0.1, 0.3], [30, 0]),
                 }}
               >
-                A Successful And Innovative IT Company
+                Future - Ready IT Solutions by IMC Business Solutions
               </motion.span>
             </motion.div>
 
@@ -637,8 +681,7 @@ const Home = () => {
                 ),
               }}
             >
-              Leading IT solutions provider in Kerala since 2010. Empowering
-              businesses with innovative software and technology solutions.
+              Crafting intelligent IT systems and web platforms for Tomorrow's Enterprise.
             </motion.div>
             <motion.div
               className="text-[#32251F]  text-[36px] md:text-[50px] mb-5 
@@ -842,132 +885,158 @@ const Home = () => {
       </section>
 
       {/* Solutions */}
-      <section className="bg-[#fff] relative  flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
-        <motion.div
-          className="text-center mb-6 px-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#32251F] mb-2">
-            Comprehensive IT Solutions for Your Business
-          </h2>
-          <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
-          <p className="text-base md:text-lg text-[#000] mt-2  max-w-3xl mx-auto ">
-            Explore our suite of innovative solutions designed to streamline
-            your business operations and enhance efficiency.
-          </p>
-        </motion.div>
+      <section className="bg-[#fff0] relative flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
+      <motion.div
+        className="text-center mb-6 px-4"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-[#32251F] mb-2">
+          All-In-One IT Support For Your Business
+        </h2>
+        <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
+        <p className="text-base md:text-lg text-[#000] mt-2 max-w-3xl mx-auto">
+          Discover Smart Solutions To Make Your Business run Smoother and Faster
+        </p>
+      </motion.div>
 
-        <motion.div
-          className="relative w-full max-w-[1400px] mx-auto px-4"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+      <motion.div
+        className="relative w-full max-w-[1200px] mx-auto px-4"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.10 }}
+      >
+        {/* Custom previous button */}
+        <button 
+          onClick={prevSlide}
+          className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors"
         >
-          {/* Custom previous button - hidden on mobile */}
-          <button className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            navigation={{
-              prevEl: ".custom-swiper-button-prev",
-              nextEl: ".custom-swiper-button-next",
-            }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            slidesPerView={1}
-            spaceBetween={20}
-            loop={true}
-            ref={swiperRef}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="h-[400px] md:h-[500px]"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            {softwareList.map((software, index) => (
-              <SwiperSlide key={index} className="relative w-full h-full p-3">
-                <motion.div
-                  className="relative h-full rounded-lg overflow-hidden"
-                  whileHover={{
-                    scale: 1.03,
-                    transition: { duration: 0.3 },
-                  }}
-                >
-                  <img
-                    src={software.img}
-                    alt={software.name}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-4 md:p-6 text-white text-center h-[150px] md:h-[200px] w-full"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.1 * index }}
-                  >
-                    <h2 className="text-xl md:text-2xl font-bold ">
-                      {software.name}
-                    </h2>
-                    <p className="text-sm md:text-md mt-2 ">{software.para}</p>
-                  </motion.div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
 
-          {/* Custom next button - hidden on mobile */}
-          <button className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        <div className="w-full max-w-6xl mx-auto p-4 bg-white">
+          <div className="h-[450px] md:h-[450px] rounded-2xl overflow-hidden  relative">
+            {/* Slider container */}
+            <div 
+              className="flex h-full transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </motion.div>
+{softwareList.map((software, index) => (
+  <div key={index} className="relative w-full h-full flex-shrink-0">
+    <motion.div
+      className="flex h-full relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.10 }}
+    >
+      {/* Left side - Image (larger and behind) */}
+      <div className="relative overflow-hidden z-10 w-[700px]" style={{ width: 'calc(50% + 30px)', height: 'calc(100% + 60px)' }}>
+        <img
+          src={software.img}
+          alt={software.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+      </div>
+      
+      {/* Right side - Content (smaller, overlapping) */}
+      <motion.div
+        className="bg-white flex flex-col justify-center px-8 md:px-12 py-8 -ml-24 z-20 relative shadow-lg mt-7"
+        style={{ width: 'calc(50% - 30px)', height: 'calc(100% - 60px)' }}
+        initial={{ x: 50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="max-w-lg">
+          <motion.h2 
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {software.name}
+          </motion.h2>
+          
+          <motion.p 
+            className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            {software.para}
+          </motion.p>
+          
+          {/* <motion.button
+            className="bg-[#32251F] hover:bg-[#BF8C60] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            Read more
+          </motion.button> */}
+        </div>
+      </motion.div>
+    </motion.div>
+  </div>
+))}
+            </div>
+          </div>
+        </div>
 
-        {/* Pagination dots with animation */}
-        <motion.div
-          className="mt-6 md:mt-8 flex justify-center gap-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+        {/* Custom next button */}
+        <button 
+          onClick={nextSlide}
+          className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors"
         >
-          {softwareList.map((_, index) => (
-            <motion.button
-              key={index}
-              className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-[#32251F] focus:bg-[#32251F]"
-              onClick={() => swiperRef.current.swiper.slideTo(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            />
-          ))}
-        </motion.div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </motion.div>
+
+      {/* Pagination dots with animation */}
+      <motion.div
+        className="mt-6 md:mt-8 flex justify-center gap-2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
+      >
+        {softwareList.map((_, index) => (
+          <motion.button
+            key={index}
+            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+              index === currentIndex ? 'bg-[#32251F]' : 'bg-gray-300'
+            } hover:bg-[#BF8C60] focus:bg-[#32251F]`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+          />
+        ))}
+      </motion.div>
       </section>
 
       {/* technology */}
@@ -1083,8 +1152,8 @@ const Home = () => {
                 transition={{ duration: 0.6 }}
                 className="text-[#000] text-[36px] font-bold md:text-[50px]  leading-tight "
               >
-                Get in Touch and Lets
-                <span className="block">Make It Happen</span>
+                Modern Tools, Smart Solutions
+                <span className="block">Better Results</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -1094,7 +1163,7 @@ const Home = () => {
               >
                 Get in touch with us! Whether you have questions, need support,
                 or want to learn more about our services, we're here to assist
-                you. Simply fill out the form below, and we'll respond promptly.
+                you. 
               </motion.div>
             </div>
             <motion.div

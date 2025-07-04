@@ -476,7 +476,7 @@ const company = () => {
         </a>
 
         {/* chatbot */}
-        <div className="bottom-10 fixed right-10 z-[999]">
+        {/* <div className="bottom-10 fixed right-10 z-[999]">
           {openChat ? (
             <div className="fixed bottom-10 z-[999] right-10">
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -486,91 +486,103 @@ const company = () => {
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
             </div>
           )}
-        </div>
+        </div> */}
 
         <section className="relative z-10 pb-10">
-  {/* Background */}
-  <div className="bg-[#fff] absolute top-0 bottom-0 right-0 left-0 -z-10 w-full"></div>
+          {/* Background */}
+          <div className="bg-[#fff] absolute top-0 bottom-0 right-0 left-0 -z-10 w-full"></div>
 
-  {/* Content Container */}
-  <div className="max-w-[1400px] mx-auto mb-10">
-    <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-full px-4 md:pt-28 pt-20 ">
-      
-      {/* Left Side Content */}
-      <motion.div
-        className="w-full md:w-[60%] py-5 flex flex-col gap-6 md:gap-4 md:pr-10"
-        ref={contentRef}
-        initial="hidden"
-        animate={contentInView ? "visible" : "hidden"}
-        variants={fadeInRight}
-      >
-        <div className="flex flex-col gap-2 mb-1">
-          {/* Heading */}
-          <motion.div
-            className="text-center mb-2"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
-              About IMC
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
-              Know More About Us
-            </h2>
-            <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
-          </motion.div>
+          {/* Content Container */}
+          <div className="max-w-[1400px] mx-auto mb-10">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-full px-4 md:pt-28 pt-20 ">
+              {/* Left Side Content */}
+              <motion.div
+                className="w-full md:w-[55%] py-5 flex flex-col gap-6 md:gap-4 md:pr-10"
+                ref={contentRef}
+                initial="hidden"
+                animate={contentInView ? "visible" : "hidden"}
+                variants={fadeInRight}
+              >
+                <div className="flex flex-col gap-2 mb-1">
+                  {/* Heading */}
+                  <motion.div
+                    className="text-center mb-2"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+                      About IMC
+                    </span> */}
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
+                      Know More About Us
+                    </h2>
+                    <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
+                  </motion.div>
 
-          {/* Subheading */}
-          <motion.div
-            className="text-lg sm:text-xl md:text-2xl font-bold text-[#2e1e14] text-center"
-            variants={fadeInUp}
-            transition={{ delay: 0.3 }}
-          >
-            Our Journey to Digital Excellence
-          </motion.div>
-        </div>
+                  {/* Subheading */}
+                  <motion.div
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-[#2e1e14] text-center"
+                    variants={fadeInUp}
+                    transition={{ delay: 0.3 }}
+                  >
+                    Our Journey to Digital Excellence
+                  </motion.div>
+                </div>
 
-        {/* Paragraphs */}
-        <motion.div
-          className="text-sm sm:text-base md:text-[16px] text-[#000] leading-relaxed text-justify"
-          variants={fadeInUp}
-          transition={{ delay: 0.4 }}
-        >
-          IMC Business Solutions is a leading software company in India since 2017, offering a comprehensive management platform and a wide range of IT solutions, including business software, Android/iOS development, web development, hardware services, and IT support.
+                {/* Paragraphs */}
+                <motion.div
+                  className="text-sm sm:text-base md:text-[16px] text-[#000] leading-relaxed text-justify"
+                  variants={fadeInUp}
+                  transition={{ delay: 0.4 }}
+                >
+                  Since 2017, IMC Business Solutions has been delivering smart,
+                  tailored software and IT services that help businesses grow
+                  and run efficiently. From business software and mobile apps to
+                  web development, hardware solutions, and IT support—we provide
+                  everything needed to power success.
+                  <motion.span
+                    variants={fadeInUp}
+                    transition={{ delay: 0.6 }}
+                    className="block mt-2"
+                  >
+                    We specialize in creating custom websites that not only look
+                    great but also drive real results. Your website is the face
+                    of your brand, and we’re here to make sure it leaves a
+                    lasting impression.
+                  </motion.span>
+                  {/* <motion.span
+                    variants={fadeInUp}
+                    transition={{ delay: 0.7 }}
+                    className="block mt-2"
+                  >
+                    IMC delivers tailored software and technology solutions for
+                    businesses in India and beyond. With over 1,200 happy
+                    clients and 10+ branches across South India, we continue to
+                    empower businesses with cutting-edge technology solutions.
+                  </motion.span> */}
+                </motion.div>
+              </motion.div>
 
-          
-
-          <motion.span variants={fadeInUp} transition={{ delay: 0.6 }} className="block mt-2">
-            We also operate Sysmac, a dedicated division providing hardware solutions and services to our clients.
-          </motion.span>
-
-          <motion.span variants={fadeInUp} transition={{ delay: 0.7 }} className="block mt-2">
-            IMC delivers tailored software and technology solutions for businesses in India and beyond. With over 1,200 happy clients and 10+ branches across South India, we continue to empower businesses with cutting-edge technology solutions.
-          </motion.span>
-        </motion.div>
-      </motion.div>
-
-      {/* Right Side Image */}
-      <motion.div
-        className="w-full md:w-[40%] h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden"
-        ref={imageRef}
-        initial="hidden"
-        animate={imageInView ? "visible" : "hidden"}
-        variants={scale3d}
-        style={{ perspective: "1000px" }}
-      >
-        <motion.img
-          src={abouthome2}
-          alt="About IMC"
-          className="h-full w-full object-cover rounded-3xl"
-          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-        />
-      </motion.div>
-    </div>
-  </div>
-</section>
-
+              {/* Right Side Image */}
+              <motion.div
+                className="w-full md:w-[45%] h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden"
+                ref={imageRef}
+                initial="hidden"
+                animate={imageInView ? "visible" : "hidden"}
+                variants={scale3d}
+                style={{ perspective: "1000px" }}
+              >
+                <motion.img
+                  src={abouthome2}
+                  alt="About IMC"
+                  className="h-full w-full object-cover rounded-3xl"
+                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         {/* TEAM */}
         <div
@@ -586,16 +598,16 @@ const company = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+                {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
                   Our Team
-                </span>
+                </span> */}
                 <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
                   Behind the Vision
                 </h2>
                 <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
-                <p className="text-[#000] text-sm md:text-base max-w-[700px] mx-auto mt-4">
+                {/* <p className="text-[#000] text-sm md:text-base max-w-[700px] mx-auto mt-4">
                   Collaboration, innovation, and dedication united.
-                </p>
+                </p> */}
               </motion.div>
 
               <motion.div
@@ -612,10 +624,10 @@ const company = () => {
                   transformStyle: "preserve-3d",
                 }}
               >
-                "Our dedicated team of experts collaborates to deliver
-                innovative IT solutions, ensuring seamless business operations.
-                With a passion for technology, we drive success through
-                excellence and commitment."
+                Our dedicated team of experts collaborates to deliver innovative
+                IT solutions, ensuring seamless business operations. With a
+                passion for technology, we drive success through excellence and
+                commitment.
               </motion.div>
             </div>
 
@@ -695,156 +707,175 @@ const company = () => {
           </section>
         </div>
 
-        <div className="pt-16 relative flex flex-col justify-center items-center w-full bg-gradient-to-b from-white to-amber-50 border-b border-amber-100">
+        <div className="py-20 relative flex flex-col justify-center items-center w-full bg-gradient-to-b from-white to-amber-50">
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute top-40 left-10 w-64 h-64 rounded-full bg-amber-100 opacity-30 blur-3xl"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-amber-50 opacity-40 blur-3xl"></div>
-            <motion.div
-              className="absolute -bottom-20 left-1/3 w-64 h-64 rounded-full bg-amber-200 opacity-20 blur-3xl"
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            ></motion.div>
           </div>
 
-          {/* Title Section */}
-          <motion.section
+          <section
+            className="w-full max-w-[1400px] mx-auto px-4"
             id="goalsmission"
-            className="max-w-[1400px] mx-auto w-full mb-16 px-4"
-            initial={{ y: 50, opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
           >
+            {/* Section Heading */}
             <motion.div
-              initial={{ rotateX: 90, opacity: 0 }}
-              whileInView={{ rotateX: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <span className="text-amber-700 font-medium uppercase tracking-wider inline-block px-4 py-1 bg-amber-50 rounded-full shadow-sm">
-                  Our Focus
-                </span>
-                <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-stone-800 relative">
-                  Vision and Mission
-                  <div className="w-24 h-1 bg-amber-400 mx-auto mt-6"></div>
-                </h2>
-                <p className="text-stone-700 text-lg md:text-xl max-w-[900px] mx-auto mt-4 font-light">
-                  Innovation with Impact
-                </p>
-              </motion.div>
+              {/* <span className="text-amber-700 font-medium uppercase tracking-wider text-sm inline-block px-4 py-1 bg-amber-50 rounded-full shadow-sm">
+        Our Focus
+      </span> */}
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-stone-800">
+                Vision and Mission
+              </h2>
+              <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
+
+              <p className="text-stone-600 max-w-2xl mx-auto text-lg leading-relaxed">
+                We deliver smart tech solutions that drive growth, empowering
+                businesses through innovation, partnerships, and expert
+                support—guided by excellence, integrity, and progress.
+              </p>
             </motion.div>
 
-            <motion.div
-              className="text-stone-700 max-w-[900px] mx-auto text-center text-base sm:text-lg leading-relaxed"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              Our vision is to lead in technological innovation, providing
-              impactful solutions that drive business growth. We are committed
-              to creating lasting value through strategic partnerships and
-              cutting-edge products. Our mission is to empower our clients with
-              the tools and expertise to succeed in an ever-evolving digital
-              landscape. We strive for excellence, integrity, and a future of
-              continuous progress.
-            </motion.div>
-          </motion.section>
+            {/* Timeline Content */}
+            <div className="relative max-w-5xl mx-auto">
+              {/* Timeline Line */}
+              <div className="absolute top-36 left-0 w-full h-0.5 bg-gray-300 transform -translate-y-1/2 hidden md:block"></div>
 
-          {/* Content Sections with Animations */}
-          <section className="w-full max-w-[1400px] mx-auto mb-24 px-4 sm:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Left Section */}
-              <div className="w-full flex flex-col gap-6">
+              {/* Timeline Items */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+                {/* Vision */}
                 <motion.div
-                  className="w-full h-[250px] sm:h-[300px] rounded-3xl overflow-hidden shadow-lg relative"
-                  initial={{ scale: 1.05, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="relative flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <img
-                    src={vision}
-                    alt="vision"
-                    className="h-full w-full object-cover"
-                  />
-                  {/* <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent"></div> */}
-                  <div className="absolute bottom-6 left-6 text-white text-2xl font-semibold">
-                    Our Vision
+                  {/* Icon Circle */}
+                  <div className="relative mb-6">
+                    <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                      <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-12 h-12 text-blue-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Timeline Point */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
                   </div>
+
+                  <h3 className="text-2xl font-bold text-blue-500 mb-4">
+                    Vision
+                  </h3>
+                  <p className="text-stone-700 leading-relaxed text-base max-w-xs text-justify">
+                    To empower businesses through innovative, reliable
+                    technology and personalized support—driving digital growth
+                    and building lasting partnerships for a smarter, connected
+                    future.
+                  </p>
                 </motion.div>
 
+                {/* Mission */}
                 <motion.div
-                  className="relative"
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                  className="relative flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-amber-200 to-amber-400 rounded-3xl blur opacity-20"></div>
-                  <div className="bg-white backdrop-blur-sm border border-amber-100 text-stone-700 h-auto p-6 rounded-3xl shadow-md relative z-10">
-                    <div className="w-12 h-1 bg-amber-400 mb-4"></div>
-                    Our vision is to empower businesses with innovative and
-                    reliable technology solutions. We aim to drive digital
-                    transformation through cutting-edge services and
-                    personalized support. By fostering a culture of innovation
-                    and excellence, we strive to be a trusted partner in our
-                    clients' success. Together, we shape a smarter, more
-                    connected future.
+                  {/* Icon Circle */}
+                  <div className="relative mb-6">
+                    <div className="w-32 h-32 bg-orange-500 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                      <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-12 h-12 text-orange-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Timeline Point */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
                   </div>
-                </motion.div>
-              </div>
 
-              {/* Right Section */}
-              <div className="w-full flex flex-col gap-6">
-                <motion.div
-                  className="relative order-2 lg:order-1"
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-amber-200 rounded-3xl blur opacity-20"></div>
-                  <div className="bg-white backdrop-blur-sm border border-amber-100 text-stone-700 h-auto p-6 rounded-3xl shadow-md relative z-10">
-                    <div className="w-12 h-1 bg-amber-400 mb-4"></div>
-                    Our mission is to deliver innovative solutions that empower
-                    businesses to thrive in a digital world. We strive to create
-                    products that simplify processes and drive efficiency.
-                    Through collaboration and constant improvement, we aim to
-                    exceed client expectations. We are dedicated to fostering
-                    long-term relationships built on trust and success.
-                  </div>
+                  <h3 className="text-2xl font-bold text-orange-500 mb-4">
+                    Mission
+                  </h3>
+                  <p className="text-stone-700 leading-relaxed text-base max-w-xs text-justify">
+                    Deliver innovative digital solutions that simplify processes
+                    and drive efficiency. Through collaboration and continuous
+                    improvement, we build trusted, long-term partnerships.
+                  </p>
                 </motion.div>
 
+                {/* Values */}
                 <motion.div
-                  className="w-full h-[250px] sm:h-[300px] rounded-3xl overflow-hidden shadow-lg relative order-1 lg:order-2"
-                  initial={{ scale: 1.05, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="relative flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <img
-                    src={mission}
-                    alt="mission"
-                    className="h-full w-full object-cover"
-                  />
-                  {/* <div className="absolute inset-0 bg-gradient-to-t from-amber-900/50 to-transparent"></div> */}
-                  <div className="absolute bottom-6 left-6 text-white text-2xl font-semibold">
-                    Our Mission
+                  {/* Icon Circle */}
+                  <div className="relative mb-6">
+                    <div className="w-32 h-32 bg-red-500 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                      <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-12 h-12 text-red-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Timeline Point */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-red-500 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
                   </div>
+
+                  <h3 className="text-2xl font-bold text-red-500 mb-4">
+                    Values
+                  </h3>
+                  <p className="text-stone-700 leading-relaxed text-base max-w-xs  text-justify">
+                    We value integrity, innovation, and long-term growth.
+                    Through expertise and smart solutions, we build trust and
+                    drive lasting success in a digital world.
+                  </p>
                 </motion.div>
               </div>
             </div>

@@ -19,7 +19,7 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   const location = useLocation();
-  const isSupportsPage = location.pathname === "/supports" || location.pathname === "/career" ;
+  const isSupportsPage =location.pathname === "/career" ;
   const isAboutImc = location.pathname === "/aboutimc";
   
   const scrollToElement = () => {
@@ -88,17 +88,17 @@ const Navbar = () => {
     services: [
       { name: "Website & Web Application", path: "/websiteandWebApplications" },
       { name: "Mobile App Development", path: "/mobileApp" },
-      { name: "Business Consulting", path: "/businessBranding" },
+      // { name: "Business Consulting", path: "/businessBranding" },
       { name: "Digital Marketing", path: "/digitalmarketing" },
-      { name: "Hardware Solutions", path: "/hardwaresolutions" },
+      // { name: "Hardware Solutions", path: "/hardwaresolutions" },
     ],
-    faq: [
-      { name: "Question Chat Boats", path: "/questionChatBoats" },
-      { name: "Product Tutorials", path: "/productTutorials" },
-      { name: "Company Updates", path: "/productVideo" },
-      { name: "Whatsapp Supports", path: "/whatsappSupports" },
-      {name: "Career", path:"/career"},
-    ],
+    // faq: [
+    //   { name: "Question Chat Boats", path: "/questionChatBoats" },
+    //   { name: "Product Tutorials", path: "/productTutorials" },
+    //   { name: "Company Updates", path: "/productVideo" },
+    //   { name: "Whatsapp Supports", path: "/whatsappSupports" },
+    //   {name: "Career", path:"/career"},
+    // ],
   };
 
   const renderDropdown = (menuKey) => (
@@ -154,7 +154,7 @@ const Navbar = () => {
   // Determine text color for menu items
   const getMenuTextColor = () => {
     if (isSupportsPage && !isScrolled) {
-      return "text-[#fff]";
+      return "text-[#000]";
     } else {
       return "text-black";
     }
@@ -164,10 +164,10 @@ const Navbar = () => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-[990] transition-all duration-300 ${
-          isScrolled
-            ? "bg-white py-5 rounded-b-3xl shadow-lg"
-            : "bg-transparent py-4"
-        }`}
+  isScrolled
+    ? "bg-gradient-to-r from-white via-[#c5bfbf] to-[#5a5858] py-5 rounded-b-3xl shadow-lg"
+    : "bg-gradient-to-r from-white via-[#c5bfbf] to-[#5a5858] py-4"
+}`}
       >
         <nav className="flex justify-between items-center w-full max-w-[1280px] mx-auto px-4 lg:px-8">
           {/* Mobile Menu Button */}
@@ -195,18 +195,18 @@ const Navbar = () => {
           {/* Navigation Links */}
           <div className="hidden md:flex justify-center items-center">
             <ul
-              className={`md:flex hidden justify-center items-center gap-4 lg:gap-8 text-lg ${getMenuTextColor()}`}
+              className={`md:flex hidden justify-center items-center gap-4 lg:gap-20 text-lg ${getMenuTextColor()}`}
             >
               <Link to="/">
-                <li className="cursor-pointer hover:text-[#ff7f1e]">Home</li>
+                <li className="cursor-pointer hover:text-[#000] hover:font-bold hover:bg-[#fff] px-3 py-1 rounded-full transition-all duration-300">Home</li>
               </Link>
 
               <li
-                className="cursor-pointer relative"
+                className="cursor-pointer relative "
                 onMouseEnter={() => handleMouseEnter("company")}
                 onMouseLeave={handleMouseLeave}
               >
-                Company
+                <p className="hover:text-[#000] hover:font-bold hover:bg-[#fff] px-3 py-1 rounded-full transition-all duration-300">Company</p>
                 {activeMenu === "company" && renderDropdown("company")}
               </li>
 
@@ -215,7 +215,7 @@ const Navbar = () => {
                 onMouseEnter={() => handleMouseEnter("softwares")}
                 onMouseLeave={handleMouseLeave}
               >
-                Softwares
+               <p className="hover:text-[#000] hover:font-bold hover:bg-[#fff] px-3 py-1 rounded-full transition-all duration-300"> Softwares</p>
                 {activeMenu === "softwares" && renderDropdown("softwares")}
               </li>
 
@@ -224,28 +224,28 @@ const Navbar = () => {
                 onMouseEnter={() => handleMouseEnter("services")}
                 onMouseLeave={handleMouseLeave}
               >
-                Solutions
+                <p className="hover:text-[#000] hover:font-bold hover:bg-[#fff] px-3 py-1 rounded-full transition-all duration-300">Solutions</p>
                 {activeMenu === "services" && renderDropdown("services")}
               </li>
 
-              <li
+              {/* <li
                 className="cursor-pointer relative"
                 onMouseEnter={() => handleMouseEnter("faq")}
                 onMouseLeave={handleMouseLeave}
               >
                 FAQ
                 {activeMenu === "faq" && renderDropdown("faq")}
-              </li>
+              </li> */}
 
               <Link to="/contact">
-                <li className="cursor-pointer hover:text-[#ff7332]">Contact</li>
+                <li className="cursor-pointer  hover:text-[#000] hover:font-bold hover:bg-[#fff] px-3 py-1 rounded-full transition-all duration-300">Contact</li>
               </Link>
             </ul>
           </div>
 
           {/* Login Button */}
           <div className="md:flex gap-5 hidden">
-            <Link to="/login">
+            {/* <Link to="/login">
               <button
                 className={`rounded-3xl px-6 py-2 font-bold hover:bg-gray-200 ${
                   isScrolled
@@ -255,7 +255,7 @@ const Navbar = () => {
               >
                 Login
               </button>
-            </Link>
+            </Link> */}
 
             <div
               className={`${
@@ -264,7 +264,7 @@ const Navbar = () => {
                   : "bg-gradient-to-r hidden md:flex from-[#20ffff] via-[#ff850c] to-[#ffa600] p-[1px] bg-[#3c3333]"
               } rounded-3xl`}
             >
-              <button
+              {/* <button
                 onClick={() => (window.location.href = "tel:+917593820007")}
                 className={`rounded-[calc(1.5rem-1px)] px-6 py-2 font-bold hover:bg-[#ff850c63] flex items-center gap-2 ${
                   isScrolled
@@ -274,7 +274,7 @@ const Navbar = () => {
               >
                 <span>Let's Talk</span>
                 <MdCall className="text-xl" />
-              </button>
+              </button> */}
             </div>
           </div>
         </nav>

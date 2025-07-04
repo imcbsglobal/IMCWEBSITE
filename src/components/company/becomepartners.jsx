@@ -196,9 +196,9 @@ const Company = () => {
       </a>
 
       {/* ChatBot */}
-      <div className="bottom-10 fixed right-10 z-[999]">
+      {/* <div className="bottom-10 fixed right-10 z-[999]">
         <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-      </div>
+      </div> */}
 
       {/* Banner Section */}
       <div className="w-full h-auto bg-cover bg-center flex flex-col md:flex-row items-center justify-center  px-4 py-12 mt-14">
@@ -246,7 +246,7 @@ const Company = () => {
       </div>
 
       {/* Business Opportunities Section */}
-      <div className="flex flex-col justify-center items-center w-full relative bg-[#FCF3E1] py-16">
+      {/* <div className="flex flex-col justify-center items-center w-full relative bg-[#FCF3E1] py-16">
         <section className="max-w-[1400px] mx-auto w-full px-6">
           <div className="text-center mb-16">
             <motion.span
@@ -287,7 +287,7 @@ const Company = () => {
             </motion.p>
           </div>
 
-          {/* Opportunities Grid */}
+          
           <div className="grid gap-6 sm:grid-cols-2 mb-24">
             {opportunities.map((opportunity, index) => (
               <motion.div
@@ -308,7 +308,9 @@ const Company = () => {
             ))}
           </div>
         </section>
-      </div>
+      </div> */}
+
+
       {/* Partnership Benefits with zigzag layout */}
       <section
         id="benefits"
@@ -338,9 +340,9 @@ const Company = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#F3E5C9] font-medium uppercase tracking-wider">
+            {/* <span className="text-[#F3E5C9] font-medium uppercase tracking-wider">
               Why Partner With Us
-            </span>
+            </span> */}
             <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">
               Partnership Benefits
             </h2>
@@ -456,9 +458,9 @@ const Company = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+            {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
               Find Your Fit
-            </span>
+            </span> */}
             <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
               Types of Partners
             </h2>
@@ -580,7 +582,7 @@ const Company = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#352317] to-[#6D4C28] relative overflow-hidden">
+      {/* <section className="py-16 bg-gradient-to-r from-[#352317] to-[#6D4C28] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <pattern
@@ -634,7 +636,7 @@ const Company = () => {
             Become a Partner Today
           </motion.button>
         </div>
-      </section>
+      </section> */}
 
       {/* Popup Form with improved styling */}
       {isPopupVisible && (

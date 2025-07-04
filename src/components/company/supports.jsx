@@ -121,22 +121,34 @@ const Company = () => {
       postTitle: "Technical Specialist",
       name: "Linat K",
       number: "+91 7591907003",
+      color: "bg-[#F3EDE7]",
+      accent: "bg-[#BF8C60]",
+      hoverAccent: "bg-[#A9734D]",
     },
     {
       postTitle: "Technical Specialist",
       name: "Mufeedha M",
       number: "+91 7591907005",
+      color: "bg-[#F3EDE7]",
+      accent: "bg-[#BF8C60]",
+      hoverAccent: "bg-[#A9734D]",
     },
     {
       postTitle: "Technical Specialist",
       name: "Ramya T V",
       number: "+91 7593820004",
+      color: "bg-[#F3EDE7]",
+      accent: "bg-[#BF8C60]",
+      hoverAccent: "bg-[#A9734D]",
     },
     // { postTitle: "Technical Specialist", name: "Akash Babu", number: "+91 8943772048" },
     {
       postTitle: "Marketing Specialist",
       name: "Aishwarya Priya",
       number: "+91 7593820733",
+      color: "bg-[#F3EDE7]",
+      accent: "bg-[#BF8C60]",
+      hoverAccent: "bg-[#A9734D]",
     },
   ];
 
@@ -250,13 +262,13 @@ const Company = () => {
       </a>
 
       {/* ChatBot */}
-      <div className="bottom-10 fixed right-10 z-[999]">
+      {/* <div className="bottom-10 fixed right-10 z-[999]">
         <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-      </div>
+      </div> */}
 
       {/* Banner Section */}
 
-      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden md:mt-20">
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <img
@@ -275,7 +287,7 @@ const Company = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            We're Here to Help
+            Your IT Partner
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl max-w-3xl mx-auto"
@@ -283,7 +295,7 @@ const Company = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Comprehensive IT Support Tailored to Your Business Needs
+            Reliable Support Built For Your Needs
           </motion.p>
         </div>
       </div>
@@ -296,9 +308,9 @@ const Company = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+            {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
               Contact & Support
-            </span>
+            </span> */}
             <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
               Connect With Us Anytime
             </h2>
@@ -308,7 +320,7 @@ const Company = () => {
           <p className="text-[#000] mt-2 max-w-[900px] mx-auto text-sm md:text-base">
             At IMC Bussiness Solutions, we understand that sometimes you need a
             helping hand. That’s why our dedicated support team is available to
-            answer your questions and resolve your issues 7 days a week.
+            answer your questions and resolve your issues 6 days a week.
           </p>
           {/* Hours of Operation */}
 
@@ -375,9 +387,9 @@ const Company = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+          {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
             Reach Us Anytime
-          </span>
+          </span> */}
           <h2 className="text-2xl md:text-2xl font-bold mt-2 mb-4 text-[#352317]">
             Here's how you can reach us if you require further assistance:
           </h2>
@@ -389,7 +401,7 @@ const Company = () => {
           {teamMembers.map((person, index) => (
             <div
               key={index}
-              className={`relative ${person.color} rounded-2xl shadow-lg overflow-hidden transition-all duration-300 h-64`}
+              className={`relative ${person.color} rounded-2xl shadow-lg overflow-hidden transition-all duration-300 h-58`}
               style={{
                 transform:
                   hoveredCard === index ? "translateY(-8px)" : "translateY(0)",
@@ -413,17 +425,17 @@ const Company = () => {
               </div> */}
 
                 {/* Content */}
-                <div className="flex-grow">
-                  <h3 className="text-lg font-bold text-gray-800">
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-gray-800 text-center">
                     {person.name}
                   </h3>
-                  <p className="text-lg font-semibold text-gray-900 mt-1">
+                  <p className="text-lg font-semibold text-gray-900 mt-1 text-center">
                     {person.title}
                   </p>
                 </div>
 
                 {/* Contact info */}
-                <div className="mt-4 space-y-3">
+                <div className="mt-0 space-y-3 flex flex-col items-center">
                   <a
                     href={`tel:${person.phone}`}
                     className="flex items-center gap-3 text-gray-700 hover:text-gray-900 group"
@@ -478,31 +490,81 @@ const Company = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+          {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
             Our Team
-          </span>
+          </span> */}
           <h2 className="text-2xl md:text-2xl font-bold mt-2 mb-4 text-[#352317]">
-            Meet Our Dedicated Support Team
+            For More Assistance, Feel Free to Contact Us.
           </h2>
           <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-4 gap-6 max-w-[1400px] mx-auto mt-10">
           {staffList.map((staff, index) => (
-            <div key={index} className="text-center w-full">
-              <p className="text-xl font-semibold py-1">{staff.name}</p>
-              <p className="text-gray-700 py-1">{staff.postTitle}</p>
-              <p className="text-gray-700 py-1">
-                <a href={`tel:${staff.number}`} className="hover:underline">
-                  {staff.number}
-                </a>
-              </p>
+            <div
+              key={index}
+              className={`relative ${staff.color} rounded-2xl shadow-lg overflow-hidden transition-all duration-300 h-50`}
+              style={{
+                transform:
+                  hoveredCard === index ? "translateY(-8px)" : "translateY(0)",
+                boxShadow:
+                  hoveredCard === index
+                    ? "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                    : "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+              }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* Top accent bar */}
+              <div
+                className={`h-2 w-full ${staff.accent} transition-colors duration-300`}
+              />
+
+              <div className="p-6 flex flex-col h-full text-center">
+                {/* Staff Info */}
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-gray-800">
+                    {staff.name}
+                  </h3>
+                  <p className="text-lg font-semibold text-gray-900 mt-1">
+                    {staff.postTitle}
+                  </p>
+                </div>
+
+                {/* Contact Info */}
+                <div className="mt-4 space-y-3">
+                  <a
+                    href={`tel:${staff.number}`}
+                    className="flex justify-center items-center gap-3 text-gray-700 hover:text-gray-900 group"
+                  >
+                    <span
+                      className={`p-2 rounded-full ${
+                        hoveredCard === index
+                          ? staff.hoverAccent
+                          : "bg-gray-100"
+                      } transition-colors duration-300`}
+                    >
+                      <Phone size={16} />
+                    </span>
+                    <span className="text-sm group-hover:underline">
+                      {staff.number}
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Corner Decoration */}
+              <div
+                className={`absolute bottom-0 right-0 w-24 h-24 rounded-tl-full ${
+                  hoveredCard === index ? staff.hoverAccent : staff.accent
+                } opacity-20 transition-all duration-300`}
+              />
             </div>
           ))}
         </div>
       </div>
 
-      <section className="w-full mx-auto bg-[#352317] py-10 px-5">
+      {/* <section className="w-full mx-auto bg-[#352317] py-10 px-5">
         <div className="text-center mb-8">
           <motion.div
             className="text-center mb-8"
@@ -536,7 +598,7 @@ const Company = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Supports Section */}
       <div className="pt-2 relative py-20 flex flex-col justify-center items-center w-full bg-[#fff]">
@@ -551,9 +613,9 @@ const Company = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
+              {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
                 Benefits
-              </span>
+              </span> */}
               <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
                 Why Choose Our Support Services?
               </h2>
@@ -582,9 +644,9 @@ const Company = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#6D4C28] font-medium uppercase tracking-wider text-sm sm:text-base">
+              {/* <span className="text-[#6D4C28] font-medium uppercase tracking-wider text-sm sm:text-base">
                 Stay Connected
-              </span>
+              </span> */}
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4 text-[#352317]">
                 Connect With Us Online
               </h2>
