@@ -729,7 +729,7 @@ const Home = () => {
                 />
               </motion.div>
             </motion.div>
-            <div className="  flex items-center justify-center pt-2">
+            <div className="  flex items-center justify-center pt-10">
               <motion.button
                 className="px-6 py-3 text-sm sm:text-lg font-semibold text-[#000] border border-[#32251F] rounded-3xl  hover:bg-[#32251F] hover:text-white transition"
                 initial={{ opacity: 0, y: 20 }}

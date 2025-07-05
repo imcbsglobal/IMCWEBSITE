@@ -202,7 +202,7 @@ const MobileApp = () => {
         </a>
 
         {/* chatbot */}
-        <div className="bottom-10 fixed right-10 z-[999]">
+        {/* <div className="bottom-10 fixed right-10 z-[999]">
           {openChat ? (
             <div className="fixed bottom-10 z-[999] right-10">
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -212,87 +212,100 @@ const MobileApp = () => {
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* intro */}
-        <div className="w-full relative pt-32 pb-20">
-          <section className="max-w-[1400px] mx-auto w-full px-4">
-            <div>
-              <div className="flex flex-col justify-center items-center gap-5">
+        <div className="w-full relative pt-8 pb-1">
+         <section className="w-full relative px-4 pb-20 pt-32">
+      <div className="flex flex-col max-w-[1400px] mx-auto justify-center items-center gap-8">
+        
+        {/* Main Content and Image Container */}
+        <div className="flex flex-col lg:flex-row w-full max-w-7xl mx-auto justify-center items-center gap-6 sm:gap-8 lg:gap-12">
+          
+          {/* Left Side - Main Content */}
+          <div className="flex-1 flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8 order-2 lg:order-1">
+            {/* Main Heading and Description */}
+            <div className="text-left w-full">
+              <h3 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  mb-4 sm:mb-6 leading-tight">
+                CRAFTING MOBILE EXPERIENCES
+              </h3>
+              <p className="text-black text-base sm:text-lg lg:text-xl max-w-full lg:max-w-[600px] mb-6 sm:mb-8 leading-relaxed">
+                We create easy-to-use mobile apps for Android and iOS. Whether you need an app for your business or a new idea, we build fast, reliable, and user-friendly apps to help you grow.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Side - Main Image */}
+          <div className="flex-1 flex flex-col gap-4 sm:gap-6 w-full order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-2xl sm:rounded-3xl"
+            >
+              <div className="rounded-2xl sm:rounded-3xl w-full h-full bg-[#000] overflow-hidden relative">
+                <img
+                  src={mobileapp}
+                  alt="Mobile app development and design showcase"
+                  className="w-full h-full object-cover rounded-2xl sm:rounded-3xl transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Swiper Slider Section */}
+        <div className="w-full mt-8">
+          <Swiper
+            slidesPerView={4} // default view
+            spaceBetween={20}
+            loop={true}
+            breakpoints={{
+              0: { slidesPerView: 2 }, // screens from 0px to 740px
+              741: { slidesPerView: 3 },
+              1000: { slidesPerView: 4 }, // screens above 741px
+            }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="w-full"
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index}>
                 <motion.div
+                  initial={{ opacity: 0, filter: "blur(10px)" }}
+                  whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                  transition={{
+                    duration: 1,
+                    delay: index * 0.3,
+                    ease: "easeOut",
+                  }}
                   viewport={{ once: false, amount: 0.3 }}
-                  className="w-full h-[300px] md:h-[600px] bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] bg-[#3c3333] backdrop-blur-3xl rounded-3xl"
+                  className="relative bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full"
                 >
-                  <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden">
+                  <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden relative">
                     <img
-                      src={mobileapp}
-                      alt="mobileapp"
-                      className="w-full h-full rounded-3xl object-cover"
+                      src={image}
+                      alt={`mobile app ${index + 1}`}
+                      className="w-full h-full object-cover rounded-3xl"
                     />
-                  </div>
-                  <div className="absolute inset-0 bg-black bg-opacity-60 z-10 rounded-3xl"></div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-                    <h3 className="text-white text-xl md:text-6xl font-bold text-center px-4">
-                      Crafting Mobile Experiences
-                    </h3>
-                    <p className="text-white max-w-[900px] mx-auto text-center mt-2">
-                      We create easy-to-use mobile apps for Android and iOS.
-                      Whether you need an app for your business or a new idea,
-                      we build fast, reliable, and user-friendly apps to help
-                      you grow.
-                    </p>
+                    <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center z-20">
+                      <h3 className="text-white text-xl md:text-4xl font-bold text-center px-4">
+                        {titles[index]}
+                      </h3>
+                    </div>
                   </div>
                 </motion.div>
-
-                {/* Swiper Slider - First Swiper */}
-                <Swiper
-                  slidesPerView={3} // default view
-                  spaceBetween={20}
-                  loop={true}
-                  breakpoints={{
-                    0: { slidesPerView: 2 }, // screens from 0px to 740px
-                    741: { slidesPerView: 3 }, // screens above 741px
-                  }}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[Autoplay]}
-                  className="w-full"
-                >
-                  {images.map((image, index) => (
-                    <SwiperSlide key={index}>
-                      <motion.div
-                        initial={{ opacity: 0, filter: "blur(10px)" }}
-                        whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                        transition={{
-                          duration: 1,
-                          delay: index * 0.3,
-                          ease: "easeOut",
-                        }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        className="relative bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full"
-                      >
-                        <div className="rounded-3xl w-full h-full bg-[#fff] overflow-hidden relative">
-                          <img
-                            src={image}
-                            alt={`website${index}`}
-                            className="w-full h-full object-contain rounded-3xl"
-                          />
-                          <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-                          <div className="absolute inset-0 flex items-center justify-center z-20">
-                            <h3 className="text-white text-xl md:text-4xl font-bold text-center px-4">
-                              {titles[index]}
-                            </h3>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </section>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
         </div>
 
         {/* mobile app DEVELOPMENT */}

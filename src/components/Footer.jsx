@@ -69,9 +69,9 @@ const Footer = () => {
                 <li className="py-1">
                   <Link to="/becomepartner">Business Partners</Link>
                 </li>
-                <li className="py-1">
+                {/* <li className="py-1">
                   <Link to="/career">Career</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -122,15 +122,15 @@ const Footer = () => {
                 <li className="py-1">
                   <Link to="/mobileApp">Mobile App Development</Link>
                 </li>
-                <li className="py-1">
+                {/* <li className="py-1">
                   <Link to="/businessBranding">Business Consulting</Link>
-                </li>
+                </li> */}
                 <li className="py-1">
                   <Link to="/digitalmarketing">Digital Marketing</Link>
                 </li>
-                <li className="py-1">
+                {/* <li className="py-1">
                   <Link to="/hardwaresolutions">Hardware Solutions</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -138,20 +138,20 @@ const Footer = () => {
       </div>
       {/* Policy Links Section */}
       <div className="w-full flex justify-end gap-10 mb-5 text-sm">
-        <Link to="/terms-and-conditions" className="hover:underline">
+        <Link to="/termsandconditions" className="hover:underline">
           Terms & Conditions
         </Link>
-        <Link to="/privacy-policy" className="hover:underline">
+        <Link to="/privacypolicy" className="hover:underline">
           Privacy Policy
         </Link>
-        <Link to="/refund-policy" className="hover:underline">
+        <Link to="/refundpolicy" className="hover:underline">
           Refund Policy
         </Link>
       </div>
       {/* Copy Right Section */}
       <div className="border-t w-full pt-5 flex flex-col md:flex-row justify-between items-center gap-5">
         <div className="text-sm text-center md:text-left">
-          © 2025 IMC Business Solutions. All rights reserved.
+          © 2025 IMC B Solutions LLP. All rights reserved.
         </div>
         <ul className="flex justify-center gap-4">
           <li className="cursor-pointer text-xl">

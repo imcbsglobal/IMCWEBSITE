@@ -32,6 +32,9 @@ import Supports from './components/company/supports';
 import Becomepartner from './components/company/becomepartners'
 import Task from './components/software/task';
 import Auric from './components/software/Auric'
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsandConditions  from './components/TermsandConditions';
+import RefundPolicy from './components/RefundPolicy';
 function App() {
   return (
     <Router>
@@ -84,6 +87,9 @@ const AppWithRouting = () => {
         <Route path="/becomepartner" element={< Becomepartner/>} />
         <Route path="/task/:productId" element={<Task />} />
         <Route path="/auric" element={<Auric/>}/>
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
+        <Route path="/termsandconditions" element={<TermsandConditions/>}/>
+        <Route path="/refundpolicy" element={<RefundPolicy/>}/>
       </Routes>
     </>
   );
