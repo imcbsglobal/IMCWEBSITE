@@ -23,7 +23,7 @@ import "swiper/css/navigation"; // Added navigation CSS
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import website from "../../assets/android.jpg";
+import website from "../../assets/android.png";
 import website1 from "../../assets/ios.png";
 import website2 from "../../assets/FLUTTERIMG.png";
 import website3 from "../../assets/reactnative.png";
@@ -255,61 +255,13 @@ const MobileApp = () => {
           </div>
         </div>
 
-        {/* Swiper Slider Section */}
-        <div className="w-full mt-8">
-          <Swiper
-            slidesPerView={4} // default view
-            spaceBetween={20}
-            loop={true}
-            breakpoints={{
-              0: { slidesPerView: 2 }, // screens from 0px to 740px
-              741: { slidesPerView: 3 },
-              1000: { slidesPerView: 4 }, // screens above 741px
-            }}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="w-full"
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <motion.div
-                  initial={{ opacity: 0, filter: "blur(10px)" }}
-                  whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                  transition={{
-                    duration: 1,
-                    delay: index * 0.3,
-                    ease: "easeOut",
-                  }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  className="relative bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl h-[200px] md:h-[300px] w-full"
-                >
-                  <div className="rounded-3xl w-full h-full bg-[#000] overflow-hidden relative">
-                    <img
-                      src={image}
-                      alt={`mobile app ${index + 1}`}
-                      className="w-full h-full object-cover rounded-3xl"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-                    <div className="absolute inset-0 flex items-center justify-center z-20">
-                      <h3 className="text-white text-xl md:text-4xl font-bold text-center px-4">
-                        {titles[index]}
-                      </h3>
-                    </div>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        
       </div>
     </section>
         </div>
 
         {/* mobile app DEVELOPMENT */}
-        <div className="py-20 relative w-full">
+        <div className="pt-10 pb-10 relative w-full">
           <section className="max-w-[1400px] mx-auto w-full px-4">
             <div>
               <div className="flex flex-col gap-5 mb-10 text-center">
@@ -395,6 +347,58 @@ const MobileApp = () => {
           </section>
         </div>
 
+
+<section className="w-full relative px-4 pb-20 pt-16">
+{/* Swiper Slider Section */}
+        <div className="w-full mt-8">
+          <Swiper
+            slidesPerView={4} // default view
+            spaceBetween={20}
+            loop={true}
+            breakpoints={{
+              0: { slidesPerView: 2 }, // screens from 0px to 740px
+              741: { slidesPerView: 3 },
+              1000: { slidesPerView: 4 }, // screens above 741px
+            }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="w-full"
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0, filter: "blur(10px)" }}
+                  whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                  transition={{
+                    duration: 1,
+                    delay: index * 0.3,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  className="relative bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl h-[100px] md:h-[200px] w-full"
+                >
+                  <div className="rounded-3xl w-full h-full bg-[#fff] overflow-hidden relative">
+                    <img
+                      src={image}
+                      alt={`mobile app ${index + 1}`}
+                      className="w-full h-full object-contain rounded-3xl"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center z-20">
+                      <h3 className="text-white text-xl md:text-4xl font-bold text-center px-4">
+                        {titles[index]}
+                      </h3>
+                    </div>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+</section>
         {/* Technology Partners Section */}
         <section className="w-full px-5 md:px-0 relative py-24 bg-gradient-to-br from-[#2C3E50] to-[#1A1A2E] text-white overflow-hidden">
           {/* Background elements */}

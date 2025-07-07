@@ -454,7 +454,7 @@ const Company = () => {
                     </span>
                   </a>
 
-                  <a
+                  {/* <a
                     href={`mailto:${person.email}`}
                     className="flex items-center gap-3 text-gray-700 hover:text-gray-900 group"
                   >
@@ -470,7 +470,7 @@ const Company = () => {
                     <span className="text-sm truncate group-hover:underline">
                       {person.email}
                     </span>
-                  </a>
+                  </a> */}
                 </div>
               </div>
 

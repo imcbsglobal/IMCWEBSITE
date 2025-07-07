@@ -687,13 +687,13 @@ const Inventory = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 sm:mb-16 text-white drop-shadow-sm">
               <span className="inline-flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
-                What Makes Our
+                Our Special Touch
                 <img
                   src={tasktext}
                   alt="Task Text"
                   className="h-10 sm:h-12 md:h-14 inline-block"
                 />
-                Exceptional
+               
               </span>
             </h2>
 
@@ -780,7 +780,7 @@ const Inventory = () => {
               transition={{ duration: 0.2 }}
               className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 text-[#5C4033]"
             >
-              Our Advanced Features
+              Key Features That Drive Results
             </motion.h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 ">

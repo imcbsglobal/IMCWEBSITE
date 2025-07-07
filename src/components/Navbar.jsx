@@ -165,8 +165,8 @@ const Navbar = () => {
       <header
         className={`fixed top-0 left-0 w-full z-[990] transition-all duration-300 ${
   isScrolled
-    ? "bg-gradient-to-r from-white via-[#c5bfbf] to-[#5a5858] py-5 rounded-b-3xl shadow-lg"
-    : "bg-gradient-to-r from-white via-[#c5bfbf] to-[#5a5858] py-4"
+    ? "bg-gradient-to-r from-[#c5bfbf] via-[#c5bfbf] to-[#c5bfbf] py-5 rounded-b-3xl shadow-lg"
+    : "bg-gradient-to-r from-[#c5bfbf] via-[#c5bfbf] to-[#c5bfbf] py-4"
 }`}
       >
         <nav className="flex justify-between items-center w-full max-w-[1280px] mx-auto px-4 lg:px-8">
