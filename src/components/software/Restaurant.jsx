@@ -395,7 +395,7 @@ const Restaurant = () => {
             >
               <div>
                 <motion.div
-                  className="text-[20px] leading-normal lg:text-[30px] mb-3 font-bold md:mb-5 text-[#25080A]"
+                  className="text-[20px] leading-normal lg:text-[30px] mb-3  md:mb-5 text-[#25080A]"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
@@ -464,13 +464,13 @@ const Restaurant = () => {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center leading-normal mb-10 text-[#25080A]"
+            className="text-3xl md:text-4xl  text-center leading-normal mb-10 text-[#25080A]"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-            What Makes Our DINE Exceptional
+           What Sets DINE Apart
           </motion.h2>
 
           <motion.div
@@ -512,7 +512,7 @@ const Restaurant = () => {
       {/* key features */}
       <section className="py-16 bg-white max-w-[1400px] mx-auto">
         <div className="w-full flex flex-col items-center px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl  text-center mb-12">
             What DINE Offers
           </h2>
 
@@ -562,8 +562,8 @@ const Restaurant = () => {
 
       {/* compactability */}
       <div className="bg-[#fef2f2] py-16 px-4">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
-          Compatibility
+        <h2 className="text-4xl  text-center text-gray-900 mb-4">
+          System Compatibility
         </h2>
         <p className="text-center text-gray-600 max-w-xl mx-auto mb-12">
           DINE POS is fully equipped to run across devices and integrate with
@@ -592,9 +592,9 @@ const Restaurant = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 text-black"
+            className="text-[30px] sm:text-[40px] md:text-[50px] text-center mb-10 text-black"
           >
-            Business Applications
+            Where Our Solutions Work
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -619,7 +619,7 @@ const Restaurant = () => {
       {/* clients */}
       <section className="pt-5 pb-10 relative px-4 sm:px-10 md:px-20 bg-white w-full">
         <div className="text-center w-full mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl  text-black">
             Our Valued Clients
           </h2>
         </div>
@@ -764,7 +764,7 @@ const Restaurant = () => {
       {/* office partners 8 */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
         <div className="w-full text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl  text-gray-800 mb-6">
             Get DINE Now
           </h2>
           <p className="text-gray-600 mb-10 max-w-[600px] w-full mx-auto">

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "../Footer";
-import websiteandweb from "../../assets/webs.png";
+import websiteandweb from "../../assets/webs.jpg";
 import website from "../../assets/websiteslide.jpeg";
 import website1 from "../../assets/websiteslide1.jpg";
 import website2 from "../../assets/websiteslide2.jpg";

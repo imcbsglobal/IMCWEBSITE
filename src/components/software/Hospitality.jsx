@@ -293,10 +293,10 @@ const Hospitality = () => {
             <motion.div variants={fadeInVariant} className="relative">
               <div className="absolute -left-4 -top-4 w-12 h-12 md:w-16 md:h-16 bg-[#f160267f] rounded-full opacity-50"></div>
               <div className="relative">
-                <div className="text-[#EA2960] text-base md:text-2xl font-bold mb-3">
+                <div className="text-[#EA2960] text-base md:text-2xl  mb-3">
                   Elevating <span>Hotel Management</span> with
                 </div>
-                <div className="text-gray-800 text-3xl md:text-4xl lg:text-6xl font-semibold">
+                <div className="text-gray-800 text-3xl md:text-4xl lg:text-6xl ">
                   <span className="block">Smart Platforms</span>
                 </div>
               </div>
@@ -413,7 +413,7 @@ const Hospitality = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 "
+            className="text-[30px] sm:text-[40px] md:text-[50px] text-center mb-10 "
           >
             Business Applications
           </motion.h2>
@@ -442,7 +442,7 @@ const Hospitality = () => {
         <div className="container mx-auto px-4">
           {/* Heading */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black">
+            <h2 className="text-4xl  text-black">
               Our Valued Clients
             </h2>
           </div>
@@ -532,7 +532,7 @@ const Hospitality = () => {
       {/* office partners 8 */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
         <div className="w-full text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl text-gray-800 mb-6">
             Get STARSTAY Now
           </h2>
           <p className="text-gray-600 mb-10 max-w-[600px] w-full mx-auto">

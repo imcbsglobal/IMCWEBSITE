@@ -226,9 +226,9 @@ const Inventory = () => {
     },
     {
       image: wysi,
-      title: "WYSIWYG Editor",
+      title: "WYSWYG Editor",
       description:
-        "Edit and format content effortlessly with a user-friendly 'What You See Is What You Get' editor.",
+        "Edit and format content effortlessly with a user-friendly 'What You See  What You Get' editor.",
     },
     {
       image: event,
@@ -238,7 +238,7 @@ const Inventory = () => {
     },
     {
       image: multichanel,
-      title: "Integration",
+      title: "Integrations",
       description:
         "Easily integrate with third-party applications and services for a more connected business ecosystem.",
     },
@@ -582,7 +582,7 @@ const Inventory = () => {
         </a>
 
         {/* chatbot */}
-        <div className="bottom-10 fixed right-10 z-[999]">
+        {/* <div className="bottom-10 fixed right-10 z-[999]">
           {openChat ? (
             <div className="fixed bottom-10 z-[999] right-10">
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -592,7 +592,7 @@ const Inventory = () => {
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* banner 1 */}
         <section
@@ -685,7 +685,7 @@ const Inventory = () => {
           </div>
 
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 sm:mb-16 text-white drop-shadow-sm">
+            <h2 className="text-center text-3xl sm:text-4xl md:text-5xl  mb-10 sm:mb-16 text-white drop-shadow-sm">
               <span className="inline-flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
                 Our Special Touch
                 <img
@@ -778,7 +778,7 @@ const Inventory = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 text-[#5C4033]"
+              className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-10 text-[#5C4033]"
             >
               Key Features That Drive Results
             </motion.h2>
@@ -820,9 +820,9 @@ const Inventory = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-16 "
+              className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-16 "
             >
-              Our Specialized Solutions
+              Expertly Crafted Services
             </motion.h2>
 
             <Swiper
@@ -884,9 +884,9 @@ const Inventory = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 "
+              className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-10 "
             >
-              Business Applications
+              Versatile Use Cases
             </motion.h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
@@ -915,7 +915,7 @@ const Inventory = () => {
         {/* client part  6*/}
         <section className="pt-5 pb-10 relative px-4 sm:px-10 md:px-20 bg-white w-full">
           <div className="text-center w-full mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl  text-black">
               Our Valued Clients
             </h2>
           </div>
@@ -998,9 +998,9 @@ const Inventory = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 "
+              className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-10 "
             >
-              Inventory Product Showcase
+              See Our Product in Action
             </motion.h2>
 
             {loading ? (

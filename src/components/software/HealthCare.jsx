@@ -276,9 +276,9 @@ const HealthCare = () => {
       </a>
 
       {/* Chatbot - Fixed position with improved mobile positioning */}
-      <div className="fixed bottom-4 right-4 md:bottom-10 md:right-10 z-[999]">
+      {/* <div className="fixed bottom-4 right-4 md:bottom-10 md:right-10 z-[999]">
         <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-      </div>
+      </div> */}
 
       {/* Hero Section - Improved mobile padding and spacing */}
       <section className="py-10 md:py-20 relative w-full pt-20 md:pt-32 px-4 md:px-2">
@@ -303,8 +303,8 @@ const HealthCare = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold text-[#352317]">
-              HEALTHCARE MANAGEMENT
+            <h1 className="text-3xl md:text-4xl lg:text-6xl text-center lg:text-start  text-[#352317]">
+              Healthcare Management
             </h1>
 
             <p className="mt-4 text-sm md:text-base text-start md:text-justify text-[#000]">
@@ -342,8 +342,8 @@ const HealthCare = () => {
 
       {/* Features Grid Animation - Improved grid layout for mobile */}
       <section className="bg-[#8bb6af6f] w-full py-8 md:py-12">
-        <div className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-4 pb-5 font-bold">
-          What Makes Our Shade Exceptional
+        <div className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-4 pb-5 ">
+          The Distinctive Edge of Our Shade
         </div>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-6 md:mt-12 max-w-[1400px] mx-auto mb-5 px-4"
@@ -390,9 +390,9 @@ const HealthCare = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-10 text-black"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-center mb-6 md:mb-10 text-black"
           >
-            Business Applications
+            Business Sectors We Support
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
@@ -419,7 +419,7 @@ const HealthCare = () => {
       {/* Client Section - Improved slider for mobile */}
       <section className="py-8 md:py-10 relative px-4 bg-white w-full max-w-[1400px]">
         <div className="text-center w-full mb-6 md:mb-10">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  text-black">
             Our Valued Clients
           </h2>
         </div>
@@ -502,9 +502,9 @@ const HealthCare = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-10"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-center mb-6 md:mb-10"
           >
-            Healthcare Solutions Showcase
+            How Our Healthcare Solution Works
           </motion.h2>
 
           {loading ? (
@@ -563,7 +563,7 @@ const HealthCare = () => {
       {/* Partners Section - Improved mobile layout */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
         <div className="w-full text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl text-gray-800 mb-4 md:mb-6">
             Get SHADE Now
           </h2>
           <p className="text-gray-600 mb-6 md:mb-10 max-w-[600px] w-full mx-auto text-sm md:text-base">
@@ -656,9 +656,9 @@ const HealthCare = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#083D4C] to-[#0a617a] inline-block text-transparent bg-clip-text"
+              className="text-3xl md:text-5xl  mb-4 bg-gradient-to-r from-[#083D4C] to-[#0a617a] inline-block text-transparent bg-clip-text"
             >
-              SHADE Feature Enhancements
+              What Sets Our Shade Apart
             </motion.h2>
 
             <motion.p

@@ -252,82 +252,76 @@ const Auric = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative min-h-[600px] bg-white overflow-hidden w-full mt-24">
-      {/* Flex Container */}
-      <div className="flex flex-col lg:flex-row h-full w-full max-w-6xl mx-auto">
-        {/* Left Content (Text Section) */}
+    <div className="relative min-h-[600px] bg-gradient-to-br from-slate-50 to-white overflow-hidden w-full py-16">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#C9A55C]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#C9A55C]/15 rounded-full blur-2xl"></div>
+      
+      {/* Main Container */}
+      <div className="flex flex-col lg:flex-row h-full w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Left Content Section */}
         <motion.div
-          className="w-full lg:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-6 lg:gap-8 p-6 md:p-8 lg:p-12"
+          className="w-full lg:w-1/2 flex flex-col justify-center gap-8 pr-0 lg:pr-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
-          <motion.div variants={fadeInVariant} className="relative">
-            <div className="absolute -left-3 -top-3 w-12 h-12 md:w-16 md:h-16 bg-[#c9a55c7f] rounded-full opacity-50"></div>
-            <div className="relative">
-              <div className="text-[#C9A55C] text-sm md:text-lg lg:text-2xl font-bold mb-2 md:mb-3">
-                Transforming <span>Jewelry Management</span> with
-              </div>
-              <div className="text-gray-800 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold">
-                <span className="block">Luxury Solutions</span>
-              </div>
+          {/* Header */}
+          <motion.div variants={fadeInVariant} className="space-y-4">
+            {/* <div className="inline-flex items-center gap-2 bg-[#C9A55C]/10 px-4 py-2 rounded-full">
+              <div className="w-2 h-2 bg-[#C9A55C] rounded-full"></div>
+              <span className="text-[#C9A55C] text-sm ">AURIC JEWELRY MANAGEMENT</span>
             </div>
+             */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl  text-gray-900 leading-tight">
+            
+              <span className="block text-[#C9A55C]">Jewelry Management</span>
+              <span className="block text-gray-700">with Luxury Solutions</span>
+            </h1>
+            
+            <p className="text-lg text-gray-600 max-w-xl">
+              AURIC is our comprehensive Jewellery Management software that streamlines various activities in your shops to ensure smooth workflow and efficient business operations.
+            </p>
           </motion.div>
 
-          <motion.div
-            className="bg-white h-[300px] md:h-[400px] shadow-lg text-gray-800 p-4 md:p-6 lg:p-8 rounded-xl w-full max-w-full backdrop-blur-sm border border-[#C9A55C]"
-            variants={fadeInVariant}
-          >
-            <div className="flex items-end gap-3  mb-4">
-              <div className="h-auto max-w-[180px] md:max-w-[220px] bg-gray-50 p-2 rounded-xl shadow-sm">
-                <img
-                  src={auriclogo}
-                  alt="Auric Logo"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-            </div>
-            <div className="text-xs sm:text-sm md:text-base text-gray-600">
-              AURIC – is our Jewellery Management software with various
-              activities in your shops to ensure a smooth workflow and running
-              of your business. It helps in tracking inventory movements and
-              sales. With jewellery management software, you can automate
-              Barcode handling, Stock movement, smooth sales and Inventory.
-              Jewellery AURIC is designed for Jewellery retail solution for
-              billing, accounting for any jewellery wholesaler, manufacturer,
-              goldsmith. It helps in managing your entire jewellery shop
-              accounting including inventory management.
-            </div>
-          </motion.div>
+         
+          
+
+        
         </motion.div>
 
-        {/* Right Content (Image) */}
-        <div className="w-full lg:w-1/2 min-h-[400px] md:min-h-[500px] lg:h-[600px] flex items-center justify-center py-6 lg:py-0">
-          <div className="relative w-full max-w-md md:max-w-lg h-full">
-            {/* Decorative Elements */}
-            <div className="absolute -right-4 top-12 w-20 h-20 md:w-32 md:h-32 bg-[#F5E7C1] rounded-full opacity-60 z-0"></div>
-            <div className="absolute -left-4 bottom-16 w-16 h-16 md:w-24 md:h-24 bg-[#c9a55c10] rounded-full opacity-70 z-0"></div>
-
-            <motion.div
-              className="w-full h-full p-3 relative z-10"
-              initial={{ scale: 1.1 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            >
-              <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+        {/* Right Image Section */}
+        <motion.div
+          className="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="relative w-full max-w-lg">
+            {/* Decorative Background Elements */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#C9A55C]/20 rounded-full blur-xl"></div>
+            {/* <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#C9A55C]/30 rounded-full blur-lg"></div> */}
+            
+            {/* Main Image Container */}
+            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border-4 ">
+              <div className="aspect-[4/5] w-full">
                 <img
                   src={jwelery}
                   alt="Luxury jewelry showcase"
                   className="w-full h-full object-cover"
                 />
               </div>
-            </motion.div>
+              
+              {/* Floating Card Overlay */}
+              
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
-
       {/* Why Choose us */}
       <div className="bg-[#fff]">
         <motion.section
@@ -384,9 +378,9 @@ const Auric = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10"
+            className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-10"
           >
-            Jewelry Categories
+            Jewelry Categories Applications
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -413,7 +407,7 @@ const Auric = () => {
         <div className="container mx-auto px-4">
           {/* Heading */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black">
+            <h2 className="text-4xl  text-black">
               Our Valued Clients
             </h2>
           </div>
@@ -503,7 +497,7 @@ const Auric = () => {
       {/* business partners */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
         <div className="w-full text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl  text-gray-800 mb-6">
             Get AURIC Now
           </h2>
           <p className="text-gray-600 mb-10 max-w-[600px] w-full mx-auto">

@@ -348,7 +348,7 @@ const Institution = () => {
                 
         </a>
         {/* chatbot */}
-        <div className="bottom-10 fixed right-10 z-[999]">
+        {/* <div className="bottom-10 fixed right-10 z-[999]">
           {openChat ? (
             <div className="fixed bottom-10 z-[999] right-10">
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -358,7 +358,7 @@ const Institution = () => {
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
             </div>
           )}
-        </div>
+        </div> */}
         {/* 1  main */}
         <section
           id="institutionmanagement"
@@ -394,8 +394,8 @@ const Institution = () => {
                   className="w-full md:w-1/2 text-left"
                   variants={fadeInVariant2}
                 >
-                  <h2 className="text-[32px] md:text-[40px] text-[#352317] font-bold mb-4">
-                    Simplifying Institution Management with Smart Technology
+                  <h2 className="text-[32px] md:text-[40px] text-[#352317]  mb-4">
+                   Smart Solutions for Efficient Institution Management
                   </h2>
                   <p className="text-[#000] ">
                     We are dedicated to revolutionizing educational and
@@ -465,8 +465,8 @@ const Institution = () => {
         <section className="bg-[#d5f2e6] w-full py-12 ">
           {/* Feature Cards Section */}
           <div className="max-w-[1400px] mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
-              Our Key Features
+            <h2 className="text-5xl  text-center text-gray-800 mb-10">
+              Capabilities That Drive Results
             </h2>
 
             <motion.div
@@ -513,7 +513,7 @@ const Institution = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-xl lg:text-2xl  leading-tight font-bold text-center"
+              className="text-xl lg:text-2xl  leading-tight text-center"
             >
               Why Choose Our
             </motion.h2>
@@ -600,7 +600,7 @@ const Institution = () => {
         </section>
         <section className="pt-5 pb-10 relative px-4 sm:px-10 md:px-20 bg-white w-full">
           <div className="text-center w-full mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl  text-black">
               Our Valued Clients
             </h2>
           </div>
@@ -683,7 +683,7 @@ const Institution = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 text-[#000]"
+              className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-10 text-[#000]"
             >
               Business Applications
             </motion.h2>
@@ -772,7 +772,7 @@ const Institution = () => {
         {/* 6 office partners  */}
         <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
           <div className="w-full text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl  text-gray-800 mb-6">
               Get MAGNET Now
             </h2>
             <p className="text-gray-600 mb-10 max-w-[600px] w-full mx-auto">

@@ -260,10 +260,10 @@ const PharmacyManagementPage = () => {
             <motion.div variants={fadeInVariant} className="relative mt-5">
               <div className="absolute -left-4 -top-4 w-16 h-16 bg-[#f160267f] rounded-full opacity-50"></div>
               <div className="relative">
-                <div className="text-[#F15E26] text-lg sm:text-2xl font-bold mb-2 sm:mb-3">
+                <div className="text-[#F15E26] text-lg sm:text-2xl  mb-2 sm:mb-3">
                   Experience the Best
                 </div>
-                <div className="text-gray-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
+                <div className="text-gray-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl ">
                   Pharmacy Management <span className="block">Software</span>
                 </div>
               </div>
@@ -331,7 +331,7 @@ const PharmacyManagementPage = () => {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-black"
+            className="text-2xl sm:text-3xl md:text-5xl  mb-8 sm:mb-12 text-center text-black"
           >
             What Makes Our VTask Exceptional
           </motion.h2>
@@ -452,7 +452,7 @@ const PharmacyManagementPage = () => {
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-16">
             <div class="relative md:w-1/2">
               <div class="w-12 h-12 rounded-full bg-purple-600 absolute -left-6 -top-6 opacity-20"></div>
-              <h2 class="text-4xl font-bold text-gray-800 leading-tight">
+              <h2 class="text-4xl  text-gray-800 leading-tight">
                 VTASK <span class="text-purple-600">Key Features</span>
               </h2>
               <div class="h-1 w-24 bg-purple-600 mt-4"></div>
@@ -803,7 +803,7 @@ const PharmacyManagementPage = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center mb-10 text-black"
+            className="text-[30px] sm:text-[40px] md:text-[50px]  text-center mb-10 text-black"
           >
             Business Applications
           </motion.h2>
@@ -833,7 +833,7 @@ const PharmacyManagementPage = () => {
   <div className="container mx-auto px-4">
     {/* Heading */}
     <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold text-black">
+      <h2 className="text-4xl  text-black">
         Our Valued Clients
       </h2>
     </div>
@@ -959,7 +959,7 @@ const PharmacyManagementPage = () => {
       {/* office partners 8 */}
       <section className="py-12 bg-white md:max-w-[1210px] max-w-[360px] mx-auto w-full">
         <div className="w-full text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl  text-gray-800 mb-6">
             Get VTASK Now
           </h2>
           <p className="text-gray-600 mb-10 max-w-[600px] w-full mx-auto">
