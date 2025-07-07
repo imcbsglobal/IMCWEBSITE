@@ -378,7 +378,7 @@ const MobileApp = () => {
                     ease: "easeOut",
                   }}
                   viewport={{ once: false, amount: 0.3 }}
-                  className="relative bg-gradient-to-r from-[#8d8d8d] via-[#ffffff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl h-[100px] md:h-[200px] w-full"
+                  className="relative bg-gradient-to-r from-[#8d8d8d] via-[#fff] to-[#ffdd9e] p-[1px] backdrop-blur-3xl rounded-3xl h-[100px] md:h-[200px] w-full"
                 >
                   <div className="rounded-3xl w-full h-full bg-[#fff] overflow-hidden relative">
                     <img
