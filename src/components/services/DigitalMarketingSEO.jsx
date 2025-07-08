@@ -220,7 +220,7 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* intro */}
-      <div className="w-full pt-32 pb-20 relative bg-[#fff]">
+      <div className="w-full pt-32 pb-18 relative bg-[#fff]">
         <section className="max-w-[1400px] mx-auto">
           <div>
             <div className="text-[#352317] text-[30px] md:text-[50px]  mb-5 text-center leading-tight">
@@ -302,7 +302,7 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* social media */}
-      <div className="w-full md:pt-20  pt-5 pb-20 relative bg-[#fff]">
+      <div className="w-full md:pt-20  pt-2 pb-20 relative bg-[#fff]">
         <section className="max-w-[1400px] mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -448,7 +448,7 @@ const DigitalMarketingSEO = () => {
       </div>
 
       {/* Digital Advertising Section */}
-      <div className="w-full pt-20 pb-20 relative bg-[#FCF3E1]">
+      <div className="w-full pt-14 pb-20 relative bg-[#FCF3E1]">
         <section className="max-w-[1400px] mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left side - Content */}
@@ -944,7 +944,7 @@ const DigitalMarketingSEO = () => {
       {/* branding */}
       <div className="w-full mt-0 md:mt-0 bg-[#fff] mb-10 ">
         {/* first */}
-        <div className="w-full relative pt-20 md:pb-10 pb-20">
+        <div className="w-full relative pt-12 md:pb-10 pb-20">
           <motion.section
             className="w-full max-w-[1400px] mx-auto rounded-3xl backdrop-blur-xl"
             initial={{ opacity: 0, scale: 0.8 }}

@@ -79,32 +79,24 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-32 relative w-full bg-[#fff]">
-      {/* <div className=" absolute top-0 right-0 bottom-0 left-0 -z-10">
-        <img src={darkGradient} alt="" className="w-full h-full object-cover"/>
-      </div> */}
+    <div className="pt-20 sm:pt-24 md:pt-32 relative w-full bg-[#fff] overflow-x-hidden">
+      {/* WhatsApp Button */}
       <a href="https://wa.me/+917593820007">
-              <div className="md:bottom-[120px] bottom-[70px] right-1.5 cursor-pointer md:right-[50px] z-[999] fixed text-[40px] p-1 bg-[#4DC85A] text-[#fff] rounded-full">
-                <RiWhatsappLine/>
-              </div>
-            </a>
-            
-            {/* chatbot */}
-            <div className="bottom-10 fixed right-10 z-[999]">
-              {openChat ? (
-                <div className="fixed bottom-10 z-[999] right-10">
-                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                </div>
-              ) : (
-                <div className="fixed bottom-10 z-[999] right-10">
-                  <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-                </div>
-              )}
-            </div>
-      <section className="mb-10 md:mb-20 max-w-[1400px] mx-auto w-full px-4 md:px-0">
-      <div className="w-full max-w-[1400px] mx-auto">
+        <div className="fixed bottom-16 sm:bottom-20 md:bottom-[120px] right-2 sm:right-4 md:right-[50px] z-[999] cursor-pointer text-[30px] sm:text-[35px] md:text-[40px] p-2 sm:p-2.5 md:p-3 bg-[#4DC85A] text-[#fff] rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
+          <RiWhatsappLine/>
+        </div>
+      </a>
+      
+      {/* ChatBot */}
+      <div className="fixed bottom-2 sm:bottom-4 md:bottom-10 right-2 sm:right-4 md:right-10 z-[999]">
+        <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
+      </div>
+
+      {/* Main Content */}
+      <section className="mb-10 md:mb-20 max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-4 xl:px-0">
+        <div className="w-full">
           {/* Heading Section */}
-          <div className="flex flex-col md:flex-row justify-between items-start w-full mb-16 gap-5 md:gap-10">
+          <div className="flex flex-col lg:flex-row justify-between items-start w-full mb-12 md:mb-16 gap-6 md:gap-10">
             <div className="md:w-[60%] flex flex-col gap-4">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -142,20 +134,20 @@ const Contact = () => {
           </div>
 
           {/* Contact Form Section */}
-          <div className="flex flex-col-reverse md:flex-row justify-start items-start gap-10 w-full">
+          <div className="flex flex-col lg:flex-row justify-start items-start gap-8 lg:gap-12 w-full">
             {/* Contact Details Section */}
-            <div className="w-full md:w-[50%]">
+            <div className="w-full lg:w-[48%] order-2 lg:order-1">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col gap-5  mb-10 text-lg md:text-xl"
+                className="flex flex-col gap-4 sm:gap-5 mb-8 md:mb-10 text-base sm:text-lg md:text-xl"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
-                  className="text-[#000]"
+                  className="text-[#000] break-words"
                 >
                   info@imcbsglobal.com
                 </motion.div>
@@ -171,10 +163,10 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
-                  className="text-[#000]"
+                  className="text-[#000] leading-relaxed"
                 >
                   Palakkunnummal Building, Near Govt Ayurvedic Hospital Emily{" "}
-                  <span className="block">
+                  <span className="block mt-1">
                     Kalpetta, Wayanad, Kerala – 673121
                   </span>
                 </motion.div>
@@ -183,14 +175,14 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex"
+                className="flex w-full"
               >
-                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl">
+                <div className="bg-gradient-to-r p-[1px] backdrop-blur-3xl rounded-3xl w-full sm:w-auto">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => (window.location.href = "tel:+917593820007")}
-                    className="text-[#000] w-full h-full bg-[#F7902C] backdrop-blur-sm text-xl md:text-3xl px-8 py-3 rounded-3xl border  hover:bg-gray-700"
+                    className="text-[#000] w-full h-full bg-[#F7902C] backdrop-blur-sm text-lg sm:text-xl md:text-2xl lg:text-3xl px-6 sm:px-8 py-3 rounded-3xl border hover:bg-opacity-90 transition-all duration-300"
                   >
                     Contact Us
                   </motion.button>
@@ -203,13 +195,13 @@ const Contact = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-full md:w-[50%] flex flex-col gap-5"
+              className="w-full lg:w-[52%] flex flex-col gap-5 order-1 lg:order-2"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 }}
-                className="text-[#000]  text-xl md:text-2xl"
+                className="text-[#000] text-lg sm:text-xl md:text-2xl leading-relaxed"
               >
                 Here to bring your concept to life, manage your ongoing project,
                 or expand your existing development team.
@@ -219,8 +211,9 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 onSubmit={onSubmit}
+                className="w-full"
               >
-                <div className="w-full grid grid-cols-2 gap-5 mb-3 ">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-4">
                   {/* Input fields with individual animations */}
                   {["firstName", "lastName", "email", "phone"].map(
                     (field, index) => (
@@ -243,7 +236,7 @@ const Contact = () => {
                           field.charAt(0).toUpperCase() + field.slice(1)
                         }*`}
                         required
-                        className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#000] border-b border-[#000]"
+                        className="py-3 px-4 sm:px-6 md:px-8 w-full outline-none bg-transparent text-[#000] border-b border-[#000] focus:border-[#F7902C] transition-colors duration-300 text-sm sm:text-base"
                       />
                     )
                   )}
@@ -252,7 +245,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.1 }}
-                  className="w-full mb-3"
+                  className="w-full mb-4 sm:mb-6"
                 >
                   <textarea
                     name="message"
@@ -260,7 +253,8 @@ const Contact = () => {
                     onChange={handleInputChange}
                     placeholder="Enter Your Message"
                     required
-                    className="py-2 px-8 w-full outline-none bg-[#00000000] text-[#000] border-b border-[#000]"
+                    rows={4}
+                    className="py-3 px-4 sm:px-6 md:px-8 w-full outline-none bg-transparent text-[#000] border-b border-[#000] focus:border-[#F7902C] transition-colors duration-300 resize-none text-sm sm:text-base"
                   />
                 </motion.div>
                 <motion.div
@@ -273,7 +267,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full text-[#000] px-8 py-3 bg-[#F7902C] rounded-3xl "
+                    className="w-full text-[#000] px-6 sm:px-8 py-3 sm:py-4 bg-[#F7902C] rounded-3xl text-base sm:text-lg md:text-xl font-medium hover:bg-opacity-90 transition-all duration-300 shadow-lg"
                   >
                     Send Message
                   </motion.button>
@@ -283,20 +277,31 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <section className="w-full mb-10 md:mb-20">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-0">
+
+      {/* Map Section */}
+      <section className="w-full mb-10 md:mb-20 px-4 sm:px-6 md:px-8 lg:px-4 xl:px-0">
+        <div className="max-w-[1400px] mx-auto">
           <div className="w-full rounded-lg overflow-hidden shadow-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.0735491927476!2d76.07862677487005!3d11.618106688586558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84f992636da1e2d%3A0xe5e2fd2dafe1f7f3!2sIMC%20BUSINESS%20SOLUTIONS!5e0!3m2!1sen!2sin!4v1739947667097!5m2!1sen!2sin"
-              width="1400"
-              height="450"
+              width="100%"
+              height="300"
+              style={{ 
+                border: 0,
+                minHeight: '300px',
+                height: '350px'
+              }}
               allowFullScreen
-              referrerPolicy="no-referrer"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="sm:h-[400px] md:h-[450px]"
             ></iframe>
           </div>
         </div>
       </section>
-      <section className="bg-[#fff] py-10">
+
+      {/* Footer */}
+      <section className="bg-[#fff] py-6 sm:py-8 md:py-10">
         <Footer />
       </section>
     </div>

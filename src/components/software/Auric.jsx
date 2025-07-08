@@ -252,7 +252,7 @@ const Auric = () => {
       </div>
 
       {/* Hero Section */}
-    <div className="relative min-h-[600px] bg-gradient-to-br from-slate-50 to-white overflow-hidden w-full py-16">
+    <div className="relative min-h-[600px] bg-gradient-to-br from-slate-50 to-white overflow-hidden w-full py-16 md:mt-0 mt-[50px]">
       {/* Background Decorative Elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#C9A55C]/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#C9A55C]/15 rounded-full blur-2xl"></div>

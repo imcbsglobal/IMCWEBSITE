@@ -885,159 +885,129 @@ const Home = () => {
       </section>
 
       {/* Solutions */}
-      <section className="bg-[#fff0] relative flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
-      <motion.div
-        className="text-center mb-6 px-4"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-[#32251F] mb-2">
-          All-In-One IT Support For Your Business
-        </h2>
-        <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
-        <p className="text-base md:text-lg text-[#000] mt-2 max-w-3xl mx-auto">
-          Discover Smart Solutions To Make Your Business run Smoother and Faster
-        </p>
-      </motion.div>
+   <section className="bg-[#fff0] relative flex flex-col items-center justify-center px-4 py-12 md:pt-24 overflow-hidden">
+  <motion.div
+    className="text-center mb-6 px-4"
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7 }}
+  >
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#32251F] mb-2">
+      All-In-One IT Support For Your Business
+    </h2>
+    <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
+    <p className="text-sm sm:text-base md:text-lg text-[#000] mt-2 max-w-3xl mx-auto">
+      Discover Smart Solutions To Make Your Business run Smoother and Faster
+    </p>
+  </motion.div>
 
-      <motion.div
-        className="relative w-full max-w-[1200px] mx-auto px-4"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.10 }}
-      >
-        {/* Custom previous button */}
-        <button 
-          onClick={prevSlide}
-          className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        </button>
-
-        <div className="w-full max-w-6xl mx-auto p-4 bg-white">
-          <div className="h-[450px] md:h-[450px] rounded-2xl overflow-hidden  relative">
-            {/* Slider container */}
-            <div 
-              className="flex h-full transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-{softwareList.map((software, index) => (
-  <div key={index} className="relative w-full h-full flex-shrink-0">
-    <motion.div
-      className="flex h-full relative"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.10 }}
+  <motion.div
+    className="relative w-full max-w-[1200px] mx-auto px-4"
+    initial={{ opacity: 0, scale: 0.95 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8, delay: 0.10 }}
+  >
+    {/* Prev Button */}
+    <button
+      onClick={prevSlide}
+      className="hidden sm:flex custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 items-center justify-center rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors"
     >
-      {/* Left side - Image (larger and behind) */}
-      <div className="relative overflow-hidden z-10 w-[700px]" style={{ width: 'calc(50% + 30px)', height: 'calc(100% + 60px)' }}>
-        <img
-          src={software.img}
-          alt={software.name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
-      </div>
-      
-      {/* Right side - Content (smaller, overlapping) */}
-      <motion.div
-        className="bg-white flex flex-col justify-center px-8 md:px-12 py-8 -ml-24 z-20 relative shadow-lg mt-7"
-        style={{ width: 'calc(50% - 30px)', height: 'calc(100% - 60px)' }}
-        initial={{ x: 50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="max-w-lg">
-          <motion.h2 
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {software.name}
-          </motion.h2>
-          
-          <motion.p 
-            className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            {software.para}
-          </motion.p>
-          
-          {/* <motion.button
-            className="bg-[#32251F] hover:bg-[#BF8C60] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            Read more
-          </motion.button> */}
-        </div>
-      </motion.div>
-    </motion.div>
-  </div>
-))}
-            </div>
-          </div>
-        </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
 
-        {/* Custom next button */}
-        <button 
-          onClick={nextSlide}
-          className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors"
+    <div className="w-full max-w-6xl mx-auto p-4 bg-white">
+      <div className="h-auto md:h-[450px] rounded-2xl overflow-hidden relative">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M9 18l6-6-6-6" />
-          </svg>
-        </button>
-      </motion.div>
+          {softwareList.map((software, index) => (
+            <div key={index} className="relative w-full flex-shrink-0">
+              <motion.div
+                className="flex flex-col md:flex-row h-full relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.10 }}
+              >
+                {/* Image Section */}
+                <div className="relative overflow-hidden z-10 w-full md:w-[calc(50%+30px)] h-64 md:h-[calc(100%+60px)]">
+                  <img
+                    src={software.img}
+                    alt={software.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                </div>
 
-      {/* Pagination dots with animation */}
-      <motion.div
-        className="mt-6 md:mt-8 flex justify-center gap-2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-      >
-        {softwareList.map((_, index) => (
-          <motion.button
-            key={index}
-            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
-              index === currentIndex ? 'bg-[#32251F]' : 'bg-gray-300'
-            } hover:bg-[#BF8C60] focus:bg-[#32251F]`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-          />
-        ))}
-      </motion.div>
-      </section>
+                {/* Content Section */}
+                <motion.div
+                  className="bg-white flex flex-col justify-center px-4 sm:px-6 md:px-12 py-6 md:py-8 mt-4 md:mt-7 md:-ml-24 z-20 relative shadow-lg"
+                  style={{ width: '100%', height: 'auto' }}
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <div className="max-w-lg">
+                    <motion.h2
+                      className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      {software.name}
+                    </motion.h2>
+                    <motion.p
+                      className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed"
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                      {software.para}
+                    </motion.p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Next Button */}
+    <button
+      onClick={nextSlide}
+      className="hidden sm:flex custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-8 h-8 md:w-10 md:h-10 items-center justify-center bg-white rounded-full shadow-md text-[#32251F] hover:bg-[#fcf3e1] transition-colors"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    </button>
+  </motion.div>
+
+  {/* Pagination Dots */}
+  <motion.div
+    className="mt-6 md:mt-8 flex justify-center gap-2"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.5 }}
+  >
+    {softwareList.map((_, index) => (
+      <motion.button
+        key={index}
+        className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+          index === currentIndex ? 'bg-[#32251F]' : 'bg-gray-300'
+        } hover:bg-[#BF8C60] focus:bg-[#32251F]`}
+        onClick={() => goToSlide(index)}
+        aria-label={`Go to slide ${index + 1}`}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+      />
+    ))}
+  </motion.div>
+</section>
+
 
       {/* technology */}
       <section className="w-full px-5 md:px-0 relative py-20 text-white bg-[#352317]">
