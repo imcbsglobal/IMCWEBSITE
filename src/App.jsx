@@ -71,9 +71,10 @@ const AppWithRouting = () => {
         {/* <Route path="/company" element={<Company />} /> */}
         {/* <Route path="/software" element={<Software />} /> */}
         {/* <Route path="/business" element={<Business />} /> */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/login@IMCBSLLP" element={<Login />} />
+        
+        <Route path="/admin@IMCBSLLP" element={<Admin />} />
         <Route path='/signinlogin' element={<Signinlogin/>}/>
-        <Route path="/admin" element={<Admin />} />
         {/* <Route path="/addproduct" element={<Addproduct />} /> */}
         <Route path="/healthcare" element={<HealthCare />} />
         <Route path="/hospitality" element={<Hospitality />} />

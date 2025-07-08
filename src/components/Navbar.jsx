@@ -339,9 +339,9 @@ const Navbar = () => {
           <Link to="/contact" onClick={toggleMobileMenu}>
             <li className="hover:text-orange-500">Contact</li>
           </Link>
-          <Link to="/login" onClick={toggleMobileMenu}>
+          {/* <Link to="/login" onClick={toggleMobileMenu}>
             <li className="hover:text-orange-500">Login</li>
-          </Link>
+          </Link> */}
         </ul>
       </div>
     </>

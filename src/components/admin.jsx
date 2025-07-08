@@ -28,7 +28,7 @@ const AdminPanel = () => {
 
   const handleLogout = () => {
     alert("You have been logged out.");
-    navigate("/");
+    navigate("/login@IMCBSLLP");
     setIsSidebarOpen(false);
   };
 
