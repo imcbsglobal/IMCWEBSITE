@@ -33,23 +33,27 @@ const Footer = () => {
                 <ImLocation size={24} />
               </a>
             </div>
-            <div className="text-[#000]  text-sm md:text-base  text-left leading-normal">
-              Palakkunnummal Building,
-              <span className="block p-1">Near Govt Ayurvedic Hospital</span>
-              <span className="block p-1">Emily - Kalpetta,</span>
-              <span className="block p-1 ">Wayanad - Kerala - 673121</span>
-            </div>
-            <div>
-              <p>
-                Email:{" "}
-                <a
-                  href="mailto:info@imcbsglobal.com"
-                  className="text-black hover:underline"
-                >
-                  info@imcbsglobal.com
-                </a>
-              </p>
-            </div>
+            <div className="text-[#000] text-sm md:text-base leading-normal space-y-2 text-left p-1">
+  <div>
+    <p className="p-1">Palakkunnummal Building,</p>
+    <p className="p-1">Near Govt Ayurvedic Hospital</p>
+    <p className="p-1">Emily - Kalpetta,</p>
+    <p className="p-1">Wayanad - Kerala - 673121</p>
+  </div>
+  
+  <div>
+    <p className="pl-1">
+      Email:{" "}
+      <a
+        href="mailto:info@imcbsglobal.com"
+        className="text-black hover:underline "
+      >
+        info@imcbsglobal.com
+      </a>
+    </p>
+  </div>
+</div>
+
           </div>
         </div>
 
@@ -151,7 +155,7 @@ const Footer = () => {
       {/* Copy Right Section */}
       <div className="border-t w-full pt-5 flex flex-col md:flex-row justify-between items-center gap-5">
         <div className="text-sm text-center md:text-left">
-          © 2025 IMC B Solutions LLP. All rights reserved.
+          © 2025 IMCB Solutions LLP. All rights reserved.
         </div>
         <ul className="flex justify-center gap-4">
           <li className="cursor-pointer text-xl">

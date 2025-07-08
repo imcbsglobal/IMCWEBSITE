@@ -666,12 +666,12 @@ const Home = () => {
                   y: useTransform(smoothProgress, [0.1, 0.3], [30, 0]),
                 }}
               >
-                Future - Ready IT Solutions by IMC Business Solutions
+                Future-Ready Technology, Today – By <span className="hover:text-[#F2662C]">IMC</span> <span className="hover:text-[#F68E2C]">Business</span> <span className="hover:text-[#F2662C]">Solutions</span>
               </motion.span>
             </motion.div>
 
             <motion.div
-              className="text-[#000] max-w-[700px] mb-1 mx-auto px-2  text-center overflow-hidden"
+              className="text-[#000] max-w-[700px] mb-1 mx-auto px-2  text-center overflow-hidden text-xl"
               style={{
                 opacity: paragraphOpacity,
                 y: paragraphY,
@@ -932,7 +932,7 @@ const Home = () => {
                 transition={{ duration: 0.10 }}
               >
                 {/* Image Section */}
-                <div className="relative overflow-hidden z-10 w-full md:w-[calc(50%+30px)] h-64 md:h-[calc(100%+60px)]">
+                <div className="relative overflow-hidden z-10 w-full md:w-[calc(70%+30px)] h-64 md:h-[calc(100%+60px)]">
                   <img
                     src={software.img}
                     alt={software.name}

@@ -157,8 +157,8 @@ const MobileApp = () => {
                 {/* Left Side - Main Content */}
                 <div className="flex-1 flex flex-col justify-center items-start gap-4 md:gap-6 lg:gap-8 order-2 lg:order-1">
                   <div className="text-left w-full">
-                    <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-                      CRAFTING MOBILE EXPERIENCES
+                    <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  mb-4 md:mb-6 leading-tight">
+                      Crafting Mobile Experiences
                     </h1>
                     <p className="text-black text-sm sm:text-base md:text-lg lg:text-xl max-w-full lg:max-w-2xl mb-6 md:mb-8 leading-relaxed">
                       We create easy-to-use mobile apps for Android and iOS. Whether you need an app for your business or a new idea, we build fast, reliable, and user-friendly apps to help you grow.
@@ -199,9 +199,9 @@ const MobileApp = () => {
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, ease: "easeOut" }}
                   viewport={{ once: false, amount: 0.3 }}
-                  className="text-[#352317] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight"
+                  className="text-[#352317] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl  leading-tight"
                 >
-                  MOBILE APP DEVELOPMENT
+                  Mobile App Development
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
@@ -448,7 +448,7 @@ const MobileApp = () => {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
-              className="text-[#352317] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-4 md:mb-5"
+              className="text-[#352317] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl  text-center mb-4 md:mb-5"
             >
               Why Choose Us?
             </motion.div>

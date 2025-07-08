@@ -228,7 +228,7 @@ const WebsiteWebApplication = () => {
           {/* Main Heading and Description */}
           <div className="text-left w-full">
             <h3 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  mb-4 sm:mb-6 leading-tight">
-              COMPLETE WEB SOLUTIONS
+              Complete Web Solutions
             </h3>
             <p className="text-black text-base sm:text-lg lg:text-xl max-w-full lg:max-w-[600px] mb-6 sm:mb-8 leading-relaxed">
               We create modern, responsive websites tailored to your business needs. From design to deployment, our web development services help you build a strong online presence

@@ -236,7 +236,7 @@ const Company = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <button
-              className="bg-[#F3E5C9] text-[#352317] px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
+              className="bg-[#352317] text-[#fff] hover:text-black border-[#fff] px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all hover:border-[#000] border-2 hover:bg-white hover:font-bold" 
               onClick={() => setIsPopupVisible(true)}
             >
               Explore Partnership Opportunities
@@ -527,7 +527,7 @@ const Company = () => {
             <span className="text-[#6D4C28] font-medium uppercase tracking-wider">
              
             </span>
-            <h2 className=" font-bold mt-2 mb-4 text-[#352317]">
+            <h2 className=" font-bold mt-2 mb-4 text-[#352317] text-4xl">
             Our Network
             </h2>
             <div className="w-24 h-1 bg-[#BF8C60] mx-auto mb-6"></div>
