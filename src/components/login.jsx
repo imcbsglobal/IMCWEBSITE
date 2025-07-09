@@ -21,7 +21,7 @@ function LoginPage() {
       const user = userCredential.user;
 
       if (email === "admin@imc.com" && password === "pass@imC") {
-        navigate("/admin");
+        navigate("/admin@IMCBSLLP");
       } else {
         setError("Unauthorized access. Only admins can log in.");
       }

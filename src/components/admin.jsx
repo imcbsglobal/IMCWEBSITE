@@ -23,6 +23,11 @@ import { BsPersonVideo } from "react-icons/bs";
 import { IoBagHandleSharp } from "react-icons/io5";
 import { MdOutlineReviews } from "react-icons/md";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import {
+  MdOutlinePhotoLibrary,
+  MdOutlineImage,
+  MdOndemandVideo,
+} from "react-icons/md";
 const AdminPanel = () => {
   const navigate = useNavigate();
 
@@ -679,6 +684,195 @@ const AdminPanel = () => {
     }
   }, [selectedSection]);
 
+  // GALLERY
+
+  // Gallery
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [galleryVideos, setGalleryVideos] = useState([]);
+  const [editingGalleryImageId, setEditingGalleryImageId] = useState(null);
+  const [editingGalleryVideoId, setEditingGalleryVideoId] = useState(null);
+  const [imageTitle, setImageTitle] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [videoTitle, setVideoTitle] = useState("");
+  // const [videoUrl, setVideoUrl] = useState("");
+  // const [imagePreview, setImagePreview] = useState("");
+  const galleryImageInputRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedSection === "manageGalleryImages") {
+      fetchGalleryImages();
+    } else if (selectedSection === "manageGalleryVideos") {
+      fetchGalleryVideos();
+    }
+  }, [selectedSection]);
+  // Fetch gallery images from Firestore
+  const fetchGalleryImages = async () => {
+    const querySnapshot = await getDocs(
+      collection(dbFirestore, "galleryImages")
+    );
+    const imagesList = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setGalleryImages(imagesList);
+  };
+
+  // Fetch gallery videos from Firestore
+  const fetchGalleryVideos = async () => {
+    const querySnapshot = await getDocs(
+      collection(dbFirestore, "galleryVideos")
+    );
+    const videosList = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setGalleryVideos(videosList);
+  };
+
+  // Save or Update Gallery Image
+  const handleSaveGalleryImage = async () => {
+    if (!imageTitle || !imageUrl) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    try {
+      const imageData = {
+        title: imageTitle,
+        imageUrl: imageUrl,
+        timestamp: serverTimestamp(),
+      };
+
+      if (editingGalleryImageId) {
+        await updateDoc(
+          doc(dbFirestore, "galleryImages", editingGalleryImageId),
+          imageData
+        );
+        alert("Gallery image updated successfully!");
+      } else {
+        await addDoc(collection(dbFirestore, "galleryImages"), imageData);
+        alert("Gallery image added successfully!");
+      }
+
+      fetchGalleryImages();
+      clearGalleryImageForm();
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  };
+
+  // Save or Update Gallery Video
+  const handleSaveGalleryVideo = async () => {
+    if (!videoTitle || !videoUrl) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    try {
+      const videoData = {
+        title: videoTitle,
+        videoUrl: videoUrl,
+        timestamp: serverTimestamp(),
+      };
+
+      if (editingGalleryVideoId) {
+        await updateDoc(
+          doc(dbFirestore, "galleryVideos", editingGalleryVideoId),
+          videoData
+        );
+        alert("Gallery video updated successfully!");
+      } else {
+        await addDoc(collection(dbFirestore, "galleryVideos"), videoData);
+        alert("Gallery video added successfully!");
+      }
+
+      fetchGalleryVideos();
+      clearGalleryVideoForm();
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  };
+
+  // Delete Gallery Image
+  const handleDeleteGalleryImage = async (id) => {
+    try {
+      await deleteDoc(doc(dbFirestore, "galleryImages", id));
+      alert("Gallery image deleted successfully!");
+      fetchGalleryImages();
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  };
+
+  // Delete Gallery Video
+  const handleDeleteGalleryVideo = async (id) => {
+    try {
+      await deleteDoc(doc(dbFirestore, "galleryVideos", id));
+      alert("Gallery video deleted successfully!");
+      fetchGalleryVideos();
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  };
+
+  // Edit Gallery Image
+  const handleEditGalleryImage = (image) => {
+    setImageTitle(image.title);
+    setImageUrl(image.imageUrl);
+    setImagePreview(image.imageUrl);
+    setEditingGalleryImageId(image.id);
+  };
+
+  // Edit Gallery Video
+  const handleEditGalleryVideo = (video) => {
+    setVideoTitle(video.title);
+    setVideoUrl(video.videoUrl);
+    setEditingGalleryVideoId(video.id);
+  };
+
+  // Clear Gallery Image Form
+  const clearGalleryImageForm = () => {
+    setImageTitle("");
+    setImageUrl("");
+    setImagePreview("");
+    setEditingGalleryImageId(null);
+    if (galleryImageInputRef.current) {
+      galleryImageInputRef.current.value = "";
+    }
+  };
+
+  // Clear Gallery Video Form
+  const clearGalleryVideoForm = () => {
+    setVideoTitle("");
+    setVideoUrl("");
+    setEditingGalleryVideoId(null);
+  };
+
+  // Handle Gallery Image Upload
+  const handleGalleryImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 500000) {
+        // 500KB limit
+        alert("Image size should be less than 500KB");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+        setImageUrl(reader.result);
+      };
+
+      reader.onerror = () => {
+        alert("Error reading file");
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="flex min-h-screen">
@@ -768,8 +962,7 @@ const AdminPanel = () => {
                   onClick={() => setIsTestimonialsOpen(!isTestimonialsOpen)}
                   className="w-full p-3 sm:p-4 text-left text-sm sm:text-base font-medium text-slate-700 rounded-lg hover:bg-slate-50 hover:text-slate-900 flex justify-between items-center transition-all duration-200"
                 >
-                  
-                    <div className="flex items-center gap-2 text-base sm:text-lg">
+                  <div className="flex items-center gap-2 text-base sm:text-lg">
                     <span>
                       <MdOutlineReviews />
                     </span>
@@ -812,11 +1005,11 @@ const AdminPanel = () => {
                     }`}
                   >
                     <div className="flex items-center gap-2 text-base sm:text-lg">
-                    <span>
-                      <MdOutlineRateReview />
-                    </span>
-                    <span>Text Testimonials</span>
-                  </div>
+                      <span>
+                        <MdOutlineRateReview />
+                      </span>
+                      <span>Text Testimonials</span>
+                    </div>
                   </button>
                   <button
                     onClick={() => {
@@ -830,11 +1023,11 @@ const AdminPanel = () => {
                     }`}
                   >
                     <div className="flex items-center gap-2 text-base sm:text-lg">
-                    <span>
-                      <BsPersonVideo />
-                    </span>
-                    <span>Video Testimonials</span>
-                  </div>
+                      <span>
+                        <BsPersonVideo />
+                      </span>
+                      <span>Video Testimonials</span>
+                    </div>
                   </button>
                 </div>
               </li>
@@ -859,6 +1052,79 @@ const AdminPanel = () => {
                     <span>Manage Carrier</span>
                   </div>
                 </button>
+              </li>
+              {/* Gallery Dropdown */}
+              <li>
+                <button
+                  onClick={() => setIsGalleryOpen(!isGalleryOpen)}
+                  className="w-full p-3 sm:p-4 text-left text-sm sm:text-base font-medium text-slate-700 rounded-lg hover:bg-slate-50 hover:text-slate-900 flex justify-between items-center transition-all duration-200"
+                >
+                  <div className="flex items-center gap-2 text-base sm:text-lg">
+                    <span>
+                      <MdOutlinePhotoLibrary />
+                    </span>
+                    <span>Gallery</span>
+                  </div>
+                  <svg
+                    className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 ${
+                      isGalleryOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Gallery Submenu */}
+                <div
+                  className={`ml-2 sm:ml-4 mt-2 space-y-1 overflow-hidden transition-all duration-300 ${
+                    isGalleryOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <button
+                    onClick={() => {
+                      setSelectedSection("manageGalleryImages");
+                      setIsSidebarOpen(false);
+                    }}
+                    className={`block w-full p-2 sm:p-3 text-left text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 ${
+                      selectedSection === "manageGalleryImages"
+                        ? "bg-blue-50 text-blue-700 border-l-4 border-blue-500"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-800"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 text-base sm:text-lg">
+                      <span>
+                        <MdOutlineImage />
+                      </span>
+                      <span>Manage Images</span>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setSelectedSection("manageGalleryVideos");
+                      setIsSidebarOpen(false);
+                    }}
+                    className={`block w-full p-2 sm:p-3 text-left text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 ${
+                      selectedSection === "manageGalleryVideos"
+                        ? "bg-blue-50 text-blue-700 border-l-4 border-blue-500"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-800"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 text-base sm:text-lg">
+                      <span>
+                        <MdOndemandVideo />
+                      </span>
+                      <span>Manage Videos</span>
+                    </div>
+                  </button>
+                </div>
               </li>
 
               {/* Logout */}
@@ -2052,6 +2318,234 @@ const AdminPanel = () => {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Manage Gallery Images Section */}
+            {selectedSection === "manageGalleryImages" && (
+              <div className="max-w-7xl mx-auto">
+                <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 sm:p-6 lg:p-8">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-6 sm:mb-8 text-center">
+                    Manage Gallery Images
+                  </h2>
+
+                  {/* Form */}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleSaveGalleryImage();
+                    }}
+                    className="space-y-4 sm:space-y-6 max-w-2xl mx-auto mb-8 sm:mb-12"
+                  >
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-2">
+                        Image Title
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter image title"
+                        value={imageTitle}
+                        onChange={(e) => setImageTitle(e.target.value)}
+                        className="w-full p-3 sm:p-4 border border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm sm:text-base"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-2">
+                        Image Upload
+                      </label>
+                      <input
+                        type="file"
+                        onChange={handleGalleryImageChange}
+                        accept="image/*"
+                        ref={galleryImageInputRef}
+                        className="w-full p-2 sm:p-3 border border-slate-300 rounded-lg text-slate-800 file:mr-2 sm:file:mr-4 file:py-1 sm:file:py-2 file:px-2 sm:file:px-4 file:rounded-lg file:border-0 file:text-xs sm:file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 text-sm"
+                      />
+                      <p className="text-slate-500 text-xs sm:text-sm mt-2">
+                        Max file size: 500KB
+                      </p>
+                      {imagePreview && (
+                        <div className="mt-4">
+                          <p className="text-sm font-medium text-slate-700 mb-2">
+                            Image Preview:
+                          </p>
+                          <img
+                            src={imagePreview}
+                            alt="Preview"
+                            className="w-32 h-32 object-contain rounded-lg border border-slate-200"
+                          />
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2">
+                      <button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-colors shadow-md text-sm sm:text-base"
+                      >
+                        {editingGalleryImageId ? "Update Image" : "Add Image"}
+                      </button>
+                      {editingGalleryImageId && (
+                        <button
+                          type="button"
+                          className="bg-slate-500 hover:bg-slate-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-colors shadow-md text-sm sm:text-base"
+                          onClick={clearGalleryImageForm}
+                        >
+                          Cancel Edit
+                        </button>
+                      )}
+                    </div>
+                  </form>
+
+                  {/* Gallery Images List */}
+                  <div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 mb-4 sm:mb-6 text-center">
+                      Gallery Images List
+                    </h3>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {galleryImages.map((image) => (
+                        <div
+                          key={image.id}
+                          className="bg-slate-50 rounded-lg p-3 border border-slate-200"
+                        >
+                          <div className="mb-3">
+                            <h4 className="font-semibold text-slate-800 text-sm mb-2">
+                              {image.title}
+                            </h4>
+                            <img
+                              src={image.imageUrl}
+                              alt={image.title}
+                              className="w-full h-40 object-cover rounded-lg"
+                            />
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleEditGalleryImage(image)}
+                              className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-3 rounded-lg transition-colors text-xs"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              onClick={() => handleDeleteGalleryImage(image.id)}
+                              className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-3 rounded-lg transition-colors text-xs"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Manage Gallery Videos Section */}
+            {selectedSection === "manageGalleryVideos" && (
+              <div className="max-w-7xl mx-auto">
+                <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 sm:p-6 lg:p-8">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-6 sm:mb-8 text-center">
+                    Manage Gallery Videos
+                  </h2>
+
+                  {/* Form */}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleSaveGalleryVideo();
+                    }}
+                    className="space-y-4 sm:space-y-6 max-w-2xl mx-auto mb-8 sm:mb-12"
+                  >
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-2">
+                        Video Title
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter video title"
+                        value={videoTitle}
+                        onChange={(e) => setVideoTitle(e.target.value)}
+                        className="w-full p-3 sm:p-4 border border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm sm:text-base"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-2">
+                        YouTube Video URL
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter YouTube video URL"
+                        value={videoUrl}
+                        onChange={(e) => setVideoUrl(e.target.value)}
+                        className="w-full p-3 sm:p-4 border border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm sm:text-base"
+                      />
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2">
+                      <button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-colors shadow-md text-sm sm:text-base"
+                      >
+                        {editingGalleryVideoId ? "Update Video" : "Add Video"}
+                      </button>
+                      {editingGalleryVideoId && (
+                        <button
+                          type="button"
+                          className="bg-slate-500 hover:bg-slate-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-colors shadow-md text-sm sm:text-base"
+                          onClick={clearGalleryVideoForm}
+                        >
+                          Cancel Edit
+                        </button>
+                      )}
+                    </div>
+                  </form>
+
+                  {/* Gallery Videos List */}
+                  <div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 mb-4 sm:mb-6 text-center">
+                      Gallery Videos List
+                    </h3>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {galleryVideos.map((video) => (
+                        <div
+                          key={video.id}
+                          className="bg-slate-50 rounded-lg p-3 border border-slate-200"
+                        >
+                          <div className="mb-3">
+                            <h4 className="font-semibold text-slate-800 text-sm mb-2">
+                              {video.title}
+                            </h4>
+                            <iframe
+                              className="w-full h-48 rounded-lg shadow-sm"
+                              src={video.videoUrl}
+                              title="YouTube Video"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleEditGalleryVideo(video)}
+                              className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-3 rounded-lg transition-colors text-xs"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              onClick={() => handleDeleteGalleryVideo(video.id)}
+                              className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-3 rounded-lg transition-colors text-xs"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

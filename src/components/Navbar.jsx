@@ -75,6 +75,7 @@ const Navbar = () => {
       { name: "About IMC",  path: "/aboutimc"  },
       { name: "Supports", path:"/supports" },
       { name: "Become a partner", path:"/becomepartner" },
+      { name: "Gallery ", path:"/gallery" },
     ],
     softwares: [
       { name: "TASK", path:"/inventory" },

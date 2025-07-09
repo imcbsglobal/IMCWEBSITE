@@ -35,6 +35,7 @@ import Auric from './components/software/Auric'
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsandConditions  from './components/TermsandConditions';
 import RefundPolicy from './components/RefundPolicy';
+import Gallery from './components/company/gallery';
 function App() {
   return (
     <Router>
@@ -47,7 +48,7 @@ const AppWithRouting = () => {
   const location = useLocation();
 
   // Hide Navbar for these routes
-  const hideNavbarRoutes = ['/login', '/admin','/addproduct'];
+  const hideNavbarRoutes = ['/login@IMCBSLLP', '/admin@IMCBSLLP','/addproduct'];
   const showNavbar = !hideNavbarRoutes.includes(location.pathname);
 
   return (
@@ -91,6 +92,7 @@ const AppWithRouting = () => {
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
         <Route path="/termsandconditions" element={<TermsandConditions/>}/>
         <Route path="/refundpolicy" element={<RefundPolicy/>}/>
+        <Route path="/gallery" element={<Gallery/>}/>
       </Routes>
     </>
   );
