@@ -8,7 +8,10 @@ const Gallery = () => {
   const [galleryImages, setGalleryImages] = useState([]);
   const [galleryVideos, setGalleryVideos] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+   
+  }, []);
   // Fetch gallery images from Firestore
   const fetchGalleryImages = async () => {
     try {
