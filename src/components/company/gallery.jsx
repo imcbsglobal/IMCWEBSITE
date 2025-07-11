@@ -105,7 +105,7 @@ const closePreview = () => {
                   : 'bg-white/20 text-white hover:bg-white/10'
               }`}
             >
-              Videos
+              What Our Clients Say
             </button>
           </div>
         </div>
@@ -152,7 +152,7 @@ const closePreview = () => {
                     : 'text-gray-500 border-transparent hover:text-gray-700'
                 }`}
               >
-                Videos ({galleryVideos.length})
+                What Our Clients Say ({galleryVideos.length})
               </button>
             </div>
           </div>
