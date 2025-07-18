@@ -205,7 +205,7 @@ const WebsiteWebApplication = () => {
         </a>
 
         {/* chatbot */}
-        <div className="bottom-10 fixed right-10 z-[999]">
+        {/* <div className="bottom-10 fixed right-10 z-[999]">
           {openChat ? (
             <div className="fixed bottom-10 z-[999] right-10">
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -215,7 +215,7 @@ const WebsiteWebApplication = () => {
               <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
             </div>
           )}
-        </div>
+        </div> */}
 
 <section className="w-full relative px-4 pb-20 pt-32">
   <div className="flex flex-col max-w-[1400px] mx-auto justify-center items-center gap-8">
@@ -271,7 +271,7 @@ const WebsiteWebApplication = () => {
                 className="text-[#000] text-[30px] md:text-[50px]  leading-tight text-center"
               >
                 Best Web Design and Development
-                <span className="block">Company INDIA</span>
+                <span className="block">Company</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}

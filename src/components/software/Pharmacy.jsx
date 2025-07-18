@@ -231,7 +231,7 @@ const PharmacyManagementPage = () => {
       </a>
 
       {/* chatbot */}
-      <div className="bottom-10 fixed right-10 z-[999] text-[#000]">
+      {/* <div className="bottom-10 fixed right-10 z-[999] text-[#000]">
         {openChat ? (
           <div className="fixed bottom-10 z-[999] right-10">
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
@@ -241,7 +241,7 @@ const PharmacyManagementPage = () => {
             <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
           </div>
         )}
-      </div>
+      </div>*/}
 
       {/* Hero Section */}
       <div className="relative h-[600px]  bg-white overflow-hidden mt-24">

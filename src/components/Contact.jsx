@@ -11,6 +11,7 @@ const Contact = () => {
   
   const [active, setActive] = useState(false);
   const [result, setResult] = useState("");
+  const [isSent, setIsSent] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -59,16 +60,21 @@ const Contact = () => {
 
       if (data.success) {
         setResult("Form Submitted Successfully");
+        setIsSent(true); // 👈 this will change the button text
         setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: ""
+           firstName: "",
+           lastName: "",
+           email: "",
+           phone: "",
+           message: ""
         });
         setIsPopupVisible(true);
-        setTimeout(() => setIsPopupVisible(false), 3000);
-      } else {
+        setTimeout(() => {
+          setIsPopupVisible(false);
+          setIsSent(false); // 👈 reset back to original after 3 sec
+        }, 3000);
+      }
+ else {
         console.log("Error", data);
         setResult(data.message);
       }
@@ -88,9 +94,9 @@ const Contact = () => {
       </a>
       
       {/* ChatBot */}
-      <div className="fixed bottom-2 sm:bottom-4 md:bottom-10 right-2 sm:right-4 md:right-10 z-[999]">
+      {/* <div className="fixed bottom-2 sm:bottom-4 md:bottom-10 right-2 sm:right-4 md:right-10 z-[999]">
         <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <section className="mb-10 md:mb-20 max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-4 xl:px-0">
@@ -264,12 +270,15 @@ const Contact = () => {
                   className="w-full"
                 >
                   <motion.button
+                    key={isSent ? "sent" : "not-sent"}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full text-[#000] px-6 sm:px-8 py-3 sm:py-4 bg-[#F7902C] rounded-3xl text-base sm:text-lg md:text-xl font-medium hover:bg-opacity-90 transition-all duration-300 shadow-lg"
-                  >
-                    Send Message
+                    className={`w-full text-[#000] px-6 sm:px-8 py-3 sm:py-4 ${
+                      isSent ? "bg-green-400" : "bg-[#F7902C]"
+                    } rounded-3xl text-base sm:text-lg md:text-xl font-medium hover:bg-opacity-90 transition-all duration-300 shadow-lg`}
+                >
+                    {isSent ? "Message Sent!" : "Send Message"}
                   </motion.button>
                 </motion.div>
               </motion.form>

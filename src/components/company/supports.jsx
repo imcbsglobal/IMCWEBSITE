@@ -53,8 +53,8 @@ const Company = () => {
     },
     {
       title: "Technical Head",
-      name: "VIJINLAL T V",
-      phone: "+91 7591907002",
+      name: "MUHAMMED AJMAL M",
+      phone: "+91 7034010006",
       email: "vijinlalus@gmail.com",
       color: "bg-[#F3EDE7]",
       accent: "bg-[#BF8C60]",
@@ -119,7 +119,7 @@ const Company = () => {
   const staffList = [
     {
       postTitle: "Technical Specialist",
-      name: "Linat K",
+      name: "Linat K J",
       number: "+91 7591907003",
       color: "bg-[#F3EDE7]",
       accent: "bg-[#BF8C60]",

@@ -536,7 +536,7 @@ const company = () => {
                   variants={fadeInUp}
                   transition={{ delay: 0.4 }}
                 >
-                  Since 2017, IMC Business Solutions has been delivering smart,
+                  Since 2009, IMCB Solutions LLP has been delivering smart,
                   tailored software and IT services that help businesses grow
                   and run efficiently. From business software and mobile apps to
                   web development, hardware solutions, and IT support—we provide

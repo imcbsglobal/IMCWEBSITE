@@ -730,7 +730,7 @@ const AdminPanel = () => {
     setGalleryVideos(videosList);
   };
 
-  // Save or Update Gallery Image
+  // Save or Update Gallcxery Image
   const handleSaveGalleryImage = async () => {
     if (!imageTitle || !imageUrl) {
       alert("Please fill out all fields.");
@@ -741,6 +741,7 @@ const AdminPanel = () => {
       const imageData = {
         title: imageTitle,
         imageUrl: imageUrl,
+        date: new Date().toISOString(), // Add current date
         timestamp: serverTimestamp(),
       };
 
@@ -935,7 +936,7 @@ const AdminPanel = () => {
               </li>
 
               {/* Manage Product Demo */}
-              <li>
+              {/* <li>
                 <button
                   onClick={() => {
                     setSelectedSection("manageProductDemonstration");
@@ -954,7 +955,7 @@ const AdminPanel = () => {
                     <span>Manage Product Demo</span>
                   </div>
                 </button>
-              </li>
+              </li> */}
 
               {/* Testimonials Dropdown */}
               <li>
@@ -1033,7 +1034,7 @@ const AdminPanel = () => {
               </li>
 
               {/* Manage Career */}
-              <li>
+              {/* <li>
                 <button
                   onClick={() => {
                     setSelectedSection("manageCareer");
@@ -1052,7 +1053,8 @@ const AdminPanel = () => {
                     <span>Manage Carrier</span>
                   </div>
                 </button>
-              </li>
+              </li> */}
+              
               {/* Gallery Dropdown */}
               <li>
                 <button

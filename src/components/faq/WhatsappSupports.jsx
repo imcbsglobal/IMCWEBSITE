@@ -40,6 +40,7 @@ const WhatsappSupports = () => {
                 </div>
               )}
             </div>
+
       <section className="max-w-[1400px] w-full mb-10 px-2 md:px-0">
         <div>
           <div className="text-[#352317] text-3xl sm:text-[50px]  mb-5 text-center leading-tight">

@@ -57,6 +57,7 @@ const ProductTutorials = () => {
           </div>
         )}
       </div>
+
       <section className="pb-16 pt-32 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">

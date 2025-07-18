@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { dbFirestore } from '../../firebaseConfig';
-import b from '../../assets/b.jpeg'
+import b from '../../assets/b.jpeg';
 import Footer from "../Footer";
+
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('images');
   const [galleryImages, setGalleryImages] = useState([]);
   const [galleryVideos, setGalleryVideos] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-   
   }, []);
+
   // Fetch gallery images from Firestore
   const fetchGalleryImages = async () => {
     try {
@@ -20,7 +22,11 @@ const Gallery = () => {
         id: doc.id,
         ...doc.data()
       }));
-      setGalleryImages(images);
+      // Sort images by date (newest first)
+      const sortedImages = images.sort((a, b) => 
+        new Date(b.date || b.timestamp?.toDate() || 0) - new Date(a.date || a.timestamp?.toDate() || 0)
+      );
+      setGalleryImages(sortedImages);
     } catch (error) {
       console.error("Error fetching gallery images:", error);
     }
@@ -55,19 +61,31 @@ const Gallery = () => {
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : null;
   };
+
   const [selectedMedia, setSelectedMedia] = useState(null);
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-const openPreview = (media, type) => {
-  setSelectedMedia({ ...media, type });
-  setIsModalOpen(true);
-};
+  const openPreview = (media, type) => {
+    setSelectedMedia({ ...media, type });
+    setIsModalOpen(true);
+  };
 
-const closePreview = () => {
-  setIsModalOpen(false);
-  setSelectedMedia(null);
-};
+  const closePreview = () => {
+    setIsModalOpen(false);
+    setSelectedMedia(null);
+  };
 
+  // Format date for display
+  const formatDate = (dateString) => {
+    if (!dateString) return 'No date specified';
+    
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
 
   return (
     <div className='pt-[60px] overflow-hidden'>
@@ -169,27 +187,38 @@ const closePreview = () => {
             <>
               {/* Gallery - Images */}
               {activeFilter === 'images' && (
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                   {galleryImages.length > 0 ? (
                     galleryImages.map((image, index) => (
                       <div 
                         key={image.id} 
-                        onClick={() => openPreview(image, 'image')}
-                        className='w-auto h-auto rounded-xl bg-gray-100 overflow-hidden relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl'
+                        className='group relative rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]'
                         style={{
                           animationDelay: `${index * 0.1}s`
                         }}
                       >
-                        <img 
-                          src={image.imageUrl} 
-                          alt={image.title} 
-                          
-                          className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                          <h3 className="text-xl font-semibold mb-2">{image.title}</h3>
-                          <p className="text-white/80 text-sm">{image.description || 'Beautiful gallery image'}</p>
+                        <div 
+                          onClick={() => openPreview(image, 'image')}
+                          className='relative aspect-[4/3] overflow-hidden cursor-pointer'
+                        >
+                          <img 
+                            src={image.imageUrl} 
+                            alt={image.title} 
+                            className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+                          />
+                          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        
+                        <div className="p-5">
+                          <h3 className="text-xl font-semibold mb-2 text-gray-800">{image.title}</h3>
+                          {/* <p className="text-gray-600 text-sm mb-3 line-clamp-2">{image.description || 'Beautiful gallery image'}</p>
+                           */}
+                          <div className="flex items-center text-sm text-gray-500">
+                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>{formatDate(image.date)}</span>
+                          </div>
                         </div>
                       </div>
                     ))
@@ -212,33 +241,36 @@ const closePreview = () => {
                         <div 
                           key={video.id} 
                           onClick={() => openPreview(video, 'video')}
-                          className='w-auto h-[300px] rounded-xl  bg-gray-100 overflow-hidden relative group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl'
+                          className='group relative rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]'
                           style={{
                             animationDelay: `${index * 0.1}s`
                           }}
                         >
-                          {videoId ? (
-                            <>
-                              <iframe
-                                className="w-full h-full"
-                                src={`https://www.youtube.com/embed/${videoId}`}
-                                title={video.title}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                              ></iframe>
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none">
-                                <h3 className="text-xl font-semibold mb-2">{video.title}</h3>
-                                <p className="text-white/80 text-sm">{video.description || 'Watch this amazing video'}</p>
+                          <div className='relative aspect-[16/9] overflow-hidden cursor-pointer'>
+                            {videoId ? (
+                              <>
+                                <iframe
+                                  className="w-full h-full"
+                                  src={`https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`}
+                                  title={video.title}
+                                  frameBorder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                ></iframe>
+                                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              </>
+                            ) : (
+                              <div className="w-full h-full flex flex-col items-center justify-center bg-gray-200 text-gray-500">
+                                <div className="text-4xl mb-2">⚠️</div>
+                                <p className="text-center">Invalid video URL</p>
                               </div>
-                            </>
-                          ) : (
-                            <div className="w-full h-full flex flex-col items-center justify-center bg-gray-200 text-gray-500">
-                              <div className="text-4xl mb-2">⚠️</div>
-                              <p className="text-center">Invalid video URL</p>
-                            </div>
-                          )}
+                            )}
+                          </div>
+                          
+                          <div className="p-5">
+                            <h3 className="text-xl font-semibold mb-2 text-gray-800">{video.title}</h3>
+                            <p className="text-gray-600 text-sm mb-3 line-clamp-2">{video.description || 'Watch this amazing video'}</p>
+                          </div>
                         </div>
                       );
                     })
@@ -254,44 +286,67 @@ const closePreview = () => {
           )}
         </div>
       </section>
-    {isModalOpen && selectedMedia && (
-  <div 
-    className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 pt-24"
-    onClick={closePreview}
-  >
-    <div 
-      className="relative bg-black rounded-xl overflow-hidden shadow-2xl"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Close Button */}
-      <button 
-        className="absolute top-2 right-2 text-white text-3xl z-50 bg-black p-1 rounded-3xl"
-        onClick={closePreview}
-      >
-        &times;
-      </button>
 
-      {selectedMedia.type === 'image' ? (
-        <img 
-          src={selectedMedia.imageUrl} 
-          alt={selectedMedia.title} 
-          className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain rounded"
-        />
-      ) : (
-        <iframe
-          className="w-[90vw] h-[50vw] max-h-[90vh] rounded"
-          src={`https://www.youtube.com/embed/${getYouTubeId(selectedMedia.videoUrl)}`}
-          title={selectedMedia.title}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+      {/* Modal */}
+      {isModalOpen && selectedMedia && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 pt-24"
+          onClick={closePreview}
+        >
+          <div 
+            className="relative bg-black rounded-xl overflow-hidden shadow-2xl max-w-[90vw] max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button 
+              className="absolute top-4 right-4 text-white text-3xl z-50 bg-black/50 p-2 rounded-full hover:bg-black/70 transition-colors"
+              onClick={closePreview}
+            >
+              &times;
+            </button>
+
+            {/* Media Content */}
+            <div className="p-2">
+              {selectedMedia.type === 'image' ? (
+                <>
+                  <img 
+                    src={selectedMedia.imageUrl} 
+                    alt={selectedMedia.title} 
+                    className="w-auto h-auto max-w-[85vw] max-h-[85vh] object-contain rounded"
+                  />
+                  <div className="p-4 text-white">
+                    <h3 className="text-xl font-semibold mb-2">{selectedMedia.title}</h3>
+                    <p className="text-gray-300 mb-2">{selectedMedia.description}</p>
+                    <div className="flex items-center text-gray-400 text-sm">
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span>{formatDate(selectedMedia.date)}</span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <iframe
+                    className="w-[85vw] h-[50vw] max-h-[85vh] rounded"
+                    src={`https://www.youtube.com/embed/${getYouTubeId(selectedMedia.videoUrl)}?autoplay=1`}
+                    title={selectedMedia.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                  <div className="p-4 text-white">
+                    <h3 className="text-xl font-semibold mb-2">{selectedMedia.title}</h3>
+                    <p className="text-gray-300">{selectedMedia.description}</p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       )}
-    </div>
-  </div>
-)}
 
- {/* Footer */}
+      {/* Footer */}
       <section className="py-10 bg-[#fff] w-full pt-32">
         <Footer />
       </section>

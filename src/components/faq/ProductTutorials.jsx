@@ -50,7 +50,7 @@ const ProductVideo = () => {
                   <ChatBot openChatx={openChat} setOpenChatx={setOpenChat} />
                 </div>
               )}
-            </div>
+            </div> 
       {/* Heading Section */}
       <section className="w-full flex justify-center px-4 pb-16 pt-32">
         <div>
